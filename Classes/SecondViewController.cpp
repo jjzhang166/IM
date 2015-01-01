@@ -8,7 +8,7 @@
 
 #include "SecondViewController.h"
 #include "IMDATA.h"
-#include "groupview/GroupInfoViewController.h"
+//#include "groupview/GroupInfoViewController.h"
 #include "RootWindow.h"
 #include "HXSDKController.h"
 
@@ -65,24 +65,19 @@ void SecondViewController::viewDidLoad()
     
     //test IM
     CAButton * loginBtn = CAButton::createWithFrame(CCRect(100, 100, 500, 50), CAButtonTypeRoundedRect);
-    loginBtn->setTitleForState(CAControlStateAll, "登录") ;
+    loginBtn->setTitleForState(CAControlStateAll, "denglu") ;
     loginBtn->addTarget(this, CAControl_selector(SecondViewController::onButtonLogin), CAControlEventTouchUpInSide);
     this->getView()->addSubview(loginBtn);
     
     CAButton * logoutBtn = CAButton::createWithFrame(CCRect(100, 200, 500, 50), CAButtonTypeRoundedRect);
-    logoutBtn->setTitleForState(CAControlStateAll, "退出") ;
+    logoutBtn->setTitleForState(CAControlStateAll, "tuichu") ;
     logoutBtn->addTarget(this, CAControl_selector(SecondViewController::onButtonLogOff), CAControlEventTouchUpInSide);
     this->getView()->addSubview(logoutBtn);
     
     CAButton * sendMsgBtn = CAButton::createWithFrame(CCRect(100, 300, 500, 50), CAButtonTypeRoundedRect);
-    sendMsgBtn->setTitleForState(CAControlStateAll, "发送消息") ;
+    sendMsgBtn->setTitleForState(CAControlStateAll, "fasongxiaoxi") ;
     sendMsgBtn->addTarget(this, CAControl_selector(SecondViewController::onButtonSendText), CAControlEventTouchUpInSide);
     this->getView()->addSubview(sendMsgBtn);
-    
-    CAButton * getFriendsListBtn = CAButton::createWithFrame(CCRect(100, 400, 500, 50), CAButtonTypeRoundedRect);
-    getFriendsListBtn->setTitleForState(CAControlStateAll, "getFrendsList") ;
-    getFriendsListBtn->addTarget(this, CAControl_selector(SecondViewController::onButtonGetFriends), CAControlEventTouchUpInSide);
-    this->getView()->addSubview(getFriendsListBtn);
 
 }
 
@@ -103,16 +98,9 @@ void SecondViewController::onButtonSearch(CAControl* control, CCPoint point)
 
 void SecondViewController::onButtonAdd(CAControl* control, CCPoint point)
 {
-    
-    string a = "我是主题";
-    string b = "我是介绍";
-    string c = "我是群主";
-    string d = "我是成员";
-    
-    
-    GroupInfo info = GroupInfo(CAImage::create("HelloWorld.png"),a,b,c,d, true, 520);
-    GroupInfoViewController * _group = GroupInfoViewController::create(info,false);
-    RootWindow::getInstance()->getNavigationController()->pushViewController(_group, true);
+    //GroupInfo info = GroupInfo(CAImage::create("HelloWorld.png"), CCString::create("我是主题"), CCString::create("我是介绍"), CCString::create("我是群主"), CCString::create("我是权限"), true, 520);
+   // GroupInfoViewController * _group = GroupInfoViewController::create(info,false);
+   // RootWindow::getInstance()->getNavigationController()->pushViewController(_group, true);
     
 }
 
@@ -129,11 +117,4 @@ void SecondViewController::onButtonLogOff(CAControl* control, CCPoint point)
 void SecondViewController::onButtonSendText(CrossApp::CAControl *control, CrossApp::CCPoint point)
 {
     
-}
-
-
-void SecondViewController::onButtonGetFriends(CrossApp::CAControl *control, CrossApp::CCPoint point)
-{
-    HXSDKController::getInstance()->getFriendsList();
-}
-
+};

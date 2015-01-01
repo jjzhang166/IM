@@ -21,6 +21,7 @@ static HXSDKController* HXsdkController = NULL;
 
 HXSDKController::HXSDKController()
 :m_bIsLogin(false)
+, m_bIsRegister(false)
 ,m_sUserName("")
 ,m_sUserPassword("")
 {
@@ -29,7 +30,6 @@ HXSDKController::HXSDKController()
 
 HXSDKController::~HXSDKController()
 {
-    cleanFriendsLise();
     CC_SAFE_DELETE(HXsdkController);
 }
 
@@ -83,10 +83,10 @@ void HXSDKController::Login(const char* name, const char* passWord)
 void HXSDKController::RegisterAccount(const char* name, const char* passWord)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    HXSDKControllerIOS::RegisterAccount_ios(name, passWord);
+    HXSDKControllerIOS::RegisTerAccount_ios(name, passWord);
     
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    
+	com_CrossApp_IM_IM::registerAccount_android(name,passWord);
 #endif
 }
 
@@ -112,66 +112,34 @@ void HXSDKController::sendMessage(const char *messageText, const char *toUserNam
 #endif
 }
  
-void HXSDKController::sendMessageWithImage(const char *messageText, const char *toUserName)
-{
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-//HXSDKControllerIOS::sendMessageWithImage_ios(messageText, toUserName);
+ void HXSDKController::sendMessageWithImage(const char *messageText, const char *toUserName)
+ {
+ #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+ //HXSDKControllerIOS::sendMessageWithImage_ios(messageText, toUserName);
+ 
+ #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+ 
+ 
+ #endif
+ }
 
-#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-
-
-#endif
-}
-
-void HXSDKController::sendAddFriend(const char* accountName, const char* message)
-{
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    HXSDKControllerIOS::sendAddFriend_ios(accountName, message);
-    
-#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    
-    
-#endif
-}
-
-std::vector<HXSDKBuddy*> HXSDKController::getFriendsList()
-{
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    HXSDKControllerIOS::getFriendsList_ios();
-    
-#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    
-    
-#endif
-    return m_vFriendList;
-}
+ bool HXSDKController::isRegister()
+ {
+	 return m_bIsRegister;
+ }
 
 bool HXSDKController::isLogin()
 {
     return m_bIsLogin;
 }
 
-/****************************************Data******************************************/
-void HXSDKController::cleanFriendsLise()
+/**********************************************************************************/
+void HXSDKController::postNotification_isRegister(bool isRegister)
 {
-    std::vector<HXSDKBuddy*>::iterator itr = m_vFriendList.begin();
-    for(; itr != m_vFriendList.end(); ++itr)
-    {
-        CC_SAFE_DELETE(*itr);
-    }
+	m_bIsRegister = isRegister;
+	CANotificationCenter::sharedNotificationCenter()->postNotification(KNOTIFICATION_REGISTER, (CAObject*)isRegister);
 }
 
-void HXSDKController::pushFriendsDetail(std::string userName, HXSDKBuddyFollowState eHXSDKEMBuddyFollowState, bool isPendingApproval)
-{
-    HXSDKBuddy* sdkBuddy = new HXSDKBuddy();
-    sdkBuddy->m_sUserName = userName;
-    sdkBuddy->m_eFollowState = eHXSDKEMBuddyFollowState;
-    sdkBuddy->m_bIsPendingApproval = isPendingApproval;
-    
-    m_vFriendList.push_back(sdkBuddy);
-}
-
-/***************************************NotificationCenter*******************************************/
 
 void HXSDKController::postNotification_isLogin(bool isLogin)
 {

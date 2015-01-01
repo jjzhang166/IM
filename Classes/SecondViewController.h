@@ -40,7 +40,6 @@ protected:
     void onButtonLogin(CAControl* control, CCPoint point);
     void onButtonLogOff(CAControl* control, CCPoint point);
     void onButtonSendText(CAControl* control, CCPoint point);
-    void onButtonGetFriends(CAControl *control, CCPoint point);
 };
 
 

@@ -1,4 +1,4 @@
-#ifndef __IMDATA_H__
+﻿#ifndef __IMDATA_H__
 #define __IMDATA_H__
 
 #include "CrossApp.h"
@@ -41,13 +41,8 @@
 #define NAVIGATION_BAR_ITEM_ADD_NORMAL "IMResources/button_add_normal.png"
 #define NAVIGATION_BAR_ITEM_ADD_SELECTED "IMResources/button_add_normal.png.png"
 
-#define BUTTON_EXIT_GROUP "IMResources/button_leaveGroup_button.png"
-#define BUTTON_JOIN_GROUP "IMResources/button_joinGroup_normal.png"
-#define SWITCH_ON "IMResources/switch_open_normal.png"
-#define SWITCH_OFF "IMResources/switch_close_normal.png"
-
-
 /*notification*/
+#define KNOTIFICATION_REGISTER "HXSDKRegister"
 #define KNOTIFICATION_LOGIN "HXSDKLoginIn"
 #define KNOTIFICATION_LOGOUT "HXSDKLoginOut"
 #define KNOTIFICATION_SENDMESSAGE_RESULT "HXSDKSendMessageResult"

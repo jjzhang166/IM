@@ -20,7 +20,7 @@ class GroupInfo
 public:
 
     GroupInfo() {}
-    GroupInfo(CAImage* _img, std::string _topic,std::string _introduce,std::string _owner,std::string _limit,bool _isON,int _total){
+    GroupInfo(CAImage* _img, CCString* _topic,CCString* _introduce,CCString*_owner,CCString*_limit,bool _isON,int _total){
         faceImg = _img;
         topic = _topic;
         introduce = _introduce;
@@ -33,13 +33,13 @@ public:
 
     
     string  groupID; // 群ID
-    CAImage * faceImg; // 群照片
-    std::string  topic; // 主题
-    std::string introduce;   // 介绍
-    std::string  owner;   // 群主
+     CAImage * faceImg; // 群照片
+   CCString  *topic; // 主题
+    CCString *introduce;   // 介绍
+    CCString  *owner;   // 群主
     int total;  // 群成员数
-    std::string limit; // 权限
-    std::string  totalStr ;
+    CCString *limit; // 权限
+    CCString * totalStr ;
     bool noticeOn = false ;    // 新消息提醒
 
 };
