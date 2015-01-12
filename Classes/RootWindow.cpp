@@ -28,7 +28,8 @@ RootWindow::RootWindow()
 
 RootWindow::~RootWindow()
 {
-    m_pTabelBarController->release();
+    CC_SAFE_RELEASE(m_pTabelBarController);
+    CC_SAFE_RELEASE(m_pNavigationController);
 }
 
 bool RootWindow::init()

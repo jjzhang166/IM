@@ -7,7 +7,7 @@
 
 USING_NS_CC;
 
-class FirstViewController: public CAViewController
+class FirstViewController: public CAViewController, public CATextFieldDelegate
 {
     
 public:
@@ -25,6 +25,8 @@ protected:
     
     virtual void viewDidAppear();
     
+    void init_searchBar();
+    
     void onButtonSegmented(CAControl* control, CCPoint point);
     /*
     void onButtonPopular(CAControl* control, CCPoint point);//热门按钮回调
@@ -34,10 +36,18 @@ protected:
     void onButtonSearch(CAControl* control, CCPoint point);//搜索按钮回调
     
     void onButtonAdd(CAControl* control, CCPoint point);//添加按钮回调
+    /*textFieldDelegate*/
+    bool onTextFieldAttachWithIME(CATextField * sender);
+    bool onTextFieldDetachWithIME(CATextField * sender);
+    virtual bool onTextFieldInsertText(CATextField * sender, const char * text, int nLen);
+    virtual bool onTextFieldDeleteBackward(CATextField * sender, const char * delText, int nLen);
+    
 protected:
     CANavigationBarItem* m_pNavigationBarItem;
     
     CASegmentedControl* m_pTitleView;
+    
+    CATextField* m_pSearchTextField;
 };
 
 

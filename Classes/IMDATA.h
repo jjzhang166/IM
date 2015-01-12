@@ -14,11 +14,15 @@
 #define NAVIGATION_BAR_ITEM_NAME_2 "CCC"
 #define NAVIGATION_BAR_ITEM_NAME_3 "DDD"
 
+#define SEARCH_CONTENT_TEXT "EEEE"
+
 /*Í¼Æ¬×ÊÔ´*/
 
 #define NAVIGATION_BG "IMResources/NavigationBG.png"
 
 #define TABLE_BAR_BG "IMResources/TableBarBG.png"
+
+#define TABLE_GRAY_BG "IMResources/GrayBG.png"
 
 #define TABLE_BAR_IMAGE_0_NORMAL "IMResources/button_all_normal.png"
 #define TABLE_BAR_IMAGE_0_SELECTED "IMResources/button_all_selected.png"
@@ -36,5 +40,6 @@
 #define NAVIGATION_BAR_ITEM_SEARCH_SELECTED "IMResources/button_search_normal.png.png"
 #define NAVIGATION_BAR_ITEM_ADD_NORMAL "IMResources/button_add_normal.png"
 #define NAVIGATION_BAR_ITEM_ADD_SELECTED "IMResources/button_add_normal.png.png"
+
 
 #endif /* __IMDATA__ */

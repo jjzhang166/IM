@@ -5,6 +5,7 @@
 FirstViewController::FirstViewController()
 :m_pNavigationBarItem(NULL)
 ,m_pTitleView(NULL)
+,m_pSearchTextField(NULL)
 {
     
 
@@ -13,6 +14,7 @@ FirstViewController::FirstViewController()
 FirstViewController::~FirstViewController()
 {
     CC_SAFE_RELEASE(m_pNavigationBarItem);
+    CC_SAFE_RELEASE(m_pSearchTextField);
 }
 
 bool FirstViewController::init()
@@ -28,11 +30,12 @@ bool FirstViewController::init()
                                                                  CAImage::create(NAVIGATION_BAR_ITEM_NEW_NORMAL),
                                                                  CAImage::create(NAVIGATION_BAR_ITEM_NEW_SELECTED));
         newButtonItem->setTarget(this, CAControl_selector(FirstViewController::onButtonNew));
-         */
+         
         CABarButtonItem* searchButtonItem = CABarButtonItem::create("",
                                                                     CAImage::create(NAVIGATION_BAR_ITEM_SEARCH_NORMAL),
                                                                     CAImage::create(NAVIGATION_BAR_ITEM_SEARCH_SELECTED));
         searchButtonItem->setTarget(this, CAControl_selector(FirstViewController::onButtonSearch));
+         */
         CABarButtonItem* addButtonItem = CABarButtonItem::create("",
                                                                  CAImage::create(NAVIGATION_BAR_ITEM_ADD_NORMAL),
                                                                  CAImage::create(NAVIGATION_BAR_ITEM_ADD_SELECTED));
@@ -54,18 +57,17 @@ bool FirstViewController::init()
         m_pTitleView->setSelectedAtIndex(0);
         m_pTitleView->addTarget(this, CAControl_selector(FirstViewController::onButtonSegmented));
 
-        
         m_pNavigationBarItem = CANavigationBarItem::create("");
         m_pNavigationBarItem->setShowGoBackButton(false);
         /*
         m_pNavigationBarItem->addLeftButtonItem(popularButtonItem);
-        m_pNavigationBarItem->addLeftButtonItem(newButtonItem);
+         m_pNavigationBarItem->addLeftButtonItem(newButtonItem);
+         m_pNavigationBarItem->addRightButtonItem(searchButtonItem);
          */
-        
         m_pNavigationBarItem->addRightButtonItem(addButtonItem);
-        m_pNavigationBarItem->addRightButtonItem(searchButtonItem);
         m_pNavigationBarItem->setTitleView(m_pTitleView);
         m_pNavigationBarItem->retain();
+        
         return true;
     }
     return false;
@@ -73,6 +75,8 @@ bool FirstViewController::init()
 
 void FirstViewController::viewDidLoad()
 {
+    init_searchBar();
+    
 	CCRect winRect = this->getView()->getBounds();
     CAImageView* imageView = CAImageView::createWithImage(CAImage::create("HelloWorld.png"));
     imageView->setFrame(winRect);
@@ -96,6 +100,24 @@ void FirstViewController::viewDidUnload()
 {
     
 }
+
+void FirstViewController::init_searchBar()
+{
+    CADipSize size = this->getView()->getBounds().size;
+    
+    CAScale9ImageView* searchBackground = CAScale9ImageView::createWithImage(CAImage::create(TABLE_GRAY_BG));
+    searchBackground->setFrame(CADipRect(0.0f, 0.0f, size.width, 75.0f));
+    this->getView()->insertSubview(searchBackground, 10);
+    
+    m_pSearchTextField = CATextField::createWithFrame(CADipRect(20.0f, 10.0f, size.width-40.0f, 50.0f));
+    m_pSearchTextField->setBackgroundView(CAView::createWithColor(CAColor_white));
+    m_pSearchTextField->setPlaceHolder(SEARCH_CONTENT_TEXT);
+    m_pSearchTextField->setSpaceHolderColor(ccc4(0x96, 0x96, 0x96, 0xff));
+    m_pSearchTextField->setFontSize(_px(28.0f));
+    m_pSearchTextField->setDelegate(this);
+    m_pSearchTextField->setKeyboardReturnType(KEY_BOARD_RETURN_SEARCH);
+    searchBackground->addSubview(m_pSearchTextField);
+}
 /*
 void FirstViewController::onButtonPopular(CAControl* control, CCPoint point)
 {
@@ -106,12 +128,12 @@ void FirstViewController::onButtonNew(CAControl* control, CCPoint point)
 {
     
 }
-*/
+
 void FirstViewController::onButtonSearch(CAControl* control, CCPoint point)
 {
     
 }
-
+*/
 void FirstViewController::onButtonAdd(CAControl* control, CCPoint point)
 {
     
@@ -129,6 +151,39 @@ void FirstViewController::onButtonSegmented(CAControl* control, CCPoint point)
     }
 }
 
+#pragma mark TextFieldDelegate
+
+bool FirstViewController::onTextFieldAttachWithIME(CATextField * sender)
+{
+    CC_UNUSED_PARAM(sender);
+    
+    return false;
+}
+
+bool FirstViewController::onTextFieldDetachWithIME(CATextField * sender)
+{
+    CC_UNUSED_PARAM(sender);
+    
+    return false;
+}
+
+bool FirstViewController::onTextFieldInsertText(CATextField * sender, const char * text, int nLen)
+{
+    CC_UNUSED_PARAM(sender);
+    CC_UNUSED_PARAM(text);
+    CC_UNUSED_PARAM(nLen);
+    
+    return false;
+}
+
+bool FirstViewController::onTextFieldDeleteBackward(CATextField * sender, const char * delText, int nLen)
+{
+    CC_UNUSED_PARAM(sender);
+    CC_UNUSED_PARAM(delText);
+    CC_UNUSED_PARAM(nLen);
+    
+    return false;
+}
 
 
 
