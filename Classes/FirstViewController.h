@@ -36,8 +36,6 @@ protected:
     void onButtonAdd(CAControl* control, CCPoint point);//添加按钮回调
 protected:
     CANavigationBarItem* m_pNavigationBarItem;
-    
-    CASegmentedControl* m_pTitleView;
 };
 
 

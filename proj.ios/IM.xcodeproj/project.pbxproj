@@ -23,7 +23,6 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
-		3E38EBC11A5F82130096A595 /* HomeTabBarController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E38EBBF1A5F82130096A595 /* HomeTabBarController.cpp */; };
 		3E38EBC41A5F85050096A595 /* baby_genius in Resources */ = {isa = PBXBuildFile; fileRef = 3E38EBC31A5F85050096A595 /* baby_genius */; };
 		3E38EBCB1A5FB2DE0096A595 /* SecondViewController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E38EBC71A5FB2DE0096A595 /* SecondViewController.cpp */; };
 		3E38EBCC1A5FB2DE0096A595 /* ThirdViewController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E38EBC91A5FB2DE0096A595 /* ThirdViewController.cpp */; };
@@ -121,8 +120,6 @@
 		1D6058910D05DD3D006BFB54 /* IM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		3E38EBBF1A5F82130096A595 /* HomeTabBarController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HomeTabBarController.cpp; path = ../Classes/HomeTabBarController.cpp; sourceTree = "<group>"; };
-		3E38EBC01A5F82130096A595 /* HomeTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeTabBarController.h; path = ../Classes/HomeTabBarController.h; sourceTree = "<group>"; };
 		3E38EBC31A5F85050096A595 /* baby_genius */ = {isa = PBXFileReference; lastKnownFileType = folder; name = baby_genius; path = ../Resources/baby_genius; sourceTree = "<group>"; };
 		3E38EBC51A5F85970096A595 /* IMDATA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMDATA.h; path = ../Classes/IMDATA.h; sourceTree = "<group>"; };
 		3E38EBC71A5FB2DE0096A595 /* SecondViewController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SecondViewController.cpp; path = ../Classes/SecondViewController.cpp; sourceTree = "<group>"; };
@@ -337,8 +334,6 @@
 				3E38EBC81A5FB2DE0096A595 /* SecondViewController.h */,
 				3E38EBC91A5FB2DE0096A595 /* ThirdViewController.cpp */,
 				3E38EBCA1A5FB2DE0096A595 /* ThirdViewController.h */,
-				3E38EBBF1A5F82130096A595 /* HomeTabBarController.cpp */,
-				3E38EBC01A5F82130096A595 /* HomeTabBarController.h */,
 				1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */,
 				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
 			);
@@ -654,7 +649,6 @@
 				15A3DAEB1682F8A6002FB0C5 /* CDAudioManager.m in Sources */,
 				B0AD93EA19207CA300EA40BB /* FirstViewController.cpp in Sources */,
 				B02A1460190A6A4B00C3633B /* CAUIHelper.cpp in Sources */,
-				3E38EBC11A5F82130096A595 /* HomeTabBarController.cpp in Sources */,
 				15A3DAEC1682F8A6002FB0C5 /* CDOpenALSupport.m in Sources */,
 				B04822BC19FA41F70019F1A7 /* CAAddress.mm in Sources */,
 				15A3DAED1682F8A6002FB0C5 /* CocosDenshion.m in Sources */,

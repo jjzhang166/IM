@@ -4,7 +4,6 @@
 
 FirstViewController::FirstViewController()
 :m_pNavigationBarItem(NULL)
-,m_pTitleView(NULL)
 {
     
 
@@ -64,19 +63,6 @@ void FirstViewController::viewDidAppear()
 void FirstViewController::viewDidUnload()
 {
     
-}
-
-void FirstViewController::onButtonSegmented(CAControl* control, CCPoint point)
-{
-    if (0 == m_pTitleView->getSelectedIndex())
-    {
-      
-    }
-    else
-    {
-       
-    }
-
 }
 
 void FirstViewController::onButtonPopular(CAControl* control, CCPoint point)
