@@ -3,35 +3,29 @@
 
 #include "CrossApp.h"
 
-/*È¶ñÈ°µTabelBar*/
-#define TABLE_BAR_SIZE      3
+/* ◊“≥TableBar*/
+#define TABLE_BAR_SIZE 3
+#define TABLE_BAR_LABEL_0 " ◊“≥"
+#define TABLE_BAR_LABEL_1 "¡ƒÃÏ"
+#define TABLE_BAR_LABEL_2 "Œ“"
 
-#define TABLE_BAR_LABEL_0  "È¶ñÈ°µ"
-#define TABLE_BAR_LABEL_1  "ËÅäÂ§©"
-#define TABLE_BAR_LABEL_2  "Êàë"
+#define NAVIGATION_BAR_ITEM_NAME_0 "»»√≈"
+#define NAVIGATION_BAR_ITEM_NAME_1 "◊Ó–¬"
+#define NAVIGATION_BAR_ITEM_NAME_2 "¡ƒÃÏ"
+#define NAVIGATION_BAR_ITEM_NAME_3 "Œ“"
 
-#define NAVIGATION_BAR_ITEM_NAME_0   "ÁÉ≠Èó®"
-#define NAVIGATION_BAR_ITEM_NAME_1   "ÊúÄÊñ∞"
-#define NAVIGATION_BAR_ITEM_NAME_2   "ËÅäÂ§©"
-#define NAVIGATION_BAR_ITEM_NAME_3   "Êàë"
+/*Õº∆¨◊ ‘¥*/
 
+#define TABLE_BAR_IMAGE_0_NORMAL "baby_genius/0_1.png"
+#define TABLE_BAR_IMAGE_0_SELECTED "baby_genius/0_2.png"
+#define TABLE_BAR_IMAGE_1_NORMAL "baby_genius/1_1.png"
+#define TABLE_BAR_IMAGE_1_SELECTED "baby_genius/1_2.png"
+#define TABLE_BAR_IMAGE_2_NORMAL "baby_genius/4_1.png"
+#define TABLE_BAR_IMAGE_2_SELECTED "baby_genius/4_2.png"
 
+#define NAVIGATION_BAR_ITEM_SEARCH_NORMAL "baby_genius/1_2.png"
+#define NAVIGATION_BAR_ITEM_SEARCH_SELECTED "baby_genius/1_1.png"
+#define NAVIGATION_BAR_ITEM_ADD_NORMAL "baby_genius/0_2.png"
+#define NAVIGATION_BAR_ITEM_ADD_SELECTED "baby_genius/0_1.png"
 
-
-
-/*ÂõæÁâáËµÑÊ∫ê*/
-
-#define TABLE_BAR_IMAGE_0_NORMAL  "baby_genius/0_1.png"
-#define TABLE_BAR_IMAGE_0_SELECTED  "baby_genius/0_2.png"
-#define TABLE_BAR_IMAGE_1_NORMAL  "baby_genius/1_1.png"
-#define TABLE_BAR_IMAGE_1_SELECTED  "baby_genius/1_2.png"
-#define TABLE_BAR_IMAGE_2_NORMAL  "baby_genius/4_1.png"
-#define TABLE_BAR_IMAGE_2_SELECTED  "baby_genius/4_2.png"
-
-#define NAVIGATION_BAR_ITEM_SEARCH_NORMAL  "baby_genius/1_2.png"
-#define NAVIGATION_BAR_ITEM_SEARCH_SELECTED  "baby_genius/1_1.png"
-#define NAVIGATION_BAR_ITEM_ADD_NORMAL     "baby_genius/0_2.png"
-#define NAVIGATION_BAR_ITEM_ADD_SELECTED     "baby_genius/0_1.png"
-
-
-#endif /* __IMDATA_H__ */
+#endif /* __IMDATA__ */
