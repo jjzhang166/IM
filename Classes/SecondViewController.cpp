@@ -20,7 +20,7 @@ bool SecondViewController::init()
         CABarButtonItem* talkButtonItem = CABarButtonItem::create(NAVIGATION_BAR_ITEM_NAME_2, NULL, NULL);
         CABarButtonItem* searchButtonItem = CABarButtonItem::create("", CAImage::create(NAVIGATION_BAR_ITEM_SEARCH_NORMAL), CAImage::create(NAVIGATION_BAR_ITEM_SEARCH_SELECTED));
         searchButtonItem->setTarget(this, CAControl_selector(SecondViewController::onButtonSearch));
-        CABarButtonItem* addButtonItem = CABarButtonItem::create("添加", CAImage::create(NAVIGATION_BAR_ITEM_ADD_NORMAL), CAImage::create(NAVIGATION_BAR_ITEM_ADD_SELECTED));
+        CABarButtonItem* addButtonItem = CABarButtonItem::create("", CAImage::create(NAVIGATION_BAR_ITEM_ADD_NORMAL), CAImage::create(NAVIGATION_BAR_ITEM_ADD_SELECTED));
         addButtonItem->setTarget(this, CAControl_selector(SecondViewController::onButtonAdd));
         
         m_pNavigationBarItem = CANavigationBarItem::create("");

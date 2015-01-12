@@ -53,21 +53,21 @@ CATabBarController* RootWindow::init_tabelBarController()
     {
         FirstViewController* firstViewController = new FirstViewController();
         firstViewController->init();
-        firstViewController->setTabBarItem(CATabBarItem::create(TABLE_BAR_LABEL_0, CAImage::create(TABLE_BAR_IMAGE_0_NORMAL), CAImage::create(TABLE_BAR_IMAGE_0_SELECTED)));
+        firstViewController->setTabBarItem(CATabBarItem::create("", CAImage::create(TABLE_BAR_IMAGE_0_NORMAL), CAImage::create(TABLE_BAR_IMAGE_0_SELECTED)));
         firstViewController->autorelease();
         views.push_back(firstViewController);
     }
     {
         SecondViewController* secondViewController = new SecondViewController();
         secondViewController->init();
-        secondViewController->setTabBarItem(CATabBarItem::create(TABLE_BAR_LABEL_1, CAImage::create(TABLE_BAR_IMAGE_1_NORMAL), CAImage::create(TABLE_BAR_IMAGE_1_SELECTED)));
+        secondViewController->setTabBarItem(CATabBarItem::create("", CAImage::create(TABLE_BAR_IMAGE_1_NORMAL), CAImage::create(TABLE_BAR_IMAGE_1_SELECTED)));
         secondViewController->autorelease();
         views.push_back(secondViewController);
     }
     {
         ThirdViewController* thirdViewController = new ThirdViewController();
         thirdViewController->init();
-        thirdViewController->setTabBarItem(CATabBarItem::create(TABLE_BAR_LABEL_2, CAImage::create(TABLE_BAR_IMAGE_2_NORMAL), CAImage::create(TABLE_BAR_IMAGE_2_SELECTED)));
+        thirdViewController->setTabBarItem(CATabBarItem::create("", CAImage::create(TABLE_BAR_IMAGE_2_NORMAL), CAImage::create(TABLE_BAR_IMAGE_2_SELECTED)));
         thirdViewController->autorelease();
         views.push_back(thirdViewController);
     }
@@ -75,7 +75,7 @@ CATabBarController* RootWindow::init_tabelBarController()
     if(tabelBarController->initWithViewControllers(views))
     {
         CATabBar* tabBar = tabelBarController->getTabBar();
-        tabBar->setBackGroundView(CAScale9ImageView::createWithImage(CAImage::create("baby_genius/tabBar_background.png")));
+        tabBar->setBackGroundView(CAScale9ImageView::createWithImage(CAImage::create(TABLE_BAR_BG)));
         tabBar->setSelectedBackGroundView(CAView::createWithColor(CAColor_clear));
         tabBar->setTitleColorForNormal(ccc4(51, 51, 51, 255));
         tabBar->setTitleColorForSelected(CAColor_black);
@@ -88,7 +88,7 @@ CATabBarController* RootWindow::init_tabelBarController()
 CANavigationController* RootWindow::init_navigationController(CATabBarController* tableBarController)
 {
     CANavigationController* navigationController = new CANavigationController();
-    navigationController->getNavigationBar()->setBackGroundImage(CAImage::create("baby_genius/nav_background.png"));
+    navigationController->getNavigationBar()->setBackGroundImage(CAImage::create(NAVIGATION_BG));
     navigationController->getNavigationBar()->setTitleColor(CAColor_black);
     navigationController->getNavigationBar()->setButtonColor(ccc4(0x66, 0x66, 0x66, 0xff));
     navigationController->initWithRootViewController(tableBarController);
