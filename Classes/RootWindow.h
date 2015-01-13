@@ -20,11 +20,14 @@ public:
 	virtual ~RootWindow();
     
     virtual bool init();
+    
+    CANavigationController* getNavigationController();
 
 protected:
     CATabBarController*  init_tabelBarController();
     
     CANavigationController* init_navigationController(CATabBarController* tableBarController);
+    
 protected:
     CATabBarController* m_pTabelBarController;
     

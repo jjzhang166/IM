@@ -96,3 +96,10 @@ CANavigationController* RootWindow::init_navigationController(CATabBarController
     return navigationController;
 }
 
+CANavigationController* RootWindow::getNavigationController()
+{
+    return m_pNavigationController;
+}
+
+
+

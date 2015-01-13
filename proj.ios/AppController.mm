@@ -24,8 +24,8 @@ static AppDelegate s_sharedApplication;
 
     /*环信注册*/
     //注册 APNS文件的名字, 需要与后台上传证书时的名字一一对应
-    NSString *apnsCertName = @"chatdemo";
-    [[EaseMob sharedInstance] registerSDKWithAppKey:@"easemob-demo#chatdemo" apnsCertName:apnsCertName];
+    NSString *apnsCertName = @"9miao";
+    [[EaseMob sharedInstance] registerSDKWithAppKey:@"longtugame#crossappim" apnsCertName:apnsCertName];
     // 需要在注册sdk后写上该方法
     [[EaseMob sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
 
