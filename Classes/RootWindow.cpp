@@ -90,9 +90,7 @@ CANavigationController* RootWindow::init_navigationController(CATabBarController
 {
     CANavigationController* navigationController = new CANavigationController();
     navigationController->getNavigationBar()->setBackGroundImage(CAImage::create(NAVIGATION_BG));
-    navigationController->getNavigationBar()->setTitleColor(CAColor_black);
-    navigationController->getNavigationBar()->setButtonColor(ccc4(0x66, 0x66, 0x66, 0xff));
-    navigationController->initWithRootViewController(tableBarController);
+        navigationController->initWithRootViewController(tableBarController);
     return navigationController;
 }
 
