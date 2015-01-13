@@ -10,22 +10,26 @@
 	<string>IM</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>254B26468649815CB9F166756EAA8143B889F443</key>
+		<string>https://git.oschina.net/Nereus/IM.git</string>
 		<key>630594A0C3AF0041EB86DE5D805A5B25A32E1B5D</key>
 		<string>https://git.oschina.net/9miao/CrossApp.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>projects/IM/proj.ios/IM.xcodeproj</string>
+	<string>proj.ios/IM.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>254B26468649815CB9F166756EAA8143B889F443</key>
+		<string>../../..</string>
 		<key>630594A0C3AF0041EB86DE5D805A5B25A32E1B5D</key>
-		<string>../../../../..</string>
+		<string>../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://git.oschina.net/9miao/CrossApp.git</string>
+	<string>https://git.oschina.net/Nereus/IM.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>630594A0C3AF0041EB86DE5D805A5B25A32E1B5D</string>
+	<string>254B26468649815CB9F166756EAA8143B889F443</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -34,7 +38,15 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>630594A0C3AF0041EB86DE5D805A5B25A32E1B5D</string>
 			<key>IDESourceControlWCCName</key>
-			<string>CrossApp</string>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>254B26468649815CB9F166756EAA8143B889F443</string>
+			<key>IDESourceControlWCCName</key>
+			<string>IM</string>
 		</dict>
 	</array>
 </dict>
