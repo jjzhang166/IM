@@ -33,6 +33,8 @@
 		3E280DA91A64C55D00233D5B /* libEaseMobClientSDKLite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E280DA61A64C54200233D5B /* libEaseMobClientSDKLite.a */; };
 		3E280E0C1A64C5DE00233D5B /* libEaseMobClientSDKLite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E280E091A64C5DE00233D5B /* libEaseMobClientSDKLite.a */; };
 		3E280E0D1A64C5DE00233D5B /* EaseMob.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3E280E0B1A64C5DE00233D5B /* EaseMob.bundle */; };
+		3E280E1E1A652E7C00233D5B /* HXSDKController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E280E1C1A652E7C00233D5B /* HXSDKController.cpp */; };
+		3E280E221A652EB400233D5B /* HXSDKControllerIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3E280E211A652EB400233D5B /* HXSDKControllerIOS.mm */; };
 		3E365D7D1A63C0AF0073F2AF /* IMResources in Resources */ = {isa = PBXBuildFile; fileRef = 3E365D7C1A63C0AF0073F2AF /* IMResources */; };
 		3E38EBCB1A5FB2DE0096A595 /* SecondViewController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E38EBC71A5FB2DE0096A595 /* SecondViewController.cpp */; };
 		3E38EBCC1A5FB2DE0096A595 /* ThirdViewController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E38EBC91A5FB2DE0096A595 /* ThirdViewController.cpp */; };
@@ -299,6 +301,10 @@
 		3E280E071A64C5DE00233D5B /* EMErrorDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMErrorDefs.h; sourceTree = "<group>"; };
 		3E280E091A64C5DE00233D5B /* libEaseMobClientSDKLite.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEaseMobClientSDKLite.a; sourceTree = "<group>"; };
 		3E280E0B1A64C5DE00233D5B /* EaseMob.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EaseMob.bundle; sourceTree = "<group>"; };
+		3E280E1C1A652E7C00233D5B /* HXSDKController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HXSDKController.cpp; path = ../Classes/HXSDKController.cpp; sourceTree = "<group>"; };
+		3E280E1D1A652E7C00233D5B /* HXSDKController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HXSDKController.h; path = ../Classes/HXSDKController.h; sourceTree = "<group>"; };
+		3E280E201A652EB400233D5B /* HXSDKControllerIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXSDKControllerIOS.h; sourceTree = "<group>"; };
+		3E280E211A652EB400233D5B /* HXSDKControllerIOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HXSDKControllerIOS.mm; sourceTree = "<group>"; };
 		3E365D7C1A63C0AF0073F2AF /* IMResources */ = {isa = PBXFileReference; lastKnownFileType = folder; name = IMResources; path = ../Resources/IMResources; sourceTree = "<group>"; };
 		3E38EBC51A5F85970096A595 /* IMDATA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMDATA.h; path = ../Classes/IMDATA.h; sourceTree = "<group>"; };
 		3E38EBC71A5FB2DE0096A595 /* SecondViewController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SecondViewController.cpp; path = ../Classes/SecondViewController.cpp; sourceTree = "<group>"; };
@@ -512,6 +518,9 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3E280E1F1A652EB400233D5B /* ios */,
+				3E280E1C1A652E7C00233D5B /* HXSDKController.cpp */,
+				3E280E1D1A652E7C00233D5B /* HXSDKController.h */,
 				3E280DAA1A64C5DE00233D5B /* EaseMobSDK */,
 				3E38EBC51A5F85970096A595 /* IMDATA.h */,
 				B00CC6031978B5CE00A62E4C /* RootWindow.cpp */,
@@ -1017,6 +1026,16 @@
 			path = resources;
 			sourceTree = "<group>";
 		};
+		3E280E1F1A652EB400233D5B /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				3E280E201A652EB400233D5B /* HXSDKControllerIOS.h */,
+				3E280E211A652EB400233D5B /* HXSDKControllerIOS.mm */,
+			);
+			name = ios;
+			path = ../Classes/ios;
+			sourceTree = "<group>";
+		};
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -1267,6 +1286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E280E221A652EB400233D5B /* HXSDKControllerIOS.mm in Sources */,
 				B04C0C071901207A009854FD /* json_reader.cpp in Sources */,
 				B04822BE19FA41F70019F1A7 /* CABrightness_iOS.mm in Sources */,
 				B04C0C041901207A009854FD /* DictionaryHelper.cpp in Sources */,
@@ -1291,6 +1311,7 @@
 				15A3DAEF1682F8A6002FB0C5 /* SimpleAudioEngine_objc.m in Sources */,
 				B00CC6051978B5CE00A62E4C /* RootWindow.cpp in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
+				3E280E1E1A652E7C00233D5B /* HXSDKController.cpp in Sources */,
 				1AC3624916D4A1E8000847F2 /* AppController.mm in Sources */,
 				1AC3624B16D4A1E8000847F2 /* main.m in Sources */,
 				B047B92319E91CFA00F24BE6 /* DownloadManager.cpp in Sources */,

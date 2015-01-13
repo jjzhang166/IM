@@ -41,5 +41,7 @@
 #define NAVIGATION_BAR_ITEM_ADD_NORMAL "IMResources/button_add_normal.png"
 #define NAVIGATION_BAR_ITEM_ADD_SELECTED "IMResources/button_add_normal.png.png"
 
+/*notification*/
+#define KNOTIFICATION_LOGINCHANGE "HXSDKLoginIn"
 
 #endif /* __IMDATA__ */
