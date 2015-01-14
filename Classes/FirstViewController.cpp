@@ -1,6 +1,8 @@
 
 #include "FirstViewController.h"
 #include "IMDATA.h"
+#include "IMLoginRegister.h"
+#include "RootWindow.h"
 
 FirstViewController::FirstViewController()
 :m_pNavigationBarItem(NULL)
@@ -136,7 +138,9 @@ void FirstViewController::onButtonSearch(CAControl* control, CCPoint point)
 */
 void FirstViewController::onButtonAdd(CAControl* control, CCPoint point)
 {
-    
+    //qiaoxin test
+    IMLoginRegister* aaa =IMLoginRegister::create(IM_USERREGISTER);
+    RootWindow::getInstance()->getNavigationController()->pushViewController(aaa, true);
 }
 
 void FirstViewController::onButtonSegmented(CAControl* control, CCPoint point)

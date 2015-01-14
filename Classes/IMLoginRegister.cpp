@@ -22,12 +22,20 @@ IMLoginRegister::~IMLoginRegister()
 	
 }
 
+IMLoginRegister* IMLoginRegister::create(UserAction action)
+{
+    IMLoginRegister *pUser = new IMLoginRegister();
+    pUser->init(action);
+    pUser->autorelease();
+    return pUser;
+}
+
 bool IMLoginRegister::init(UserAction action)
 {
 	if (CAViewController::init())
 	{
 		m_pAction = action;
-		//·µ»Ø°´Å¥
+		//âˆ‘ÂµÂªÃ¿âˆžÂ¥â‰ˆâ€¢
 		m_pButtonCancl = CABarButtonItem::create(IM_CANCEL, CAImage::create(NAVIGATION_BG), CAImage::create(NAVIGATION_BG));
 		m_pButtonCancl->setTarget(this, CAControl_selector(IMLoginRegister::onButtonCancel));
 		m_pNavigationBarItem = CANavigationBarItem::create(IM_USER_LOGIN);
@@ -43,9 +51,9 @@ bool IMLoginRegister::init(UserAction action)
 void IMLoginRegister::viewDidLoad()
 {
 
-	//³õÊ¼»¯Ïà¹Ø½çÃæ
+	//â‰¥Ä±Â ÂºÂªÃ˜Å“â€¡Ï€Ã¿Î©ÃâˆšÃŠ
 	loadView();
-	//ÓÃ»§µÇÂ¼
+	//â€âˆšÂªÃŸÂµÂ«Â¬Âº
 	if (m_pAction == IM_USERLOGIN)
 	{
 		m_pLayoutView->addSubview(m_pAccount);
@@ -57,7 +65,7 @@ void IMLoginRegister::viewDidLoad()
 		m_pLayoutView->addSubview(m_pButtonSwitch);
 		m_pButtonSwitch->addTarget(this, CAControl_selector(IMLoginRegister::onButtonSwitchToRegister), CAControlEventTouchUpInSide);
 	}
-	//ÓÃ»§×¢²á
+	//â€âˆšÂªÃŸâ—ŠÂ¢â‰¤Â·
 	else if (m_pAction == IM_USERREGISTER)
 	{
 		m_pLayoutView->addSubview(m_pAccountRegist);
@@ -79,21 +87,21 @@ void IMLoginRegister::loadView()
 	m_pLayoutView->setBounceHorizontal(false);
 	m_pLayoutView->setTouchMovedListenHorizontal(false);
 	m_pLayoutView->setShowsHorizontalScrollIndicator(false);
-	//ÕËºÅ
+	//â€™Ã€âˆ«â‰ˆ
 	CCRect accr = CCRect(_px(30), _px(30), winRect.size.width - _px(60), _px(82));
 	m_pAccount = CATextField::createWithFrame(accr);
 	m_pAccount->setHoriMargins(_px(20));
 	m_pAccount->setPlaceHolder(UTF8("111111"));
 	m_pAccount->setDelegate(this);
 
-	//×¢²áÕËºÅ
+	//â—ŠÂ¢â‰¤Â·â€™Ã€âˆ«â‰ˆ
 
 	m_pAccountRegist = CATextField::createWithFrame(accr);
 	m_pAccountRegist->setHoriMargins(_px(20));
 	m_pAccountRegist->setPlaceHolder(UTF8("22222"));
 	m_pAccountRegist->setDelegate(this);
 
-	//ÓÃ»§ÃÜÂë
+	//â€âˆšÂªÃŸâˆšâ€¹Â¬ÃŽ
 	CCRect pwdr = CCRect(_px(30), accr.origin.y + accr.size.height + _px(30), winRect.size.width - _px(60), _px(82));
 	m_pPassword = CATextField::createWithFrame(pwdr);
 	m_pPassword->setHoriMargins(_px(20));
@@ -101,7 +109,7 @@ void IMLoginRegister::loadView()
 	m_pPassword->setInputType(KEY_BOARD_INPUT_PASSWORD);
 	m_pPassword->setDelegate(this);
 
-	//ÔÙ´ÎÊäÈëÃÜÂë
+	//â€˜Å¸Â¥Å’Â â€°Â»ÃŽâˆšâ€¹Â¬ÃŽ
 	CCRect pwdragain = CCRect(_px(30), pwdr.origin.y + pwdr.size.height + _px(30), winRect.size.width - _px(60), _px(82));
 	m_pPasswordAgain = CATextField::createWithFrame(pwdragain);
 	m_pPasswordAgain->setHoriMargins(_px(20));
@@ -109,35 +117,35 @@ void IMLoginRegister::loadView()
 	m_pPasswordAgain->setInputType(KEY_BOARD_INPUT_PASSWORD);
 	m_pPasswordAgain->setDelegate(this);
 
-	//ÓÃ»§µÇÂ¼°´Å¥
+	//â€âˆšÂªÃŸÂµÂ«Â¬ÂºâˆžÂ¥â‰ˆâ€¢
 	CCRect login = CCRect(_px(30), pwdr.origin.y + pwdr.size.height + _px(30), winRect.size.width - _px(60), _px(82));
 	m_pLoginButton = CAButton::createWithFrame(login, CAButtonTypeRoundedRect);
 	m_pLoginButton->setBackGroundViewForState(CAControlStateAll, CAView::createWithColor(CAColor_green));
 	m_pLoginButton->setTitleForState(CAControlStateAll, UTF8("55555"));
 	m_pLoginButton->setTitleColorForState(CAControlStateAll, CAColor_white);
 
-	//ÓÃ»§×¢²á°´Å¥
+	//â€âˆšÂªÃŸâ—ŠÂ¢â‰¤Â·âˆžÂ¥â‰ˆâ€¢
 	CCRect regist = CCRect(_px(30), pwdragain.origin.y + pwdragain.size.height + _px(30), winRect.size.width - _px(60), _px(82));
 	m_pRegisterButton = CAButton::createWithFrame(regist, CAButtonTypeRoundedRect);
 	m_pRegisterButton->setBackGroundViewForState(CAControlStateAll, CAView::createWithColor(CAColor_green));
 	m_pRegisterButton->setTitleForState(CAControlStateAll, UTF8("66666"));
 	m_pRegisterButton->setTitleColorForState(CAControlStateAll, CAColor_white);
 
-	//Íü¼ÇÃÜÂë
+	//Ã•Â¸ÂºÂ«âˆšâ€¹Â¬ÃŽ
 	CCRect missPassword = CCRect(winRect.size.width - _px(150), login.origin.y + login.size.height + _px(30), _px(120), _px(20));
 	m_pMissPassword = CAButton::createWithFrame(missPassword, CAButtonTypeRoundedRect);
 	m_pMissPassword->setBackGroundViewForState(CAControlStateAll, CAView::createWithColor(CAColor_clear));
 	m_pMissPassword->setTitleForState(CAControlStateAll, UTF8("77777"));
 	m_pMissPassword->setTitleColorForState(CAControlStateAll, CAColor_gray);
 
-	//ÇÐ»»µ½×¢²á
+	//Â«â€“ÂªÂªÂµÎ©â—ŠÂ¢â‰¤Â·
 	m_pButtonSwitch = CAButton::createWithCenter(CCRect(winRect.size.width*0.5, winRect.size.height*0.9, winRect.size.width*0.4, winRect.size.height*0.1), CAButtonTypeRoundedRect);
 	CAScale9ImageView *switchBg = CAScale9ImageView::createWithImage(CAImage::create(USER_STATUS_BUTTON));
 	m_pButtonSwitch->setBackGroundViewForState(CAControlStateAll, switchBg);
 	m_pButtonSwitch->setTitleForState(CAControlStateAll, UTF8("8888888"));
 	m_pButtonSwitch->setTitleColorForState(CAControlStateAll, CAColor_gray);
 	m_pButtonSwitch->setTag(101);
-	//ÇÐ»»µ½µÇÂ¼
+	//Â«â€“ÂªÂªÂµÎ©ÂµÂ«Â¬Âº
 	m_pButtonSwitchTo = CAButton::createWithCenter(CCRect(winRect.size.width*0.5, winRect.size.height*0.9, winRect.size.width*0.4, winRect.size.height*0.1), CAButtonTypeRoundedRect);
 	CAScale9ImageView *switchBgTo = CAScale9ImageView::createWithImage(CAImage::create(USER_STATUS_BUTTON));
 	m_pButtonSwitchTo->setBackGroundViewForState(CAControlStateAll, switchBgTo);
@@ -155,40 +163,40 @@ void IMLoginRegister::viewDidAppear()
 {
 	
 }
-//·µ»Ø
+//âˆ‘ÂµÂªÃ¿
 void IMLoginRegister::onButtonCancel(CAControl *pTarget, CCPoint point)
 {
-
+    RootWindow::getInstance()->getNavigationController()->popViewControllerAnimated(true);
 }
-//µÇÂ¼
+//ÂµÂ«Â¬Âº
 void IMLoginRegister::onButtonLogin(CAControl *pTarget, CCPoint point)
 {
 
 }
-//×¢²á
+//â—ŠÂ¢â‰¤Â·
 void IMLoginRegister::onButtonRegister(CAControl *pTarget, CCPoint point)
 {
 	
 }
-//Íü¼ÇÃÜÂë
+//Ã•Â¸ÂºÂ«âˆšâ€¹Â¬ÃŽ
 void IMLoginRegister::onButtonMissPassword(CAControl *pTarget, CCPoint point)
 {
 
 }
-//µÇÂ¼ºÍ×¢²áÖ®¼äÌø×ª
+//ÂµÂ«Â¬Âºâˆ«Ã•â—ŠÂ¢â‰¤Â·Ã·Ã†Âºâ€°ÃƒÂ¯â—Šâ„¢
 void IMLoginRegister::onButtonSwitchToRegister(CAControl *pTarget, CCPoint point)
 {
-	IMLoginRegister *pUser = new IMLoginRegister();
-	pUser->init(IM_USERREGISTER);
-	this->getNavigationController()->pushViewController(pUser, true);
-	pUser->autorelease();
+//	IMLoginRegister *pUser = new IMLoginRegister();
+//	pUser->init(IM_USERREGISTER);
+//	this->getNavigationController()->pushViewController(pUser, true);
+//	pUser->autorelease();
 }
 void IMLoginRegister::onButtonSwitchToLogin(CAControl *pTarget, CCPoint point)
 {
-	IMLoginRegister *pUser = new IMLoginRegister();
-	pUser->init(IM_USERLOGIN);
-	this->getNavigationController()->pushViewController(pUser,true);
-	pUser->autorelease();
+//	IMLoginRegister *pUser = new IMLoginRegister();
+//	pUser->init(IM_USERLOGIN);
+//	this->getNavigationController()->pushViewController(pUser,true);
+//	pUser->autorelease();
 }
 
 

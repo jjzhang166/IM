@@ -15,6 +15,7 @@ class IMLoginRegister :public CAViewController, public CATextFieldDelegate
 public:
 	IMLoginRegister();
 	virtual ~IMLoginRegister();
+    static IMLoginRegister* create(UserAction action);
     bool init(UserAction action);
 protected:
 	virtual void viewDidLoad();
