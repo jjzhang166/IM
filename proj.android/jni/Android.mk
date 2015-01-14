@@ -10,6 +10,11 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 ../../Classes/AppDelegate.cpp \
 ../../Classes/RootWindow.cpp \
 ../../Classes/FirstViewController.cpp \
+../../Classes/SecondViewController.cpp \
+../../Classes/ThirdViewController.cpp \
+../../Classes/HXSDKController.cpp \
+../../Classes/IMLoginRegister.cpp \
+../../Classes/android/HXSDKControllerAndroid.cpp \
 
 #define all-cpp-files
 #$(patsubst jni/%,%, $(shell find $(LOCAL_PATH)/../../Classes/ $(LOCAL_PATH) -name #"*.cpp"))  

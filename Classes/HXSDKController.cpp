@@ -5,6 +5,7 @@
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #import "HXSDKControllerIOS.h"
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#include "android/HXSDKControllerAndroid.h"
 #endif
 
 static HXSDKController* HXsdkController = NULL;

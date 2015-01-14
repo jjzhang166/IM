@@ -44,4 +44,11 @@
 /*notification*/
 #define KNOTIFICATION_LOGINCHANGE "HXSDKLoginIn"
 
+
+/*ÓÃ»§µÇÂ¼*/
+#define IM_USER_LOGIN UTF8("IM_USER_LOGIN")
+#define IM_CANCEL UTF8("IM_CANCEL")
+#define USER_STATUS_BUTTON "IMResources/button_switch.png"
+
+
 #endif /* __IMDATA__ */
