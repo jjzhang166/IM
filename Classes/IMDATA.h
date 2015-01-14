@@ -46,8 +46,8 @@
 
 
 /*用户登录*/
-#define IM_USER_LOGIN UTF8("邮箱登陆")
-#define IM_CANCEL UTF8("取消")
+#define IM_USER_LOGIN UTF8("IM_USER_LOGIN")
+#define IM_CANCEL UTF8("IM_CANCEL")
 #define USER_STATUS_BUTTON "IMResources/button_switch.png"
 
 
