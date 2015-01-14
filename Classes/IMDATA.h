@@ -42,4 +42,11 @@
 #define NAVIGATION_BAR_ITEM_ADD_SELECTED "IMResources/button_add_normal.png.png"
 
 
+
+/*用户登录*/
+#define IM_USER_LOGIN UTF8("邮箱登陆")
+#define IM_CANCEL UTF8("取消")
+#define USER_STATUS_BUTTON "IMResources/button_switch.png"
+
+
 #endif /* __IMDATA__ */
