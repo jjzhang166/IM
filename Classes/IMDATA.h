@@ -1,12 +1,3 @@
-//
-//  IMDATA.h
-//  IM
-//
-//  Created by qiaoxin265@126.com on 15-1-9.
-//  Copyright (c) 2015 http://www.9miao.com All rights reserved.
-//
-
-
 #ifndef __IMDATA_H__
 #define __IMDATA_H__
 
@@ -50,14 +41,14 @@
 #define NAVIGATION_BAR_ITEM_ADD_NORMAL "IMResources/button_add_normal.png"
 #define NAVIGATION_BAR_ITEM_ADD_SELECTED "IMResources/button_add_normal.png.png"
 
-/*notification*/
-#define KNOTIFICATION_LOGINCHANGE "HXSDKLoginIn"
 
 
 /*用户登录*/
-#define IM_USER_LOGIN UTF8("IM_USER_LOGIN")
-#define IM_CANCEL UTF8("IM_CANCEL")
+#define IM_USER_LOGIN UTF8("邮箱登陆")
+#define IM_CANCEL UTF8("取消")
 #define USER_STATUS_BUTTON "IMResources/button_switch.png"
 
-
+//Tablecell
+#define HEADBEFORE "IMResources/headbefore.png"
+#define GROUP "IMResources/icon_group.png"
 #endif /* __IMDATA__ */
