@@ -246,7 +246,8 @@ obj/local/armeabi/objs/CrossApp_cpp_shared/__/__/Classes/FirstViewController.o: 
  /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCEGLViewProtocol.h \
  /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/android/CCGL.h \
  /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/android/CCStdC.h \
- jni/../../Classes/IMDATA.h
+ jni/../../Classes/IMDATA.h jni/../../Classes/IMLoginRegister.h \
+ jni/../../Classes/RootWindow.h
 
 jni/../../Classes/FirstViewController.h:
 
@@ -741,3 +742,7 @@ jni/../../Classes/FirstViewController.h:
 /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/android/CCStdC.h:
 
 jni/../../Classes/IMDATA.h:
+
+jni/../../Classes/IMLoginRegister.h:
+
+jni/../../Classes/RootWindow.h:

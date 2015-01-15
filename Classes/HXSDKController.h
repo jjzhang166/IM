@@ -1,3 +1,10 @@
+//
+//  HXSDKController.h
+//  IM
+//
+//  Created by qiaoxin265@126.com on 15-1-13.
+//  Copyright (c) 2015 http://www.9miao.com All rights reserved.
+//
 
 #ifndef __HelloCpp__HXSDKController__
 #define __HelloCpp__HXSDKController__

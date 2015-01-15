@@ -1,3 +1,10 @@
+//
+//  SecondViewController.h
+//  IM
+//
+//  Created by qiaoxin265@126.com on 15-1-9.
+//  Copyright (c) 2015 http://www.9miao.com All rights reserved.
+//
 
 #ifndef __SECOND_VIEW_CONTROLLER__
 #define __SECOND_VIEW_CONTROLLER__

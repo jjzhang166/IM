@@ -1,8 +1,13 @@
-
+//
+//  HXSDKControllerAndroid.cpp
+//  IM
+//
+//  Created by qiaoxin265@126.com on 15-1-14.
+//  Copyright (c) 2015 http://www.9miao.com All rights reserved.
+//
 
 #include "HXSDKControllerAndroid.h"
 #include "IMDATA.h"
-
 
 //HXSDKControllerAndroid* getInstance()
 //{
