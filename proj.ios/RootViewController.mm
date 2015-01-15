@@ -1,6 +1,7 @@
 #import "RootViewController.h"
 #import "EAGLView.h"
 #import "CrossApp.h"
+#import "EaseMob.h"
 
 @implementation RootViewController
 
@@ -49,6 +50,17 @@
                                  numberOfSamples: 0];
     [__glView setMultipleTouchEnabled:YES];
     [self.view addSubview:__glView];
+    
+    
+    [[EaseMob sharedInstance].chatManager removeDelegate:self];
+    [[EaseMob sharedInstance].chatManager addDelegate:self delegateQueue:nil];
+    
+}
+
+// 实现接收消息的委托
+#pragma mark - IChatManagerDelegate
+-(void)didReceiveMessage:(EMMessage *)message{
+    CCLOG(@"接收消息");
 }
 
 
