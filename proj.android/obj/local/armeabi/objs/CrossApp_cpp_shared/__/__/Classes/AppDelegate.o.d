@@ -277,7 +277,7 @@ obj/local/armeabi/objs/CrossApp_cpp_shared/__/__/Classes/AppDelegate.o: \
  /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCEGLViewProtocol.h \
  /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/android/CCGL.h \
  /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/android/CCStdC.h \
- jni/../../Classes/RootWindow.h
+ jni/../../Classes/RootWindow.h jni/../../Classes/HXSDKController.h
 
 jni/../../Classes/AppDelegate.h:
 
@@ -836,3 +836,5 @@ jni/../../Classes/AppDelegate.h:
 /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/android/CCStdC.h:
 
 jni/../../Classes/RootWindow.h:
+
+jni/../../Classes/HXSDKController.h:

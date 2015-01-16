@@ -9,9 +9,9 @@
 
     <application android:label="@string/app_name"
         android:icon="@drawable/icon"
-        android:name=".IM">
+        android:name="com.CrossApp.IM.XHSDK">
 		<meta-data android:name="EASEMOB_APPKEY"  android:value="longtugame#crossappim" />
-        <service android:name="com.easemob.chat.EMChatService" />
+        
         
         <activity android:name=".IM"
                   android:label="@string/app_name"
@@ -23,6 +23,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <service android:name="com.easemob.chat.EMChatService" />
+        
     </application>
     <supports-screens android:largeScreens="true"
                       android:smallScreens="true"

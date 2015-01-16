@@ -1,6 +1,7 @@
 
 package com.CrossApp.IM;
 
+import android.app.Activity;
 import org.CrossApp.lib.Cocos2dxActivity;
 import org.CrossApp.lib.Cocos2dxGLSurfaceView;
 
@@ -13,44 +14,32 @@ import android.os.Bundle;
 import android.util.Log;
 
 public class IM extends Cocos2dxActivity{
-	static EMChatOptions options;
 	
     protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);	
-		EMChat.getInstance().init(getApplicationContext());
+		
+		
 	}
-
+    /*test*/
+	public static native int getInt(int a, int b);
+	public static native String getString(String name);
+	
+	public static native int callAdd();
+	public static native boolean callJudge(); 
+	public static native void aaaaaaaa(); 
+	public static native void bbbbbb(String userName,String password);
+	
 	public static void init_android(String userName,String password) {
-		EMChatManager.getInstance().login(userName,password,
-				new EMCallBack() {//回调
-					@Override
-					public void onSuccess() {
-						Log.d("qiaoxin sdk", "登陆聊天服务器成功！");
-//						runOnUiThread(new Runnable() {
-//							public void run() {
-//								Log.d("main", "登陆聊天服务器成功！");		
-//							}
-//						});
-					}
-
-					@Override
-					public void onProgress(int progress, String status) {
-						Log.d("qiaoxin sdk", "登陆聊天服务器onProgress！");
-					}
-
-					@Override
-					public void onError(int code, String message) {
-						Log.d("qiaoxin sdk", "登陆聊天服务器失败！");
-					}
-				});
+		Log.d("qiaoxin sdk", "init_android  userName is: "+userName+"password is: "+password);
+	
 	}
 
 	public static void logout_android(){
 		Log.d("qiaoxin sdk", "logout_android！");
-		EMChatManager.getInstance().logout();//此方法为同步方法
+		//EMChatManager.getInstance().logout();//此方法为同步方法
 		//EMChatManager.getInstance().logout(new EMCallBack(){})//此方法为异步方法
 	}
-	
+    /*test end*/
     public Cocos2dxGLSurfaceView onCreateView() {
     	Cocos2dxGLSurfaceView glSurfaceView = new Cocos2dxGLSurfaceView(this);
     	// IM should create stencil buffer

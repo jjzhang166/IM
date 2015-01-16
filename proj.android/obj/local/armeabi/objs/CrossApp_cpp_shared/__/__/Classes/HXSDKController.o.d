@@ -247,7 +247,8 @@ obj/local/armeabi/objs/CrossApp_cpp_shared/__/__/Classes/HXSDKController.o: \
  /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/android/CCGL.h \
  /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/android/CCStdC.h \
  jni/../../Classes/IMDATA.h \
- jni/../../Classes/android/HXSDKControllerAndroid.h
+ jni/../../Classes/android/com_CrossApp_IM_IM.h \
+ /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/jni.h
 
 jni/../../Classes/HXSDKController.h:
 
@@ -743,4 +744,6 @@ jni/../../Classes/HXSDKController.h:
 
 jni/../../Classes/IMDATA.h:
 
-jni/../../Classes/android/HXSDKControllerAndroid.h:
+jni/../../Classes/android/com_CrossApp_IM_IM.h:
+
+/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/jni.h:
