@@ -41,11 +41,13 @@
 #define NAVIGATION_BAR_ITEM_ADD_NORMAL "IMResources/button_add_normal.png"
 #define NAVIGATION_BAR_ITEM_ADD_SELECTED "IMResources/button_add_normal.png.png"
 
+/*notification*/
+#define KNOTIFICATION_LOGINCHANGE "HXSDKLoginIn"
 
 
 /*用户登录*/
-#define IM_USER_LOGIN UTF8("邮箱登陆")
-#define IM_CANCEL UTF8("取消")
+#define IM_USER_LOGIN UTF8("USER_LOGIN")
+#define IM_CANCEL UTF8("CANCEL")
 #define USER_STATUS_BUTTON "IMResources/button_switch.png"
 
 //Tablecell
