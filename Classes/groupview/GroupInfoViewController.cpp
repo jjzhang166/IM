@@ -7,3 +7,6 @@
 //
 
 #include "GroupInfoViewController.h"
+#include "CrossApp.h"
+
+

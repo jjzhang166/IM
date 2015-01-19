@@ -10,5 +10,14 @@
 #define __IM__GroupInfoViewController__
 
 #include <iostream>
+#include "crossApp.h"
+
+
+class GroupInfoViewController : public CAViewController
+{
+    
+    
+    
+};
 
 #endif /* defined(__IM__GroupInfoViewController__) */
