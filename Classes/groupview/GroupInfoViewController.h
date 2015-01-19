@@ -20,7 +20,6 @@ class GroupInfoViewController : public CAViewController
     
     GroupInfoViewController();
     virtual ~GroupInfoViewController();
-    
     static GroupInfoViewController* create();
     virtual bool init();
     
@@ -28,7 +27,18 @@ protected:
     void viewDidLoad();
     void viewDidUnLoad();
     
+    public :
+    void onButtonBack(CAControl *pTarget, CCPoint point); // 返回按钮
     
+protected:
+    CAImageView * m_imgViewHead;
+    CALabel * m_LabelTopic;
+    CALabel * m_LabelIntroduce;
+    CALabel * m_LabelOwner;
+    CALabel * m_LabelMember;
+    CALabel* m_LabelLimit;
+    
+    CAButton * m_ExitButton;
 };
 
 #endif /* defined(__IM__GroupInfoViewController__) */
