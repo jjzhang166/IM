@@ -12,7 +12,10 @@
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #import "HXSDKControllerIOS.h"
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-#include "android/HXSDKControllerAndroid.h"
+//#include "android/HXSDKControllerAndroid.h"
+#include "android/com_CrossApp_IM_IM.h"
+#include <android/log.h>
+#define  LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,"",__VA_ARGS__)
 #endif
 
 static HXSDKController* HXsdkController = NULL;
@@ -50,7 +53,7 @@ bool HXSDKController::initSDK()
     
     
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    
+    com_CrossApp_IM_IM::init_android("qiaoxin_name","qiaoxin_password");
     return true;
 #endif
     

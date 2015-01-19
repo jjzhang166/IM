@@ -8,6 +8,11 @@
 
 #include "AppDelegate.h"
 #include "RootWindow.h"
+#include "HXSDKController.h"
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#include <android/log.h>
+#define  LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,"",__VA_ARGS__)
+#endif
 
 USING_NS_CC;
 
@@ -29,7 +34,10 @@ bool AppDelegate::applicationDidFinishLaunching()
     CCEGLView* pEGLView = CCEGLView::sharedOpenGLView();
 
     pDirector->setOpenGLView(pEGLView);
-
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    HXSDKController::getInstance();
+#endif
+    
     // run
     pDirector->runWindow(RootWindow::getInstance());
 
