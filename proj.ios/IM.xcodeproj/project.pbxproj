@@ -41,7 +41,8 @@
 		3E38EBCB1A5FB2DE0096A595 /* SecondViewController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E38EBC71A5FB2DE0096A595 /* SecondViewController.cpp */; };
 		3E38EBCC1A5FB2DE0096A595 /* ThirdViewController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E38EBC91A5FB2DE0096A595 /* ThirdViewController.cpp */; };
 		75D2E5761A6CA6AF0089CE98 /* GroupInfoViewController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 75D2E5741A6CA6AF0089CE98 /* GroupInfoViewController.cpp */; };
-		75D2E57C1A6D04380089CE98 /* btn_exit.png in Resources */ = {isa = PBXBuildFile; fileRef = 75D2E57B1A6D04380089CE98 /* btn_exit.png */; };
+		75D2E57F1A6D08390089CE98 /* btn_exit.png in Resources */ = {isa = PBXBuildFile; fileRef = 75D2E57E1A6D08390089CE98 /* btn_exit.png */; };
+
 		B00CC6051978B5CE00A62E4C /* RootWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B00CC6031978B5CE00A62E4C /* RootWindow.cpp */; };
 		B00CC61119792FF800A62E4C /* CAStudioViewController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B00CC60F19792FF800A62E4C /* CAStudioViewController.cpp */; };
 		B01A293A1994C6D200D42BA0 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = B01A29391994C6D200D42BA0 /* sqlite3.c */; };

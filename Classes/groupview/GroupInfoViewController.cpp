@@ -37,9 +37,9 @@ bool GroupInfoViewController::init()
         setNavigationBarItem(navigation);
         return true;
     }
-
+    
     return false;
-
+    
 };
 
 
