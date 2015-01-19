@@ -23,6 +23,7 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		3E0117501A68FD69002F2E61 /* IMTableCell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E01174E1A68FD69002F2E61 /* IMTableCell.cpp */; };
 		3E1657601A660C5500D832E9 /* IMLoginRegister.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E16575E1A660C5500D832E9 /* IMLoginRegister.cpp */; };
 		3E280D3A1A64C09C00233D5B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E280D391A64C09C00233D5B /* Security.framework */; };
 		3E280D3C1A64C0A500233D5B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E280D3B1A64C0A500233D5B /* MobileCoreServices.framework */; };
@@ -133,6 +134,8 @@
 		1D6058910D05DD3D006BFB54 /* IM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3E01174E1A68FD69002F2E61 /* IMTableCell.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMTableCell.cpp; path = ../Classes/IMTableCell.cpp; sourceTree = "<group>"; };
+		3E01174F1A68FD69002F2E61 /* IMTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMTableCell.h; path = ../Classes/IMTableCell.h; sourceTree = "<group>"; };
 		3E16575E1A660C5500D832E9 /* IMLoginRegister.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMLoginRegister.cpp; path = ../Classes/IMLoginRegister.cpp; sourceTree = "<group>"; };
 		3E16575F1A660C5500D832E9 /* IMLoginRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMLoginRegister.h; path = ../Classes/IMLoginRegister.h; sourceTree = "<group>"; };
 		3E280D391A64C09C00233D5B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -537,6 +540,8 @@
 				3E38EBC81A5FB2DE0096A595 /* SecondViewController.h */,
 				3E38EBC91A5FB2DE0096A595 /* ThirdViewController.cpp */,
 				3E38EBCA1A5FB2DE0096A595 /* ThirdViewController.h */,
+				3E01174E1A68FD69002F2E61 /* IMTableCell.cpp */,
+				3E01174F1A68FD69002F2E61 /* IMTableCell.h */,
 				1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */,
 				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
 			);
@@ -1321,6 +1326,7 @@
 				1AC3624B16D4A1E8000847F2 /* main.m in Sources */,
 				3E1657601A660C5500D832E9 /* IMLoginRegister.cpp in Sources */,
 				B047B92319E91CFA00F24BE6 /* DownloadManager.cpp in Sources */,
+				3E0117501A68FD69002F2E61 /* IMTableCell.cpp in Sources */,
 				B00CC61119792FF800A62E4C /* CAStudioViewController.cpp in Sources */,
 				1AFCDA8216D4A25900906EA6 /* RootViewController.mm in Sources */,
 				1AB87035175E0A84005D39BF /* WebSocket.cpp in Sources */,
