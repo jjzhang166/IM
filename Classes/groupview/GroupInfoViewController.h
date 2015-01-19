@@ -15,6 +15,12 @@
 
 class GroupInfoViewController : public CAViewController
 {
+    public :
+    
+    GroupInfoViewController();
+    virtual ~GroupInfoViewController();
+    
+protected:
     
     
     
