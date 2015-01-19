@@ -12,6 +12,7 @@
 #include <iostream>
 #include "crossApp.h"
 
+USING_NS_CC;
 
 class GroupInfoViewController : public CAViewController
 {
@@ -20,8 +21,12 @@ class GroupInfoViewController : public CAViewController
     GroupInfoViewController();
     virtual ~GroupInfoViewController();
     
-protected:
+    static GroupInfoViewController* create();
+    virtual bool init();
     
+protected:
+    void viewDidLoad();
+    void viewDidUnLoad();
     
     
 };

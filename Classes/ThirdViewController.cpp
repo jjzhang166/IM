@@ -8,6 +8,8 @@
 
 #include "ThirdViewController.h"
 #include "IMDATA.h"
+#include "RootWindow.h"
+#include "GroupInfoViewController.h"
 
 ThirdViewController::ThirdViewController()
 {
@@ -75,5 +77,8 @@ void ThirdViewController::onButtonSearch(CAControl* control, CCPoint point)
 
 void ThirdViewController::onButtonAdd(CAControl* control, CCPoint point)
 {
+    GroupInfoViewController* viewControler = GroupInfoViewController::create();
+    RootWindow::getInstance()->getNavigationController()->pushViewController(viewControler, true);
+    
     
 }

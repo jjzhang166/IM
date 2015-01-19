@@ -1390,7 +1390,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(SRCROOT)/../../../CrossApp/platform/third_party/ios/libraries\"",
 					"\"$(SRCROOT)/../../../extensions/libwebsockets/ios/lib\"",
-					/Users/jerson/Documents/git/CrossApp/projects/IM/Classes/EaseMobSDK/lib,
+					/Users/chenq/lhj/CrossApp/projects/IM/Classes/EaseMobSDK/lib,
 				);
 				OTHER_CFLAGS = "-O2";
 				OTHER_LDFLAGS = "-ObjC";
@@ -1437,7 +1437,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(SRCROOT)/../../../CrossApp/platform/third_party/ios/libraries\"",
 					"\"$(SRCROOT)/../../../extensions/libwebsockets/ios/lib\"",
-					/Users/jerson/Documents/git/CrossApp/projects/IM/Classes/EaseMobSDK/lib,
+					/Users/chenq/lhj/CrossApp/projects/IM/Classes/EaseMobSDK/lib,
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = IM;
