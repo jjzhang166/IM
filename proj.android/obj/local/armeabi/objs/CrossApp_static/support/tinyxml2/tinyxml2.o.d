@@ -1,50 +1,50 @@
 obj/local/armeabi/objs/CrossApp_static/support/tinyxml2/tinyxml2.o: \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/support/tinyxml2/tinyxml2.cpp \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/support/tinyxml2/tinyxml2.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCPlatformConfig.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCPlatformMacros.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/ccConfig.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCPlatformConfig.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCPlatformConfig.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/android/CCPlatformDefine.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/android/log.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/cctype \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/climits \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/cstdio \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/cstdlib \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/cstring \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/cstdarg \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/new \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/cstddef
+ D:/CrossApp/CrossApp/support/tinyxml2/tinyxml2.cpp \
+ D:/CrossApp/CrossApp/support/tinyxml2/tinyxml2.h \
+ D:/CrossApp/CrossApp/platform/CCPlatformConfig.h \
+ D:/CrossApp/CrossApp/platform/CCPlatformMacros.h \
+ D:/CrossApp/CrossApp/ccConfig.h \
+ D:/CrossApp/CrossApp/platform/CCPlatformConfig.h \
+ D:/CrossApp/CrossApp/platform/CCPlatformConfig.h \
+ D:/CrossApp/CrossApp/platform/android/CCPlatformDefine.h \
+ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/android/log.h \
+ E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/cctype \
+ E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/climits \
+ E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/cstdio \
+ E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/cstdlib \
+ E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/cstring \
+ E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/cstdarg \
+ E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/new \
+ E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/cstddef
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/support/tinyxml2/tinyxml2.h:
+D:/CrossApp/CrossApp/support/tinyxml2/tinyxml2.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCPlatformConfig.h:
+D:/CrossApp/CrossApp/platform/CCPlatformConfig.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCPlatformMacros.h:
+D:/CrossApp/CrossApp/platform/CCPlatformMacros.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/ccConfig.h:
+D:/CrossApp/CrossApp/ccConfig.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCPlatformConfig.h:
+D:/CrossApp/CrossApp/platform/CCPlatformConfig.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCPlatformConfig.h:
+D:/CrossApp/CrossApp/platform/CCPlatformConfig.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/android/CCPlatformDefine.h:
+D:/CrossApp/CrossApp/platform/android/CCPlatformDefine.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/android/log.h:
+E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/android/log.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/cctype:
+E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/cctype:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/climits:
+E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/climits:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/cstdio:
+E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/cstdio:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/cstdlib:
+E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/cstdlib:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/cstring:
+E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/cstring:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/cstdarg:
+E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/cstdarg:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/new:
+E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/new:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/cstddef:
+E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/cstddef:

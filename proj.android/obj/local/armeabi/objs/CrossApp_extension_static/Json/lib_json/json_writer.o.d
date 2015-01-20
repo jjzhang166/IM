@@ -1,41 +1,41 @@
 obj/local/armeabi/objs/CrossApp_extension_static/Json/lib_json/json_writer.o: \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../extensions/Json/lib_json/json_writer.cpp \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../extensions/Json/lib_json/writer.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../extensions/Json/lib_json/value.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../extensions/Json/lib_json/forwards.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../extensions/Json/lib_json/config.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/string \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/vector \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/map \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/iostream \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../extensions/Json/lib_json/json_tool.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/utility \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/assert.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/sstream \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/iomanip
+ D:/CrossApp/extensions/Json/lib_json/json_writer.cpp \
+ D:/CrossApp/extensions/Json/lib_json/writer.h \
+ D:/CrossApp/extensions/Json/lib_json/value.h \
+ D:/CrossApp/extensions/Json/lib_json/forwards.h \
+ D:/CrossApp/extensions/Json/lib_json/config.h \
+ E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/string \
+ E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/vector \
+ E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/map \
+ E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/iostream \
+ D:/CrossApp/extensions/Json/lib_json/json_tool.h \
+ E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/utility \
+ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/assert.h \
+ E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/sstream \
+ E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/iomanip
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../extensions/Json/lib_json/writer.h:
+D:/CrossApp/extensions/Json/lib_json/writer.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../extensions/Json/lib_json/value.h:
+D:/CrossApp/extensions/Json/lib_json/value.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../extensions/Json/lib_json/forwards.h:
+D:/CrossApp/extensions/Json/lib_json/forwards.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../extensions/Json/lib_json/config.h:
+D:/CrossApp/extensions/Json/lib_json/config.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/string:
+E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/string:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/vector:
+E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/vector:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/map:
+E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/map:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/iostream:
+E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/iostream:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../extensions/Json/lib_json/json_tool.h:
+D:/CrossApp/extensions/Json/lib_json/json_tool.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/utility:
+E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/utility:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/assert.h:
+E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/assert.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/sstream:
+E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/sstream:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/iomanip:
+E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/iomanip:

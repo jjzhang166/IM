@@ -1,3 +1,10 @@
+//
+//  IMLoginRegister.cpp
+//  IM
+//
+// 
+//  Copyright (c) 2015 http://www.9miao.com All rights reserved.
+//
 #include "IMLoginRegister.h"
 #include "IMDATA.h"
 #include "RootWindow.h"

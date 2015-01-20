@@ -1,4 +1,4 @@
-//
+﻿//
 //  RootWindow.h
 //  IM
 //

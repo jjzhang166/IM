@@ -1,3 +1,11 @@
+ï»¿//
+//  IMLoginRegister.h
+//  IM
+//
+// 
+//  Copyright (c) 2015 http://www.9miao.com All rights reserved.
+//
+
 #ifndef __IM_LOGIN_REGISTER_H__
 #define __IM_LOGIN_REGISTER_H__
 
@@ -5,7 +13,7 @@
 #include "CrossApp.h"
 
 USING_NS_CC;
-//ÓÃ»§µÇÂ¼»òÕß×¢²áÊÂ¼ş
+//ç”¨æˆ·ç™»å½•æˆ–è€…æ³¨å†Œäº‹ä»¶
 typedef enum{
 	IM_USERLOGIN,
     IM_USERREGISTER
@@ -27,12 +35,12 @@ protected:
 	virtual bool onTextFieldInsertText(CATextField * sender, const char * text, int nLen);
 	virtual bool onTextFieldDeleteBackward(CATextField * sender, const char * delText, int nLen);
 public:
-	void onButtonLogin(CAControl *pTarget, CCPoint point);  //ÓÃ»§µÇÂ¼
-	void onButtonRegister(CAControl *pTarget, CCPoint point); //ÓÃ»§×¢²á
-	void onButtonCancel(CAControl *pTarget, CCPoint point);  //·µ»ØÉÏÒ»¼¶
-	void onButtonMissPassword(CAControl *pTarget, CCPoint point); //Íü¼ÇÃÜÂë
-	void onButtonSwitchToRegister(CAControl *pTarget, CCPoint point); //µÇÂ¼½çÃæ½øÈë×¢²á½çÃæ
-	void onButtonSwitchToLogin(CAControl *pTarget, CCPoint point); //×¢²á½çÃæ½øÈëµÇÂ¼½çÃæ
+	void onButtonLogin(CAControl *pTarget, CCPoint point);  //ç”¨æˆ·ç™»å½•
+	void onButtonRegister(CAControl *pTarget, CCPoint point); //ç”¨æˆ·æ³¨å†Œ
+	void onButtonCancel(CAControl *pTarget, CCPoint point);  //è¿”å›ä¸Šä¸€çº§
+	void onButtonMissPassword(CAControl *pTarget, CCPoint point); //å¿˜è®°å¯†ç 
+	void onButtonSwitchToRegister(CAControl *pTarget, CCPoint point); //ç™»å½•ç•Œé¢è¿›å…¥æ³¨å†Œç•Œé¢
+	void onButtonSwitchToLogin(CAControl *pTarget, CCPoint point); //æ³¨å†Œç•Œé¢è¿›å…¥ç™»å½•ç•Œé¢
 protected:
 	UserAction m_pAction;
 	CAScrollView *m_pLayoutView;

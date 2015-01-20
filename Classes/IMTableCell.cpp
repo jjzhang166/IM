@@ -1,5 +1,14 @@
+﻿//
+//  IMTableCell.cpp
+//  IM
+//
+// 
+//  Copyright (c) 2015 http://www.9miao.com All rights reserved.
+//
+
 #include "IMTableCell.h"
 #include "IMDATA.h"
+#include "AddHeadForgrand.h"
 
 IMTableCell::IMTableCell() :
 m_pGroup(NULL)
@@ -48,21 +57,13 @@ void IMTableCell::initCell()
 	}
 }
 
-void IMTableCell::addHeadForegrand()
-{
-	CAImageView *headTopView = CAImageView::create();
-	headTopView->setFrame(CCRect(0, 0, _px(144),_px(144)));
-	headTopView->setImage(CAImage::create(HEADBEFORE));
-	m_pHead->addSubview(headTopView);
-
-}
 
 void IMTableCell::baseView()
 {
 	CADipSize cellsize = this->getFrame().size;
 	m_pHead = CAImageView::createWithCenter(CCRect(cellsize.width*0.1, cellsize.height*0.5, cellsize.width*0.2, cellsize.height));
 	m_pHead->setTag(200);
-	addHeadForegrand();
+	AddHeadForgrand::getInstance()->addHeadForgrand(m_pHead);
 	
 
 	m_pGroup = CAImageView::createWithCenter(CCRect(cellsize.width*0.25, cellsize.height*0.3, cellsize.width*0.06, cellsize.height*0.3));

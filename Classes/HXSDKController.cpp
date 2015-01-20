@@ -12,7 +12,6 @@
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #import "HXSDKControllerIOS.h"
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-//#include "android/HXSDKControllerAndroid.h"
 #include "android/com_CrossApp_IM_IM.h"
 #include <android/log.h>
 #define  LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,"",__VA_ARGS__)
@@ -53,7 +52,7 @@ bool HXSDKController::initSDK()
     
     
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    com_CrossApp_IM_IM::init_android("qiaoxin_name","qiaoxin_password");
+    com_CrossApp_IM_IM::init_android();
     return true;
 #endif
     
@@ -71,7 +70,8 @@ void HXSDKController::Login(const char* name, const char* passWord)
     HXSDKControllerIOS::Login_ios(name, passWord);
     
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    
+	com_CrossApp_IM_IM::login_android(name,passWord);
+	
     
 #endif
 }
@@ -83,7 +83,6 @@ void HXSDKController::RegisterAccount(const char* name, const char* passWord)
     
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     
-    
 #endif
 }
 
@@ -93,7 +92,7 @@ void HXSDKController::Logout()
     HXSDKControllerIOS::Logout_ios();
     
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    
+	com_CrossApp_IM_IM::logout_android();
     
 #endif
 }

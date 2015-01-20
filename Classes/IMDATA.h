@@ -1,9 +1,9 @@
-#ifndef __IMDATA_H__
+﻿#ifndef __IMDATA_H__
 #define __IMDATA_H__
 
 #include "CrossApp.h"
 
-/*��ҳTableBar*/
+/*首页TableBar*/
 #define TABLE_BAR_SIZE 3
 #define TABLE_BAR_LABEL_0 "AAAA"
 #define TABLE_BAR_LABEL_1 "BBBB"
@@ -16,7 +16,7 @@
 
 #define SEARCH_CONTENT_TEXT "EEEE"
 
-/*ͼƬ��Դ*/
+/*图片资源*/
 
 #define NAVIGATION_BG "IMResources/NavigationBG.png"
 
@@ -45,7 +45,7 @@
 #define KNOTIFICATION_LOGINCHANGE "HXSDKLoginIn"
 
 
-/*�û���¼*/
+/*用户登录*/
 #define IM_USER_LOGIN UTF8("USER_LOGIN")
 #define IM_CANCEL UTF8("CANCEL")
 #define USER_STATUS_BUTTON "IMResources/button_switch.png"
@@ -53,4 +53,10 @@
 //Tablecell
 #define HEADBEFORE "IMResources/headbefore.png"
 #define GROUP "IMResources/icon_group.png"
+
+/*用户控制栏*/
+#define CONTANCT_ICON "IMResources/button_addressBook_normal.png"
+#define SETTING_ICON "IMResources/button_set_normal.png"
+//用户详情栏
+#define RIGHT_ARROW "IMResources/button_rightarrow.png"
 #endif /* __IMDATA__ */

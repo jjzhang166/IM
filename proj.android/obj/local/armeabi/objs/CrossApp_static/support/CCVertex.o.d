@@ -1,92 +1,90 @@
 obj/local/armeabi/objs/CrossApp_static/support/CCVertex.o: \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/support/CCVertex.cpp \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/support/CCVertex.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/ccTypes.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/string \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/basics/CAGeometry.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCPlatformMacros.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/ccConfig.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCPlatformConfig.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCPlatformConfig.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/android/CCPlatformDefine.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/android/log.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/basics/CAObject.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/vector \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/deque \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/math.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/android/CCGL.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/GLES2/gl2platform.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/KHR/khrplatform.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/GLES2/gl2.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/GLES2/gl2ext.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/support/CCPointExtension.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/basics/CAGeometry.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/ccMacros.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCCommon.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCPlatformMacros.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/android/CCStdC.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/stdlib.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/alloca.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/strings.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/memory.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/ccConfig.h
+ D:/CrossApp/CrossApp/support/CCVertex.cpp \
+ D:/CrossApp/CrossApp/support/CCVertex.h D:/CrossApp/CrossApp/ccTypes.h \
+ E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/string \
+ D:/CrossApp/CrossApp/basics/CAGeometry.h \
+ D:/CrossApp/CrossApp/platform/CCPlatformMacros.h \
+ D:/CrossApp/CrossApp/ccConfig.h \
+ D:/CrossApp/CrossApp/platform/CCPlatformConfig.h \
+ D:/CrossApp/CrossApp/platform/CCPlatformConfig.h \
+ D:/CrossApp/CrossApp/platform/android/CCPlatformDefine.h \
+ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/android/log.h \
+ D:/CrossApp/CrossApp/basics/CAObject.h \
+ E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/vector \
+ E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/deque \
+ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/math.h \
+ D:/CrossApp/CrossApp/platform/android/CCGL.h \
+ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/GLES2/gl2platform.h \
+ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/KHR/khrplatform.h \
+ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/GLES2/gl2.h \
+ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/GLES2/gl2ext.h \
+ D:/CrossApp/CrossApp/support/CCPointExtension.h \
+ D:/CrossApp/CrossApp/basics/CAGeometry.h D:/CrossApp/CrossApp/ccMacros.h \
+ D:/CrossApp/CrossApp/platform/CCCommon.h \
+ D:/CrossApp/CrossApp/platform/CCPlatformMacros.h \
+ D:/CrossApp/CrossApp/platform/android/CCStdC.h \
+ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/stdlib.h \
+ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/alloca.h \
+ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/strings.h \
+ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/memory.h \
+ D:/CrossApp/CrossApp/ccConfig.h
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/support/CCVertex.h:
+D:/CrossApp/CrossApp/support/CCVertex.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/ccTypes.h:
+D:/CrossApp/CrossApp/ccTypes.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/string:
+E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/string:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/basics/CAGeometry.h:
+D:/CrossApp/CrossApp/basics/CAGeometry.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCPlatformMacros.h:
+D:/CrossApp/CrossApp/platform/CCPlatformMacros.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/ccConfig.h:
+D:/CrossApp/CrossApp/ccConfig.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCPlatformConfig.h:
+D:/CrossApp/CrossApp/platform/CCPlatformConfig.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCPlatformConfig.h:
+D:/CrossApp/CrossApp/platform/CCPlatformConfig.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/android/CCPlatformDefine.h:
+D:/CrossApp/CrossApp/platform/android/CCPlatformDefine.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/android/log.h:
+E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/android/log.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/basics/CAObject.h:
+D:/CrossApp/CrossApp/basics/CAObject.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/vector:
+E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/vector:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/deque:
+E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/deque:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/math.h:
+E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/math.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/android/CCGL.h:
+D:/CrossApp/CrossApp/platform/android/CCGL.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/GLES2/gl2platform.h:
+E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/GLES2/gl2platform.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/KHR/khrplatform.h:
+E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/KHR/khrplatform.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/GLES2/gl2.h:
+E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/GLES2/gl2.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/GLES2/gl2ext.h:
+E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/GLES2/gl2ext.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/support/CCPointExtension.h:
+D:/CrossApp/CrossApp/support/CCPointExtension.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/basics/CAGeometry.h:
+D:/CrossApp/CrossApp/basics/CAGeometry.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/ccMacros.h:
+D:/CrossApp/CrossApp/ccMacros.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCCommon.h:
+D:/CrossApp/CrossApp/platform/CCCommon.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCPlatformMacros.h:
+D:/CrossApp/CrossApp/platform/CCPlatformMacros.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/android/CCStdC.h:
+D:/CrossApp/CrossApp/platform/android/CCStdC.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/stdlib.h:
+E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/stdlib.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/alloca.h:
+E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/alloca.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/strings.h:
+E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/strings.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/memory.h:
+E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/memory.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/ccConfig.h:
+D:/CrossApp/CrossApp/ccConfig.h:

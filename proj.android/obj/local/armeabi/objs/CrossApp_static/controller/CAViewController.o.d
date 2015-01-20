@@ -1,305 +1,302 @@
 obj/local/armeabi/objs/CrossApp_static/controller/CAViewController.o: \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/controller/CAViewController.cpp \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/controller/CAViewController.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/iostream \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/control/CABar.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/view/CAView.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/ccMacros.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCCommon.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCPlatformMacros.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/ccConfig.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCPlatformConfig.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCPlatformConfig.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/android/CCPlatformDefine.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/android/log.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/android/CCStdC.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCPlatformMacros.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/math.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/stdlib.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/alloca.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/strings.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/memory.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/ccConfig.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/shaders/CATransformation.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/basics/CAGeometry.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/basics/CAObject.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/vector \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/deque \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/cocoa/CCArray.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/support/data_support/ccCArray.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/basics/CAObject.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/android/CCGL.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/GLES2/gl2platform.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/KHR/khrplatform.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/GLES2/gl2.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/GLES2/gl2ext.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/shaders/ccGLStateCache.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/shaders/CAGLProgram.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/kazmath/include/kazmath/kazmath.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/kazmath/include/kazmath/vec2.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/kazmath/include/kazmath/vec3.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/assert.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/kazmath/include/kazmath/mat3.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/kazmath/include/kazmath/utility.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/kazmath/include/kazmath/mat4.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/kazmath/include/kazmath/quaternion.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/kazmath/include/kazmath/plane.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/kazmath/include/kazmath/aabb.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/kazmath/include/kazmath/ray2.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/dispatcher/CAProtocols.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/ccTypes.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/basics/CAGeometry.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/images/CAImage.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCAccelerometerDelegate.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCCommon.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/basics/CAResponder.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/dispatcher/CATouch.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/images/CAImageCache.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/cocoa/CCDictionary.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/support/data_support/uthash.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/inttypes.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/cocoa/CCArray.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/cocoa/CCString.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/functional \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/images/CAImage.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCImage.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/list \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/control/CAButton.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/control/CAControl.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/control/CASegmentedControl.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/set \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/controller/CABarItem.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/control/CAControl.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/basics/CASTLContainer.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/map \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/algorithm \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/view/CAPageView.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/view/CAScrollView.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/view/CAView.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/view/CAPullToRefreshView.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/view/CAActivityIndicatorView.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/view/CALabel.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/view/CAImageView.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/basics/CAApplication.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/basics/CAGeometry.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/kazmath/include/kazmath/mat4.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/ccTypeInfo.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCPlatformMacros.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/typeinfo \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/view/CALabel.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/dispatcher/CAKeypadDelegate.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/dispatcher/CAKeypadDispatcher.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/dispatcher/CAKeypadDelegate.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/support/CCPointExtension.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/actions/CCActionInterval.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/actions/CCAction.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/actions/CCActionInstant.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/actions/CCActionEase.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/actions/CCActionInterval.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/basics/CAScheduler.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/view/CAWindow.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/controller/CAViewController.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/dispatcher/CATouchDispatcher.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/cocoa/CCSet.h
+ D:/CrossApp/CrossApp/controller/CAViewController.cpp \
+ D:/CrossApp/CrossApp/controller/CAViewController.h \
+ E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/iostream \
+ D:/CrossApp/CrossApp/control/CABar.h D:/CrossApp/CrossApp/view/CAView.h \
+ D:/CrossApp/CrossApp/ccMacros.h D:/CrossApp/CrossApp/platform/CCCommon.h \
+ D:/CrossApp/CrossApp/platform/CCPlatformMacros.h \
+ D:/CrossApp/CrossApp/ccConfig.h \
+ D:/CrossApp/CrossApp/platform/CCPlatformConfig.h \
+ D:/CrossApp/CrossApp/platform/CCPlatformConfig.h \
+ D:/CrossApp/CrossApp/platform/android/CCPlatformDefine.h \
+ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/android/log.h \
+ D:/CrossApp/CrossApp/platform/android/CCStdC.h \
+ D:/CrossApp/CrossApp/platform/CCPlatformMacros.h \
+ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/math.h \
+ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/stdlib.h \
+ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/alloca.h \
+ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/strings.h \
+ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/memory.h \
+ D:/CrossApp/CrossApp/ccConfig.h \
+ D:/CrossApp/CrossApp/shaders/CATransformation.h \
+ D:/CrossApp/CrossApp/basics/CAGeometry.h \
+ D:/CrossApp/CrossApp/basics/CAObject.h \
+ E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/vector \
+ E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/deque \
+ D:/CrossApp/CrossApp/cocoa/CCArray.h \
+ D:/CrossApp/CrossApp/support/data_support/ccCArray.h \
+ D:/CrossApp/CrossApp/basics/CAObject.h \
+ D:/CrossApp/CrossApp/platform/android/CCGL.h \
+ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/GLES2/gl2platform.h \
+ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/KHR/khrplatform.h \
+ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/GLES2/gl2.h \
+ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/GLES2/gl2ext.h \
+ D:/CrossApp/CrossApp/shaders/ccGLStateCache.h \
+ D:/CrossApp/CrossApp/shaders/CAGLProgram.h \
+ D:/CrossApp/CrossApp/kazmath/include/kazmath/kazmath.h \
+ D:/CrossApp/CrossApp/kazmath/include/kazmath/vec2.h \
+ D:/CrossApp/CrossApp/kazmath/include/kazmath/vec3.h \
+ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/assert.h \
+ D:/CrossApp/CrossApp/kazmath/include/kazmath/mat3.h \
+ D:/CrossApp/CrossApp/kazmath/include/kazmath/utility.h \
+ D:/CrossApp/CrossApp/kazmath/include/kazmath/mat4.h \
+ D:/CrossApp/CrossApp/kazmath/include/kazmath/quaternion.h \
+ D:/CrossApp/CrossApp/kazmath/include/kazmath/plane.h \
+ D:/CrossApp/CrossApp/kazmath/include/kazmath/aabb.h \
+ D:/CrossApp/CrossApp/kazmath/include/kazmath/ray2.h \
+ D:/CrossApp/CrossApp/dispatcher/CAProtocols.h \
+ D:/CrossApp/CrossApp/ccTypes.h D:/CrossApp/CrossApp/basics/CAGeometry.h \
+ D:/CrossApp/CrossApp/images/CAImage.h \
+ D:/CrossApp/CrossApp/platform/CCAccelerometerDelegate.h \
+ D:/CrossApp/CrossApp/platform/CCCommon.h \
+ D:/CrossApp/CrossApp/basics/CAResponder.h \
+ D:/CrossApp/CrossApp/dispatcher/CATouch.h \
+ D:/CrossApp/CrossApp/images/CAImageCache.h \
+ D:/CrossApp/CrossApp/cocoa/CCDictionary.h \
+ D:/CrossApp/CrossApp/support/data_support/uthash.h \
+ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/inttypes.h \
+ D:/CrossApp/CrossApp/cocoa/CCArray.h \
+ D:/CrossApp/CrossApp/cocoa/CCString.h \
+ E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/functional \
+ D:/CrossApp/CrossApp/images/CAImage.h \
+ D:/CrossApp/CrossApp/platform/CCImage.h \
+ E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/list \
+ D:/CrossApp/CrossApp/control/CAButton.h \
+ D:/CrossApp/CrossApp/control/CAControl.h \
+ D:/CrossApp/CrossApp/control/CASegmentedControl.h \
+ E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/set \
+ D:/CrossApp/CrossApp/controller/CABarItem.h \
+ D:/CrossApp/CrossApp/control/CAControl.h \
+ D:/CrossApp/CrossApp/basics/CASTLContainer.h \
+ E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/map \
+ E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/algorithm \
+ D:/CrossApp/CrossApp/view/CAPageView.h \
+ D:/CrossApp/CrossApp/view/CAScrollView.h \
+ D:/CrossApp/CrossApp/view/CAView.h \
+ D:/CrossApp/CrossApp/view/CAPullToRefreshView.h \
+ D:/CrossApp/CrossApp/view/CAActivityIndicatorView.h \
+ D:/CrossApp/CrossApp/view/CALabel.h \
+ D:/CrossApp/CrossApp/view/CAImageView.h \
+ D:/CrossApp/CrossApp/basics/CAApplication.h \
+ D:/CrossApp/CrossApp/basics/CAGeometry.h \
+ D:/CrossApp/CrossApp/kazmath/include/kazmath/mat4.h \
+ D:/CrossApp/CrossApp/ccTypeInfo.h \
+ D:/CrossApp/CrossApp/platform/CCPlatformMacros.h \
+ E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/typeinfo \
+ D:/CrossApp/CrossApp/view/CALabel.h \
+ D:/CrossApp/CrossApp/dispatcher/CAKeypadDelegate.h \
+ D:/CrossApp/CrossApp/dispatcher/CAKeypadDispatcher.h \
+ D:/CrossApp/CrossApp/dispatcher/CAKeypadDelegate.h \
+ D:/CrossApp/CrossApp/support/CCPointExtension.h \
+ D:/CrossApp/CrossApp/actions/CCActionInterval.h \
+ D:/CrossApp/CrossApp/actions/CCAction.h \
+ D:/CrossApp/CrossApp/actions/CCActionInstant.h \
+ D:/CrossApp/CrossApp/actions/CCActionEase.h \
+ D:/CrossApp/CrossApp/actions/CCActionInterval.h \
+ D:/CrossApp/CrossApp/basics/CAScheduler.h \
+ D:/CrossApp/CrossApp/view/CAWindow.h \
+ D:/CrossApp/CrossApp/controller/CAViewController.h \
+ D:/CrossApp/CrossApp/dispatcher/CATouchDispatcher.h \
+ D:/CrossApp/CrossApp/cocoa/CCSet.h
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/controller/CAViewController.h:
+D:/CrossApp/CrossApp/controller/CAViewController.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/iostream:
+E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/iostream:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/control/CABar.h:
+D:/CrossApp/CrossApp/control/CABar.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/view/CAView.h:
+D:/CrossApp/CrossApp/view/CAView.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/ccMacros.h:
+D:/CrossApp/CrossApp/ccMacros.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCCommon.h:
+D:/CrossApp/CrossApp/platform/CCCommon.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCPlatformMacros.h:
+D:/CrossApp/CrossApp/platform/CCPlatformMacros.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/ccConfig.h:
+D:/CrossApp/CrossApp/ccConfig.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCPlatformConfig.h:
+D:/CrossApp/CrossApp/platform/CCPlatformConfig.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCPlatformConfig.h:
+D:/CrossApp/CrossApp/platform/CCPlatformConfig.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/android/CCPlatformDefine.h:
+D:/CrossApp/CrossApp/platform/android/CCPlatformDefine.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/android/log.h:
+E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/android/log.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/android/CCStdC.h:
+D:/CrossApp/CrossApp/platform/android/CCStdC.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCPlatformMacros.h:
+D:/CrossApp/CrossApp/platform/CCPlatformMacros.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/math.h:
+E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/math.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/stdlib.h:
+E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/stdlib.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/alloca.h:
+E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/alloca.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/strings.h:
+E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/strings.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/memory.h:
+E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/memory.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/ccConfig.h:
+D:/CrossApp/CrossApp/ccConfig.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/shaders/CATransformation.h:
+D:/CrossApp/CrossApp/shaders/CATransformation.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/basics/CAGeometry.h:
+D:/CrossApp/CrossApp/basics/CAGeometry.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/basics/CAObject.h:
+D:/CrossApp/CrossApp/basics/CAObject.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/vector:
+E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/vector:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/deque:
+E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/deque:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/cocoa/CCArray.h:
+D:/CrossApp/CrossApp/cocoa/CCArray.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/support/data_support/ccCArray.h:
+D:/CrossApp/CrossApp/support/data_support/ccCArray.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/basics/CAObject.h:
+D:/CrossApp/CrossApp/basics/CAObject.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/android/CCGL.h:
+D:/CrossApp/CrossApp/platform/android/CCGL.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/GLES2/gl2platform.h:
+E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/GLES2/gl2platform.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/KHR/khrplatform.h:
+E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/KHR/khrplatform.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/GLES2/gl2.h:
+E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/GLES2/gl2.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/GLES2/gl2ext.h:
+E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/GLES2/gl2ext.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/shaders/ccGLStateCache.h:
+D:/CrossApp/CrossApp/shaders/ccGLStateCache.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/shaders/CAGLProgram.h:
+D:/CrossApp/CrossApp/shaders/CAGLProgram.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/kazmath/include/kazmath/kazmath.h:
+D:/CrossApp/CrossApp/kazmath/include/kazmath/kazmath.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/kazmath/include/kazmath/vec2.h:
+D:/CrossApp/CrossApp/kazmath/include/kazmath/vec2.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/kazmath/include/kazmath/vec3.h:
+D:/CrossApp/CrossApp/kazmath/include/kazmath/vec3.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/assert.h:
+E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/assert.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/kazmath/include/kazmath/mat3.h:
+D:/CrossApp/CrossApp/kazmath/include/kazmath/mat3.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/kazmath/include/kazmath/utility.h:
+D:/CrossApp/CrossApp/kazmath/include/kazmath/utility.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/kazmath/include/kazmath/mat4.h:
+D:/CrossApp/CrossApp/kazmath/include/kazmath/mat4.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/kazmath/include/kazmath/quaternion.h:
+D:/CrossApp/CrossApp/kazmath/include/kazmath/quaternion.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/kazmath/include/kazmath/plane.h:
+D:/CrossApp/CrossApp/kazmath/include/kazmath/plane.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/kazmath/include/kazmath/aabb.h:
+D:/CrossApp/CrossApp/kazmath/include/kazmath/aabb.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/kazmath/include/kazmath/ray2.h:
+D:/CrossApp/CrossApp/kazmath/include/kazmath/ray2.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/dispatcher/CAProtocols.h:
+D:/CrossApp/CrossApp/dispatcher/CAProtocols.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/ccTypes.h:
+D:/CrossApp/CrossApp/ccTypes.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/basics/CAGeometry.h:
+D:/CrossApp/CrossApp/basics/CAGeometry.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/images/CAImage.h:
+D:/CrossApp/CrossApp/images/CAImage.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCAccelerometerDelegate.h:
+D:/CrossApp/CrossApp/platform/CCAccelerometerDelegate.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCCommon.h:
+D:/CrossApp/CrossApp/platform/CCCommon.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/basics/CAResponder.h:
+D:/CrossApp/CrossApp/basics/CAResponder.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/dispatcher/CATouch.h:
+D:/CrossApp/CrossApp/dispatcher/CATouch.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/images/CAImageCache.h:
+D:/CrossApp/CrossApp/images/CAImageCache.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/cocoa/CCDictionary.h:
+D:/CrossApp/CrossApp/cocoa/CCDictionary.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/support/data_support/uthash.h:
+D:/CrossApp/CrossApp/support/data_support/uthash.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/inttypes.h:
+E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/inttypes.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/cocoa/CCArray.h:
+D:/CrossApp/CrossApp/cocoa/CCArray.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/cocoa/CCString.h:
+D:/CrossApp/CrossApp/cocoa/CCString.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/functional:
+E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/functional:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/images/CAImage.h:
+D:/CrossApp/CrossApp/images/CAImage.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCImage.h:
+D:/CrossApp/CrossApp/platform/CCImage.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/list:
+E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/list:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/control/CAButton.h:
+D:/CrossApp/CrossApp/control/CAButton.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/control/CAControl.h:
+D:/CrossApp/CrossApp/control/CAControl.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/control/CASegmentedControl.h:
+D:/CrossApp/CrossApp/control/CASegmentedControl.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/set:
+E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/set:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/controller/CABarItem.h:
+D:/CrossApp/CrossApp/controller/CABarItem.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/control/CAControl.h:
+D:/CrossApp/CrossApp/control/CAControl.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/basics/CASTLContainer.h:
+D:/CrossApp/CrossApp/basics/CASTLContainer.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/map:
+E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/map:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/algorithm:
+E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/algorithm:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/view/CAPageView.h:
+D:/CrossApp/CrossApp/view/CAPageView.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/view/CAScrollView.h:
+D:/CrossApp/CrossApp/view/CAScrollView.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/view/CAView.h:
+D:/CrossApp/CrossApp/view/CAView.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/view/CAPullToRefreshView.h:
+D:/CrossApp/CrossApp/view/CAPullToRefreshView.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/view/CAActivityIndicatorView.h:
+D:/CrossApp/CrossApp/view/CAActivityIndicatorView.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/view/CALabel.h:
+D:/CrossApp/CrossApp/view/CALabel.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/view/CAImageView.h:
+D:/CrossApp/CrossApp/view/CAImageView.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/basics/CAApplication.h:
+D:/CrossApp/CrossApp/basics/CAApplication.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/basics/CAGeometry.h:
+D:/CrossApp/CrossApp/basics/CAGeometry.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/kazmath/include/kazmath/mat4.h:
+D:/CrossApp/CrossApp/kazmath/include/kazmath/mat4.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/ccTypeInfo.h:
+D:/CrossApp/CrossApp/ccTypeInfo.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/platform/CCPlatformMacros.h:
+D:/CrossApp/CrossApp/platform/CCPlatformMacros.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/typeinfo:
+E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/typeinfo:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/view/CALabel.h:
+D:/CrossApp/CrossApp/view/CALabel.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/dispatcher/CAKeypadDelegate.h:
+D:/CrossApp/CrossApp/dispatcher/CAKeypadDelegate.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/dispatcher/CAKeypadDispatcher.h:
+D:/CrossApp/CrossApp/dispatcher/CAKeypadDispatcher.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/dispatcher/CAKeypadDelegate.h:
+D:/CrossApp/CrossApp/dispatcher/CAKeypadDelegate.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/support/CCPointExtension.h:
+D:/CrossApp/CrossApp/support/CCPointExtension.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/actions/CCActionInterval.h:
+D:/CrossApp/CrossApp/actions/CCActionInterval.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/actions/CCAction.h:
+D:/CrossApp/CrossApp/actions/CCAction.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/actions/CCActionInstant.h:
+D:/CrossApp/CrossApp/actions/CCActionInstant.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/actions/CCActionEase.h:
+D:/CrossApp/CrossApp/actions/CCActionEase.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/actions/CCActionInterval.h:
+D:/CrossApp/CrossApp/actions/CCActionInterval.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/basics/CAScheduler.h:
+D:/CrossApp/CrossApp/basics/CAScheduler.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/view/CAWindow.h:
+D:/CrossApp/CrossApp/view/CAWindow.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/controller/CAViewController.h:
+D:/CrossApp/CrossApp/controller/CAViewController.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/dispatcher/CATouchDispatcher.h:
+D:/CrossApp/CrossApp/dispatcher/CATouchDispatcher.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CrossApp/cocoa/CCSet.h:
+D:/CrossApp/CrossApp/cocoa/CCSet.h:

@@ -11,10 +11,13 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 ../../Classes/RootWindow.cpp \
 ../../Classes/FirstViewController.cpp \
 ../../Classes/SecondViewController.cpp \
-../../Classes/ThirdViewController.cpp \
 ../../Classes/HXSDKController.cpp \
 ../../Classes/IMLoginRegister.cpp \
 ../../Classes/android/com_CrossApp_IM_IM.cpp \
+../../Classes/IMMyInfo.cpp                   \
+../../Classes/IMMyController.cpp             \
+../../Classes/AddHeadForgrand.cpp            \
+../../Classes/IMSetInfomation.cpp            \
 
 #define all-cpp-files
 #$(patsubst jni/%,%, $(shell find $(LOCAL_PATH)/../../Classes/ $(LOCAL_PATH) -name #"*.cpp"))  
@@ -30,7 +33,8 @@ LOCAL_WHOLE_STATIC_LIBRARIES += cocosdenshion_static
 LOCAL_WHOLE_STATIC_LIBRARIES += CrossApp_extension_static
 
 include $(BUILD_SHARED_LIBRARY)
-
+$(call import-add-path, D:/CrossApp)
+$(call import-add-path, D:/CrossApp/CrossApp/platform/third_party/android/prebuilt)
 $(call import-module,CrossApp)
 $(call import-module,CrossApp/platform/third_party/android/prebuilt/libcurl)
 $(call import-module,CocosDenshion/android)

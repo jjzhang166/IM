@@ -1,4 +1,4 @@
-//
+﻿//
 //  RootWindow.cpp
 //  IM
 //
@@ -10,7 +10,7 @@
 #include "RootWindow.h"
 #include "FirstViewController.h"
 #include "SecondViewController.h"
-#include "ThirdViewController.h"
+#include "IMMyController.h"
 #include "IMDATA.h"
 
 static RootWindow* m_pRootWindow = NULL;
@@ -73,7 +73,7 @@ CATabBarController* RootWindow::init_tabelBarController()
         views.push_back(secondViewController);
     }
     {
-        ThirdViewController* thirdViewController = new ThirdViewController();
+        IMMyController* thirdViewController = new IMMyController();
         thirdViewController->init();
         thirdViewController->setTabBarItem(CATabBarItem::create("", CAImage::create(TABLE_BAR_IMAGE_2_NORMAL), CAImage::create(TABLE_BAR_IMAGE_2_SELECTED)));
         thirdViewController->autorelease();
@@ -82,6 +82,7 @@ CATabBarController* RootWindow::init_tabelBarController()
     
     if(tabelBarController->initWithViewControllers(views))
     {
+		tabelBarController->setScrollEnabled(true);
         CATabBar* tabBar = tabelBarController->getTabBar();
         tabBar->setBackGroundView(CAScale9ImageView::createWithImage(CAImage::create(TABLE_BAR_BG)));
         tabBar->setSelectedBackGroundView(CAView::createWithColor(CAColor_clear));

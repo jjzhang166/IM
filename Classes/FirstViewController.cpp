@@ -10,6 +10,7 @@
 #include "IMDATA.h"
 #include "IMLoginRegister.h"
 #include "RootWindow.h"
+#include "HXSDKController.h"
 
 FirstViewController::FirstViewController()
 :m_pNavigationBarItem(NULL)
@@ -28,6 +29,9 @@ FirstViewController::~FirstViewController()
 
 bool FirstViewController::init()
 {
+	HXSDKController *pcontroller = HXSDKController::getInstance();
+	pcontroller->Login("9miao","longtugame123");
+	delete pcontroller;
     if(CAViewController::init())
     {
         /*

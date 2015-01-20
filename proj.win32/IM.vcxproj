@@ -129,15 +129,37 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\extensions\libwebsockets\win32\lib\*.*" "$(Ou
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Classes\AddHeadForgrand.cpp" />
+    <ClCompile Include="..\Classes\android\com_CrossApp_IM_IM.cpp" />
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\FirstViewController.cpp" />
+    <ClCompile Include="..\Classes\HXSDKController.cpp" />
+    <ClCompile Include="..\Classes\IMLoginRegister.cpp" />
+    <ClCompile Include="..\Classes\IMMyController.cpp" />
+    <ClCompile Include="..\Classes\IMMyInfo.cpp" />
+    <ClCompile Include="..\Classes\IMSetInfomation.cpp" />
+    <ClCompile Include="..\Classes\IMTableCell.cpp" />
     <ClCompile Include="..\Classes\RootWindow.cpp" />
+    <ClCompile Include="..\Classes\SecondViewController.cpp" />
+    <ClCompile Include="..\Classes\ThirdViewController.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Classes\AddHeadForgrand.h" />
+    <ClInclude Include="..\Classes\android\com_CrossApp_IM_IM.h" />
     <ClInclude Include="..\Classes\AppDelegate.h" />
+    <ClInclude Include="..\Classes\AppMacros.h" />
     <ClInclude Include="..\Classes\FirstViewController.h" />
+    <ClInclude Include="..\Classes\HXSDKController.h" />
+    <ClInclude Include="..\Classes\IMDATA.h" />
+    <ClInclude Include="..\Classes\IMLoginRegister.h" />
+    <ClInclude Include="..\Classes\IMMyController.h" />
+    <ClInclude Include="..\Classes\IMMyInfo.h" />
+    <ClInclude Include="..\Classes\IMSetInformation.h" />
+    <ClInclude Include="..\Classes\IMTableCell.h" />
     <ClInclude Include="..\Classes\RootWindow.h" />
+    <ClInclude Include="..\Classes\SecondViewController.h" />
+    <ClInclude Include="..\Classes\ThirdViewController.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>

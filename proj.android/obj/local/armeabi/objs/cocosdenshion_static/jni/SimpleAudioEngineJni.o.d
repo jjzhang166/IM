@@ -1,41 +1,41 @@
 obj/local/armeabi/objs/cocosdenshion_static/jni/SimpleAudioEngineJni.o: \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CocosDenshion/android/jni/SimpleAudioEngineJni.cpp \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CocosDenshion/android/jni/SimpleAudioEngineJni.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/jni.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/sys/cdefs.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/sys/cdefs_elf.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/android/api-level.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CocosDenshion/android/../../CrossApp/platform/android/jni/JniHelper.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/string \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CocosDenshion/android/../../CrossApp/platform/CCPlatformMacros.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CocosDenshion/android/../../CrossApp/ccConfig.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CocosDenshion/android/../../CrossApp/platform/CCPlatformConfig.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CocosDenshion/android/../../CrossApp/platform/CCPlatformConfig.h \
- /Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CocosDenshion/android/../../CrossApp/platform/android/CCPlatformDefine.h \
- /Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/android/log.h
+ D:/CrossApp/CocosDenshion/android/jni/SimpleAudioEngineJni.cpp \
+ D:/CrossApp/CocosDenshion/android/jni/SimpleAudioEngineJni.h \
+ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/jni.h \
+ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/sys/cdefs.h \
+ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/sys/cdefs_elf.h \
+ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/android/api-level.h \
+ D:/CrossApp/CocosDenshion/android/../../CrossApp/platform/android/jni/JniHelper.h \
+ E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/string \
+ D:/CrossApp/CocosDenshion/android/../../CrossApp/platform/CCPlatformMacros.h \
+ D:/CrossApp/CocosDenshion/android/../../CrossApp/ccConfig.h \
+ D:/CrossApp/CocosDenshion/android/../../CrossApp/platform/CCPlatformConfig.h \
+ D:/CrossApp/CocosDenshion/android/../../CrossApp/platform/CCPlatformConfig.h \
+ D:/CrossApp/CocosDenshion/android/../../CrossApp/platform/android/CCPlatformDefine.h \
+ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/android/log.h
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CocosDenshion/android/jni/SimpleAudioEngineJni.h:
+D:/CrossApp/CocosDenshion/android/jni/SimpleAudioEngineJni.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/jni.h:
+E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/jni.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/sys/cdefs.h:
+E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/sys/cdefs.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/sys/cdefs_elf.h:
+E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/sys/cdefs_elf.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/android/api-level.h:
+E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/android/api-level.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CocosDenshion/android/../../CrossApp/platform/android/jni/JniHelper.h:
+D:/CrossApp/CocosDenshion/android/../../CrossApp/platform/android/jni/JniHelper.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.6/include/string:
+E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/string:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CocosDenshion/android/../../CrossApp/platform/CCPlatformMacros.h:
+D:/CrossApp/CocosDenshion/android/../../CrossApp/platform/CCPlatformMacros.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CocosDenshion/android/../../CrossApp/ccConfig.h:
+D:/CrossApp/CocosDenshion/android/../../CrossApp/ccConfig.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CocosDenshion/android/../../CrossApp/platform/CCPlatformConfig.h:
+D:/CrossApp/CocosDenshion/android/../../CrossApp/platform/CCPlatformConfig.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CocosDenshion/android/../../CrossApp/platform/CCPlatformConfig.h:
+D:/CrossApp/CocosDenshion/android/../../CrossApp/platform/CCPlatformConfig.h:
 
-/Users/jerson/Documents/git/CrossApp/projects/IM/proj.android/../../../CocosDenshion/android/../../CrossApp/platform/android/CCPlatformDefine.h:
+D:/CrossApp/CocosDenshion/android/../../CrossApp/platform/android/CCPlatformDefine.h:
 
-/Users/jerson/Documents/tools/NDK-android-r9d-Mac/android-ndk-r9d/platforms/android-19/arch-arm/usr/include/android/log.h:
+E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/android/log.h:

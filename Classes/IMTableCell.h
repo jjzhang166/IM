@@ -1,3 +1,11 @@
+﻿//
+//  IMTableCell.h
+//  IM
+//
+// 
+//  Copyright (c) 2015 http://www.9miao.com All rights reserved.
+//
+
 #ifndef __IMTABLECELL_H__
 #define __IMTABLECELL_H__
 
@@ -24,7 +32,6 @@ public:
 	void initCellWithFriend();
 	void initCellWithStrange();
 protected:
-	void addHeadForegrand();
 	void baseView();
 private:
 	CAImageView *m_pHead;

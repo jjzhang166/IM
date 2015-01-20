@@ -1,4 +1,4 @@
-//
+﻿//
 //  HXSDKController.h
 //  IM
 //
@@ -40,6 +40,4 @@ public:
 protected:
  
 };
-
-
 #endif /* defined(__HelloCpp__HXSDKController__) */
