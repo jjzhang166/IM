@@ -40,9 +40,11 @@
 		3E365D7D1A63C0AF0073F2AF /* IMResources in Resources */ = {isa = PBXBuildFile; fileRef = 3E365D7C1A63C0AF0073F2AF /* IMResources */; };
 		3E38EBCB1A5FB2DE0096A595 /* SecondViewController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E38EBC71A5FB2DE0096A595 /* SecondViewController.cpp */; };
 		3E38EBCC1A5FB2DE0096A595 /* ThirdViewController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E38EBC91A5FB2DE0096A595 /* ThirdViewController.cpp */; };
+		759D26611A6F4AC300E39203 /* AddHeadForgrand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 759D265F1A6F4AC300E39203 /* AddHeadForgrand.cpp */; };
+		759D26641A6F4ADA00E39203 /* IMMyController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 759D26621A6F4ADA00E39203 /* IMMyController.cpp */; };
+		759D26671A6F4B9300E39203 /* IMMyInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 759D26651A6F4B9300E39203 /* IMMyInfo.cpp */; };
+		759D266A1A6F4BCC00E39203 /* IMSetInfomation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 759D26681A6F4BCC00E39203 /* IMSetInfomation.cpp */; };
 		75D2E5761A6CA6AF0089CE98 /* GroupInfoViewController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 75D2E5741A6CA6AF0089CE98 /* GroupInfoViewController.cpp */; };
-		75D2E57F1A6D08390089CE98 /* btn_exit.png in Resources */ = {isa = PBXBuildFile; fileRef = 75D2E57E1A6D08390089CE98 /* btn_exit.png */; };
-
 		B00CC6051978B5CE00A62E4C /* RootWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B00CC6031978B5CE00A62E4C /* RootWindow.cpp */; };
 		B00CC61119792FF800A62E4C /* CAStudioViewController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B00CC60F19792FF800A62E4C /* CAStudioViewController.cpp */; };
 		B01A293A1994C6D200D42BA0 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = B01A29391994C6D200D42BA0 /* sqlite3.c */; };
@@ -320,6 +322,14 @@
 		3E38EBC81A5FB2DE0096A595 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecondViewController.h; path = ../Classes/SecondViewController.h; sourceTree = "<group>"; };
 		3E38EBC91A5FB2DE0096A595 /* ThirdViewController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ThirdViewController.cpp; path = ../Classes/ThirdViewController.cpp; sourceTree = "<group>"; };
 		3E38EBCA1A5FB2DE0096A595 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThirdViewController.h; path = ../Classes/ThirdViewController.h; sourceTree = "<group>"; };
+		759D265F1A6F4AC300E39203 /* AddHeadForgrand.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AddHeadForgrand.cpp; path = ../Classes/AddHeadForgrand.cpp; sourceTree = "<group>"; };
+		759D26601A6F4AC300E39203 /* AddHeadForgrand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddHeadForgrand.h; path = ../Classes/AddHeadForgrand.h; sourceTree = "<group>"; };
+		759D26621A6F4ADA00E39203 /* IMMyController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMMyController.cpp; path = ../Classes/IMMyController.cpp; sourceTree = "<group>"; };
+		759D26631A6F4ADA00E39203 /* IMMyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMMyController.h; path = ../Classes/IMMyController.h; sourceTree = "<group>"; };
+		759D26651A6F4B9300E39203 /* IMMyInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMMyInfo.cpp; path = ../Classes/IMMyInfo.cpp; sourceTree = "<group>"; };
+		759D26661A6F4B9300E39203 /* IMMyInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMMyInfo.h; path = ../Classes/IMMyInfo.h; sourceTree = "<group>"; };
+		759D26681A6F4BCC00E39203 /* IMSetInfomation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMSetInfomation.cpp; path = ../Classes/IMSetInfomation.cpp; sourceTree = "<group>"; };
+		759D26691A6F4BCC00E39203 /* IMSetInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMSetInformation.h; path = ../Classes/IMSetInformation.h; sourceTree = "<group>"; };
 		75D2E5741A6CA6AF0089CE98 /* GroupInfoViewController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GroupInfoViewController.cpp; sourceTree = "<group>"; };
 		75D2E5751A6CA6AF0089CE98 /* GroupInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupInfoViewController.h; sourceTree = "<group>"; };
 		75D2E57B1A6D04380089CE98 /* btn_exit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_exit.png; sourceTree = "<group>"; };
@@ -530,6 +540,14 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				759D26681A6F4BCC00E39203 /* IMSetInfomation.cpp */,
+				759D26691A6F4BCC00E39203 /* IMSetInformation.h */,
+				759D26651A6F4B9300E39203 /* IMMyInfo.cpp */,
+				759D26661A6F4B9300E39203 /* IMMyInfo.h */,
+				759D26621A6F4ADA00E39203 /* IMMyController.cpp */,
+				759D26631A6F4ADA00E39203 /* IMMyController.h */,
+				759D265F1A6F4AC300E39203 /* AddHeadForgrand.cpp */,
+				759D26601A6F4AC300E39203 /* AddHeadForgrand.h */,
 				75D2E5731A6CA6AF0089CE98 /* groupview */,
 				3E16575E1A660C5500D832E9 /* IMLoginRegister.cpp */,
 				3E16575F1A660C5500D832E9 /* IMLoginRegister.h */,
@@ -1303,7 +1321,6 @@
 				B04C0C051901207A009854FD /* json_internalarray.inl in Resources */,
 				B04C0C0B1901207A009854FD /* sconscript in Resources */,
 				D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */,
-				75D2E57C1A6D04380089CE98 /* btn_exit.png in Resources */,
 				B04C0C061901207A009854FD /* json_internalmap.inl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1317,14 +1334,17 @@
 			files = (
 				3E280E221A652EB400233D5B /* HXSDKControllerIOS.mm in Sources */,
 				B04C0C071901207A009854FD /* json_reader.cpp in Sources */,
+				759D26611A6F4AC300E39203 /* AddHeadForgrand.cpp in Sources */,
 				B04822BE19FA41F70019F1A7 /* CABrightness_iOS.mm in Sources */,
 				B04C0C041901207A009854FD /* DictionaryHelper.cpp in Sources */,
+				759D26671A6F4B9300E39203 /* IMMyInfo.cpp in Sources */,
 				B04C0C031901207A009854FD /* CSContentJsonDictionary.cpp in Sources */,
 				3E38EBCB1A5FB2DE0096A595 /* SecondViewController.cpp in Sources */,
 				B04C0C0A1901207A009854FD /* json_writer.cpp in Sources */,
 				B01A293A1994C6D200D42BA0 /* sqlite3.c in Sources */,
 				B04C0C081901207A009854FD /* json_value.cpp in Sources */,
 				15A3DA5D1682F826002FB0C5 /* HttpClient.cpp in Sources */,
+				759D26641A6F4ADA00E39203 /* IMMyController.cpp in Sources */,
 				B0405FF319CC03A100947287 /* LocalStorage.cpp in Sources */,
 				B04822BD19FA41F70019F1A7 /* CAAlbumController.mm in Sources */,
 				15A3DAEB1682F8A6002FB0C5 /* CDAudioManager.m in Sources */,
@@ -1333,6 +1353,7 @@
 				15A3DAEC1682F8A6002FB0C5 /* CDOpenALSupport.m in Sources */,
 				B04822BC19FA41F70019F1A7 /* CAAddress.mm in Sources */,
 				15A3DAED1682F8A6002FB0C5 /* CocosDenshion.m in Sources */,
+				759D266A1A6F4BCC00E39203 /* IMSetInfomation.cpp in Sources */,
 				B04822C119FA41F70019F1A7 /* CALocation.mm in Sources */,
 				15A3DAEE1682F8A6002FB0C5 /* SimpleAudioEngine.mm in Sources */,
 				3E38EBCC1A5FB2DE0096A595 /* ThirdViewController.cpp in Sources */,

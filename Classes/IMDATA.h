@@ -41,6 +41,11 @@
 #define NAVIGATION_BAR_ITEM_ADD_NORMAL "IMResources/button_add_normal.png"
 #define NAVIGATION_BAR_ITEM_ADD_SELECTED "IMResources/button_add_normal.png.png"
 
+#define BUTTON_EXIT_GROUP "IMResources/button_leaveGroup_button.png"
+#define SWITCH_ON "IMResources/switch_open_normal.png"
+#define SWITCH_OFF "IMResources/switch_close_normal.png"
+
+
 /*notification*/
 #define KNOTIFICATION_LOGINCHANGE "HXSDKLoginIn"
 
