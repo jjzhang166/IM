@@ -18,19 +18,20 @@ GroupInfoViewController::~GroupInfoViewController()
 {};
 
 
-GroupInfoViewController* GroupInfoViewController::create(GroupInfo info)
+GroupInfoViewController* GroupInfoViewController::create(GroupInfo info,bool joined)
 {
     GroupInfoViewController* controller = new GroupInfoViewController();
-    controller->init(info);
+    controller->init(info,joined);
     
     controller->autorelease();
     return controller;
 };
 
-bool GroupInfoViewController::init(GroupInfo info)
+bool GroupInfoViewController::init(GroupInfo info,bool joined)
 {
     if (CAViewController::init()) {
         m_info = info ;
+        m_joined = joined;
         
         CABarButtonItem* backItem = CABarButtonItem::create("back", NULL, NULL);
         backItem->setTarget(this, CAControl_selector(GroupInfoViewController::onButtonBack));
@@ -125,7 +126,7 @@ void GroupInfoViewController::viewDidLoad()
     _memberView->addSubview(memberLabel);
     
     m_LabelMember = CALabel::createWithFrame(CCRect(240, 152, 200, 39));
-//    m_LabelMember->setText(UTF8("成员人数"));
+    m_LabelMember->setText(UTF8("成员人数"));
 //    m_LabelMember->setText(*m_info.);
     m_LabelMember->setColor(ccc4(51, 51, 51, 255));
     m_LabelMember->setFontSize(_px(38));
@@ -177,13 +178,23 @@ void GroupInfoViewController::viewDidLoad()
 
     scrollView->addSubview(_noticeView);
 
+    
     m_ExitButton = CAButton::createWithFrame(CCRect(_px(40), 1572, winRect.size.width-_px(80), 110), CAButtonTypeRoundedRect);
-    m_ExitButton->setTitleForState(CAControlStateAll, UTF8("退出群聊"));
+       if (m_joined) {
+        m_ExitButton->setTitleForState(CAControlStateAll, UTF8("退出群聊"));
+        CAImage * btnBG = CAImage::create(BUTTON_EXIT_GROUP );
+        CAImageView * imgView = CAImageView::create();
+        imgView->setImage(btnBG);
+        m_ExitButton->setBackGroundViewForState(CAControlStateAll,imgView);
+    } else{
+        m_ExitButton->setTitleForState(CAControlStateAll, UTF8("加入群聊"));
+        CAImage * btnBG = CAImage::create(BUTTON_JOIN_GROUP );
+        CAImageView * imgView = CAImageView::create();
+        imgView->setImage(btnBG);
+        m_ExitButton->setBackGroundViewForState(CAControlStateAll,imgView);
+    }
     m_ExitButton->setTitleColorForState(CAControlStateAll, CAColor_white);
-    CAImage * btnBG = CAImage::create(BUTTON_EXIT_GROUP );
-    CAImageView * imgView = CAImageView::create();
-    imgView->setImage(btnBG);
-    m_ExitButton->setBackGroundViewForState(CAControlStateAll,imgView);
+
     scrollView->addSubview(m_ExitButton);
 
     scrollView->setViewSize(CCSize(winRect.size.width,1737));

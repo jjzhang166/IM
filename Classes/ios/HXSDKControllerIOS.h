@@ -36,6 +36,8 @@ public:
     
     static void sendMessageWithImage_ios(const char* messageImage, const char* toUserName);
     
+    static NSArray* getContactorList();  // 获取好友列表
+    
 protected:
     
 };
