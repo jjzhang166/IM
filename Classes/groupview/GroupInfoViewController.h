@@ -44,6 +44,7 @@ public:
 
 };
 
+//用户登录或者注册事件
 
 class GroupInfoViewController : public CAViewController
 {
@@ -51,8 +52,8 @@ class GroupInfoViewController : public CAViewController
     
     GroupInfoViewController();
     virtual ~GroupInfoViewController();
-    static GroupInfoViewController* create(GroupInfo info);
-    virtual bool init(GroupInfo info);
+    static GroupInfoViewController* create(GroupInfo info,bool joined);
+    virtual bool init(GroupInfo info,bool joined);
     
 protected:
     void viewDidLoad();
@@ -64,6 +65,8 @@ protected:
     void onButtonExit(CAControl* target,CCPoint point);
 protected:
     GroupInfo m_info;
+    bool m_joined; //已加入
+    
     
     CAImageView * m_imgViewHead; // 头像
     CALabel * m_LabelTopic; // 主题

@@ -42,6 +42,7 @@
 #define NAVIGATION_BAR_ITEM_ADD_SELECTED "IMResources/button_add_normal.png.png"
 
 #define BUTTON_EXIT_GROUP "IMResources/button_leaveGroup_button.png"
+#define BUTTON_JOIN_GROUP "IMResources/button_joinGroup_normal.png"
 #define SWITCH_ON "IMResources/switch_open_normal.png"
 #define SWITCH_OFF "IMResources/switch_close_normal.png"
 
