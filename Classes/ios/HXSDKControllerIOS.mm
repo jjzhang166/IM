@@ -146,8 +146,11 @@ void HXSDKControllerIOS::sendMessageWithImage_ios(const char* messageImage, cons
 
 NSArray* HXSDKControllerIOS::getContactorList()
 {
-
-    return nil;
+    [[EaseMob sharedInstance].chatManager asyncFetchBuddyListWithCompletion:^(NSArray *buddyList, EMError *error) {
+        if (!error) {
+            NSLog(@"获取成功 -- %@",buddyList);
+        }
+    } onQueue:nil];
 };
 
 
