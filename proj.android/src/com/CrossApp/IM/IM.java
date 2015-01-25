@@ -31,7 +31,7 @@ public class IM extends Cocos2dxActivity{
 	
 	//登陆环信，参数为用户名和密码
 	public void login_android(String userName,String password) {
-		EMChatManager.getInstance().login(userName, password, new EMCallBack(){
+		EMChatManager.getInstance().login("9miao", "longtugame123", new EMCallBack(){
 			//登陆的回调函数
 			@Override
 			public void onSuccess(){
@@ -52,7 +52,7 @@ public class IM extends Cocos2dxActivity{
 			
 			@Override
 			public void onError(int code,String message){
-				Log.d("main","登陆聊天服务器失败");
+				Log.d("FAIL","登陆聊天服务器失败");
 			}
 			
 		});
