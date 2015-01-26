@@ -49,8 +49,6 @@ void com_CrossApp_IM_IM::login_android(const char* userName, const char* passWor
 		info.env->DeleteLocalRef(p_name);
 		info.env->DeleteLocalRef(p_passWord);
 	}
-	
-
 }
 
 void com_CrossApp_IM_IM::logout_android()
@@ -64,7 +62,6 @@ void com_CrossApp_IM_IM::logout_android()
 		t.env->CallStaticVoidMethod(t.classID, t.methodID);
 		t.env->DeleteLocalRef(t.classID);
 	}
-	
 }
 
 

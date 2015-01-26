@@ -20,6 +20,9 @@
 static HXSDKController* HXsdkController = NULL;
 
 HXSDKController::HXSDKController()
+:m_bIsLogin(false)
+,m_sUserName("")
+,m_sUserPassword("")
 {
     
 }
@@ -61,18 +64,18 @@ bool HXSDKController::initSDK()
 
 void HXSDKController::LoginBefore(CrossApp::CAObject *target, SEL_CallFuncO selector,CrossApp::CAObject *obj)
 {
-    CANotificationCenter::sharedNotificationCenter()->addObserver(target, selector, KNOTIFICATION_LOGINCHANGE, obj);
+    CANotificationCenter::sharedNotificationCenter()->addObserver(target, selector, KNOTIFICATION_LOGIN, obj);
 }
 
 void HXSDKController::Login(const char* name, const char* passWord)
 {
+    m_sUserName = name;
+    m_sUserPassword = passWord;
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     HXSDKControllerIOS::Login_ios(name, passWord);
     
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 	com_CrossApp_IM_IM::login_android(name,passWord);
-	
-    
 #endif
 }
 
@@ -120,8 +123,29 @@ void HXSDKController::sendMessage(const char *messageText, const char *toUserNam
  }
 
 
+bool HXSDKController::isLogin()
+{
+    return m_bIsLogin;
+}
 
+/**********************************************************************************/
 
+void HXSDKController::postNotification_isLogin(bool isLogin)
+{
+    m_bIsLogin = isLogin;
+    CANotificationCenter::sharedNotificationCenter()->postNotification(KNOTIFICATION_LOGIN, (CAObject*)isLogin);
+}
+
+void HXSDKController::postNotification_isLogOut(bool isLogout)
+{
+    m_bIsLogin = !isLogout;
+    CANotificationCenter::sharedNotificationCenter()->postNotification(KNOTIFICATION_LOGIN, (CAObject*)isLogout);
+}
+
+void HXSDKController::postNotification_sendMessageResult(bool success)
+{
+    CANotificationCenter::sharedNotificationCenter()->postNotification(KNOTIFICATION_SENDMESSAGE_RESULT, (CAObject*)success);
+}
 
 
 

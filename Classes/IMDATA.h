@@ -48,7 +48,9 @@
 
 
 /*notification*/
-#define KNOTIFICATION_LOGINCHANGE "HXSDKLoginIn"
+#define KNOTIFICATION_LOGIN "HXSDKLoginIn"
+#define KNOTIFICATION_LOGOUT "HXSDKLoginOut"
+#define KNOTIFICATION_SENDMESSAGE_RESULT "HXSDKSendMessageResult"
 
 
 /*用户登录*/

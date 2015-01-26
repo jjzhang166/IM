@@ -37,7 +37,22 @@ public:
     void sendMessage(const char* messageText, const char* toUserName);
     /*发送图片消息*/
     void sendMessageWithImage(const char* messageText, const char* toUserName);
+    
+    bool isLogin();
+    
+    
+public:
+    /*CANotificationCenter*/
+    void postNotification_isLogin(bool isLogin);
+    
+    void postNotification_isLogOut(bool isLogout);
+    
+    void postNotification_sendMessageResult(bool success);
+    
 protected:
- 
+    bool            m_bIsLogin;
+    std::string     m_sUserName;
+    std::string     m_sUserPassword;
+    
 };
 #endif /* defined(__HelloCpp__HXSDKController__) */
