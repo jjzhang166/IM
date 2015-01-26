@@ -36,6 +36,10 @@ protected:
     
     void onButtonAdd(CAControl* control, CCPoint point);//添加按钮回调
     
+    // testIM
+    void onButtonLogin(CAControl* control, CCPoint point);
+    void onButtonLogOff(CAControl* control, CCPoint point);
+    void onButtonSendText(CAControl* control, CCPoint point);
 };
 
 

@@ -1,6 +1,9 @@
 
 package com.CrossApp.IM;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.Activity;
 
 import android.content.Context;
@@ -31,11 +34,16 @@ public class IM extends Cocos2dxActivity{
 	public static void init_android()
 	{
 		Log.d("HXSDK","init hxsdk");
+	
+		
+		List<String> aaList = new ArrayList<String>();
+		String strs[] = new String[aaList.size()];
+		String[] shuzu = aaList.toArray(strs);
 	}
 	
 	//登陆环信，参数为用户名和密码
 	public void login_android(String userName,String password) {
-		EMChatManager.getInstance().login("9miao", "longtugame123", new EMCallBack(){
+		EMChatManager.getInstance().login(userName, password, new EMCallBack(){
 			//登陆的回调函数
 			@Override
 			public void onSuccess(){
@@ -56,7 +64,7 @@ public class IM extends Cocos2dxActivity{
 			
 			@Override
 			public void onError(int code,String message){
-				Log.d("FAIL","登陆聊天服务器失败");
+				Log.d("main","登陆聊天服务器失败");
 			}
 			
 		});

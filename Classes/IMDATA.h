@@ -49,6 +49,7 @@
 
 /*notification*/
 #define KNOTIFICATION_LOGINCHANGE "HXSDKLoginIn"
+#define KNOTIFICATION_MSGARRIVAL "HXMSGARRIVAL"
 
 
 /*用户登录*/

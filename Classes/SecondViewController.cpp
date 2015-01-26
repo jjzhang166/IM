@@ -10,6 +10,8 @@
 #include "IMDATA.h"
 #include "GroupInfoViewController.h"
 #include "RootWindow.h"
+#include "HXSDKController.h"
+
 
 using namespace CrossApp;
 
@@ -49,17 +51,34 @@ bool SecondViewController::init()
 void SecondViewController::viewDidLoad()
 {
 	CCRect winRect = this->getView()->getBounds();
-    CAImageView* imageView = CAImageView::createWithImage(CAImage::create("HelloWorld.png"));
-    imageView->setFrame(winRect);
-    this->getView()->addSubview(imageView);
+//    CAImageView* imageView = CAImageView::createWithImage(CAImage::create("HelloWorld.png"));
+//    imageView->setFrame(winRect);
+//    this->getView()->addSubview(imageView);
+//    
+//    CALabel* label = CALabel::createWithCenter(CCRect(winRect.size.width*0.5, winRect.size.height*0.5-270, winRect.size.width, 200));
+//    label->setTextAlignment(CATextAlignmentCenter);
+//    label->setVerticalTextAlignmet(CAVerticalTextAlignmentCenter);
+//    label->setFontSize(72 * CROSSAPP_ADPTATION_RATIO);
+//    label->setText("SecondViewController");
+//    label->setColor(CAColor_white);
+//    this->getView()->insertSubview(label, 1);
     
-    CALabel* label = CALabel::createWithCenter(CCRect(winRect.size.width*0.5, winRect.size.height*0.5-270, winRect.size.width, 200));
-    label->setTextAlignment(CATextAlignmentCenter);
-    label->setVerticalTextAlignmet(CAVerticalTextAlignmentCenter);
-    label->setFontSize(72 * CROSSAPP_ADPTATION_RATIO);
-    label->setText("SecondViewController");
-    label->setColor(CAColor_white);
-    this->getView()->insertSubview(label, 1);
+    //test IM
+    CAButton * loginBtn = CAButton::createWithFrame(CCRect(100, 100, 500, 50), CAButtonTypeRoundedRect);
+    loginBtn->setTitleForState(CAControlStateAll, "登录") ;
+    loginBtn->addTarget(this, CAControl_selector(SecondViewController::onButtonLogin), CAControlEventTouchUpInSide);
+    this->getView()->addSubview(loginBtn);
+    
+    CAButton * logoutBtn = CAButton::createWithFrame(CCRect(100, 200, 500, 50), CAButtonTypeRoundedRect);
+    logoutBtn->setTitleForState(CAControlStateAll, "退出") ;
+    logoutBtn->addTarget(this, CAControl_selector(SecondViewController::onButtonLogOff), CAControlEventTouchUpInSide);
+    this->getView()->addSubview(logoutBtn);
+    
+    CAButton * sendMsgBtn = CAButton::createWithFrame(CCRect(100, 300, 500, 50), CAButtonTypeRoundedRect);
+    sendMsgBtn->setTitleForState(CAControlStateAll, "发送消息") ;
+    sendMsgBtn->addTarget(this, CAControl_selector(SecondViewController::onButtonSendText), CAControlEventTouchUpInSide);
+    this->getView()->addSubview(sendMsgBtn);
+
 }
 
 void SecondViewController::viewDidAppear()
@@ -84,3 +103,18 @@ void SecondViewController::onButtonAdd(CAControl* control, CCPoint point)
     RootWindow::getInstance()->getNavigationController()->pushViewController(_group, true);
     
 }
+
+void SecondViewController::onButtonLogin(CAControl* control, CCPoint point)
+{
+    HXSDKController::getInstance()->Login("lhjtest", "123aa123");
+}
+
+void SecondViewController::onButtonLogOff(CAControl* control, CCPoint point)
+{
+    HXSDKController::getInstance()->Logout();
+}
+
+void SecondViewController::onButtonSendText(CrossApp::CAControl *control, CrossApp::CCPoint point)
+{
+    
+};

@@ -40,7 +40,7 @@ HXSDKController* HXSDKController::getInstance()
             return HXsdkController;
         }
     }
-    CCLog("HXSDK init fail!!!");
+
     return HXsdkController;
 }
 
