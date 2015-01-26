@@ -29,9 +29,9 @@ FirstViewController::~FirstViewController()
 
 bool FirstViewController::init()
 {
-	HXSDKController *pcontroller = HXSDKController::getInstance();
-	pcontroller->Login("9miao","longtugame123");
-	delete pcontroller;
+	//HXSDKController *pcontroller = HXSDKController::getInstance();
+	//pcontroller->Login("9miao","longtugame123");
+	//delete pcontroller;
     if(CAViewController::init())
     {
         /*
