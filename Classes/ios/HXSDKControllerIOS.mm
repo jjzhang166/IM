@@ -144,11 +144,11 @@ void HXSDKControllerIOS::sendMessageWithImage_ios(const char* messageImage, cons
     
 }
 
-NSArray* HXSDKControllerIOS::getContactorList()
-{
-
-    return nil;
-};
+//NSArray* HXSDKControllerIOS::getContactorList()
+//{
+//
+//    return nil;
+//};
 
 
 

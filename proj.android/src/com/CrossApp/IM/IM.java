@@ -20,9 +20,13 @@ import android.util.Log;
 public class IM extends Cocos2dxActivity{
 	private static IM instance = new IM();
 	
-    protected void onCreate(Bundle savedInstanceState){
-		super.onCreate(savedInstanceState);	
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
 	}
+	
     /*test*/
 	public static void init_android()
 	{
