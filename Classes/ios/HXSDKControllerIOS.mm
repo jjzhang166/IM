@@ -8,8 +8,8 @@
 
 #import "HXSDKControllerIOS.h"
 #import "EaseMob.h"
-#import "EMChatText.h"
 #include "IMDATA.h"
+#import "HXSDKHelper.h"
 
 static EaseMob* easeMob = NULL;
 
@@ -23,6 +23,7 @@ static EaseMob* easeMob = NULL;
 
 bool HXSDKControllerIOS::init_ios()
 {
+    
     easeMob = [EaseMob sharedInstance];
     NSString *apnsCertName = @"9miao";
     [easeMob registerSDKWithAppKey:@"longtugame#crossappim" apnsCertName:apnsCertName];
@@ -46,7 +47,11 @@ bool HXSDKControllerIOS::Login_ios(const char* name, const char* passWord)
      ^(NSDictionary *loginInfo, EMError *error) {
 
          if (loginInfo && !error) {
+             CCLog("登录成功");
              [[NSNotificationCenter defaultCenter] postNotificationName:@KNOTIFICATION_LOGINCHANGE object:@YES];
+             HXSDKHelper* helper = [HXSDKHelper getHXSDKHelper];
+             NSLog(@" dfds %@",helper);
+             
              EMError *error = [easeMob.chatManager importDataToNewDatabase];
              if (!error) {
                  error = [easeMob.chatManager loadDataFromDatabase];
@@ -144,11 +149,11 @@ void HXSDKControllerIOS::sendMessageWithImage_ios(const char* messageImage, cons
     
 }
 
-NSArray* HXSDKControllerIOS::getContactorList()
-{
-
-    return nil;
-};
+//NSArray* HXSDKControllerIOS::getContactorList()
+//{
+//
+//    return nil;
+//};
 
 
 

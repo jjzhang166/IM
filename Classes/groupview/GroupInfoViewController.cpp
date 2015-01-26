@@ -10,6 +10,7 @@
 #include "CrossApp.h"
 #include "RootWindow.h"
 #include "IMDATA.h"
+#include "HXSDKController.h"
 
 GroupInfoViewController::GroupInfoViewController()
 {};
@@ -194,7 +195,8 @@ void GroupInfoViewController::viewDidLoad()
         m_ExitButton->setBackGroundViewForState(CAControlStateAll,imgView);
     }
     m_ExitButton->setTitleColorForState(CAControlStateAll, CAColor_white);
-
+    m_ExitButton->addTarget(this, CAControl_selector(GroupInfoViewController::onButtonExit), CAControlTouchUpInSide);
+    
     scrollView->addSubview(m_ExitButton);
 
     scrollView->setViewSize(CCSize(winRect.size.width,1737));
@@ -212,7 +214,12 @@ void GroupInfoViewController:: onButtonBack(CAControl* target, CCPoint point)
 };
 // 消息提醒
 void GroupInfoViewController:: onSwitchChanged(CAControl* target, CCPoint point)
-{};
+{
+};
 // 退群按钮
 void GroupInfoViewController:: onButtonExit(CAControl* target, CCPoint point)
-{};
+{
+    HXSDKController::getInstance()->Login("lhjtest", "123aa123");
+
+
+};

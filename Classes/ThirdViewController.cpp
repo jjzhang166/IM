@@ -77,8 +77,7 @@ void ThirdViewController::onButtonSearch(CAControl* control, CCPoint point)
 
 void ThirdViewController::onButtonAdd(CAControl* control, CCPoint point)
 {
-//    GroupInfoViewController* viewControler = GroupInfoViewController::create();
-//    RootWindow::getInstance()->getNavigationController()->pushViewController(viewControler, true);
+
     
     
 }

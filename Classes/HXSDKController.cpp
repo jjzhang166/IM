@@ -43,8 +43,8 @@ HXSDKController* HXSDKController::getInstance()
             return HXsdkController;
         }
     }
-    CCLog("HXSDK init fail!!!");
-    return NULL;
+
+    return HXsdkController;
 }
 
 /*初始化sdk*/

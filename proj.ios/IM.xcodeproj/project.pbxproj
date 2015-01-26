@@ -40,6 +40,7 @@
 		3E365D7D1A63C0AF0073F2AF /* IMResources in Resources */ = {isa = PBXBuildFile; fileRef = 3E365D7C1A63C0AF0073F2AF /* IMResources */; };
 		3E38EBCB1A5FB2DE0096A595 /* SecondViewController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E38EBC71A5FB2DE0096A595 /* SecondViewController.cpp */; };
 		3E38EBCC1A5FB2DE0096A595 /* ThirdViewController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E38EBC91A5FB2DE0096A595 /* ThirdViewController.cpp */; };
+		758BDF151A7637A300E07F9B /* HXSDKHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 758BDF141A7637A300E07F9B /* HXSDKHelper.m */; };
 		759D26611A6F4AC300E39203 /* AddHeadForgrand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 759D265F1A6F4AC300E39203 /* AddHeadForgrand.cpp */; };
 		759D26641A6F4ADA00E39203 /* IMMyController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 759D26621A6F4ADA00E39203 /* IMMyController.cpp */; };
 		759D26671A6F4B9300E39203 /* IMMyInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 759D26651A6F4B9300E39203 /* IMMyInfo.cpp */; };
@@ -322,6 +323,8 @@
 		3E38EBC81A5FB2DE0096A595 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecondViewController.h; path = ../Classes/SecondViewController.h; sourceTree = "<group>"; };
 		3E38EBC91A5FB2DE0096A595 /* ThirdViewController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ThirdViewController.cpp; path = ../Classes/ThirdViewController.cpp; sourceTree = "<group>"; };
 		3E38EBCA1A5FB2DE0096A595 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThirdViewController.h; path = ../Classes/ThirdViewController.h; sourceTree = "<group>"; };
+		758BDF131A7637A300E07F9B /* HXSDKHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXSDKHelper.h; sourceTree = "<group>"; };
+		758BDF141A7637A300E07F9B /* HXSDKHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXSDKHelper.m; sourceTree = "<group>"; };
 		759D265F1A6F4AC300E39203 /* AddHeadForgrand.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AddHeadForgrand.cpp; path = ../Classes/AddHeadForgrand.cpp; sourceTree = "<group>"; };
 		759D26601A6F4AC300E39203 /* AddHeadForgrand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddHeadForgrand.h; path = ../Classes/AddHeadForgrand.h; sourceTree = "<group>"; };
 		759D26621A6F4ADA00E39203 /* IMMyController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMMyController.cpp; path = ../Classes/IMMyController.cpp; sourceTree = "<group>"; };
@@ -1064,6 +1067,8 @@
 		3E280E1F1A652EB400233D5B /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				758BDF131A7637A300E07F9B /* HXSDKHelper.h */,
+				758BDF141A7637A300E07F9B /* HXSDKHelper.m */,
 				3E280E201A652EB400233D5B /* HXSDKControllerIOS.h */,
 				3E280E211A652EB400233D5B /* HXSDKControllerIOS.mm */,
 			);
@@ -1362,6 +1367,7 @@
 				B00CC6051978B5CE00A62E4C /* RootWindow.cpp in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
 				3E280E1E1A652E7C00233D5B /* HXSDKController.cpp in Sources */,
+				758BDF151A7637A300E07F9B /* HXSDKHelper.m in Sources */,
 				1AC3624916D4A1E8000847F2 /* AppController.mm in Sources */,
 				1AC3624B16D4A1E8000847F2 /* main.m in Sources */,
 				3E1657601A660C5500D832E9 /* IMLoginRegister.cpp in Sources */,
