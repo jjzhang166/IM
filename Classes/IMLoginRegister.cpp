@@ -8,6 +8,8 @@
 #include "IMLoginRegister.h"
 #include "IMDATA.h"
 #include "RootWindow.h"
+#include "HXSDKController.h"
+
 IMLoginRegister::IMLoginRegister()
 :m_pNavigationBarItem(NULL)
 , m_pButtonCancl(NULL)
@@ -79,7 +81,7 @@ void IMLoginRegister::viewDidLoad()
 		m_pLayoutView->addSubview(m_pPassword);
 		m_pLayoutView->addSubview(m_pPasswordAgain);
 		m_pLayoutView->addSubview(m_pRegisterButton);
-		m_pLoginButton->addTarget(this, CAControl_selector(IMLoginRegister::onButtonRegister), CAControlEventTouchUpSide);
+		m_pRegisterButton->addTarget(this, CAControl_selector(IMLoginRegister::onButtonRegister), CAControlEventTouchUpInSide);
 		m_pLayoutView->addSubview(m_pButtonSwitchTo);
 		m_pButtonSwitchTo->addTarget(this, CAControl_selector(IMLoginRegister::onButtonSwitchToLogin), CAControlEventTouchUpInSide);
 	}
@@ -183,7 +185,32 @@ void IMLoginRegister::onButtonLogin(CAControl *pTarget, CCPoint point)
 //◊¢≤·
 void IMLoginRegister::onButtonRegister(CAControl *pTarget, CCPoint point)
 {
-	
+    std::string accountName = m_pAccountRegist->getText();
+    std::string accountPassword = m_pPassword->getText();
+    std::string accountasswordAgain = m_pPasswordAgain->getText();
+    
+    if(accountName.empty())
+    {
+        CCLog("account name is empty");
+        return;
+    }
+    if(accountPassword.empty())
+    {
+        CCLog("account password is empty");
+        return;
+    }
+    if(accountasswordAgain.empty())
+    {
+        CCLog("account passwordAgain is empty");
+        return;
+    }
+    if(accountasswordAgain.compare(accountPassword))
+    {
+        CCLog("account passwordAgain != Password");
+        return;
+    }
+    
+    HXSDKController::getInstance()->RegisterAccount(accountName.c_str(),accountasswordAgain.c_str());
 }
 //Õ¸º«√‹¬Î
 void IMLoginRegister::onButtonMissPassword(CAControl *pTarget, CCPoint point)
