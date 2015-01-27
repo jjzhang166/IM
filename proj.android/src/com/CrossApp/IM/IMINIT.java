@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 public class IMINIT{
+
     /*test*/
 	public static void init_android()
 	{
@@ -29,11 +30,11 @@ public class IMINIT{
 		 try {
 	         // 调用sdk注册方法
 	        EMChatManager.getInstance().createAccountOnServer(userName, password);
+	        isRegister(true);
 	      } catch (final Exception e) {
 	    	  Log.d("main","注册失败");
 	    	  isRegister(false);
 	      }
-		 isRegister(true);
 	}
 	//登陆环信，参数为用户名和密码
 	public static void login_android(String userName,String password) {
@@ -84,6 +85,6 @@ public class IMINIT{
 		});
 	}
 	
-	
+
 	
 }

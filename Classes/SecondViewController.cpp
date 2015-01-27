@@ -106,12 +106,12 @@ void SecondViewController::onButtonAdd(CAControl* control, CCPoint point)
 
 void SecondViewController::onButtonLogin(CAControl* control, CCPoint point)
 {
-    HXSDKController::getInstance()->Login("lhjtest", "123aa123");
+    //HXSDKController::getInstance()->Login("lhjtest", "123aa123");
 }
 
 void SecondViewController::onButtonLogOff(CAControl* control, CCPoint point)
 {
-    HXSDKController::getInstance()->Logout();
+   // HXSDKController::getInstance()->Logout();
 }
 
 void SecondViewController::onButtonSendText(CrossApp::CAControl *control, CrossApp::CCPoint point)

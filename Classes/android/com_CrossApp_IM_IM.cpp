@@ -9,19 +9,21 @@
 #include "HXSDKController.h"
 //#define  LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,"",__VA_ARGS__)
 USING_NS_CC;
+
 #ifdef __cplusplus
 extern "C" {
 #endif
 	//判断是否已经登录成功
 	JNIEXPORT void JNICALL Java_com_CrossApp_IM_IMINIT_isLogin(JNIEnv *env, jclass thiz, jboolean login)
 	{	
-		//unsigned char result = login;
-		//HXSDKController::getInstance()->postNotification_isLogin(true);
+		bool result = login;
+		HXSDKController::getInstance()->postNotification_isLogin(result);
 	}
 	//判断是否注册成功
-	JNIEXPORT void JNICALL Java_coom_CrossApp_IM_IMINIT_isRegister(JNIEnv *env, jclass thiz, jboolean register)
+	JNIEXPORT void JNICALL Java_coom_CrossApp_IM_IMINIT_isRegister(JNIEnv *env, jclass thiz, jboolean Register)
 	{
-		//HXSDKController::getInstance()->postNotification_isRegister(true);
+		bool registerresult = Register;
+		HXSDKController::getInstance()->postNotification_isRegister(registerresult);
 	}
 #ifdef __cplusplus
 }
@@ -35,6 +37,7 @@ void com_CrossApp_IM_IM::init_android()
 
 void com_CrossApp_IM_IM::registerAccount_android(const char* userName, const char* passWord)
 {
+	
 	JniMethodInfo info;
 	bool isHave = JniHelper::getStaticMethodInfo(info, "com/CrossApp/IM/IMINIT", "registerAccount_android", "(Ljava/lang/String;Ljava/lang/String;)V");
 	if (isHave)
@@ -49,6 +52,7 @@ void com_CrossApp_IM_IM::registerAccount_android(const char* userName, const cha
 		info.env->DeleteLocalRef(p_name);
 		info.env->DeleteLocalRef(p_passWord);
 	}
+	
 }
 
 void com_CrossApp_IM_IM::login_android(const char* userName, const char* passWord)
