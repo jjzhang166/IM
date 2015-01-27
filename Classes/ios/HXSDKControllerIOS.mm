@@ -83,7 +83,7 @@ bool HXSDKControllerIOS::Login_ios(const char* name, const char* passWord)
 
 }
 
-bool HXSDKControllerIOS::RegisTerAccount_ios(const char* name, const char* passWord)
+bool HXSDKControllerIOS::RegisterAccount_ios(const char* name, const char* passWord)
 {
     NSString *string_name = [[NSString alloc] initWithCString:(const char*)name encoding:NSASCIIStringEncoding];
     NSString *string_passWord = [[NSString alloc] initWithCString:(const char*)passWord encoding:NSASCIIStringEncoding];
