@@ -11,7 +11,6 @@
 
 #include <iostream>
 #include "CrossApp.h"
-#include "HXSDKBuddy.h"
 
 USING_NS_CC;
 
@@ -39,34 +38,23 @@ public:
     /*发送图片消息*/
     void sendMessageWithImage(const char* messageText, const char* toUserName);
     
-    /*add friend*/
-    void sendAddFriend(const char* accountName, const char* message);
-    /*get friends list*/
-    std::vector<HXSDKBuddy*> getFriendsList();
-    
     bool isLogin();
-    
+	bool isRegister();
     
 public:
     /*CANotificationCenter*/
+	void postNotification_isRegister(bool isRegister);
     void postNotification_isLogin(bool isLogin);
-    
+  
     void postNotification_isLogOut(bool isLogout);
     
     void postNotification_sendMessageResult(bool success);
     
-public:
-    /*Data*/
-    void cleanFriendsLise();
-    
-    void pushFriendsDetail(std::string userName, HXSDKBuddyFollowState eHXSDKEMBuddyFollowState, bool isPendingApproval);
-    
 protected:
+    bool            m_bIsLogin;
+	bool			m_bIsRegister;
     std::string     m_sUserName;
     std::string     m_sUserPassword;
-    bool            m_bIsLogin;
-    
-    std::vector<HXSDKBuddy*> m_vFriendList;
     
 };
 #endif /* defined(__HelloCpp__HXSDKController__) */

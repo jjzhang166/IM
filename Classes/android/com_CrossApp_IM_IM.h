@@ -2,7 +2,7 @@
 #include <jni.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <android/log.h>
+//#include <android/log.h>
 #include "platform/android/jni/JniHelper.h"
 /* Header for class com_CrossApp_IM_IM */
 
@@ -15,14 +15,15 @@ class com_CrossApp_IM_IM
 public:
 	static void init_android();
 	static void login_android(const char* userName, const char* passWord);
+	static void registerAccount_android(const char* userName, const char* passWord);
 	static void logout_android();
 };
 
 #ifdef __cplusplus
 extern "C" {
 #endif
-	JNIEXPORT void JNICALL Java_com_CrossApp_IM_IM_login_android(JNIEnv * env, jclass thiz, jboolean resp);
-
+	JNIEXPORT void JNICALL Java_com_CrossApp_IM_IMINIT_isLogin(JNIEnv *env, jclass thiz, jboolean login);
+	JNIEXPORT void JNICALL Java_com_CrossApp_IM_IMINIT_isRegister(JNIEnv *env, jclass thiz, jboolean register);
 #ifdef __cplusplus
 }
 #endif

@@ -22,11 +22,13 @@ public:
     
     virtual ~HXSDKControllerIOS();
     
+    //HXSDKControllerIOS* getInstance();
+    
     static bool init_ios();
     
     static bool Login_ios(const char* name, const char* passWord);
     
-    static bool RegisterAccount_ios(const char* name, const char* passWord);
+    static bool RegisTerAccount_ios(const char* name, const char* passWord);
     
     static void Logout_ios();
     
@@ -34,29 +36,7 @@ public:
     
     static void sendMessageWithImage_ios(const char* messageImage, const char* toUserName);
     
-    static void sendAddFriend_ios(const char* accountName, const char* message);
-    
-    static void getFriendsList_ios();
-
-    // 同意好友申请
-    static void acceptContact_ios(const char* toUserName);
-    // 拒绝好友申请
-    static void refuseContact_ios(const char* toUserName,const char* reason);
-
-    //删除 用户名 , 是否将自己从对方列表中删除.
-    static void deleteContact_ios(const char* userName,bool removeSelf);
-    // 查看公开群
-    static void seePublicGroup_ios();
-    // 加入不需要验证的群
-    static void joinNoNeedCheckGroup_ios(const char* groupID);
-    // 加入需要验证的群组
-    static void joinNeedCheckGroup_ios(const char* groupID, const char* groupName,const char* message);
-    // 退出群 退出群组，如果是群成员调用，则为成员离开，如果是创建者离开，则视为群组解散
-    static void exitGroup_ios(const char* groupID);
-    //解散群组（需要有群主权限）
-    static void destoryGroup_ios(const char* groupID);
-    
-
+//    static NSArray* getContactorList();  // 获取好友列表
     
 protected:
     
