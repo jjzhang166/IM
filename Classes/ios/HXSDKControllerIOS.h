@@ -34,28 +34,29 @@ public:
     
     static void sendMessageWithImage_ios(const char* messageImage, const char* toUserName);
     
-    // 同意好友申请
-    static void AcceptContact_ios(const char* toUserName);
-    // 拒绝好友申请
-    static void RefuseContact_ios(const char* toUserName,const char* reason);
-    // 删除好友
-    /**
-     * 删除用户名 , 是否将自己从对方列表中删除.
-     */
-    static void DeleteContact_ios(const char* userName,BOOL removeSelf);
-    // 查看公开群
-    static void SeePublicGroup_ios();
-    // 加入不需要验证的群
-    static void JoinNoNeedCheckGroup_ios(const char* groupID);
-    // 加入需要验证的群组
-    static void JoinNeedCheckGroup_ios(const char* groupID, const char* groupName,const char* message);
-    // 退出群 退出群组，如果是群成员调用，则为成员离开，如果是创建者离开，则视为群组解散
-    static void ExitGroup_ios(const char* groupID);
-    //解散群组（需要有群主权限）
-    static void DestoryGroup_ios(const char* groupID);
+    static void sendAddFriend_ios(const char* accountName, const char* message);
     
-//    // 查看自己详情
-//    static void
+    static void getFriendsList_ios();
+
+    // 同意好友申请
+    static void acceptContact_ios(const char* toUserName);
+    // 拒绝好友申请
+    static void refuseContact_ios(const char* toUserName,const char* reason);
+
+    //删除 用户名 , 是否将自己从对方列表中删除.
+    static void deleteContact_ios(const char* userName,bool removeSelf);
+    // 查看公开群
+    static void seePublicGroup_ios();
+    // 加入不需要验证的群
+    static void joinNoNeedCheckGroup_ios(const char* groupID);
+    // 加入需要验证的群组
+    static void joinNeedCheckGroup_ios(const char* groupID, const char* groupName,const char* message);
+    // 退出群 退出群组，如果是群成员调用，则为成员离开，如果是创建者离开，则视为群组解散
+    static void exitGroup_ios(const char* groupID);
+    //解散群组（需要有群主权限）
+    static void destoryGroup_ios(const char* groupID);
+    
+
     
 protected:
     

@@ -29,6 +29,7 @@ HXSDKController::HXSDKController()
 
 HXSDKController::~HXSDKController()
 {
+    cleanFriendsLise();
     CC_SAFE_DELETE(HXsdkController);
 }
 
@@ -111,21 +112,62 @@ void HXSDKController::sendMessage(const char *messageText, const char *toUserNam
 #endif
 }
  
- void HXSDKController::sendMessageWithImage(const char *messageText, const char *toUserName)
- {
- #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
- //HXSDKControllerIOS::sendMessageWithImage_ios(messageText, toUserName);
- 
- #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
- 
- 
- #endif
- }
+void HXSDKController::sendMessageWithImage(const char *messageText, const char *toUserName)
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+//HXSDKControllerIOS::sendMessageWithImage_ios(messageText, toUserName);
 
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+
+
+#endif
+}
+
+void HXSDKController::sendAddFriend(const char* accountName, const char* message)
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    HXSDKControllerIOS::sendAddFriend_ios(accountName, message);
+    
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    
+    
+#endif
+}
+
+void HXSDKController::getFriendsList()
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    HXSDKControllerIOS::getFriendsList_ios();
+    
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    
+    
+#endif
+}
 
 bool HXSDKController::isLogin()
 {
     return m_bIsLogin;
+}
+
+/**********************************************************************************/
+void HXSDKController::cleanFriendsLise()
+{
+    std::vector<HXSDKBuddy*>::iterator itr = m_vFriendList.begin();
+    for(; itr != m_vFriendList.end(); ++itr)
+    {
+        CC_SAFE_DELETE(*itr);
+    }
+}
+
+void HXSDKController::pushFriendsDetail(std::string userName, HXSDKBuddyFollowState eHXSDKEMBuddyFollowState, bool isPendingApproval)
+{
+    HXSDKBuddy* sdkBuddy = new HXSDKBuddy();
+    sdkBuddy->m_sUserName = userName;
+    sdkBuddy->m_eFollowState = eHXSDKEMBuddyFollowState;
+    sdkBuddy->m_bIsPendingApproval = isPendingApproval;
+    
+    m_vFriendList.push_back(sdkBuddy);
 }
 
 /**********************************************************************************/

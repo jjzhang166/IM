@@ -9,7 +9,9 @@
 #import "HXSDKControllerIOS.h"
 #import "EaseMob.h"
 #include "IMDATA.h"
+#include "HXSDKController.h"
 #import "HXSDKHelper.h"
+
 
 static EaseMob* easeMob = NULL;
 
@@ -153,7 +155,65 @@ void HXSDKControllerIOS::sendMessageWithImage_ios(const char* messageImage, cons
     
 }
 
-void HXSDKControllerIOS::AcceptContact_ios(const char* toUserName)
+
+
+
+void HXSDKControllerIOS::sendAddFriend_ios(const char* accountName, const char* message)
+{
+    EMError *error = nil;
+    NSString *string_accountName = [[NSString alloc] initWithCString:(const char*)accountName encoding:NSASCIIStringEncoding];
+    NSString *string_message = [[NSString alloc] initWithCString:(const char*)message encoding:NSASCIIStringEncoding];
+    BOOL isSuccess = [easeMob.chatManager addBuddy:string_accountName message:string_message error:&error];
+    if (isSuccess && !error) {
+        CCLog("add friend success!!!");
+    }
+    else
+    {
+        CCLog("add friend fail!!!");
+    }
+}
+
+void HXSDKControllerIOS::getFriendsList_ios()
+{
+    EMError *error = nil;
+    NSArray *buddyList = [easeMob.chatManager fetchBuddyListWithError:&error];
+    
+    for(int i=0; i<buddyList.count; ++i)
+    {
+        EMBuddy* buddy = buddyList[i];
+        std::string userName = [buddy.username UTF8String];
+        bool isPendingApproval = buddy.isPendingApproval;
+        HXSDKBuddyFollowState eHXSDKEMBuddyFollowState;
+        if( eEMBuddyFollowState_NotFollowed == buddy.followState)
+        {
+            eHXSDKEMBuddyFollowState = eHXSDKEMBuddyFollowState_NotFollowed;
+        }
+        else if( eEMBuddyFollowState_Followed == buddy.followState)
+        {
+            eHXSDKEMBuddyFollowState = eHXSDKEMBuddyFollowState_Followed;
+        }
+        else if( eEMBuddyFollowState_BeFollowed == buddy.followState)
+        {
+            eHXSDKEMBuddyFollowState = eHXSDKEMBuddyFollowState_BeFollowed;
+        }
+        else if( eEMBuddyFollowState_FollowedBoth == buddy.followState)
+        {
+            eHXSDKEMBuddyFollowState = eHXSDKEMBuddyFollowState_FollowedBoth;
+        }
+        
+        HXSDKController::getInstance()->pushFriendsDetail(userName, eHXSDKEMBuddyFollowState, isPendingApproval);
+    }
+//Log qiaoxin
+    if (!error) {
+       CCLog("get friends list success!!! %d",buddyList.count);
+    }
+    else{
+        CCLog("get friends list fail!!!");
+    }
+}
+
+
+void HXSDKControllerIOS::acceptContact_ios(const char* toUserName)
 {
     NSString *string_toUserName = [[NSString alloc]initWithCString:(const char *) toUserName encoding:NSASCIIStringEncoding];
     
@@ -165,7 +225,8 @@ void HXSDKControllerIOS::AcceptContact_ios(const char* toUserName)
 }
 
 
-void HXSDKControllerIOS::RefuseContact_ios(const char*toUserName,const char* reason)
+
+void HXSDKControllerIOS::refuseContact_ios(const char*toUserName,const char* reason)
 {
     NSString* str_user = [[NSString alloc]initWithCString:(const char *) toUserName encoding:NSASCIIStringEncoding];
     NSString * str_reason = [[NSString alloc]initWithCString:(const char *) toUserName encoding:NSASCIIStringEncoding];
@@ -176,7 +237,9 @@ void HXSDKControllerIOS::RefuseContact_ios(const char*toUserName,const char* rea
     }
 }
 
-void HXSDKControllerIOS::DeleteContact_ios(const char *userName,BOOL removeSelf)
+
+
+void HXSDKControllerIOS::deleteContact_ios(const char *userName,bool removeSelf)
 {
     NSString * str_name = [[NSString alloc]initWithCString:(const char *) userName encoding:NSASCIIStringEncoding];
     EMError *error = nil;
@@ -187,13 +250,13 @@ void HXSDKControllerIOS::DeleteContact_ios(const char *userName,BOOL removeSelf)
     }
 }
 
-void HXSDKControllerIOS:: SeePublicGroup_ios()
+void HXSDKControllerIOS:: seePublicGroup_ios()
 {
 
     
 }
 
-void HXSDKControllerIOS:: JoinNoNeedCheckGroup_ios(const char *groupID)
+void HXSDKControllerIOS:: joinNoNeedCheckGroup_ios(const char *groupID)
 {
     NSString* str_gID = [[NSString alloc]initWithCString:(const char *) groupID encoding:NSASCIIStringEncoding];
     EMError * error = nil;
@@ -204,7 +267,7 @@ void HXSDKControllerIOS:: JoinNoNeedCheckGroup_ios(const char *groupID)
     } onQueue:nil];
 }
 
-void HXSDKControllerIOS:: JoinNeedCheckGroup_ios(const char *groupID,const char* groupName ,const char *message)
+void HXSDKControllerIOS:: joinNeedCheckGroup_ios(const char *groupID,const char* groupName ,const char *message)
 {
     NSString* str_gID = [[NSString alloc]initWithCString:(const char *)groupID encoding:NSASCIIStringEncoding];
     NSString* str_gName = [[NSString alloc]initWithCString:(const char *) groupName encoding:NSASCIIStringEncoding];
@@ -217,7 +280,7 @@ void HXSDKControllerIOS:: JoinNeedCheckGroup_ios(const char *groupID,const char*
     } onQueue:nil];
 }
 
-void HXSDKControllerIOS:: ExitGroup_ios(const char *groupID)
+void HXSDKControllerIOS:: exitGroup_ios(const char *groupID)
 {
     NSString* str_gID = [[NSString alloc]initWithCString:(const char *) groupID encoding:NSASCIIStringEncoding];
     [[EaseMob sharedInstance].chatManager asyncLeaveGroup:str_gID completion:^(EMGroup *group, EMGroupLeaveReason reason, EMError *error) {
@@ -228,7 +291,7 @@ void HXSDKControllerIOS:: ExitGroup_ios(const char *groupID)
 
 }
 
-void HXSDKControllerIOS:: DestoryGroup_ios(const char *groupID)
+void HXSDKControllerIOS:: destoryGroup_ios(const char *groupID)
 {
     NSString * str_gID = [[NSString alloc]initWithCString:(const char *)groupID encoding:NSASCIIStringEncoding];
     [[EaseMob sharedInstance].chatManager asyncDestroyGroup:str_gID completion:^(EMGroup *group, EMGroupLeaveReason reason, EMError *error) {
