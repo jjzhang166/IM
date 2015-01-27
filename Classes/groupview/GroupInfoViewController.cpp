@@ -11,6 +11,7 @@
 #include "RootWindow.h"
 #include "IMDATA.h"
 #include "HXSDKController.h"
+#include "AddHeadForgrand.h"
 
 GroupInfoViewController::GroupInfoViewController()
 {};
@@ -64,6 +65,13 @@ void GroupInfoViewController::viewDidLoad()
     m_imgViewHead = CAImageView::createWithCenter(CCRect(_headCC.size.width/2, 166, 150, 150));
     m_imgViewHead->setImage(m_info.faceImg);
     _headView->addSubview(m_imgViewHead);
+    
+//    CAImageView* _headCover = CAImageView::createWithCenter(CCRect(_headCC.size.width/2, 166, 150, 150));
+//    _headCover->setImage(CAImage::create(HEADBEFORE));
+//    _headView->insertSubview(_headCover, 1);
+    AddHeadForgrand::getInstance()->addHeadForgrand(m_imgViewHead);
+    
+    
     
     CAView* _lineView = CAView::createWithFrame(CCRect(_px(40), 336, winRect.size.width-_px(80), _px(1)), ccc4(200, 200, 200, 255));
     _headView->addSubview(_lineView);
