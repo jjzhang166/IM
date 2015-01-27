@@ -153,7 +153,7 @@ void HXSDKControllerIOS::sendMessageWithImage_ios(const char* messageImage, cons
     
 }
 
-void HXSDKControllerIOS::acceptContact(const char* toUserName)
+void HXSDKControllerIOS::AcceptContact_ios(const char* toUserName)
 {
     NSString *string_toUserName = [[NSString alloc]initWithCString:(const char *) toUserName encoding:NSASCIIStringEncoding];
     
@@ -165,7 +165,7 @@ void HXSDKControllerIOS::acceptContact(const char* toUserName)
 }
 
 
-void HXSDKControllerIOS::refuseContact(const char*toUserName,const char* reason)
+void HXSDKControllerIOS::RefuseContact_ios(const char*toUserName,const char* reason)
 {
     NSString* str_user = [[NSString alloc]initWithCString:(const char *) toUserName encoding:NSASCIIStringEncoding];
     NSString * str_reason = [[NSString alloc]initWithCString:(const char *) toUserName encoding:NSASCIIStringEncoding];
@@ -176,7 +176,7 @@ void HXSDKControllerIOS::refuseContact(const char*toUserName,const char* reason)
     }
 }
 
-void HXSDKControllerIOS::deleteContact(const char *userName,BOOL removeSelf)
+void HXSDKControllerIOS::DeleteContact_ios(const char *userName,BOOL removeSelf)
 {
     NSString * str_name = [[NSString alloc]initWithCString:(const char *) userName encoding:NSASCIIStringEncoding];
     EMError *error = nil;
@@ -187,13 +187,13 @@ void HXSDKControllerIOS::deleteContact(const char *userName,BOOL removeSelf)
     }
 }
 
-void HXSDKControllerIOS:: seePublicGroup()
+void HXSDKControllerIOS:: SeePublicGroup_ios()
 {
 
     
 }
 
-void HXSDKControllerIOS:: joinNoNeedCheckGroup(const char *groupID)
+void HXSDKControllerIOS:: JoinNoNeedCheckGroup_ios(const char *groupID)
 {
     NSString* str_gID = [[NSString alloc]initWithCString:(const char *) groupID encoding:NSASCIIStringEncoding];
     EMError * error = nil;
@@ -204,7 +204,7 @@ void HXSDKControllerIOS:: joinNoNeedCheckGroup(const char *groupID)
     } onQueue:nil];
 }
 
-void HXSDKControllerIOS:: joinNeedCheckGroup(const char *groupID,const char* groupName ,const char *message)
+void HXSDKControllerIOS:: JoinNeedCheckGroup_ios(const char *groupID,const char* groupName ,const char *message)
 {
     NSString* str_gID = [[NSString alloc]initWithCString:(const char *)groupID encoding:NSASCIIStringEncoding];
     NSString* str_gName = [[NSString alloc]initWithCString:(const char *) groupName encoding:NSASCIIStringEncoding];
@@ -217,7 +217,7 @@ void HXSDKControllerIOS:: joinNeedCheckGroup(const char *groupID,const char* gro
     } onQueue:nil];
 }
 
-void HXSDKControllerIOS:: exitGroup(const char *groupID)
+void HXSDKControllerIOS:: ExitGroup_ios(const char *groupID)
 {
     NSString* str_gID = [[NSString alloc]initWithCString:(const char *) groupID encoding:NSASCIIStringEncoding];
     [[EaseMob sharedInstance].chatManager asyncLeaveGroup:str_gID completion:^(EMGroup *group, EMGroupLeaveReason reason, EMError *error) {
@@ -228,7 +228,7 @@ void HXSDKControllerIOS:: exitGroup(const char *groupID)
 
 }
 
-void HXSDKControllerIOS:: destoryGroup(const char *groupID)
+void HXSDKControllerIOS:: DestoryGroup_ios(const char *groupID)
 {
     NSString * str_gID = [[NSString alloc]initWithCString:(const char *)groupID encoding:NSASCIIStringEncoding];
     [[EaseMob sharedInstance].chatManager asyncDestroyGroup:str_gID completion:^(EMGroup *group, EMGroupLeaveReason reason, EMError *error) {
