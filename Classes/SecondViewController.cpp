@@ -8,7 +8,7 @@
 
 #include "SecondViewController.h"
 #include "IMDATA.h"
-#include "GroupInfoViewController.h"
+#include "groupview\GroupInfoViewController.h"
 #include "RootWindow.h"
 #include "HXSDKController.h"
 

@@ -29,9 +29,11 @@ FirstViewController::~FirstViewController()
 
 bool FirstViewController::init()
 {
-	//HXSDKController *pcontroller = HXSDKController::getInstance();
-	//pcontroller->Login("9miao","longtugame123");
-	//delete pcontroller;
+	//HXSDKController::getInstance()->Login("chinahypo", "8244587");
+	//if (HXSDKController::getInstance()->isLogin())
+	//{
+	//	text = "qqqq";
+	//}
     if(CAViewController::init())
     {
         /*
@@ -99,7 +101,7 @@ void FirstViewController::viewDidLoad()
     label->setTextAlignment(CATextAlignmentCenter);
     label->setVerticalTextAlignmet(CAVerticalTextAlignmentCenter);
     label->setFontSize(72 * CROSSAPP_ADPTATION_RATIO);
-    label->setText("FirstViewController");
+    label->setText(text);
     label->setColor(CAColor_white);
     this->getView()->insertSubview(label, 1);
 }

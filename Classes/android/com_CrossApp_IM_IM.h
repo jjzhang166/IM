@@ -21,7 +21,7 @@ public:
 #ifdef __cplusplus
 extern "C" {
 #endif
-
+	JNIEXPORT void JNICALL Java_com_CrossApp_IM_IM_login_android(JNIEnv * env, jclass thiz, jboolean resp);
 
 #ifdef __cplusplus
 }
