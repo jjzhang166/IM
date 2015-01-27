@@ -149,11 +149,24 @@ void HXSDKControllerIOS::sendMessageWithImage_ios(const char* messageImage, cons
     
 }
 
-//NSArray* HXSDKControllerIOS::getContactorList()
-//{
-//
-//    return nil;
-//};
+// 添加好友
+bool HXSDKControllerIOS::addContact_ios(const char *contactName, const char *message)
+{
+    NSString *string_message = [[NSString alloc] initWithCString:(const char*)message encoding:NSASCIIStringEncoding];
+    NSString *string_addName = [[NSString alloc] initWithCString:(const char*)contactName encoding:NSASCIIStringEncoding];
+    EMError *error;
+    [[EaseMob sharedInstance].chatManager addBuddy:string_addName message:string_message error:&error];
+
+    if (error) {
+        CCLOG("发送好友申请失败");
+    }
+    else{
+        CCLOG("发送好友申请成功");
+    }
+
+
+}
+
 
 
 

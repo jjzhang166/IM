@@ -98,7 +98,14 @@ void SecondViewController::onButtonSearch(CAControl* control, CCPoint point)
 
 void SecondViewController::onButtonAdd(CAControl* control, CCPoint point)
 {
-    GroupInfo info = GroupInfo(CAImage::create("HelloWorld.png"), CCString::create("我是主题"), CCString::create("我是介绍"), CCString::create("我是群主"), CCString::create("我是权限"), true, 520);
+    
+    string a = "我是主题";
+    string b = "我是介绍";
+    string c = "我是群主";
+    string d = "我是成员";
+    
+    
+    GroupInfo info = GroupInfo(CAImage::create("HelloWorld.png"),a,b,c,d, true, 520);
     GroupInfoViewController * _group = GroupInfoViewController::create(info,false);
     RootWindow::getInstance()->getNavigationController()->pushViewController(_group, true);
     
