@@ -217,9 +217,27 @@ void HXSDKControllerIOS:: joinNeedCheckGroup(const char *groupID,const char* gro
     } onQueue:nil];
 }
 
+void HXSDKControllerIOS:: exitGroup(const char *groupID)
+{
+    NSString* str_gID = [[NSString alloc]initWithCString:(const char *) groupID encoding:NSASCIIStringEncoding];
+    [[EaseMob sharedInstance].chatManager asyncLeaveGroup:str_gID completion:^(EMGroup *group, EMGroupLeaveReason reason, EMError *error) {
+        if (!error) {
+            NSLog(@"退出群组成功");
+        }
+    } onQueue:nil];
 
+}
 
+void HXSDKControllerIOS:: destoryGroup(const char *groupID)
+{
+    NSString * str_gID = [[NSString alloc]initWithCString:(const char *)groupID encoding:NSASCIIStringEncoding];
+    [[EaseMob sharedInstance].chatManager asyncDestroyGroup:str_gID completion:^(EMGroup *group, EMGroupLeaveReason reason, EMError *error) {
+        if (!error) {
+            NSLog(@"解散成功");
+        }
+    } onQueue:nil];
 
+}
 
 
 

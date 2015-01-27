@@ -33,6 +33,7 @@ public:
     static void sendMessage_ios(const char* messageText, const char* toUserName);
     
     static void sendMessageWithImage_ios(const char* messageImage, const char* toUserName);
+    
     // 同意好友申请
     static void acceptContact(const char* toUserName);
     // 拒绝好友申请
@@ -48,6 +49,13 @@ public:
     static void joinNoNeedCheckGroup(const char* groupID);
     // 加入需要验证的群组
     static void joinNeedCheckGroup(const char* groupID, const char* groupName,const char* message);
+    // 退出群 退出群组，如果是群成员调用，则为成员离开，如果是创建者离开，则视为群组解散
+    static void exitGroup(const char* groupID);
+    //解散群组（需要有群主权限）
+    static void destoryGroup(const char* groupID);
+    
+//    // 查看自己详情
+//    static void
     
 protected:
     
