@@ -36,9 +36,9 @@ public class IM extends Cocos2dxActivity{
 		Log.d("HXSDK","init hxsdk");
 	
 		
-		List<String> aaList = new ArrayList<String>();
-		String strs[] = new String[aaList.size()];
-		String[] shuzu = aaList.toArray(strs);
+		//List<String> aaList = new ArrayList<String>();
+		//String strs[] = new String[aaList.size()];
+		//String[] shuzu = aaList.toArray(strs);
 	}
 	
 	//登陆环信，参数为用户名和密码
@@ -48,6 +48,7 @@ public class IM extends Cocos2dxActivity{
 			@Override
 			public void onSuccess(){
 				Log.d("main","登陆聊天服务器成功");
+				isLogin(true);
 				//runOnUiThread(new Runnable(){
 					//public void run(){
 						//Log.d("main","登陆聊天服务器成功");
@@ -69,6 +70,7 @@ public class IM extends Cocos2dxActivity{
 			
 		});
 	}
+	public static native void isLogin(boolean islogin);
 	//退出
 	public static void logout_android(){
 		//EMChatManager.getInstance().logout();//此方法是同步方法
