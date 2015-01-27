@@ -91,10 +91,7 @@ HXSDKHelper * mHXSDKHelper;
         default:
             break;
         }
-        
-    
 }
-
 
 // 向SDK中注册回调
 - (void)registerEaseMobDelegate{

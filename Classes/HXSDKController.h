@@ -42,7 +42,7 @@ public:
     /*add friend*/
     void sendAddFriend(const char* accountName, const char* message);
     /*get friends list*/
-    void getFriendsList();
+    std::vector<HXSDKBuddy*> getFriendsList();
     
     bool isLogin();
     
@@ -56,6 +56,7 @@ public:
     void postNotification_sendMessageResult(bool success);
     
 public:
+    /*Data*/
     void cleanFriendsLise();
     
     void pushFriendsDetail(std::string userName, HXSDKBuddyFollowState eHXSDKEMBuddyFollowState, bool isPendingApproval);

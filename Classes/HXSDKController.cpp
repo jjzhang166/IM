@@ -83,7 +83,7 @@ void HXSDKController::Login(const char* name, const char* passWord)
 void HXSDKController::RegisterAccount(const char* name, const char* passWord)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    HXSDKControllerIOS::RegisTerAccount_ios(name, passWord);
+    HXSDKControllerIOS::RegisterAccount_ios(name, passWord);
     
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     
@@ -134,7 +134,7 @@ void HXSDKController::sendAddFriend(const char* accountName, const char* message
 #endif
 }
 
-void HXSDKController::getFriendsList()
+std::vector<HXSDKBuddy*> HXSDKController::getFriendsList()
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     HXSDKControllerIOS::getFriendsList_ios();
@@ -143,6 +143,7 @@ void HXSDKController::getFriendsList()
     
     
 #endif
+    return m_vFriendList;
 }
 
 bool HXSDKController::isLogin()
@@ -150,7 +151,7 @@ bool HXSDKController::isLogin()
     return m_bIsLogin;
 }
 
-/**********************************************************************************/
+/****************************************Data******************************************/
 void HXSDKController::cleanFriendsLise()
 {
     std::vector<HXSDKBuddy*>::iterator itr = m_vFriendList.begin();
@@ -170,7 +171,7 @@ void HXSDKController::pushFriendsDetail(std::string userName, HXSDKBuddyFollowSt
     m_vFriendList.push_back(sdkBuddy);
 }
 
-/**********************************************************************************/
+/***************************************NotificationCenter*******************************************/
 
 void HXSDKController::postNotification_isLogin(bool isLogin)
 {

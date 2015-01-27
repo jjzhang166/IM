@@ -26,7 +26,7 @@ public:
     
     static bool Login_ios(const char* name, const char* passWord);
     
-    static bool RegisTerAccount_ios(const char* name, const char* passWord);
+    static bool RegisterAccount_ios(const char* name, const char* passWord);
     
     static void Logout_ios();
     
