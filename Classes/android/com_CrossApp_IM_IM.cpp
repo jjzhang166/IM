@@ -6,13 +6,20 @@
 //  Copyright (c) 2015 http://www.9miao.com All rights reserved.
 //
 #include"com_CrossApp_IM_IM.h"
-
+#include "HXSDKController.h"
 //#define  LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,"",__VA_ARGS__)
 USING_NS_CC;
 #ifdef __cplusplus
 extern "C" {
 #endif
-
+	JNIEXPORT void JNICALL Java_com_CrossApp_IM_IM_login_android(JNIEnv * env, jclass thiz, jboolean resp)
+	{	
+		unsigned char bbb = resp;
+		if (bbb)
+		{
+			HXSDKController::getInstance()->postNotification_isLogin(true);
+		}
+	}
 #ifdef __cplusplus
 }
 #endif
