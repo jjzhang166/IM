@@ -82,13 +82,24 @@ CATabBarController* RootWindow::init_tabelBarController()
     
     if(tabelBarController->initWithViewControllers(views))
     {
-		tabelBarController->setScrollEnabled(true);
-        CATabBar* tabBar = tabelBarController->getTabBar();
-        tabBar->setBackGroundView(CAScale9ImageView::createWithImage(CAImage::create(TABLE_BAR_BG)));
-        tabBar->setSelectedBackGroundView(CAView::createWithColor(CAColor_clear));
-        tabBar->setTitleColorForNormal(ccc4(51, 51, 51, 255));
-        tabBar->setTitleColorForSelected(CAColor_black);
-        tabBar->setSelectedAtIndex(0);
+        tabelBarController->setScrollEnabled(true);
+        //tabelBarController->setTabBarBackGroundImage(<#CrossApp::CAImage *var#>)
+        
+        
+        //        CATabBar* tabBar = tabelBarController->getTabBar();
+        //        tabBar->setBackGroundView(CAScale9ImageView::createWithImage(CAImage::create(TABLE_BAR_BG)));
+        //        tabBar->setSelectedBackGroundView(CAView::createWithColor(CAColor_clear));
+        //        tabBar->setTitleColorForNormal(ccc4(51, 51, 51, 255));
+        //        tabBar->setTitleColorForSelected(CAColor_black);
+        //        tabBar->setSelectedAtIndex(0);
+        
+        
+        tabelBarController->setTabBarBackGroundImage(CAImage::create(TABLE_BAR_BG));
+        //tabelBarController->setTabBarSelectedBackGroundImage(CrossApp::CAImage *var);
+        tabelBarController->setTabBarTitleColorForNormal(ccc4(51, 51, 51, 255));
+        tabelBarController->setTabBarTitleColorForSelected(CAColor_black);
+        tabelBarController->showSelectedViewControllerAtIndex(0);
+        
         return tabelBarController;
     }
     return NULL;
@@ -97,8 +108,8 @@ CATabBarController* RootWindow::init_tabelBarController()
 CANavigationController* RootWindow::init_navigationController(CATabBarController* tableBarController)
 {
     CANavigationController* navigationController = new CANavigationController();
-    navigationController->getNavigationBar()->setBackGroundImage(CAImage::create(NAVIGATION_BG));
-        navigationController->initWithRootViewController(tableBarController);
+    navigationController->setNavigationBarBackGroundImage(CAImage::create(NAVIGATION_BG));
+    navigationController->initWithRootViewController(tableBarController);
     return navigationController;
 }
 
