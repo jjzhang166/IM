@@ -4,6 +4,8 @@
 #import "EaseMob.h"
 #include "HXSDKController.h"
 
+
+
 @implementation AppController
 
 #pragma mark -
@@ -27,7 +29,7 @@ static AppDelegate s_sharedApplication;
     HXSDKController::getInstance();
     // 需要在注册sdk后写上该方法
     [[EaseMob sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
-
+    
      
     // Use RootViewController manage EAGLView
     viewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
@@ -167,6 +169,7 @@ static AppDelegate s_sharedApplication;
     [window release];
     [super dealloc];
 }
+
 
 
 @end

@@ -27,6 +27,11 @@ bool HXSDKControllerIOS::init_ios()
     easeMob = [EaseMob sharedInstance];
     NSString *apnsCertName = @"9miao";
     [easeMob registerSDKWithAppKey:@"longtugame#crossappim" apnsCertName:apnsCertName];
+    
+    HXSDKHelper* helper = [[HXSDKHelper alloc]init];
+    [helper registerEaseMobDelegate];
+    
+
     if(easeMob)
     {
         CCLog("HXSDK init success!!!");
@@ -49,8 +54,6 @@ bool HXSDKControllerIOS::Login_ios(const char* name, const char* passWord)
          if (loginInfo && !error) {
              CCLog("登录成功");
              [[NSNotificationCenter defaultCenter] postNotificationName:@KNOTIFICATION_LOGINCHANGE object:@YES];
-             HXSDKHelper* helper = [HXSDKHelper getHXSDKHelper];
-             NSLog(@" dfds %@",helper);
              
              EMError *error = [easeMob.chatManager importDataToNewDatabase];
              if (!error) {
@@ -75,6 +78,7 @@ bool HXSDKControllerIOS::Login_ios(const char* name, const char* passWord)
      } onQueue:nil];
     
     return true;
+
 }
 
 bool HXSDKControllerIOS::RegisTerAccount_ios(const char* name, const char* passWord)
@@ -149,34 +153,69 @@ void HXSDKControllerIOS::sendMessageWithImage_ios(const char* messageImage, cons
     
 }
 
-// 添加好友
-bool HXSDKControllerIOS::addContact_ios(const char *contactName, const char *message)
+void HXSDKControllerIOS::acceptContact(const char* toUserName)
 {
-    NSString *string_message = [[NSString alloc] initWithCString:(const char*)message encoding:NSASCIIStringEncoding];
-    NSString *string_addName = [[NSString alloc] initWithCString:(const char*)contactName encoding:NSASCIIStringEncoding];
-    EMError *error;
-    [[EaseMob sharedInstance].chatManager addBuddy:string_addName message:string_message error:&error];
-
-    if (error) {
-        CCLOG("发送好友申请失败");
+    NSString *string_toUserName = [[NSString alloc]initWithCString:(const char *) toUserName encoding:NSASCIIStringEncoding];
+    
+    EMError *error = nil;
+    BOOL isSuccess = [[EaseMob sharedInstance].chatManager acceptBuddyRequest:string_toUserName error:&error];
+    if (isSuccess && !error) {
+        NSLog(@"发送同意成功");
     }
-    else{
-        CCLOG("发送好友申请成功");
-    }
-
-
 }
 
 
+void HXSDKControllerIOS::refuseContact(const char*toUserName,const char* reason)
+{
+    NSString* str_user = [[NSString alloc]initWithCString:(const char *) toUserName encoding:NSASCIIStringEncoding];
+    NSString * str_reason = [[NSString alloc]initWithCString:(const char *) toUserName encoding:NSASCIIStringEncoding];
+    EMError *error = nil;
+    BOOL isSuccess = [[EaseMob sharedInstance].chatManager rejectBuddyRequest:str_user reason:str_reason error:&error];
+    if (isSuccess && !error) {
+        NSLog(@"发送拒绝成功");
+    }
+}
 
+void HXSDKControllerIOS::deleteContact(const char *userName,BOOL removeSelf)
+{
+    NSString * str_name = [[NSString alloc]initWithCString:(const char *) userName encoding:NSASCIIStringEncoding];
+    EMError *error = nil;
+    // 删除好友
+    BOOL isSuccess = [[EaseMob sharedInstance].chatManager removeBuddy:str_name removeFromRemote:removeSelf error:&error];
+    if (isSuccess && !error) {
+        NSLog(@"删除成功");
+    }
+}
 
+void HXSDKControllerIOS:: seePublicGroup()
+{
 
+    
+}
 
+void HXSDKControllerIOS:: joinNoNeedCheckGroup(const char *groupID)
+{
+    NSString* str_gID = [[NSString alloc]initWithCString:(const char *) groupID encoding:NSASCIIStringEncoding];
+    EMError * error = nil;
+    [[EaseMob sharedInstance].chatManager asyncJoinPublicGroup:str_gID completion:^(EMGroup *group, EMError *error) {
+        if (!error) {
+            NSLog(@"入群成功");
+        }
+    } onQueue:nil];
+}
 
-
-
-
-
+void HXSDKControllerIOS:: joinNeedCheckGroup(const char *groupID,const char* groupName ,const char *message)
+{
+    NSString* str_gID = [[NSString alloc]initWithCString:(const char *)groupID encoding:NSASCIIStringEncoding];
+    NSString* str_gName = [[NSString alloc]initWithCString:(const char *) groupName encoding:NSASCIIStringEncoding];
+    NSString* str_msg = [[NSString alloc]initWithCString:(const char *) message encoding:NSASCIIStringEncoding];
+    
+    [[EaseMob sharedInstance].chatManager asyncApplyJoinPublicGroup:str_gID withGroupname:str_gName message:str_msg completion:^(EMGroup *group, EMError *error) {
+        if (!error) {
+            NSLog(@"申请成功");
+        }
+    } onQueue:nil];
+}
 
 
 

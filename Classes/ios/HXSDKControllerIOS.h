@@ -22,8 +22,6 @@ public:
     
     virtual ~HXSDKControllerIOS();
     
-    //HXSDKControllerIOS* getInstance();
-    
     static bool init_ios();
     
     static bool Login_ios(const char* name, const char* passWord);
@@ -35,10 +33,21 @@ public:
     static void sendMessage_ios(const char* messageText, const char* toUserName);
     
     static void sendMessageWithImage_ios(const char* messageImage, const char* toUserName);
-    
-    static bool addContact_ios(const char* contactName,const char* message);  // 添加好友
-    
-
+    // 同意好友申请
+    static void acceptContact(const char* toUserName);
+    // 拒绝好友申请
+    static void refuseContact(const char* toUserName,const char* reason);
+    // 删除好友
+    /**
+     * 删除用户名 , 是否将自己从对方列表中删除.
+     */
+    static void deleteContact(const char* userName,BOOL removeSelf);
+    // 查看公开群
+    static void seePublicGroup();
+    // 加入不需要验证的群
+    static void joinNoNeedCheckGroup(const char* groupID);
+    // 加入需要验证的群组
+    static void joinNeedCheckGroup(const char* groupID, const char* groupName,const char* message);
     
 protected:
     
