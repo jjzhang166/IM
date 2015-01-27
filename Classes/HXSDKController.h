@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include "CrossApp.h"
+#include "HXSDKBuddy.h"
 
 USING_NS_CC;
 
@@ -38,6 +39,11 @@ public:
     /*发送图片消息*/
     void sendMessageWithImage(const char* messageText, const char* toUserName);
     
+    /*add friend*/
+    void sendAddFriend(const char* accountName, const char* message);
+    /*get friends list*/
+    void getFriendsList();
+    
     bool isLogin();
     
     
@@ -49,10 +55,17 @@ public:
     
     void postNotification_sendMessageResult(bool success);
     
+public:
+    void cleanFriendsLise();
+    
+    void pushFriendsDetail(std::string userName, HXSDKBuddyFollowState eHXSDKEMBuddyFollowState, bool isPendingApproval);
+    
 protected:
-    bool            m_bIsLogin;
     std::string     m_sUserName;
     std::string     m_sUserPassword;
+    bool            m_bIsLogin;
+    
+    std::vector<HXSDKBuddy*> m_vFriendList;
     
 };
 #endif /* defined(__HelloCpp__HXSDKController__) */

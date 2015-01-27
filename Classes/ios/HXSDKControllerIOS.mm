@@ -9,7 +9,9 @@
 #import "HXSDKControllerIOS.h"
 #import "EaseMob.h"
 #include "IMDATA.h"
+#include "HXSDKController.h"
 #import "HXSDKHelper.h"
+#include "HXSDKBuddy.h"
 
 static EaseMob* easeMob = NULL;
 
@@ -147,6 +149,60 @@ void HXSDKControllerIOS::sendMessageWithImage_ios(const char* messageImage, cons
     //发送图片消息
     [[EaseMob sharedInstance].chatManager asyncSendMessage:retureMsg progress:nil];
     
+}
+
+void HXSDKControllerIOS::sendAddFriend_ios(const char* accountName, const char* message)
+{
+    EMError *error = nil;
+    NSString *string_accountName = [[NSString alloc] initWithCString:(const char*)accountName encoding:NSASCIIStringEncoding];
+    NSString *string_message = [[NSString alloc] initWithCString:(const char*)message encoding:NSASCIIStringEncoding];
+    BOOL isSuccess = [easeMob.chatManager addBuddy:string_accountName message:string_message error:&error];
+    if (isSuccess && !error) {
+        CCLog("add friend success!!!");
+    }
+    else
+    {
+        CCLog("add friend fail!!!");
+    }
+}
+
+void HXSDKControllerIOS::getFriendsList_ios()
+{
+    EMError *error = nil;
+    NSArray *buddyList = [easeMob.chatManager fetchBuddyListWithError:&error];
+    
+    for(int i=0; i<buddyList.count; ++i)
+    {
+        EMBuddy* buddy = buddyList[i];
+        std::string userName = [buddy.username UTF8String];
+        bool isPendingApproval = buddy.isPendingApproval;
+        HXSDKBuddyFollowState eHXSDKEMBuddyFollowState;
+        if( eEMBuddyFollowState_NotFollowed == buddy.followState)
+        {
+            eHXSDKEMBuddyFollowState = eHXSDKEMBuddyFollowState_NotFollowed;
+        }
+        else if( eEMBuddyFollowState_Followed == buddy.followState)
+        {
+            eHXSDKEMBuddyFollowState = eHXSDKEMBuddyFollowState_Followed;
+        }
+        else if( eEMBuddyFollowState_BeFollowed == buddy.followState)
+        {
+            eHXSDKEMBuddyFollowState = eHXSDKEMBuddyFollowState_BeFollowed;
+        }
+        else if( eEMBuddyFollowState_FollowedBoth == buddy.followState)
+        {
+            eHXSDKEMBuddyFollowState = eHXSDKEMBuddyFollowState_FollowedBoth;
+        }
+        
+        HXSDKController::getInstance()->pushFriendsDetail(userName, eHXSDKEMBuddyFollowState, isPendingApproval);
+    }
+//Log qiaoxin
+    if (!error) {
+       CCLog("get friends list success!!! %d",buddyList.count);
+    }
+    else{
+        CCLog("get friends list fail!!!");
+    }
 }
 
 //NSArray* HXSDKControllerIOS::getContactorList()

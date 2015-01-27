@@ -78,6 +78,11 @@ void SecondViewController::viewDidLoad()
     sendMsgBtn->setTitleForState(CAControlStateAll, "发送消息") ;
     sendMsgBtn->addTarget(this, CAControl_selector(SecondViewController::onButtonSendText), CAControlEventTouchUpInSide);
     this->getView()->addSubview(sendMsgBtn);
+    
+    CAButton * getFriendsListBtn = CAButton::createWithFrame(CCRect(100, 400, 500, 50), CAButtonTypeRoundedRect);
+    getFriendsListBtn->setTitleForState(CAControlStateAll, "getFrendsList") ;
+    getFriendsListBtn->addTarget(this, CAControl_selector(SecondViewController::onButtonGetFriends), CAControlEventTouchUpInSide);
+    this->getView()->addSubview(getFriendsListBtn);
 
 }
 
@@ -117,4 +122,11 @@ void SecondViewController::onButtonLogOff(CAControl* control, CCPoint point)
 void SecondViewController::onButtonSendText(CrossApp::CAControl *control, CrossApp::CCPoint point)
 {
     
-};
+}
+
+
+void SecondViewController::onButtonGetFriends(CrossApp::CAControl *control, CrossApp::CCPoint point)
+{
+    HXSDKController::getInstance()->getFriendsList();
+}
+
