@@ -11,7 +11,7 @@
 #include "IMDATA.h"
 #include "HXSDKController.h"
 #import "HXSDKHelper.h"
-#include "HXSDKBuddy.h"
+
 
 static EaseMob* easeMob = NULL;
 
@@ -155,6 +155,9 @@ void HXSDKControllerIOS::sendMessageWithImage_ios(const char* messageImage, cons
     
 }
 
+
+
+
 void HXSDKControllerIOS::sendAddFriend_ios(const char* accountName, const char* message)
 {
     EMError *error = nil;
@@ -209,7 +212,8 @@ void HXSDKControllerIOS::getFriendsList_ios()
     }
 }
 
-void HXSDKControllerIOS::acceptContact(const char* toUserName)
+
+void HXSDKControllerIOS::acceptContact_ios(const char* toUserName)
 {
     NSString *string_toUserName = [[NSString alloc]initWithCString:(const char *) toUserName encoding:NSASCIIStringEncoding];
     
@@ -220,7 +224,9 @@ void HXSDKControllerIOS::acceptContact(const char* toUserName)
     }
 }
 
-void HXSDKControllerIOS::refuseContact(const char*toUserName,const char* reason)
+
+
+void HXSDKControllerIOS::refuseContact_ios(const char*toUserName,const char* reason)
 {
     NSString* str_user = [[NSString alloc]initWithCString:(const char *) toUserName encoding:NSASCIIStringEncoding];
     NSString * str_reason = [[NSString alloc]initWithCString:(const char *) toUserName encoding:NSASCIIStringEncoding];
@@ -231,7 +237,9 @@ void HXSDKControllerIOS::refuseContact(const char*toUserName,const char* reason)
     }
 }
 
-void HXSDKControllerIOS::deleteContact(const char *userName,bool removeSelf)
+
+
+void HXSDKControllerIOS::deleteContact_ios(const char *userName,bool removeSelf)
 {
     NSString * str_name = [[NSString alloc]initWithCString:(const char *) userName encoding:NSASCIIStringEncoding];
     EMError *error = nil;
@@ -242,13 +250,13 @@ void HXSDKControllerIOS::deleteContact(const char *userName,bool removeSelf)
     }
 }
 
-void HXSDKControllerIOS:: seePublicGroup()
+void HXSDKControllerIOS:: seePublicGroup_ios()
 {
 
     
 }
 
-void HXSDKControllerIOS:: joinNoNeedCheckGroup(const char *groupID)
+void HXSDKControllerIOS:: joinNoNeedCheckGroup_ios(const char *groupID)
 {
     NSString* str_gID = [[NSString alloc]initWithCString:(const char *) groupID encoding:NSASCIIStringEncoding];
     EMError * error = nil;
@@ -259,7 +267,7 @@ void HXSDKControllerIOS:: joinNoNeedCheckGroup(const char *groupID)
     } onQueue:nil];
 }
 
-void HXSDKControllerIOS:: joinNeedCheckGroup(const char *groupID,const char* groupName ,const char *message)
+void HXSDKControllerIOS:: joinNeedCheckGroup_ios(const char *groupID,const char* groupName ,const char *message)
 {
     NSString* str_gID = [[NSString alloc]initWithCString:(const char *)groupID encoding:NSASCIIStringEncoding];
     NSString* str_gName = [[NSString alloc]initWithCString:(const char *) groupName encoding:NSASCIIStringEncoding];
@@ -272,7 +280,7 @@ void HXSDKControllerIOS:: joinNeedCheckGroup(const char *groupID,const char* gro
     } onQueue:nil];
 }
 
-void HXSDKControllerIOS:: exitGroup(const char *groupID)
+void HXSDKControllerIOS:: exitGroup_ios(const char *groupID)
 {
     NSString* str_gID = [[NSString alloc]initWithCString:(const char *) groupID encoding:NSASCIIStringEncoding];
     [[EaseMob sharedInstance].chatManager asyncLeaveGroup:str_gID completion:^(EMGroup *group, EMGroupLeaveReason reason, EMError *error) {
@@ -283,7 +291,7 @@ void HXSDKControllerIOS:: exitGroup(const char *groupID)
 
 }
 
-void HXSDKControllerIOS:: destoryGroup(const char *groupID)
+void HXSDKControllerIOS:: destoryGroup_ios(const char *groupID)
 {
     NSString * str_gID = [[NSString alloc]initWithCString:(const char *)groupID encoding:NSASCIIStringEncoding];
     [[EaseMob sharedInstance].chatManager asyncDestroyGroup:str_gID completion:^(EMGroup *group, EMGroupLeaveReason reason, EMError *error) {
