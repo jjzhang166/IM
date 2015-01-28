@@ -44,6 +44,8 @@ protected:
     void onButtonGetGroups(CAControl *control, CCPoint point);
     void onButtonCreateGroup(CAControl *control, CCPoint point);
     void onButtonGetMyGroups(CAControl *control, CCPoint point);
+
+
 };
 
 

@@ -52,7 +52,7 @@ public:
 	void initViewOfSignature();
 private:
 	CANavigationBarItem *pNavigationitem;
-	CADipSize winSize;
+	CCSize winSize;
 	CALabel *m_pLabel;
 	CATextField* m_pText;
 	IMinfoset infoset;

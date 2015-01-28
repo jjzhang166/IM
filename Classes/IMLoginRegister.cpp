@@ -195,6 +195,19 @@ void IMLoginRegister::onButtonLogin(CAControl *pTarget, CCPoint point)
     }
     
     HXSDKController::getInstance()->Login(accountName.c_str(),accountPassword.c_str());
+	//添加观察者模式
+	CANotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(IMLoginRegister::onLoginSuccess), KNOTIFICATION_LOGIN, NULL);
+}
+// 登录成功回调函数
+void IMLoginRegister::onLoginSuccess(CAObject* obj)
+{
+	bool isloginsuccess = (bool)obj;
+	if (isloginsuccess){
+		//跳转到主界面
+	}
+	else{
+		CCLog("denglu shibai");
+	}
 }
 //◊¢≤·
 void IMLoginRegister::onButtonRegister(CAControl *pTarget, CCPoint point)
@@ -225,6 +238,20 @@ void IMLoginRegister::onButtonRegister(CAControl *pTarget, CCPoint point)
     }
     
     HXSDKController::getInstance()->RegisterAccount(accountName.c_str(),accountasswordAgain.c_str());
+	//添加注册观察者模式
+	CANotificationCenter::sharedNotificationCenter()->addObserver(this,callfuncO_selector(IMLoginRegister::onRegisterSuccess),KNOTIFICATION_REGISTER,NULL);
+}
+//注册成功跳转函数
+void IMLoginRegister::onRegisterSuccess(CAObject* obj)
+{
+	bool isregistersuccess = (bool)obj;
+	if (isregistersuccess){
+		//跳转到登录界面
+		
+	}
+	else{
+		
+	}
 }
 //Õ¸º«√‹¬Î
 void IMLoginRegister::onButtonMissPassword(CAControl *pTarget, CCPoint point)
@@ -234,10 +261,10 @@ void IMLoginRegister::onButtonMissPassword(CAControl *pTarget, CCPoint point)
 //µ«¬º∫Õ◊¢≤·÷Æº‰Ã¯◊™
 void IMLoginRegister::onButtonSwitchToRegister(CAControl *pTarget, CCPoint point)
 {
-//	IMLoginRegister *pUser = new IMLoginRegister();
-//	pUser->init(IM_USERREGISTER);
-//	this->getNavigationController()->pushViewController(pUser, true);
-//	pUser->autorelease();
+	//IMLoginRegister *pUser = new IMLoginRegister();
+	//pUser->init(IM_USERREGISTER);
+	//this->getNavigationController()->pushViewController(pUser, true);
+	//pUser->autorelease();
 }
 void IMLoginRegister::onButtonSwitchToLogin(CAControl *pTarget, CCPoint point)
 {

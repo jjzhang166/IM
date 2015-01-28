@@ -218,6 +218,9 @@ obj/local/armeabi/objs/CrossApp_extension_static/Json/DictionaryHelper.o: \
  D:/CrossApp/CrossApp/view/CAAlertView.h \
  D:/CrossApp/CrossApp/view/CAPickerView.h \
  D:/CrossApp/CrossApp/view/CATableView.h \
+ D:/CrossApp/CrossApp/actions/CCActionInstant.h \
+ D:/CrossApp/CrossApp/actions/CCActionInterval.h \
+ D:/CrossApp/CrossApp/actions/CCActionCamera.h \
  D:/CrossApp/CrossApp/view/CADatePickerView.h \
  D:/CrossApp/CrossApp/view/CAPickerView.h \
  D:/CrossApp/CrossApp/view/CAActivityIndicatorView.h \
@@ -242,8 +245,8 @@ obj/local/armeabi/objs/CrossApp_extension_static/Json/DictionaryHelper.o: \
  D:/CrossApp/CrossApp/shaders/ccGLStateCache.h \
  D:/CrossApp/CrossApp/shaders/CAShaderCache.h \
  D:/CrossApp/CrossApp/shaders/ccShaders.h \
- D:/CrossApp/CrossApp/support/ccUTF8.h \
  D:/CrossApp/CrossApp/support/ccUtils.h \
+ D:/CrossApp/CrossApp/support/ccUTF8.h \
  D:/CrossApp/CrossApp/support/CANotificationCenter.h \
  D:/CrossApp/CrossApp/support/CCPointExtension.h \
  D:/CrossApp/CrossApp/support/CCProfiling.h \
@@ -743,6 +746,12 @@ D:/CrossApp/CrossApp/view/CAPickerView.h:
 
 D:/CrossApp/CrossApp/view/CATableView.h:
 
+D:/CrossApp/CrossApp/actions/CCActionInstant.h:
+
+D:/CrossApp/CrossApp/actions/CCActionInterval.h:
+
+D:/CrossApp/CrossApp/actions/CCActionCamera.h:
+
 D:/CrossApp/CrossApp/view/CADatePickerView.h:
 
 D:/CrossApp/CrossApp/view/CAPickerView.h:
@@ -795,9 +804,9 @@ D:/CrossApp/CrossApp/shaders/CAShaderCache.h:
 
 D:/CrossApp/CrossApp/shaders/ccShaders.h:
 
-D:/CrossApp/CrossApp/support/ccUTF8.h:
-
 D:/CrossApp/CrossApp/support/ccUtils.h:
+
+D:/CrossApp/CrossApp/support/ccUTF8.h:
 
 D:/CrossApp/CrossApp/support/CANotificationCenter.h:
 

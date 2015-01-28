@@ -12,9 +12,8 @@
 #import "EMTextMessageBody.h"
 #import "EMImageMessageBody.h"
 #import "IChatManagerDelegate.h"
-#import "EaseMob.h"
 
-@interface HXSDKHelper ()<IChatManagerDelegate>
+@interface HXSDKHelper()  <IChatManagerDelegate>
 
 @end
 
@@ -24,37 +23,18 @@
 HXSDKHelper * mHXSDKHelper;
 
 
-
-#pragma mark - IChatManagerDelegate
-// 收到好友请求后回调
--(void)didReceiveBuddyRequest:(NSString *)username message:(NSString *)message
++(HXSDKHelper *) getHXSDKHelper
 {
-    NSLog(@"用户%@ ,请求添加你为好友,附加消息%@",username,message);
-}
-/*!
- @method
- @brief 好友请求被接受时的回调
- @discussion
- @param username 之前发出的好友请求被用户username接受了
- */
-- (void)didAcceptedByBuddy:(NSString *)username{
-	NSLog(@"%@同意了您的好友请求",username);
+    if (!mHXSDKHelper) {
+        mHXSDKHelper = [[HXSDKHelper alloc] init];
+    }
+    return mHXSDKHelper;
+
 }
 
-/*!
- @method
- @brief 好友请求被拒绝时的回调
- @discussion
- @param username 之前发出的好友请求被用户username拒绝了
- */
-- (void)didRejectedByBuddy:(NSString *)username{
-	NSLog(@"%@拒绝了您的好友请求",username);
-}
-
-
-// 收到好友消息后回调
 -(void)didReceiveMessage:(EMMessage *)message
 {
+    
     NSLog(@"收到消息");
     id<IEMMessageBody> msgBody = message.messageBodies.firstObject;
     switch (msgBody.messageBodyType) {
@@ -91,18 +71,8 @@ HXSDKHelper * mHXSDKHelper;
         default:
             break;
         }
-}
-
-// 向SDK中注册回调
-- (void)registerEaseMobDelegate{
-	// 此处先取消一次，是为了保证只将self注册过一次回调。
-    [self unRegisterEaseMobDelegate];
-	[[EaseMob sharedInstance].chatManager addDelegate:self delegateQueue:nil];
-}
-
-// 取消SDK中注册的回调
-- (void)unRegisterEaseMobDelegate{
-	[[EaseMob sharedInstance].chatManager removeDelegate:self];
+        
+    
 }
 
 

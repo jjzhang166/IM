@@ -221,6 +221,9 @@ obj/local/armeabi/objs/cocosdenshion_static/SimpleAudioEngine.o: \
  D:/CrossApp/CocosDenshion/android/../../CrossApp/view/CAAlertView.h \
  D:/CrossApp/CocosDenshion/android/../../CrossApp/view/CAPickerView.h \
  D:/CrossApp/CocosDenshion/android/../../CrossApp/view/CATableView.h \
+ D:/CrossApp/CocosDenshion/android/../../CrossApp/actions/CCActionInstant.h \
+ D:/CrossApp/CocosDenshion/android/../../CrossApp/actions/CCActionInterval.h \
+ D:/CrossApp/CocosDenshion/android/../../CrossApp/actions/CCActionCamera.h \
  D:/CrossApp/CocosDenshion/android/../../CrossApp/view/CADatePickerView.h \
  D:/CrossApp/CocosDenshion/android/../../CrossApp/view/CAPickerView.h \
  D:/CrossApp/CocosDenshion/android/../../CrossApp/view/CAActivityIndicatorView.h \
@@ -247,8 +250,8 @@ obj/local/armeabi/objs/cocosdenshion_static/SimpleAudioEngine.o: \
  D:/CrossApp/CocosDenshion/android/../../CrossApp/shaders/ccGLStateCache.h \
  D:/CrossApp/CocosDenshion/android/../../CrossApp/shaders/CAShaderCache.h \
  D:/CrossApp/CocosDenshion/android/../../CrossApp/shaders/ccShaders.h \
- D:/CrossApp/CocosDenshion/android/../../CrossApp/support/ccUTF8.h \
  D:/CrossApp/CocosDenshion/android/../../CrossApp/support/ccUtils.h \
+ D:/CrossApp/CocosDenshion/android/../../CrossApp/support/ccUTF8.h \
  D:/CrossApp/CocosDenshion/android/../../CrossApp/support/CANotificationCenter.h \
  D:/CrossApp/CocosDenshion/android/../../CrossApp/support/CCPointExtension.h \
  D:/CrossApp/CocosDenshion/android/../../CrossApp/support/CCProfiling.h \
@@ -722,6 +725,12 @@ D:/CrossApp/CocosDenshion/android/../../CrossApp/view/CAPickerView.h:
 
 D:/CrossApp/CocosDenshion/android/../../CrossApp/view/CATableView.h:
 
+D:/CrossApp/CocosDenshion/android/../../CrossApp/actions/CCActionInstant.h:
+
+D:/CrossApp/CocosDenshion/android/../../CrossApp/actions/CCActionInterval.h:
+
+D:/CrossApp/CocosDenshion/android/../../CrossApp/actions/CCActionCamera.h:
+
 D:/CrossApp/CocosDenshion/android/../../CrossApp/view/CADatePickerView.h:
 
 D:/CrossApp/CocosDenshion/android/../../CrossApp/view/CAPickerView.h:
@@ -774,9 +783,9 @@ D:/CrossApp/CocosDenshion/android/../../CrossApp/shaders/CAShaderCache.h:
 
 D:/CrossApp/CocosDenshion/android/../../CrossApp/shaders/ccShaders.h:
 
-D:/CrossApp/CocosDenshion/android/../../CrossApp/support/ccUTF8.h:
-
 D:/CrossApp/CocosDenshion/android/../../CrossApp/support/ccUtils.h:
+
+D:/CrossApp/CocosDenshion/android/../../CrossApp/support/ccUTF8.h:
 
 D:/CrossApp/CocosDenshion/android/../../CrossApp/support/CANotificationCenter.h:
 

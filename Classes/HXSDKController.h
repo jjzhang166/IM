@@ -12,7 +12,6 @@
 #include <iostream>
 #include "CrossApp.h"
 #include "HXSDKBuddy.h"
-
 USING_NS_CC;
 
 class HXSDKController
@@ -39,6 +38,7 @@ public:
     /*发送图片消息*/
     void sendMessageWithImage(const char* messageText, const char* toUserName);
     
+
     /*add friend*/
     void sendAddFriend(const char* accountName, const char* message);
     /*get friends list*/
@@ -51,19 +51,17 @@ public:
     /*获取已加入的群*/
     std::vector<HXSDKGroup*> getMyGroupList();
     
-   
-    
     bool isLogin();
-    
+	bool isRegister();
     
 public:
     /*CANotificationCenter*/
+	void postNotification_isRegister(bool isRegister);
     void postNotification_isLogin(bool isLogin);
-    
     void postNotification_isLogOut(bool isLogout);
-    
     void postNotification_sendMessageResult(bool success);
     
+
 public:
     /*Data*/
     void cleanFriendsLise();
@@ -76,14 +74,18 @@ public:
     
     void cleanMyGroupList();
     void pushMyGroupsDetail(std::string groupID,std::string groupSub, std::string groupDes,int groupOccupantsCount);
+
 protected:
+    bool            m_bIsLogin;
+	bool			m_bIsRegister;
     std::string     m_sUserName;
     std::string     m_sUserPassword;
-    bool            m_bIsLogin;
+
     
     std::vector<HXSDKBuddy*> m_vFriendList;
     std::vector<HXSDKGroup*> m_vPublicGroupList;
     std::vector<HXSDKGroup*> m_vMyGroupList;
+
     
 };
 #endif /* defined(__HelloCpp__HXSDKController__) */

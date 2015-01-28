@@ -65,6 +65,7 @@ CATabBarController* RootWindow::init_tabelBarController()
         firstViewController->autorelease();
         views.push_back(firstViewController);
     }
+	
     {
         SecondViewController* secondViewController = new SecondViewController();
         secondViewController->init();

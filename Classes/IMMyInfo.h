@@ -53,7 +53,7 @@ protected:
 
 private:
 	CANavigationBarItem *pNagivationitem;
-	CADipSize winSize;
+	CCSize winSize;
 	CATableView *m_pTableView;
 	CATableViewCell *cell;
 	CAButton *m_pStart;

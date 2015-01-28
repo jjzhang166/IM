@@ -8,15 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-#import "IChatManagerDelegate.h"
+
 
 @interface HXSDKHelper : NSObject
 
++(HXSDKHelper*) getHXSDKHelper;
 
-
-
-// 取消SDK中注册的回调
-- (void)unRegisterEaseMobDelegate;
-// 向SDK中注册回调
-- (void)registerEaseMobDelegate;
 @end

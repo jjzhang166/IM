@@ -82,6 +82,11 @@ obj/local/armeabi/objs/CrossApp_static/view/CADatePickerView.o: \
  D:/CrossApp/CrossApp/control/CAControl.h \
  D:/CrossApp/CrossApp/view/CAView.h \
  D:/CrossApp/CrossApp/basics/CAIndexPath.h \
+ D:/CrossApp/CrossApp/actions/CCActionInstant.h \
+ D:/CrossApp/CrossApp/actions/CCAction.h \
+ D:/CrossApp/CrossApp/actions/CCActionInterval.h \
+ D:/CrossApp/CrossApp/actions/CCActionCamera.h \
+ D:/CrossApp/CrossApp/actions/CCActionInterval.h \
  D:/CrossApp/CrossApp/cocoa/CACalendar.h \
  E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/sstream
 
@@ -252,6 +257,16 @@ D:/CrossApp/CrossApp/control/CAControl.h:
 D:/CrossApp/CrossApp/view/CAView.h:
 
 D:/CrossApp/CrossApp/basics/CAIndexPath.h:
+
+D:/CrossApp/CrossApp/actions/CCActionInstant.h:
+
+D:/CrossApp/CrossApp/actions/CCAction.h:
+
+D:/CrossApp/CrossApp/actions/CCActionInterval.h:
+
+D:/CrossApp/CrossApp/actions/CCActionCamera.h:
+
+D:/CrossApp/CrossApp/actions/CCActionInterval.h:
 
 D:/CrossApp/CrossApp/cocoa/CACalendar.h:
 
