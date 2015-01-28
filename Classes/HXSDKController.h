@@ -45,9 +45,7 @@ public:
     /*CANotificationCenter*/
 	void postNotification_isRegister(bool isRegister);
     void postNotification_isLogin(bool isLogin);
-  
     void postNotification_isLogOut(bool isLogout);
-    
     void postNotification_sendMessageResult(bool success);
     
 protected:

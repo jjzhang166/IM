@@ -150,7 +150,7 @@ void HXSDKController::postNotification_isLogin(bool isLogin)
 void HXSDKController::postNotification_isLogOut(bool isLogout)
 {
     m_bIsLogin = !isLogout;
-    CANotificationCenter::sharedNotificationCenter()->postNotification(KNOTIFICATION_LOGIN, (CAObject*)isLogout);
+	CANotificationCenter::sharedNotificationCenter()->postNotification(KNOTIFICATION_LOGOUT, (CAObject*)isLogout);
 }
 
 void HXSDKController::postNotification_sendMessageResult(bool success)

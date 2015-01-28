@@ -41,7 +41,7 @@ protected:
 	CATableViewCell*  initViewOfContanct(const CCSize& cellsize);  //通讯录栏
 	CATableViewCell*  initViewOfSetting(const CCSize& cellsize);   //设置栏
 private:
-	CADipSize winSize;  //屏幕大小
+	CCSize winSize;  //屏幕大小
 	CATableView *m_pTableView;  
 	CATableViewCell *cell;  //tableView中的cell
 

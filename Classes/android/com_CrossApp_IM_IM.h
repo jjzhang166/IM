@@ -2,28 +2,58 @@
 #include <jni.h>
 #include <stdio.h>
 #include <stdlib.h>
-//#include <android/log.h>
+#include <android/log.h>
+#include <vector>
 #include "platform/android/jni/JniHelper.h"
 /* Header for class com_CrossApp_IM_IM */
 
 #ifndef _Included_com_CrossApp_IM_IM
 #define _Included_com_CrossApp_IM_IM
-//#define  LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,"",__VA_ARGS__)
+#define  LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,"",__VA_ARGS__)
 USING_NS_CC;
+using namespace std;
 class com_CrossApp_IM_IM
 {
 public:
+	//登录注册类
 	static void init_android();
 	static void login_android(const char* userName, const char* passWord);
 	static void registerAccount_android(const char* userName, const char* passWord);
 	static void logout_android();
+
+	/*好友管理*/
+	//获取好友列表
+	static std::vector<std::string> getContactUserNames_android();
+	//查找好友，SDK不提供好友查找的服务, 如需要查找好友, 需要调用开发者自己服务器的用户查询接口
+	//为了保证查找到的好友可以添加, 需要将用户自己服务器的用户数据库, 通过SDK的后台接口导入到SDK服务器中
+	static bool findFriends_android(const char* friendsname);
+	//添加好友
+	static void addContact_anroid(const char* toAddUsername, const char* reason);
+	//删除好友
+	static void deleteContact_android(const char* username);
+	//同意好友请求
+	static void acceptInvitation_android(const char* username);
+	//拒绝好友请求
+	static void refuseInvitation_android(const char* username);
+	//监听好友请求
+	static void setContactListener_android();
+	//监听好友状态事件
+	static void setContactStatus_android();
+	//获取黑名单
+	static std::vector<string> getBlackListUsernames_android();
+	//把用户添加到黑名单
+	static void addUserToBlackList_android(const char* username, bool isboth);
+	//把用户从黑名单移除
+	static void deleteUserFromBlackList_android(const char* username);
+
 };
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 	JNIEXPORT void JNICALL Java_com_CrossApp_IM_IMINIT_isLogin(JNIEnv *env, jclass thiz, jboolean login);
-	JNIEXPORT void JNICALL Java_com_CrossApp_IM_IMINIT_isRegister(JNIEnv *env, jclass thiz, jboolean register);
+	JNIEXPORT void JNICALL Java_com_CrossApp_IM_IMINIT_isRegister(JNIEnv *env, jclass thiz, jboolean Register);
+	JNIEXPORT void JNICALL Java_com_CrossApp_IM_IMINIT_isLogout(JNIEnv *env, jclass thiz, jboolean logout);
 #ifdef __cplusplus
 }
 #endif
