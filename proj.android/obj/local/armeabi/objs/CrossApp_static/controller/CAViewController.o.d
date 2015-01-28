@@ -96,6 +96,7 @@ obj/local/armeabi/objs/CrossApp_static/controller/CAViewController.o: \
  D:/CrossApp/CrossApp/basics/CAScheduler.h \
  D:/CrossApp/CrossApp/view/CAWindow.h \
  D:/CrossApp/CrossApp/controller/CAViewController.h \
+ D:/CrossApp/CrossApp/view/CAScale9ImageView.h \
  D:/CrossApp/CrossApp/dispatcher/CATouchDispatcher.h \
  D:/CrossApp/CrossApp/cocoa/CCSet.h
 
@@ -296,6 +297,8 @@ D:/CrossApp/CrossApp/basics/CAScheduler.h:
 D:/CrossApp/CrossApp/view/CAWindow.h:
 
 D:/CrossApp/CrossApp/controller/CAViewController.h:
+
+D:/CrossApp/CrossApp/view/CAScale9ImageView.h:
 
 D:/CrossApp/CrossApp/dispatcher/CATouchDispatcher.h:
 

@@ -72,14 +72,17 @@ obj/local/armeabi/objs/CrossApp_static/control/CABar.o: \
  E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/algorithm \
  D:/CrossApp/CrossApp/view/CAScale9ImageView.h \
  D:/CrossApp/CrossApp/view/CAImageView.h \
- D:/CrossApp/CrossApp/view/CAView.h \
+ D:/CrossApp/CrossApp/view/CAView.h D:/CrossApp/CrossApp/view/CALabel.h \
+ D:/CrossApp/CrossApp/view/CAScrollView.h \
+ D:/CrossApp/CrossApp/view/CAPullToRefreshView.h \
+ D:/CrossApp/CrossApp/view/CAActivityIndicatorView.h \
+ D:/CrossApp/CrossApp/view/CALabel.h \
  D:/CrossApp/CrossApp/basics/CAApplication.h \
  D:/CrossApp/CrossApp/basics/CAGeometry.h \
  D:/CrossApp/CrossApp/kazmath/include/kazmath/mat4.h \
  D:/CrossApp/CrossApp/ccTypeInfo.h \
  D:/CrossApp/CrossApp/platform/CCPlatformMacros.h \
  E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/typeinfo \
- D:/CrossApp/CrossApp/view/CALabel.h \
  D:/CrossApp/CrossApp/support/CCPointExtension.h \
  D:/CrossApp/CrossApp/actions/CCActionInstant.h \
  D:/CrossApp/CrossApp/actions/CCAction.h \
@@ -237,6 +240,16 @@ D:/CrossApp/CrossApp/view/CAImageView.h:
 
 D:/CrossApp/CrossApp/view/CAView.h:
 
+D:/CrossApp/CrossApp/view/CALabel.h:
+
+D:/CrossApp/CrossApp/view/CAScrollView.h:
+
+D:/CrossApp/CrossApp/view/CAPullToRefreshView.h:
+
+D:/CrossApp/CrossApp/view/CAActivityIndicatorView.h:
+
+D:/CrossApp/CrossApp/view/CALabel.h:
+
 D:/CrossApp/CrossApp/basics/CAApplication.h:
 
 D:/CrossApp/CrossApp/basics/CAGeometry.h:
@@ -248,8 +261,6 @@ D:/CrossApp/CrossApp/ccTypeInfo.h:
 D:/CrossApp/CrossApp/platform/CCPlatformMacros.h:
 
 E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/typeinfo:
-
-D:/CrossApp/CrossApp/view/CALabel.h:
 
 D:/CrossApp/CrossApp/support/CCPointExtension.h:
 

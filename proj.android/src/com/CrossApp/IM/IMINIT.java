@@ -31,6 +31,7 @@ public class IMINIT{
 	         // 调用sdk注册方法
 	        EMChatManager.getInstance().createAccountOnServer(userName, password);
 	        isRegister(true);
+	        Log.d("main"," 注册成功");
 	      } catch (final Exception e) {
 	    	  Log.d("main","注册失败");
 	    	  isRegister(false);
@@ -60,6 +61,7 @@ public class IMINIT{
 	}
 	private static native void isLogin(boolean islogin);
 	private static native void isRegister(boolean isregister);
+	private static native void isLogout(boolean islogout);
 	
 	//退出
 	public static void logout_android(){
@@ -70,7 +72,7 @@ public class IMINIT{
 			public void onSuccess() {
 				// TODO Auto-generated method stub
 				Log.d("main","退出服务器成功");
-				isLogin(false);
+				isLogout(true);
 			}
 			@Override
 			public void onProgress(int progress,String status){
@@ -79,7 +81,7 @@ public class IMINIT{
 			@Override
 			public void onError(int code,String message){
 				Log.d("main","退出聊天服务器失败");
-				isLogin(true);
+				isLogout(false);
 			}
 			
 		});

@@ -25,6 +25,7 @@ obj/local/armeabi/objs/CrossApp_cpp_shared/__/__/Classes/android/com_CrossApp_IM
  E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/alloca.h \
  E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/strings.h \
  E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/memory.h \
+ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/android/log.h \
  D:/CrossApp/CrossApp/platform/android/jni/JniHelper.h \
  E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/string \
  D:/CrossApp/CrossApp/platform/CCPlatformMacros.h \
@@ -32,7 +33,6 @@ obj/local/armeabi/objs/CrossApp_cpp_shared/__/__/Classes/android/com_CrossApp_IM
  D:/CrossApp/CrossApp/platform/CCPlatformConfig.h \
  D:/CrossApp/CrossApp/platform/CCPlatformConfig.h \
  D:/CrossApp/CrossApp/platform/android/CCPlatformDefine.h \
- E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/android/log.h \
  jni/../../Classes/HXSDKController.h \
  E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/iostream \
  D:/CrossApp/CrossApp/CrossApp.h D:/CrossApp/CrossApp/ccConfig.h \
@@ -313,6 +313,8 @@ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/strings.h:
 
 E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/memory.h:
 
+E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/android/log.h:
+
 D:/CrossApp/CrossApp/platform/android/jni/JniHelper.h:
 
 E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/string:
@@ -326,8 +328,6 @@ D:/CrossApp/CrossApp/platform/CCPlatformConfig.h:
 D:/CrossApp/CrossApp/platform/CCPlatformConfig.h:
 
 D:/CrossApp/CrossApp/platform/android/CCPlatformDefine.h:
-
-E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/android/log.h:
 
 jni/../../Classes/HXSDKController.h:
 
