@@ -127,7 +127,7 @@ void HXSDKController::sendAddFriend(const char* accountName, const char* message
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     HXSDKControllerIOS::sendAddFriend_ios(accountName, message);
-    
+  
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     
     
@@ -141,9 +141,46 @@ std::vector<HXSDKBuddy*> HXSDKController::getFriendsList()
     
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     
-    
+
 #endif
     return m_vFriendList;
+}
+
+std::vector<HXSDKGroup*> HXSDKController::getPublicGroupList()
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    HXSDKControllerIOS::getPublicGroup_ios();
+
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    
+    
+#endif
+    
+    CCLog("获取公开群.%lu 个",m_vPublicGroupList.size());
+    return m_vPublicGroupList;
+}
+void HXSDKController:: createGroup(HXSDKGroupStyle groupType,const char* gName,const char* gDescription)
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    HXSDKControllerIOS::createGroup_ios(groupType, gName, gDescription);
+    
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    
+#endif
+
+}
+
+std::vector<HXSDKGroup*> HXSDKController:: getMyGroupList()
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    HXSDKControllerIOS::getMyGroup_ios();
+
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    
+#endif
+    
+    CCLog("获取我的群.%lu 个",m_vMyGroupList.size());
+    return m_vMyGroupList;
 }
 
 bool HXSDKController::isLogin()
@@ -169,6 +206,46 @@ void HXSDKController::pushFriendsDetail(std::string userName, HXSDKBuddyFollowSt
     sdkBuddy->m_bIsPendingApproval = isPendingApproval;
     
     m_vFriendList.push_back(sdkBuddy);
+}
+
+void HXSDKController::cleanGroupList()
+{
+    std::vector<HXSDKGroup*>::iterator itr = m_vPublicGroupList.begin();
+    for(; itr != m_vPublicGroupList.end(); ++itr)
+    {
+        CC_SAFE_DELETE(*itr);
+    }
+}
+
+void HXSDKController::pushGroupsDetail(std::string groupID,std::string groupSub, std::string groupDes,int groupOccupantsCount)
+{
+    HXSDKGroup* sdkGroup = new HXSDKGroup();
+    sdkGroup->m_sGroupId = groupID;
+    sdkGroup->m_sGroupSubject = groupSub;
+    sdkGroup->m_sGroupDescription = groupDes;
+    sdkGroup->m_iGroupOccupantsCount = groupOccupantsCount;
+    
+    m_vPublicGroupList.push_back(sdkGroup);
+}
+
+void HXSDKController::cleanMyGroupList()
+{
+    std::vector<HXSDKGroup*>::iterator itr = m_vMyGroupList.begin();
+    for(; itr != m_vMyGroupList.end(); ++itr)
+    {
+        CC_SAFE_DELETE(*itr);
+    }
+}
+
+void HXSDKController::pushMyGroupsDetail(std::string groupID, std::string groupSub, std::string groupDes, int groupOccupantsCount)
+{
+    HXSDKGroup* sdkGroup = new HXSDKGroup();
+    sdkGroup->m_sGroupId = groupID;
+    sdkGroup->m_sGroupSubject = groupSub;
+    sdkGroup->m_sGroupDescription = groupDes;
+    sdkGroup->m_iGroupOccupantsCount = groupOccupantsCount;
+    
+    m_vMyGroupList.push_back(sdkGroup);
 }
 
 /***************************************NotificationCenter*******************************************/

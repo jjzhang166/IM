@@ -44,6 +44,15 @@ public:
     /*get friends list*/
     std::vector<HXSDKBuddy*> getFriendsList();
     
+    /*获取公开群*/
+    std::vector<HXSDKGroup*> getPublicGroupList();
+    /*创建群*/
+    void createGroup(HXSDKGroupStyle groupType,const char* gName,const char* gDescription);
+    /*获取已加入的群*/
+    std::vector<HXSDKGroup*> getMyGroupList();
+    
+   
+    
     bool isLogin();
     
     
@@ -61,12 +70,20 @@ public:
     
     void pushFriendsDetail(std::string userName, HXSDKBuddyFollowState eHXSDKEMBuddyFollowState, bool isPendingApproval);
     
+    void cleanGroupList();
+    // id, 群主题(名称) ,群描述 , 群成员,
+    void pushGroupsDetail(std::string groupID,std::string groupSub, std::string groupDes,int groupOccupantsCount);
+    
+    void cleanMyGroupList();
+    void pushMyGroupsDetail(std::string groupID,std::string groupSub, std::string groupDes,int groupOccupantsCount);
 protected:
     std::string     m_sUserName;
     std::string     m_sUserPassword;
     bool            m_bIsLogin;
     
     std::vector<HXSDKBuddy*> m_vFriendList;
+    std::vector<HXSDKGroup*> m_vPublicGroupList;
+    std::vector<HXSDKGroup*> m_vMyGroupList;
     
 };
 #endif /* defined(__HelloCpp__HXSDKController__) */

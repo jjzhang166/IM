@@ -11,7 +11,7 @@
 
 #include <iostream>
 #include "CrossApp.h"
-
+#include "HXSDKBuddy.h"
 
 class HXSDKControllerIOS
 {
@@ -45,8 +45,7 @@ public:
 
     //删除 用户名 , 是否将自己从对方列表中删除.
     static void deleteContact_ios(const char* userName,bool removeSelf);
-    // 查看公开群
-    static void seePublicGroup_ios();
+ 
     // 加入不需要验证的群
     static void joinNoNeedCheckGroup_ios(const char* groupID);
     // 加入需要验证的群组
@@ -56,8 +55,12 @@ public:
     //解散群组（需要有群主权限）
     static void destoryGroup_ios(const char* groupID);
     
-
-    
+    // 查看公开群
+    static void getPublicGroup_ios();
+    // 创建群
+    static void createGroup_ios(HXSDKGroupStyle groupType,const char* gName,const char* gDescription);
+    // 查看我加入的群
+    static void getMyGroup_ios();
 protected:
     
 };

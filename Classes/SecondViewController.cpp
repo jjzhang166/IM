@@ -83,7 +83,23 @@ void SecondViewController::viewDidLoad()
     getFriendsListBtn->setTitleForState(CAControlStateAll, "getFrendsList") ;
     getFriendsListBtn->addTarget(this, CAControl_selector(SecondViewController::onButtonGetFriends), CAControlEventTouchUpInSide);
     this->getView()->addSubview(getFriendsListBtn);
+    
+    
+    CAButton * createGroupBtn = CAButton::createWithFrame(CCRect(100, 500, 500, 50), CAButtonTypeRoundedRect);
+    createGroupBtn->setTitleForState(CAControlStateAll, "创建群组") ;
+    createGroupBtn->addTarget(this, CAControl_selector(SecondViewController::onButtonCreateGroup), CAControlEventTouchUpInSide);
+    this->getView()->addSubview(createGroupBtn);
+    
+    CAButton * getGroupListBtn = CAButton::createWithFrame(CCRect(100, 600, 500, 50), CAButtonTypeRoundedRect);
+    getGroupListBtn->setTitleForState(CAControlStateAll, "获取公开群") ;
+    getGroupListBtn->addTarget(this, CAControl_selector(SecondViewController::onButtonGetGroups), CAControlEventTouchUpInSide);
+    this->getView()->addSubview(getGroupListBtn);
 
+    CAButton * getMyGroupListBtn = CAButton::createWithFrame(CCRect(100, 700, 500, 50), CAButtonTypeRoundedRect);
+    getMyGroupListBtn->setTitleForState(CAControlStateAll, "获取我所在的群") ;
+    getMyGroupListBtn->addTarget(this, CAControl_selector(SecondViewController::onButtonGetMyGroups), CAControlEventTouchUpInSide);
+    this->getView()->addSubview(getMyGroupListBtn);
+    
 }
 
 void SecondViewController::viewDidAppear()
@@ -137,3 +153,20 @@ void SecondViewController::onButtonGetFriends(CrossApp::CAControl *control, Cros
     HXSDKController::getInstance()->getFriendsList();
 }
 
+void SecondViewController:: onButtonGetGroups(CrossApp::CAControl *control, CrossApp::CCPoint point)
+{
+    
+    HXSDKController::getInstance()->getPublicGroupList();
+}
+
+void SecondViewController:: onButtonCreateGroup(CrossApp::CAControl *control, CrossApp::CCPoint point)
+{
+    HXSDKController ::getInstance()->createGroup(eHXSDKGroupStyle_PublicOpenJoin, UTF8("傻逼群组"), UTF8("傻逼描述"));
+    
+}
+
+
+void SecondViewController::onButtonGetMyGroups(CrossApp::CAControl *control, CrossApp::CCPoint point)
+{
+    HXSDKController::getInstance()->getMyGroupList()    ;
+}

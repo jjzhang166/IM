@@ -224,8 +224,6 @@ void HXSDKControllerIOS::acceptContact_ios(const char* toUserName)
     }
 }
 
-
-
 void HXSDKControllerIOS::refuseContact_ios(const char*toUserName,const char* reason)
 {
     NSString* str_user = [[NSString alloc]initWithCString:(const char *) toUserName encoding:NSASCIIStringEncoding];
@@ -237,8 +235,6 @@ void HXSDKControllerIOS::refuseContact_ios(const char*toUserName,const char* rea
     }
 }
 
-
-
 void HXSDKControllerIOS::deleteContact_ios(const char *userName,bool removeSelf)
 {
     NSString * str_name = [[NSString alloc]initWithCString:(const char *) userName encoding:NSASCIIStringEncoding];
@@ -248,12 +244,6 @@ void HXSDKControllerIOS::deleteContact_ios(const char *userName,bool removeSelf)
     if (isSuccess && !error) {
         NSLog(@"删除成功");
     }
-}
-
-void HXSDKControllerIOS:: seePublicGroup_ios()
-{
-
-    
 }
 
 void HXSDKControllerIOS:: joinNoNeedCheckGroup_ios(const char *groupID)
@@ -302,10 +292,109 @@ void HXSDKControllerIOS:: destoryGroup_ios(const char *groupID)
 
 }
 
+void HXSDKControllerIOS:: getPublicGroup_ios()
+{
+    EMError *error = nil;
+    NSArray *publicGroupList = [[EaseMob sharedInstance].chatManager fetchAllPublicGroupsWithError:&error];
+    if (!error) {
+        NSLog(@"获取成功 -- %d", publicGroupList.count);
+        
+        for (int i = 0; i<publicGroupList.count; i++) {
+
+            EMGroup * emGroup = publicGroupList[i];
+            std::string gID ;
+            std::string gSub;
+            std::string gDes;
+            if (emGroup.groupId) {
+               gID = [emGroup.groupId UTF8String];
+            }
+            if (emGroup.groupSubject) {
+                gSub = [emGroup.groupSubject UTF8String];
+            }
+            if (emGroup.groupDescription) {
+               gDes = [emGroup.groupDescription UTF8String];
+            }
+            int gOccupantsCount = emGroup.groupOccupantsCount;
+            
+            HXSDKController::getInstance()->pushGroupsDetail(gID, gSub, gDes, gOccupantsCount);
+        }
+        
+        
+    }
+    
+    // block 异步同样无法获取 群描述 属性,
+//    [[EaseMob sharedInstance].chatManager asyncFetchAllPublicGroupsWithCompletion:^(NSArray *groups, EMError *error) {
+//        if (!error) {
+//            NSLog(@"获取成功 -- %@",groups);
+//        }
+//    } onQueue:nil];
+}
+
+void HXSDKControllerIOS:: createGroup_ios(HXSDKGroupStyle groupType,const char* gName,const char* gDescription)
+{
+    EMError *error = nil;
+    EMGroupStyleSetting *groupStyleSetting = [[EMGroupStyleSetting alloc] init];
+    
+    switch (groupType) {
+        case eGroupStyle_PrivateOnlyOwnerInvite:
+            groupStyleSetting.groupStyle = eGroupStyle_PrivateOnlyOwnerInvite; // 创建不同类型的群组，这里需要才传入不同的类型
+            break;
+        case eGroupStyle_PublicAnonymous:
+            groupStyleSetting.groupStyle = eGroupStyle_PublicAnonymous;
+            break;
+        case eGroupStyle_PublicOpenJoin:
+            groupStyleSetting.groupStyle = eGroupStyle_PublicOpenJoin;
+            break;
+        case eGroupStyle_PublicJoinNeedApproval:
+            groupStyleSetting.groupStyle = eGroupStyle_PublicJoinNeedApproval;
+            break;
+            
+        case eGroupStyle_PrivateMemberCanInvite:
+            groupStyleSetting.groupStyle = eGroupStyle_PrivateMemberCanInvite;
+            break;
+
+        default:
+            break;
+        }
+   
+    NSString*  str_gName = [[NSString alloc]initWithCString:(const char *) gName encoding:NSUTF8StringEncoding];
+    NSString* str_gDes = [[NSString alloc]initWithCString:(const char *) gDescription encoding:NSUTF8StringEncoding];
+    EMGroup *group = [[EaseMob sharedInstance].chatManager createGroupWithSubject:str_gName description:str_gDes invitees:nil initialWelcomeMessage:nil styleSetting:groupStyleSetting error:&error];
+    if(!error){
+        NSLog(@"创建成功 -- %@",group);
+    }
+}
 
 
+void HXSDKControllerIOS::getMyGroup_ios()
+{
+    EMError *error = nil;
+    NSArray *myGroups = [[EaseMob sharedInstance].chatManager fetchMyGroupsListWithError:&error];
+    if (!error) {
+        NSLog(@"获取成功 -- %d",myGroups.count);
+        for (int i = 0; i<myGroups.count; i++) {
 
+            EMGroup * emGroup = myGroups[i];
+            std::string gID ;
+            std::string gSub;
+            std::string gDes;
+            if (emGroup.groupId) {
+                gID = [emGroup.groupId UTF8String];
+            }
+            if (emGroup.groupSubject) {
+                gSub = [emGroup.groupSubject UTF8String];
+            }
+            if (emGroup.groupDescription) {
+                gDes = [emGroup.groupDescription UTF8String];
+            }
+            int gOccupantsCount = emGroup.groupOccupantsCount;
+            
+            HXSDKController::getInstance()->pushMyGroupsDetail(gID, gSub, gDes, gOccupantsCount);
+        }
+        
 
+    }
+}
 
 
 

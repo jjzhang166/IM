@@ -41,6 +41,9 @@ protected:
     void onButtonLogOff(CAControl* control, CCPoint point);
     void onButtonSendText(CAControl* control, CCPoint point);
     void onButtonGetFriends(CAControl *control, CCPoint point);
+    void onButtonGetGroups(CAControl *control, CCPoint point);
+    void onButtonCreateGroup(CAControl *control, CCPoint point);
+    void onButtonGetMyGroups(CAControl *control, CCPoint point);
 };
 
 
