@@ -1,4 +1,4 @@
-//
+﻿//
 //  FirstViewController.cpp
 //  IM
 //
@@ -10,7 +10,6 @@
 #include "IMDATA.h"
 #include "IMLoginRegister.h"
 #include "RootWindow.h"
-#include "HXSDKController.h"
 
 FirstViewController::FirstViewController()
 :m_pNavigationBarItem(NULL)
@@ -29,11 +28,6 @@ FirstViewController::~FirstViewController()
 
 bool FirstViewController::init()
 {
-	//HXSDKController::getInstance()->Login("chinahypo", "8244587");
-	//if (HXSDKController::getInstance()->isLogin())
-	//{
-	//	text = "qqqq";
-	//}
     if(CAViewController::init())
     {
         /*
@@ -101,7 +95,7 @@ void FirstViewController::viewDidLoad()
     label->setTextAlignment(CATextAlignmentCenter);
     label->setVerticalTextAlignmet(CAVerticalTextAlignmentCenter);
     label->setFontSize(72 * CROSSAPP_ADPTATION_RATIO);
-    label->setText(text);
+    label->setText("FirstViewController");
     label->setColor(CAColor_white);
     this->getView()->insertSubview(label, 1);
 }

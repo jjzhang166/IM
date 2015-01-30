@@ -36,7 +36,9 @@ protected:
 	virtual bool onTextFieldDeleteBackward(CATextField * sender, const char * delText, int nLen);
 public:
 	void onButtonLogin(CAControl *pTarget, CCPoint point);  //用户登录
+	void onLoginSuccess(CAObject* obj); //用户登录成功跳转函数
 	void onButtonRegister(CAControl *pTarget, CCPoint point); //用户注册
+	void onRegisterSuccess(CAObject* obj); //用户注册成功跳转函数
 	void onButtonCancel(CAControl *pTarget, CCPoint point);  //返回上一级
 	void onButtonMissPassword(CAControl *pTarget, CCPoint point); //忘记密码
 	void onButtonSwitchToRegister(CAControl *pTarget, CCPoint point); //登录界面进入注册界面

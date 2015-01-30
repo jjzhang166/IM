@@ -181,6 +181,9 @@ obj/local/armeabi/objs/CrossApp_cpp_shared/__/__/Classes/HXSDKController.o: \
  D:/CrossApp/CrossApp/view/CAAlertView.h \
  D:/CrossApp/CrossApp/view/CAPickerView.h \
  D:/CrossApp/CrossApp/view/CATableView.h \
+ D:/CrossApp/CrossApp/actions/CCActionInstant.h \
+ D:/CrossApp/CrossApp/actions/CCActionInterval.h \
+ D:/CrossApp/CrossApp/actions/CCActionCamera.h \
  D:/CrossApp/CrossApp/view/CADatePickerView.h \
  D:/CrossApp/CrossApp/view/CAPickerView.h \
  D:/CrossApp/CrossApp/view/CAActivityIndicatorView.h \
@@ -205,8 +208,8 @@ obj/local/armeabi/objs/CrossApp_cpp_shared/__/__/Classes/HXSDKController.o: \
  D:/CrossApp/CrossApp/shaders/ccGLStateCache.h \
  D:/CrossApp/CrossApp/shaders/CAShaderCache.h \
  D:/CrossApp/CrossApp/shaders/ccShaders.h \
- D:/CrossApp/CrossApp/support/ccUTF8.h \
  D:/CrossApp/CrossApp/support/ccUtils.h \
+ D:/CrossApp/CrossApp/support/ccUTF8.h \
  D:/CrossApp/CrossApp/support/CANotificationCenter.h \
  D:/CrossApp/CrossApp/support/CCPointExtension.h \
  D:/CrossApp/CrossApp/support/CCProfiling.h \
@@ -236,10 +239,37 @@ obj/local/armeabi/objs/CrossApp_cpp_shared/__/__/Classes/HXSDKController.o: \
  D:/CrossApp/CrossApp/platform/CCEGLViewProtocol.h \
  D:/CrossApp/CrossApp/platform/android/CCGL.h \
  D:/CrossApp/CrossApp/platform/android/CCStdC.h \
+ jni/../../Classes/HXSDKBuddy.h D:/CrossApp/extensions/CrossAppExt.h \
+ D:/CrossApp/extensions/ExtensionMacros.h \
+ D:/CrossApp/extensions/network/HttpRequest.h \
+ D:/CrossApp/extensions/ExtensionMacros.h \
+ D:/CrossApp/extensions/network/HttpResponse.h \
+ D:/CrossApp/extensions/network/HttpRequest.h \
+ D:/CrossApp/extensions/network/HttpClient.h \
+ D:/CrossApp/extensions/network/HttpResponse.h \
+ D:/CrossApp/extensions/network/DownloadManager.h \
+ D:/CrossApp/extensions/Json/CSContentJsonDictionary.h \
+ D:/CrossApp/extensions/Json/lib_json/json_lib.h \
+ D:/CrossApp/extensions/Json/lib_json/autolink.h \
+ D:/CrossApp/extensions/Json/lib_json/config.h \
+ D:/CrossApp/extensions/Json/lib_json/value.h \
+ D:/CrossApp/extensions/Json/lib_json/forwards.h \
+ D:/CrossApp/extensions/Json/lib_json/reader.h \
+ D:/CrossApp/extensions/Json/lib_json/features.h \
+ E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/stack \
+ D:/CrossApp/extensions/Json/lib_json/writer.h \
+ D:/CrossApp/extensions/Json/DictionaryHelper.h \
+ D:/CrossApp/extensions/sqlite3/include/sqlite3.h \
+ D:/CrossApp/extensions/LocalStorage/LocalStorage.h \
+ D:/CrossApp/extensions/device/CADevice.h \
+ D:/CrossApp/extensions/studio/CAStudioViewController.h \
+ D:/CrossApp/extensions/Json/CSContentJsonDictionary.h \
+ D:/CrossApp/extensions/Json/DictionaryHelper.h \
  jni/../../Classes/IMDATA.h \
  jni/../../Classes/android/com_CrossApp_IM_IM.h \
  E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/jni.h \
- D:/CrossApp/CrossApp/platform/android/jni/JniHelper.h
+ D:/CrossApp/CrossApp/platform/android/jni/JniHelper.h \
+ jni/../../Classes/HXSDKBuddy.h
 
 jni/../../Classes/HXSDKController.h:
 
@@ -617,6 +647,12 @@ D:/CrossApp/CrossApp/view/CAPickerView.h:
 
 D:/CrossApp/CrossApp/view/CATableView.h:
 
+D:/CrossApp/CrossApp/actions/CCActionInstant.h:
+
+D:/CrossApp/CrossApp/actions/CCActionInterval.h:
+
+D:/CrossApp/CrossApp/actions/CCActionCamera.h:
+
 D:/CrossApp/CrossApp/view/CADatePickerView.h:
 
 D:/CrossApp/CrossApp/view/CAPickerView.h:
@@ -669,9 +705,9 @@ D:/CrossApp/CrossApp/shaders/CAShaderCache.h:
 
 D:/CrossApp/CrossApp/shaders/ccShaders.h:
 
-D:/CrossApp/CrossApp/support/ccUTF8.h:
-
 D:/CrossApp/CrossApp/support/ccUtils.h:
+
+D:/CrossApp/CrossApp/support/ccUTF8.h:
 
 D:/CrossApp/CrossApp/support/CANotificationCenter.h:
 
@@ -733,6 +769,60 @@ D:/CrossApp/CrossApp/platform/android/CCGL.h:
 
 D:/CrossApp/CrossApp/platform/android/CCStdC.h:
 
+jni/../../Classes/HXSDKBuddy.h:
+
+D:/CrossApp/extensions/CrossAppExt.h:
+
+D:/CrossApp/extensions/ExtensionMacros.h:
+
+D:/CrossApp/extensions/network/HttpRequest.h:
+
+D:/CrossApp/extensions/ExtensionMacros.h:
+
+D:/CrossApp/extensions/network/HttpResponse.h:
+
+D:/CrossApp/extensions/network/HttpRequest.h:
+
+D:/CrossApp/extensions/network/HttpClient.h:
+
+D:/CrossApp/extensions/network/HttpResponse.h:
+
+D:/CrossApp/extensions/network/DownloadManager.h:
+
+D:/CrossApp/extensions/Json/CSContentJsonDictionary.h:
+
+D:/CrossApp/extensions/Json/lib_json/json_lib.h:
+
+D:/CrossApp/extensions/Json/lib_json/autolink.h:
+
+D:/CrossApp/extensions/Json/lib_json/config.h:
+
+D:/CrossApp/extensions/Json/lib_json/value.h:
+
+D:/CrossApp/extensions/Json/lib_json/forwards.h:
+
+D:/CrossApp/extensions/Json/lib_json/reader.h:
+
+D:/CrossApp/extensions/Json/lib_json/features.h:
+
+E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/stack:
+
+D:/CrossApp/extensions/Json/lib_json/writer.h:
+
+D:/CrossApp/extensions/Json/DictionaryHelper.h:
+
+D:/CrossApp/extensions/sqlite3/include/sqlite3.h:
+
+D:/CrossApp/extensions/LocalStorage/LocalStorage.h:
+
+D:/CrossApp/extensions/device/CADevice.h:
+
+D:/CrossApp/extensions/studio/CAStudioViewController.h:
+
+D:/CrossApp/extensions/Json/CSContentJsonDictionary.h:
+
+D:/CrossApp/extensions/Json/DictionaryHelper.h:
+
 jni/../../Classes/IMDATA.h:
 
 jni/../../Classes/android/com_CrossApp_IM_IM.h:
@@ -740,3 +830,5 @@ jni/../../Classes/android/com_CrossApp_IM_IM.h:
 E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/jni.h:
 
 D:/CrossApp/CrossApp/platform/android/jni/JniHelper.h:
+
+jni/../../Classes/HXSDKBuddy.h:

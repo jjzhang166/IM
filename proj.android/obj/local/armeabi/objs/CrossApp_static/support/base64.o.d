@@ -22,7 +22,13 @@ obj/local/armeabi/objs/CrossApp_static/support/base64.o: \
  E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/alloca.h \
  E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/strings.h \
  E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/memory.h \
- D:/CrossApp/CrossApp/support/base64.h
+ D:/CrossApp/CrossApp/support/base64.h \
+ D:/CrossApp/CrossApp/platform/CCPlatformMacros.h \
+ D:/CrossApp/CrossApp/ccConfig.h \
+ D:/CrossApp/CrossApp/platform/CCPlatformConfig.h \
+ D:/CrossApp/CrossApp/platform/CCPlatformConfig.h \
+ D:/CrossApp/CrossApp/platform/android/CCPlatformDefine.h \
+ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/android/log.h
 
 E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/stdio.h:
 
@@ -69,3 +75,15 @@ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/strings.h:
 E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/memory.h:
 
 D:/CrossApp/CrossApp/support/base64.h:
+
+D:/CrossApp/CrossApp/platform/CCPlatformMacros.h:
+
+D:/CrossApp/CrossApp/ccConfig.h:
+
+D:/CrossApp/CrossApp/platform/CCPlatformConfig.h:
+
+D:/CrossApp/CrossApp/platform/CCPlatformConfig.h:
+
+D:/CrossApp/CrossApp/platform/android/CCPlatformDefine.h:
+
+E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/android/log.h:

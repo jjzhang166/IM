@@ -132,6 +132,7 @@ void IMLoginRegister::loadView()
 	m_pLoginButton->setBackGroundViewForState(CAControlStateAll, CAView::createWithColor(CAColor_green));
 	m_pLoginButton->setTitleForState(CAControlStateAll, UTF8("55555"));
 	m_pLoginButton->setTitleColorForState(CAControlStateAll, CAColor_white);
+	m_pLoginButton->setTag(111);
 
 	//”√ªß◊¢≤·∞¥≈•
 	CCRect regist = CCRect(_px(30), pwdragain.origin.y + pwdragain.size.height + _px(30), winRect.size.width - _px(60), _px(82));
@@ -193,8 +194,35 @@ void IMLoginRegister::onButtonLogin(CAControl *pTarget, CCPoint point)
         CCLog("account password is empty");
         return;
     }
-    
+	//添加观察者模式
+	CANotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(IMLoginRegister::onLoginSuccess), KNOTIFICATION_LOGIN, NULL);
     HXSDKController::getInstance()->Login(accountName.c_str(),accountPassword.c_str());
+}
+// 登录成功回调函数
+void IMLoginRegister::onLoginSuccess(CAObject* obj)
+{
+	bool isloginsuccess = (bool)obj;
+	if (isloginsuccess){
+		
+		std::vector<HXSDKGroup*> p = HXSDKController::getInstance()->getMyGroupList();
+		std::vector<HXSDKGroup*>::iterator itr = p.begin();
+		for (; itr != p.end(); ++itr)
+		{
+			std::string id = (*itr)->m_sGroupId;
+			if (id == "1422510602364")
+			{
+			}
+		}
+		std::vector<char*> name;
+		name.push_back("whb");
+		name.push_back("xxx");
+		HXSDKController::getInstance()->inviteUser("1422601334466", name,"invite");
+	}
+	else{
+		CCLog("denglu shibai");
+	}
+	
+	
 }
 //◊¢≤·
 void IMLoginRegister::onButtonRegister(CAControl *pTarget, CCPoint point)
@@ -223,8 +251,21 @@ void IMLoginRegister::onButtonRegister(CAControl *pTarget, CCPoint point)
         CCLog("account passwordAgain != Password");
         return;
     }
-    
+	//添加注册观察者模式
+	CANotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(IMLoginRegister::onRegisterSuccess), KNOTIFICATION_REGISTER, NULL);
     HXSDKController::getInstance()->RegisterAccount(accountName.c_str(),accountasswordAgain.c_str());
+}
+//注册成功跳转函数
+void IMLoginRegister::onRegisterSuccess(CAObject* obj)
+{
+	bool isregistersuccess = (bool)obj;
+	if (isregistersuccess){
+		//跳转到登录界面
+		
+	}
+	else{
+		
+	}
 }
 //Õ¸º«√‹¬Î
 void IMLoginRegister::onButtonMissPassword(CAControl *pTarget, CCPoint point)
@@ -234,10 +275,10 @@ void IMLoginRegister::onButtonMissPassword(CAControl *pTarget, CCPoint point)
 //µ«¬º∫Õ◊¢≤·÷Æº‰Ã¯◊™
 void IMLoginRegister::onButtonSwitchToRegister(CAControl *pTarget, CCPoint point)
 {
-//	IMLoginRegister *pUser = new IMLoginRegister();
-//	pUser->init(IM_USERREGISTER);
-//	this->getNavigationController()->pushViewController(pUser, true);
-//	pUser->autorelease();
+	//IMLoginRegister *pUser = new IMLoginRegister();
+	//pUser->init(IM_USERREGISTER);
+	//this->getNavigationController()->pushViewController(pUser, true);
+	//pUser->autorelease();
 }
 void IMLoginRegister::onButtonSwitchToLogin(CAControl *pTarget, CCPoint point)
 {

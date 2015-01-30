@@ -1,9 +1,5 @@
 
 package com.CrossApp.IM;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import android.app.Activity;
 
 import android.content.Context;
@@ -11,19 +7,12 @@ import android.content.Context;
 import org.CrossApp.lib.Cocos2dxActivity;
 import org.CrossApp.lib.Cocos2dxGLSurfaceView;
 
-import com.easemob.EMCallBack;
-import com.easemob.chat.EMChat;
-import com.easemob.chat.EMChatManager;
-import com.easemob.chat.EMChatOptions;
-import com.easemob.chat.EMGroupManager;
+
 
 import android.os.Bundle;
 import android.util.Log;
 
 public class IM extends Cocos2dxActivity{
-
-	
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub

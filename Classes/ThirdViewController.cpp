@@ -9,7 +9,7 @@
 #include "ThirdViewController.h"
 #include "IMDATA.h"
 #include "RootWindow.h"
-#include "GroupInfoViewController.h"
+//#include "GroupInfoViewController.h"
 
 ThirdViewController::ThirdViewController()
 {

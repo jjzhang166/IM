@@ -1,10 +1,66 @@
-﻿生成启动时间为 2015/1/20 21:22:45。
+﻿生成启动时间为 2015/1/29 12:13:57。
      1>项目“D:\CrossApp\projects\IM\proj.win32\IM.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
-         D:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ID:\CrossApp\projects\IM\proj.win32\..\..\..\CrossApp /ID:\CrossApp\projects\IM\proj.win32\..\..\..\CrossApp\kazmath\include /ID:\CrossApp\projects\IM\proj.win32\..\..\..\CrossApp\platform\win32 /ID:\CrossApp\projects\IM\proj.win32\..\..\..\CrossApp\platform\third_party\win32 /ID:\CrossApp\projects\IM\proj.win32\..\..\..\CrossApp\platform\third_party\win32\pthread /ID:\CrossApp\projects\IM\proj.win32\..\..\..\CrossApp\platform\third_party\win32\OGLES /ID:\CrossApp\projects\IM\proj.win32\..\..\..\CrossApp\platform\third_party\win32\freetype /ID:\CrossApp\projects\IM\proj.win32\..\..\..\external /ID:\CrossApp\projects\IM\proj.win32\..\..\..\CocosDenshion\include /ID:\CrossApp\projects\IM\proj.win32\..\..\..\extensions /I..\Classes /I.. /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USE_MATH_DEFINES /D GL_GLEXT_PROTOTYPES /D CC_ENABLE_CHIPMUNK_INTEGRATION=1 /D COCOS2D_DEBUG=1 /D _CRT_SECURE_NO_WARNINGS /D _SCL_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug.win32\\" /Fd"Debug.win32\vc120.pdb" /Gd /TP /wd4267 /wd4251 /wd4244 /analyze- /errorReport:prompt ..\Classes\FirstViewController.cpp ..\Classes\HXSDKController.cpp ..\Classes\android\com_CrossApp_IM_IM.cpp
+         D:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ID:\CrossApp\projects\IM\proj.win32\..\..\..\CrossApp /ID:\CrossApp\projects\IM\proj.win32\..\..\..\CrossApp\kazmath\include /ID:\CrossApp\projects\IM\proj.win32\..\..\..\CrossApp\platform\win32 /ID:\CrossApp\projects\IM\proj.win32\..\..\..\CrossApp\platform\third_party\win32 /ID:\CrossApp\projects\IM\proj.win32\..\..\..\CrossApp\platform\third_party\win32\pthread /ID:\CrossApp\projects\IM\proj.win32\..\..\..\CrossApp\platform\third_party\win32\OGLES /ID:\CrossApp\projects\IM\proj.win32\..\..\..\CrossApp\platform\third_party\win32\freetype /ID:\CrossApp\projects\IM\proj.win32\..\..\..\external /ID:\CrossApp\projects\IM\proj.win32\..\..\..\CocosDenshion\include /ID:\CrossApp\projects\IM\proj.win32\..\..\..\extensions /I..\Classes /I.. /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USE_MATH_DEFINES /D GL_GLEXT_PROTOTYPES /D CC_ENABLE_CHIPMUNK_INTEGRATION=1 /D COCOS2D_DEBUG=1 /D _CRT_SECURE_NO_WARNINGS /D _SCL_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug.win32\\" /Fd"Debug.win32\vc120.pdb" /Gd /TP /wd4267 /wd4251 /wd4244 /analyze- /errorReport:prompt ..\Classes\HXSDKController.cpp ..\Classes\SecondViewController.cpp ..\Classes\android\com_CrossApp_IM_IM.cpp
          com_CrossApp_IM_IM.cpp
-     1>d:\crossapp\projects\im\classes\android\com_crossapp_im_im.h(5): fatal error C1083: 无法打开包括文件: “android/log.h”: No such file or directory
+     1>d:\crossapp\crossapp\dispatcher\catouch.h(20): warning C4305: “参数”: 从“unsigned int”到“float”截断
+     1>d:\crossapp\crossapp\dispatcher\catouch.h(21): warning C4305: “参数”: 从“unsigned int”到“float”截断
+     1>d:\crossapp\crossapp\dispatcher\catouch.h(22): warning C4305: “参数”: 从“unsigned int”到“float”截断
+     1>d:\crossapp\crossapp\control\casegmentedcontrol.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>d:\crossapp\crossapp\control\caslider.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>d:\crossapp\crossapp\support\ccutf8.h(213): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\crossapp\crossapp\control\capagecontrol.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>d:\crossapp\crossapp\control\castepper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>d:\crossapp\crossapp\controller\caviewcontroller.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>d:\crossapp\crossapp\view\capageview.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>d:\crossapp\crossapp\view\capulltorefreshview.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>d:\crossapp\crossapp\view\caactivityindicatorview.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>d:\crossapp\crossapp\controller\cadrawercontroller.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>d:\crossapp\crossapp\view\cadatepickerview.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>d:\crossapp\crossapp\view\cadatepickerview.h(33): warning C4275: 非 dll 接口 class“CrossApp::CAPickerViewDataSource”用作 dll 接口 class“CrossApp::CADatePickerView”的基
+                 d:\crossapp\crossapp\view\capickerview.h(27) : 参见“CrossApp::CAPickerViewDataSource”的声明
+                 d:\crossapp\crossapp\view\cadatepickerview.h(33) : 参见“CrossApp::CADatePickerView”的声明
+     1>d:\crossapp\crossapp\view\cadatepickerview.h(33): warning C4275: 非 dll 接口 class“CrossApp::CAPickerViewDelegate”用作 dll 接口 class“CrossApp::CADatePickerView”的基
+                 d:\crossapp\crossapp\view\capickerview.h(21) : 参见“CrossApp::CAPickerViewDelegate”的声明
+                 d:\crossapp\crossapp\view\cadatepickerview.h(33) : 参见“CrossApp::CADatePickerView”的声明
+     1>d:\crossapp\crossapp\cocoa\cacalendar.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>d:\crossapp\projects\im\classes\android\com_crossapp_im_im.cpp(19): warning C4800: “jboolean”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>d:\crossapp\projects\im\classes\android\com_crossapp_im_im.cpp(25): warning C4800: “jboolean”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>d:\crossapp\projects\im\classes\android\com_crossapp_im_im.cpp(31): warning C4800: “jboolean”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>d:\crossapp\projects\im\classes\android\com_crossapp_im_im.cpp(41): error C2065: “ANDROID_LOG_DEBUG”: 未声明的标识符
+     1>d:\crossapp\projects\im\classes\android\com_crossapp_im_im.cpp(41): error C3861: “__android_log_print”:  找不到标识符
+     1>d:\crossapp\projects\im\classes\android\com_crossapp_im_im.cpp(67): error C2065: “ANDROID_LOG_DEBUG”: 未声明的标识符
+     1>d:\crossapp\projects\im\classes\android\com_crossapp_im_im.cpp(67): error C3861: “__android_log_print”:  找不到标识符
+     1>d:\crossapp\projects\im\classes\android\com_crossapp_im_im.cpp(88): error C2065: “ANDROID_LOG_DEBUG”: 未声明的标识符
+     1>d:\crossapp\projects\im\classes\android\com_crossapp_im_im.cpp(88): error C3861: “__android_log_print”:  找不到标识符
+     1>d:\crossapp\projects\im\classes\android\com_crossapp_im_im.cpp(152): warning C4800: “jboolean”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>d:\crossapp\projects\im\classes\android\com_crossapp_im_im.cpp(158): error C2065: “ANDROID_LOG_DEBUG”: 未声明的标识符
+     1>d:\crossapp\projects\im\classes\android\com_crossapp_im_im.cpp(158): error C3861: “__android_log_print”:  找不到标识符
+         SecondViewController.cpp
+     1>d:\crossapp\projects\im\classes\secondviewcontroller.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>d:\crossapp\crossapp\dispatcher\catouch.h(20): warning C4305: “参数”: 从“unsigned int”到“float”截断
+     1>d:\crossapp\crossapp\dispatcher\catouch.h(21): warning C4305: “参数”: 从“unsigned int”到“float”截断
+     1>d:\crossapp\crossapp\dispatcher\catouch.h(22): warning C4305: “参数”: 从“unsigned int”到“float”截断
+     1>d:\crossapp\crossapp\control\casegmentedcontrol.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>d:\crossapp\crossapp\control\caslider.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>d:\crossapp\crossapp\support\ccutf8.h(213): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\crossapp\crossapp\control\capagecontrol.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>d:\crossapp\crossapp\control\castepper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>d:\crossapp\crossapp\controller\caviewcontroller.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>d:\crossapp\crossapp\view\capageview.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>d:\crossapp\crossapp\view\capulltorefreshview.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>d:\crossapp\crossapp\view\caactivityindicatorview.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>d:\crossapp\crossapp\controller\cadrawercontroller.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>d:\crossapp\crossapp\view\cadatepickerview.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>d:\crossapp\crossapp\view\cadatepickerview.h(33): warning C4275: 非 dll 接口 class“CrossApp::CAPickerViewDataSource”用作 dll 接口 class“CrossApp::CADatePickerView”的基
+                 d:\crossapp\crossapp\view\capickerview.h(27) : 参见“CrossApp::CAPickerViewDataSource”的声明
+                 d:\crossapp\crossapp\view\cadatepickerview.h(33) : 参见“CrossApp::CADatePickerView”的声明
+     1>d:\crossapp\crossapp\view\cadatepickerview.h(33): warning C4275: 非 dll 接口 class“CrossApp::CAPickerViewDelegate”用作 dll 接口 class“CrossApp::CADatePickerView”的基
+                 d:\crossapp\crossapp\view\capickerview.h(21) : 参见“CrossApp::CAPickerViewDelegate”的声明
+                 d:\crossapp\crossapp\view\cadatepickerview.h(33) : 参见“CrossApp::CADatePickerView”的声明
+     1>d:\crossapp\crossapp\cocoa\cacalendar.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
          HXSDKController.cpp
+     1>d:\crossapp\projects\im\classes\hxsdkcontroller.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
      1>d:\crossapp\crossapp\dispatcher\catouch.h(20): warning C4305: “参数”: 从“unsigned int”到“float”截断
      1>d:\crossapp\crossapp\dispatcher\catouch.h(21): warning C4305: “参数”: 从“unsigned int”到“float”截断
      1>d:\crossapp\crossapp\dispatcher\catouch.h(22): warning C4305: “参数”: 从“unsigned int”到“float”截断
@@ -18,31 +74,17 @@
      1>d:\crossapp\crossapp\view\capulltorefreshview.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
      1>d:\crossapp\crossapp\view\caactivityindicatorview.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
      1>d:\crossapp\crossapp\controller\cadrawercontroller.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-     1>d:\crossapp\crossapp\view\capickerview.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
      1>d:\crossapp\crossapp\view\cadatepickerview.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>d:\crossapp\crossapp\view\cadatepickerview.h(33): warning C4275: 非 dll 接口 class“CrossApp::CAPickerViewDataSource”用作 dll 接口 class“CrossApp::CADatePickerView”的基
+                 d:\crossapp\crossapp\view\capickerview.h(27) : 参见“CrossApp::CAPickerViewDataSource”的声明
+                 d:\crossapp\crossapp\view\cadatepickerview.h(33) : 参见“CrossApp::CADatePickerView”的声明
+     1>d:\crossapp\crossapp\view\cadatepickerview.h(33): warning C4275: 非 dll 接口 class“CrossApp::CAPickerViewDelegate”用作 dll 接口 class“CrossApp::CADatePickerView”的基
+                 d:\crossapp\crossapp\view\capickerview.h(21) : 参见“CrossApp::CAPickerViewDelegate”的声明
+                 d:\crossapp\crossapp\view\cadatepickerview.h(33) : 参见“CrossApp::CADatePickerView”的声明
      1>d:\crossapp\crossapp\cocoa\cacalendar.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-         FirstViewController.cpp
-     1>d:\crossapp\projects\im\classes\firstviewcontroller.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-     1>d:\crossapp\crossapp\dispatcher\catouch.h(20): warning C4305: “参数”: 从“unsigned int”到“float”截断
-     1>d:\crossapp\crossapp\dispatcher\catouch.h(21): warning C4305: “参数”: 从“unsigned int”到“float”截断
-     1>d:\crossapp\crossapp\dispatcher\catouch.h(22): warning C4305: “参数”: 从“unsigned int”到“float”截断
-     1>d:\crossapp\crossapp\control\casegmentedcontrol.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-     1>d:\crossapp\crossapp\control\caslider.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-     1>d:\crossapp\crossapp\support\ccutf8.h(213): warning C4018: “<”: 有符号/无符号不匹配
-     1>d:\crossapp\crossapp\control\capagecontrol.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-     1>d:\crossapp\crossapp\control\castepper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-     1>d:\crossapp\crossapp\controller\caviewcontroller.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-     1>d:\crossapp\crossapp\view\capageview.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-     1>d:\crossapp\crossapp\view\capulltorefreshview.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-     1>d:\crossapp\crossapp\view\caactivityindicatorview.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-     1>d:\crossapp\crossapp\controller\cadrawercontroller.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-     1>d:\crossapp\crossapp\view\capickerview.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-     1>d:\crossapp\crossapp\view\cadatepickerview.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-     1>d:\crossapp\crossapp\cocoa\cacalendar.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-     1>d:\crossapp\projects\im\classes\firstviewcontroller.cpp(169): warning C4068: 未知的杂注
          正在生成代码...
      1>已完成生成项目“D:\CrossApp\projects\IM\proj.win32\IM.vcxproj”(Build 个目标)的操作 - 失败。
 
 生成失败。
 
-已用时间 00:00:05.35
+已用时间 00:00:09.70
