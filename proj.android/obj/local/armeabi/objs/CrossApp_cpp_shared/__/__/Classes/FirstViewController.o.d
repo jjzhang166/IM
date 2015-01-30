@@ -240,7 +240,7 @@ obj/local/armeabi/objs/CrossApp_cpp_shared/__/__/Classes/FirstViewController.o: 
  D:/CrossApp/CrossApp/platform/android/CCGL.h \
  D:/CrossApp/CrossApp/platform/android/CCStdC.h \
  jni/../../Classes/IMDATA.h jni/../../Classes/IMLoginRegister.h \
- jni/../../Classes/RootWindow.h jni/../../Classes/HXSDKController.h
+ jni/../../Classes/RootWindow.h
 
 jni/../../Classes/FirstViewController.h:
 
@@ -745,5 +745,3 @@ jni/../../Classes/IMDATA.h:
 jni/../../Classes/IMLoginRegister.h:
 
 jni/../../Classes/RootWindow.h:
-
-jni/../../Classes/HXSDKController.h:

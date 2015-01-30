@@ -1,7 +1,7 @@
 package com.CrossApp.IM;
+import java.util.ArrayList;
+
 import java.util.List;
-
-
 import com.easemob.EMCallBack;
 import com.easemob.chat.EMChat;
 import com.easemob.chat.EMChatManager;
@@ -15,27 +15,52 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.Log;
 public class FRIENDMANAGENT {
+	//获取好友列表
+			public static String[] getContactUserNames()
+			{
+				List<String> usernames = new ArrayList<String>();
+				try {
+					usernames = EMContactManager.getInstance().getContactUserNames();
+					Log.d("main","获取好友列表成功");
+				} catch (EaseMobException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					Log.d("main","获取好友列表失败");
+				}
+				String[] userListTo = new String[usernames.size()];
+				String[] userList = (String[])usernames.toArray(userListTo);
+				Log.i("main","名字:"+userList[0]);
+				return userList;
+
+			}
 	//添加好友
-		public static void addContact(String toAddUsername,String reason)
+		public static boolean addContact(String toAddUsername,String reason)
 		{
 			try {
 				EMContactManager.getInstance().addContact(toAddUsername, reason);
+				Log.d("main","添加成功");
+				return true;
 			} catch (EaseMobException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 				Log.d("main","添加好友失败");
+				return false;
 			}
 		}
 		
 		//删除好友
-		public static void deleteContact(String username)
+		public static boolean deleteContact(String username)
 		{
 			try{
-				EMContactManager.getInstance().deleteContact(username);
+				Log.d("mian","start delete");
+				EMContactManager.getInstance().deleteContact("chinahypo1");
+				Log.d("main","删除好友成功");
+				return true;
 			} catch (EaseMobException e){
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			    Log.d("main","删除好友失败");
+			    return false;
 			}
 		}
 		

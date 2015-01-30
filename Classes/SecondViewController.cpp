@@ -17,104 +17,154 @@ using namespace CrossApp;
 
 SecondViewController::SecondViewController()
 {
-    
+
 
 }
 
 SecondViewController::~SecondViewController()
 {
-    CC_SAFE_RELEASE(m_pNavigationBarItem);
+	CC_SAFE_RELEASE(m_pNavigationBarItem);
 }
 
 bool SecondViewController::init()
 {
-    if(CAViewController::init())
-    {
-        CABarButtonItem* talkButtonItem = CABarButtonItem::create(NAVIGATION_BAR_ITEM_NAME_2, NULL, NULL);
-        CABarButtonItem* searchButtonItem = CABarButtonItem::create("", CAImage::create(NAVIGATION_BAR_ITEM_SEARCH_NORMAL), CAImage::create(NAVIGATION_BAR_ITEM_SEARCH_SELECTED));
-        searchButtonItem->setTarget(this, CAControl_selector(SecondViewController::onButtonSearch));
-        CABarButtonItem* addButtonItem = CABarButtonItem::create("", CAImage::create(NAVIGATION_BAR_ITEM_ADD_NORMAL), CAImage::create(NAVIGATION_BAR_ITEM_ADD_SELECTED));
-        addButtonItem->setTarget(this, CAControl_selector(SecondViewController::onButtonAdd));
-        
-        m_pNavigationBarItem = CANavigationBarItem::create("");
-        m_pNavigationBarItem->setShowGoBackButton(false);
-        m_pNavigationBarItem->addLeftButtonItem(talkButtonItem);
-        m_pNavigationBarItem->addRightButtonItem(addButtonItem);
-        m_pNavigationBarItem->addRightButtonItem(searchButtonItem);
-        m_pNavigationBarItem->retain();
-        
-        return true;
-    }
-    return false;
+	if (CAViewController::init())
+	{
+		CABarButtonItem* talkButtonItem = CABarButtonItem::create(NAVIGATION_BAR_ITEM_NAME_2, NULL, NULL);
+		CABarButtonItem* searchButtonItem = CABarButtonItem::create("", CAImage::create(NAVIGATION_BAR_ITEM_SEARCH_NORMAL), CAImage::create(NAVIGATION_BAR_ITEM_SEARCH_SELECTED));
+		searchButtonItem->setTarget(this, CAControl_selector(SecondViewController::onButtonSearch));
+		CABarButtonItem* addButtonItem = CABarButtonItem::create("", CAImage::create(NAVIGATION_BAR_ITEM_ADD_NORMAL), CAImage::create(NAVIGATION_BAR_ITEM_ADD_SELECTED));
+		addButtonItem->setTarget(this, CAControl_selector(SecondViewController::onButtonAdd));
+
+		m_pNavigationBarItem = CANavigationBarItem::create("");
+		m_pNavigationBarItem->setShowGoBackButton(false);
+		m_pNavigationBarItem->addLeftButtonItem(talkButtonItem);
+		m_pNavigationBarItem->addRightButtonItem(addButtonItem);
+		m_pNavigationBarItem->addRightButtonItem(searchButtonItem);
+		m_pNavigationBarItem->retain();
+
+		return true;
+	}
+	return false;
 }
 
 void SecondViewController::viewDidLoad()
 {
 	CCRect winRect = this->getView()->getBounds();
-//    CAImageView* imageView = CAImageView::createWithImage(CAImage::create("HelloWorld.png"));
-//    imageView->setFrame(winRect);
-//    this->getView()->addSubview(imageView);
-//    
-//    CALabel* label = CALabel::createWithCenter(CCRect(winRect.size.width*0.5, winRect.size.height*0.5-270, winRect.size.width, 200));
-//    label->setTextAlignment(CATextAlignmentCenter);
-//    label->setVerticalTextAlignmet(CAVerticalTextAlignmentCenter);
-//    label->setFontSize(72 * CROSSAPP_ADPTATION_RATIO);
-//    label->setText("SecondViewController");
-//    label->setColor(CAColor_white);
-//    this->getView()->insertSubview(label, 1);
-    
-    //test IM
-    CAButton * loginBtn = CAButton::createWithFrame(CCRect(100, 100, 500, 50), CAButtonTypeRoundedRect);
-    loginBtn->setTitleForState(CAControlStateAll, "denglu") ;
-    loginBtn->addTarget(this, CAControl_selector(SecondViewController::onButtonLogin), CAControlEventTouchUpInSide);
-    this->getView()->addSubview(loginBtn);
-    
-    CAButton * logoutBtn = CAButton::createWithFrame(CCRect(100, 200, 500, 50), CAButtonTypeRoundedRect);
-    logoutBtn->setTitleForState(CAControlStateAll, "tuichu") ;
-    logoutBtn->addTarget(this, CAControl_selector(SecondViewController::onButtonLogOff), CAControlEventTouchUpInSide);
-    this->getView()->addSubview(logoutBtn);
-    
-    CAButton * sendMsgBtn = CAButton::createWithFrame(CCRect(100, 300, 500, 50), CAButtonTypeRoundedRect);
-    sendMsgBtn->setTitleForState(CAControlStateAll, "fasongxiaoxi") ;
-    sendMsgBtn->addTarget(this, CAControl_selector(SecondViewController::onButtonSendText), CAControlEventTouchUpInSide);
-    this->getView()->addSubview(sendMsgBtn);
+	//    CAImageView* imageView = CAImageView::createWithImage(CAImage::create("HelloWorld.png"));
+	//    imageView->setFrame(winRect);
+	//    this->getView()->addSubview(imageView);
+	//    
+	//    CALabel* label = CALabel::createWithCenter(CCRect(winRect.size.width*0.5, winRect.size.height*0.5-270, winRect.size.width, 200));
+	//    label->setTextAlignment(CATextAlignmentCenter);
+	//    label->setVerticalTextAlignmet(CAVerticalTextAlignmentCenter);
+	//    label->setFontSize(72 * CROSSAPP_ADPTATION_RATIO);
+	//    label->setText("SecondViewController");
+	//    label->setColor(CAColor_white);
+	//    this->getView()->insertSubview(label, 1);
+
+	//test IM
+	CAButton * loginBtn = CAButton::createWithFrame(CCRect(100, 100, 500, 50), CAButtonTypeRoundedRect);
+	loginBtn->setTitleForState(CAControlStateAll, "login");
+	loginBtn->addTarget(this, CAControl_selector(SecondViewController::onButtonLogin), CAControlEventTouchUpInSide);
+	this->getView()->addSubview(loginBtn);
+
+	CAButton * logoutBtn = CAButton::createWithFrame(CCRect(100, 200, 500, 50), CAButtonTypeRoundedRect);
+	logoutBtn->setTitleForState(CAControlStateAll, "logout");
+	logoutBtn->addTarget(this, CAControl_selector(SecondViewController::onButtonLogOff), CAControlEventTouchUpInSide);
+	this->getView()->addSubview(logoutBtn);
+
+	CAButton * sendMsgBtn = CAButton::createWithFrame(CCRect(100, 300, 500, 50), CAButtonTypeRoundedRect);
+	sendMsgBtn->setTitleForState(CAControlStateAll, "sendmessage");
+	sendMsgBtn->addTarget(this, CAControl_selector(SecondViewController::onButtonSendText), CAControlEventTouchUpInSide);
+	this->getView()->addSubview(sendMsgBtn);
+
+	CAButton * getFriendsListBtn = CAButton::createWithFrame(CCRect(100, 400, 500, 50), CAButtonTypeRoundedRect);
+	getFriendsListBtn->setTitleForState(CAControlStateAll, "getFrendsList");
+	getFriendsListBtn->addTarget(this, CAControl_selector(SecondViewController::onButtonGetFriends), CAControlEventTouchUpInSide);
+	this->getView()->addSubview(getFriendsListBtn);
+
+
+	CAButton * createGroupBtn = CAButton::createWithFrame(CCRect(100, 500, 500, 50), CAButtonTypeRoundedRect);
+	createGroupBtn->setTitleForState(CAControlStateAll, "create group");
+	createGroupBtn->addTarget(this, CAControl_selector(SecondViewController::onButtonCreateGroup), CAControlEventTouchUpInSide);
+	this->getView()->addSubview(createGroupBtn);
+
+	CAButton * getGroupListBtn = CAButton::createWithFrame(CCRect(100, 600, 500, 50), CAButtonTypeRoundedRect);
+	getGroupListBtn->setTitleForState(CAControlStateAll, "accept group");
+	getGroupListBtn->addTarget(this, CAControl_selector(SecondViewController::onButtonGetGroups), CAControlEventTouchUpInSide);
+	this->getView()->addSubview(getGroupListBtn);
+
+	CAButton * getMyGroupListBtn = CAButton::createWithFrame(CCRect(100, 700, 500, 50), CAButtonTypeRoundedRect);
+	getMyGroupListBtn->setTitleForState(CAControlStateAll, "accept mygroup");
+	getMyGroupListBtn->addTarget(this, CAControl_selector(SecondViewController::onButtonGetMyGroups), CAControlEventTouchUpInSide);
+	this->getView()->addSubview(getMyGroupListBtn);
 
 }
 
 void SecondViewController::viewDidAppear()
 {
-    this->getTabBarController()->setNavigationBarItem(m_pNavigationBarItem);
+	this->getTabBarController()->setNavigationBarItem(m_pNavigationBarItem);
 }
 
 void SecondViewController::viewDidUnload()
 {
-    
+
 }
 
 void SecondViewController::onButtonSearch(CAControl* control, CCPoint point)
 {
-    
+
 }
 
 void SecondViewController::onButtonAdd(CAControl* control, CCPoint point)
 {
-    //GroupInfo info = GroupInfo(CAImage::create("HelloWorld.png"), CCString::create("我是主题"), CCString::create("我是介绍"), CCString::create("我是群主"), CCString::create("我是权限"), true, 520);
-   // GroupInfoViewController * _group = GroupInfoViewController::create(info,false);
-   // RootWindow::getInstance()->getNavigationController()->pushViewController(_group, true);
-    
+
+	//string a = UTF8("我是主题");
+	//string b = UTF8("我是介绍");
+	///string c = UTF8("我是群主");
+	//string d = UTF8("我是成员");
+
+
+	//GroupInfo info = GroupInfo(CAImage::create("HelloWorld.png"), a, b, c, d, true, 520);
+	//GroupInfoViewController * _group = GroupInfoViewController::create(info, false);
+	//RootWindow::getInstance()->getNavigationController()->pushViewController(_group, true);
+
 }
 
 void SecondViewController::onButtonLogin(CAControl* control, CCPoint point)
 {
-    //HXSDKController::getInstance()->Login("lhjtest", "123aa123");
+	HXSDKController::getInstance()->Login("lhjtest", "123aa123");
 }
 
 void SecondViewController::onButtonLogOff(CAControl* control, CCPoint point)
 {
-   // HXSDKController::getInstance()->Logout();
+	HXSDKController::getInstance()->Logout();
 }
 
 void SecondViewController::onButtonSendText(CrossApp::CAControl *control, CrossApp::CCPoint point)
 {
-    
-};
+
+}
+
+
+void SecondViewController::onButtonGetFriends(CrossApp::CAControl *control, CrossApp::CCPoint point)
+{
+	HXSDKController::getInstance()->getFriendsList();
+}
+
+void SecondViewController::onButtonGetGroups(CrossApp::CAControl *control, CrossApp::CCPoint point)
+{
+
+	HXSDKController::getInstance()->getPublicGroupList();
+}
+
+void SecondViewController::onButtonCreateGroup(CrossApp::CAControl *control, CrossApp::CCPoint point)
+{
+	//HXSDKController::getInstance()->createGroup(eHXSDKGroupStyle_PublicOpenJoin, UTF8("傻逼群组"), UTF8("傻逼描述"));
+}
+
+void SecondViewController::onButtonGetMyGroups(CrossApp::CAControl *control, CrossApp::CCPoint point)
+{
+	HXSDKController::getInstance()->getMyGroupList();
+}

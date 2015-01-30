@@ -55,7 +55,6 @@ protected:
     CASegmentedControl* m_pTitleView;
     
     CATextField* m_pSearchTextField;
-	std::string text;
 };
 
 
