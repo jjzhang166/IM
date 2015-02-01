@@ -44,7 +44,6 @@ public:
 	static bool exitGroup_android(const char* groupId);
 	//解散该群
 	static bool destroyGroup_android(const char* groupId);
-
 	//群主加人,只有群主才能添加用户
 	static bool addUserToGroup_android(const char* groupId, std::vector<char*> usernames);
 	//私有群加人，只有开放了成员能邀请人才可以
@@ -58,14 +57,23 @@ public:
 	//修改群组名称
 	  static bool changeGroupName_android(const char* groupId, const char* newgroupName);
 	//群聊不提醒只显示数目
-	//  static bool setReceiveNotNoifyGroup_android(const std::vector<char*> conditions);
+	  static bool setReceiveNotNoifyGroup_android(std::vector<char*> groupIds);
 	//将用户加到群组的黑名单,只能群主能用
-	  //static bool blockUser_android(const char* groupId, const char* username);
+	  static bool blockUser_android(const char* groupId, const char* username);
 	//将用户从群组的黑名单移除,群主能用
-	//  static bool unblockUser_android(const char* groupId, const char* username);
+	  static bool unblockUser_android(const char* groupId, const char* username);
 	//获取黑名单列表
-	 // static void getBlockedUsers_android(const char* groupId);
+	  static void getBlockedUsers_android(const char* groupId);
 
+	//转换函数
+	  static void CallStaticMethod_void(const char* classname, const char* methodname);
+	  static bool CallStaticMethod_bool(const char* classname, const char* methodname);
+	  static void CallStaticMethod_void(const char* classname, const char* methodname, const char* paragrmone);
+	  static bool CallStaticMethod_bool(const char* classname, const char* methodname, const char* paragrmone);
+	  static void CallStaticMethod_void(const char* classname, const char* methodname, const char* paragrmone,const char* paragrmtwo);
+	  static bool CallStaticMethod_bool(const char* classname, const char* methodname, const char* paragrmone, const char* paragrmtwo);
+	  static void CallStaticMethod_void(const char* classname, const char* methodname, const char* paragrmone, const char* paragrmtwo,const char* paragrmthree);
+	  static bool CallStaticMethod_bool(const char* classname, const char* methodname, const char* paragrmone, const char* paragrmtwo, const char* paragrmthree);
 };
 
 #ifdef __cplusplus
