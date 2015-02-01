@@ -58,12 +58,6 @@ public class GROUP {
 		}
 		EMGroupInfo[] groupListTo = new EMGroupInfo[groupsList.size()];
 		EMGroupInfo[] publicgroupList =(EMGroupInfo[])groupsList.toArray(groupListTo);
-		for(EMGroupInfo groupinfo:publicgroupList)
-		{
-			String id = groupinfo.getGroupId();
-			String name = groupinfo.getGroupName();
-			Log.i("main","介绍:"+id+name);
-		}
 		return publicgroupList;
 		
 	}
@@ -85,20 +79,6 @@ public class GROUP {
 		
 		EMGroup[] groupListTo = new EMGroup[grouplistlocal.size()];
 		EMGroup[] groupList = (EMGroup[])grouplistlocal.toArray(groupListTo);
-		
-		for(EMGroup group:groupList)
-		{
-			String id = group.getGroupId();
-			Log.i("MAIN","id="+id);
-			String name = group.getGroupName();
-			Log.i("MAIN","id="+name);
-			String des = group.getDescription();
-			Log.i("MAIN","id="+des);
-			int numbers = group.getAffiliationsCount();
-			Log.i("MAIN","id="+numbers);
-			
-		}
-		
 		return groupList;
 	}
 	
@@ -162,6 +142,7 @@ public class GROUP {
 	//群主添加用户
 	public static boolean addUserToGroup_android(String groupid,String[] usernameList)
 	{
+		
 		try {
 			EMGroupManager.getInstance().addUsersToGroup(groupid, usernameList);
 			Log.d("main","添加用户成功");
@@ -243,6 +224,63 @@ public class GROUP {
 			Log.d("main","修改群名称失败");
 			return false;
 		}
+	}
+	//设置接受休息但是不提醒
+	public static boolean setReceiveNotNoifyGroup_android(String[] groupids)
+	{
+		List<String> groupIDS = null;
+		for(String id:groupids)
+		{
+			groupIDS.add(id);
+		}
+		EMChatManager.getInstance().getChatOptions().setReceiveNotNoifyGroup(groupIDS);
+		Log.d("main","设置消息成功");
+		return true;
+	}
+	//群用户被加入黑名单
+	public static boolean blockUser_android(String groupId,String blackname)
+	{
+		try {
+			EMGroupManager.getInstance().blockUser(groupId, blackname);
+			Log.d("main","加入黑名单成功"); 
+			return true;
+		} catch (EaseMobException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			Log.d("main","加入黑名单失败");
+			return false;
+		}
+	}
+	//群用户离开黑名单
+	public static boolean unblockUser_android(String groupId,String blackname)
+	{
+		try {
+			EMGroupManager.getInstance().unblockUser(groupId, blackname);
+			Log.d("main","加入黑名单成功"); 
+			return true;
+		} catch (EaseMobException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			Log.d("main","加入黑名单失败");
+			return false;
+		}
+	}
+	//获取黑名单列表
+	public static String[] getBlockedUsers_android(String groupid)
+	{
+		List<String> blacknameList = new ArrayList<String>();
+		try {
+			blacknameList = EMGroupManager.getInstance().getBlockedUsers(groupid);
+			Log.d("main","获取黑名单成功");
+		} catch (EaseMobException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			Log.d("main","获取黑名单失败");
+		}
+		String[] nameTo = new String[blacknameList.size()];
+		String[] blackList = (String[])blacknameList.toArray(nameTo);
+		Log.i("main","mingzi="+blackList[0]);
+		return blackList;
 	}
 	
 }
