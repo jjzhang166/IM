@@ -65,14 +65,13 @@ public:
 	void blockGroupMessage(const char* groupId);
 	void unblockGroupMessage(const char* groupId);
 	void changeGroupName(const char* groupId, const char* newgroupName);
+	void setReceiveNotNoifyGroup(std::vector<char*> groupIds);
+	void blockUser(const char* groupId, const char* username);
+	void unblockUser(const char* groupId, const char* username);
+	//获取群组黑名单void getBlockedUsers(const char* groupId);
 	/********************************************************************/
 
-
-
-
-
 	bool isLogin();
-
 	bool isRegister();
 public:
 	/*CANotificationCenter*/

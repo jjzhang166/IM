@@ -226,7 +226,7 @@ void HXSDKController::inviteUser(const char* groupId, std::vector<char*> usernam
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	//
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-	com_CrossApp_IM_IM::inviteUser_android(groupId, usernames,message);
+	com_CrossApp_IM_IM::inviteUser_android(groupId, usernames, message);
 #endif
 }
 void HXSDKController::deleteUserFromGroup(const char* groupId, const char* userName)
@@ -265,7 +265,38 @@ void HXSDKController::changeGroupName(const char* groupId, const char* newgroupN
 	com_CrossApp_IM_IM::changeGroupName_android(groupId,newgroupName);
 #endif
 }
+void HXSDKController::setReceiveNotNoifyGroup(std::vector<char*> groupIds)
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	//
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+	com_CrossApp_IM_IM::setReceiveNotNoifyGroup_android(groupIds);
+#endif
+}
+void HXSDKController::blockUser(const char* groupId, const char* username)
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	//
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+	com_CrossApp_IM_IM::blockUser_android(groupId,username);
+#endif
+}
+void HXSDKController::unblockUser(const char* groupId, const char* username)
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	//
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+	com_CrossApp_IM_IM::unblockUser_android(groupId, username);
+#endif
+}
+
 /***********************************************************************/
+
+
+
+
+
+
 
 
 bool HXSDKController::isLogin()
