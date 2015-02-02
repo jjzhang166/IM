@@ -11,6 +11,7 @@
 #include "IMMyInfo.h"
 #include "RootWindow.h"
 #include "AddHeadForgrand.h"
+#include "IMSetting.h"
 //构造函数
 IMMyController::IMMyController() :cell(NULL), m_pTableView(NULL)
 {
@@ -62,23 +63,20 @@ void IMMyController::viewDidAppear()
 void IMMyController::tableViewDidSelectRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row)
 {
 	//cell点击处理事件
-	switch (section)
+	if (section == 0){
+		IMMyInfo *pIMMyInfo = IMMyInfo::create();
+		RootWindow::getInstance()->getNavigationController()->pushViewController(pIMMyInfo, true);
+	}
+	else if (section == 1){
+		//通讯录
+	}
+	else if (section == 2)
 	{
-		case 0:
-		{
-		//点击用户信息栏，进入用户信息页面
-				  IMMyInfo *pIMMyInfo = IMMyInfo::create();
-				  RootWindow::getInstance()->getNavigationController()->pushViewController(pIMMyInfo,true);
-
-		}
-		case 1:
-		{
-		//点击电话簿栏，进入用户电话簿页面
-		}
-		case 2:
-		{
 		//点击设置栏，进入用户设置页面
-		}
+		IMSetting *pIMSetting = IMSetting::create();
+		RootWindow::getInstance()->getNavigationController()->pushViewController(pIMSetting, true);
+	}
+	else{
 	}
 }
 
