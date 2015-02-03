@@ -1,3 +1,8 @@
-AndroidGPS$2.class
-Breakpoints_v2.xcbkptlist
-project.pbxproj
+
+# Ignore files build by ndk and eclipse
+libs/
+bin/
+obj/
+gen/
+assets/
+local.properties
