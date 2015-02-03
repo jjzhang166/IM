@@ -40,6 +40,12 @@
 		3E365D7D1A63C0AF0073F2AF /* IMResources in Resources */ = {isa = PBXBuildFile; fileRef = 3E365D7C1A63C0AF0073F2AF /* IMResources */; };
 		3E38EBCB1A5FB2DE0096A595 /* SecondViewController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E38EBC71A5FB2DE0096A595 /* SecondViewController.cpp */; };
 		3E38EBCC1A5FB2DE0096A595 /* ThirdViewController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E38EBC91A5FB2DE0096A595 /* ThirdViewController.cpp */; };
+		3E655F871A80720900832CBD /* HXSDKBuddy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E655F811A80720900832CBD /* HXSDKBuddy.cpp */; };
+		3E655F881A80720900832CBD /* IMSetting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E655F831A80720900832CBD /* IMSetting.cpp */; };
+		3E655F891A80720900832CBD /* IMSettingClassify.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E655F851A80720900832CBD /* IMSettingClassify.cpp */; };
+		3E655F8C1A80752F00832CBD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E655F8B1A80752F00832CBD /* SystemConfiguration.framework */; };
+		3E655F8E1A80753900832CBD /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E655F8D1A80753900832CBD /* MediaPlayer.framework */; };
+		3E655F911A80757100832CBD /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E655F901A80757100832CBD /* Reachability.m */; };
 		758BDF151A7637A300E07F9B /* HXSDKHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 758BDF141A7637A300E07F9B /* HXSDKHelper.m */; };
 		759D26611A6F4AC300E39203 /* AddHeadForgrand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 759D265F1A6F4AC300E39203 /* AddHeadForgrand.cpp */; };
 		759D26641A6F4ADA00E39203 /* IMMyController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 759D26621A6F4ADA00E39203 /* IMMyController.cpp */; };
@@ -47,11 +53,9 @@
 		759D266A1A6F4BCC00E39203 /* IMSetInfomation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 759D26681A6F4BCC00E39203 /* IMSetInfomation.cpp */; };
 		75D2E5761A6CA6AF0089CE98 /* GroupInfoViewController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 75D2E5741A6CA6AF0089CE98 /* GroupInfoViewController.cpp */; };
 		B00CC6051978B5CE00A62E4C /* RootWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B00CC6031978B5CE00A62E4C /* RootWindow.cpp */; };
-		B00CC61119792FF800A62E4C /* CAStudioViewController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B00CC60F19792FF800A62E4C /* CAStudioViewController.cpp */; };
 		B01A293A1994C6D200D42BA0 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = B01A29391994C6D200D42BA0 /* sqlite3.c */; };
 		B01DFC3B190513FD00214AE2 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = B01DFC3A190513FD00214AE2 /* fonts */; };
 		B01F71671951682600BA07A6 /* source_material in Resources */ = {isa = PBXBuildFile; fileRef = B01F71661951682600BA07A6 /* source_material */; };
-		B02A1460190A6A4B00C3633B /* CAUIHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B02A145E190A6A4B00C3633B /* CAUIHelper.cpp */; };
 		B034086E19921255005DB179 /* libwebsockets.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B034085819921255005DB179 /* libwebsockets.a */; };
 		B036EB5D19406C7F000434DD /* icon in Resources */ = {isa = PBXBuildFile; fileRef = B036EB5C19406C7F000434DD /* icon */; };
 		B03E8FEC1938879200FD9A06 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = B03E8FDF1938879200FD9A06 /* HelloWorld.png */; };
@@ -323,6 +327,16 @@
 		3E38EBC81A5FB2DE0096A595 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecondViewController.h; path = ../Classes/SecondViewController.h; sourceTree = "<group>"; };
 		3E38EBC91A5FB2DE0096A595 /* ThirdViewController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ThirdViewController.cpp; path = ../Classes/ThirdViewController.cpp; sourceTree = "<group>"; };
 		3E38EBCA1A5FB2DE0096A595 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThirdViewController.h; path = ../Classes/ThirdViewController.h; sourceTree = "<group>"; };
+		3E655F811A80720900832CBD /* HXSDKBuddy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HXSDKBuddy.cpp; path = ../Classes/HXSDKBuddy.cpp; sourceTree = "<group>"; };
+		3E655F821A80720900832CBD /* HXSDKBuddy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HXSDKBuddy.h; path = ../Classes/HXSDKBuddy.h; sourceTree = "<group>"; };
+		3E655F831A80720900832CBD /* IMSetting.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMSetting.cpp; path = ../Classes/IMSetting.cpp; sourceTree = "<group>"; };
+		3E655F841A80720900832CBD /* IMSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMSetting.h; path = ../Classes/IMSetting.h; sourceTree = "<group>"; };
+		3E655F851A80720900832CBD /* IMSettingClassify.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMSettingClassify.cpp; path = ../Classes/IMSettingClassify.cpp; sourceTree = "<group>"; };
+		3E655F861A80720900832CBD /* IMSettingClassify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMSettingClassify.h; path = ../Classes/IMSettingClassify.h; sourceTree = "<group>"; };
+		3E655F8B1A80752F00832CBD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3E655F8D1A80753900832CBD /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		3E655F8F1A80757100832CBD /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		3E655F901A80757100832CBD /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		758BDF131A7637A300E07F9B /* HXSDKHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXSDKHelper.h; sourceTree = "<group>"; };
 		758BDF141A7637A300E07F9B /* HXSDKHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXSDKHelper.m; sourceTree = "<group>"; };
 		759D265F1A6F4AC300E39203 /* AddHeadForgrand.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AddHeadForgrand.cpp; path = ../Classes/AddHeadForgrand.cpp; sourceTree = "<group>"; };
@@ -339,13 +353,9 @@
 		B00CC6031978B5CE00A62E4C /* RootWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RootWindow.cpp; path = ../Classes/RootWindow.cpp; sourceTree = "<group>"; };
 		B00CC6041978B5CE00A62E4C /* RootWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootWindow.h; path = ../Classes/RootWindow.h; sourceTree = "<group>"; };
 		B00CC60D19792FF800A62E4C /* CrossAppExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrossAppExt.h; sourceTree = "<group>"; };
-		B00CC60F19792FF800A62E4C /* CAStudioViewController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAStudioViewController.cpp; sourceTree = "<group>"; };
-		B00CC61019792FF800A62E4C /* CAStudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAStudioViewController.h; sourceTree = "<group>"; };
 		B01A29391994C6D200D42BA0 /* sqlite3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sqlite3.c; sourceTree = "<group>"; };
 		B01DFC3A190513FD00214AE2 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		B01F71661951682600BA07A6 /* source_material */ = {isa = PBXFileReference; lastKnownFileType = folder; path = source_material; sourceTree = "<group>"; };
-		B02A145E190A6A4B00C3633B /* CAUIHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAUIHelper.cpp; sourceTree = "<group>"; };
-		B02A145F190A6A4B00C3633B /* CAUIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAUIHelper.h; sourceTree = "<group>"; };
 		B034083E199211CC005DB179 /* sqlite3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sqlite3.h; sourceTree = "<group>"; };
 		B034083F199211CC005DB179 /* sqlite3ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sqlite3ext.h; sourceTree = "<group>"; };
 		B034085619921255005DB179 /* libwebsockets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libwebsockets.h; sourceTree = "<group>"; };
@@ -416,6 +426,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E655F8E1A80753900832CBD /* MediaPlayer.framework in Frameworks */,
+				3E655F8C1A80752F00832CBD /* SystemConfiguration.framework in Frameworks */,
 				3E280DA91A64C55D00233D5B /* libEaseMobClientSDKLite.a in Frameworks */,
 				3E280D461A64C10D00233D5B /* libresolv.dylib in Frameworks */,
 				3E280D441A64C0EF00233D5B /* libsqlite3.dylib in Frameworks */,
@@ -471,22 +483,11 @@
 				B0405FEF19CC03A100947287 /* LocalStorage */,
 				B034084819921255005DB179 /* libwebsockets */,
 				B034083B199211CC005DB179 /* sqlite3 */,
-				B00CC60E19792FF800A62E4C /* studio */,
 				B04C0BEC19012079009854FD /* Json */,
-				15A3D9EC1682F826002FB0C5 /* GUI */,
 				15A3DA1A1682F826002FB0C5 /* network */,
 			);
 			name = extensions;
 			path = ../../../extensions;
-			sourceTree = "<group>";
-		};
-		15A3D9EC1682F826002FB0C5 /* GUI */ = {
-			isa = PBXGroup;
-			children = (
-				B02A145E190A6A4B00C3633B /* CAUIHelper.cpp */,
-				B02A145F190A6A4B00C3633B /* CAUIHelper.h */,
-			);
-			path = GUI;
 			sourceTree = "<group>";
 		};
 		15A3DA1A1682F826002FB0C5 /* network */ = {
@@ -557,6 +558,12 @@
 				3E280E1F1A652EB400233D5B /* ios */,
 				3E280E1C1A652E7C00233D5B /* HXSDKController.cpp */,
 				3E280E1D1A652E7C00233D5B /* HXSDKController.h */,
+				3E655F811A80720900832CBD /* HXSDKBuddy.cpp */,
+				3E655F821A80720900832CBD /* HXSDKBuddy.h */,
+				3E655F831A80720900832CBD /* IMSetting.cpp */,
+				3E655F841A80720900832CBD /* IMSetting.h */,
+				3E655F851A80720900832CBD /* IMSettingClassify.cpp */,
+				3E655F861A80720900832CBD /* IMSettingClassify.h */,
 				3E280DAA1A64C5DE00233D5B /* EaseMobSDK */,
 				3E38EBC51A5F85970096A595 /* IMDATA.h */,
 				B00CC6031978B5CE00A62E4C /* RootWindow.cpp */,
@@ -604,6 +611,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3E655F8D1A80753900832CBD /* MediaPlayer.framework */,
+				3E655F8B1A80752F00832CBD /* SystemConfiguration.framework */,
 				3E280D471A64C54200233D5B /* EaseMobSDK */,
 				3E280D451A64C10D00233D5B /* libresolv.dylib */,
 				3E280D431A64C0EF00233D5B /* libsqlite3.dylib */,
@@ -1103,15 +1112,6 @@
 			path = ../Resources;
 			sourceTree = "<group>";
 		};
-		B00CC60E19792FF800A62E4C /* studio */ = {
-			isa = PBXGroup;
-			children = (
-				B00CC60F19792FF800A62E4C /* CAStudioViewController.cpp */,
-				B00CC61019792FF800A62E4C /* CAStudioViewController.h */,
-			);
-			path = studio;
-			sourceTree = "<group>";
-		};
 		B034083B199211CC005DB179 /* sqlite3 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1187,6 +1187,8 @@
 			children = (
 				B04822AF19FA41F70019F1A7 /* CAAddress.h */,
 				B04822B019FA41F70019F1A7 /* CAAddress.mm */,
+				3E655F8F1A80757100832CBD /* Reachability.h */,
+				3E655F901A80757100832CBD /* Reachability.m */,
 				B04822B119FA41F70019F1A7 /* CAAlbumController.h */,
 				B04822B219FA41F70019F1A7 /* CAAlbumController.mm */,
 				B04822B319FA41F70019F1A7 /* CABrightness_iOS.h */,
@@ -1351,17 +1353,20 @@
 				15A3DA5D1682F826002FB0C5 /* HttpClient.cpp in Sources */,
 				759D26641A6F4ADA00E39203 /* IMMyController.cpp in Sources */,
 				B0405FF319CC03A100947287 /* LocalStorage.cpp in Sources */,
+				3E655F911A80757100832CBD /* Reachability.m in Sources */,
 				B04822BD19FA41F70019F1A7 /* CAAlbumController.mm in Sources */,
+				3E655F891A80720900832CBD /* IMSettingClassify.cpp in Sources */,
 				15A3DAEB1682F8A6002FB0C5 /* CDAudioManager.m in Sources */,
 				B0AD93EA19207CA300EA40BB /* FirstViewController.cpp in Sources */,
-				B02A1460190A6A4B00C3633B /* CAUIHelper.cpp in Sources */,
 				15A3DAEC1682F8A6002FB0C5 /* CDOpenALSupport.m in Sources */,
 				B04822BC19FA41F70019F1A7 /* CAAddress.mm in Sources */,
+				3E655F871A80720900832CBD /* HXSDKBuddy.cpp in Sources */,
 				15A3DAED1682F8A6002FB0C5 /* CocosDenshion.m in Sources */,
 				759D266A1A6F4BCC00E39203 /* IMSetInfomation.cpp in Sources */,
 				B04822C119FA41F70019F1A7 /* CALocation.mm in Sources */,
 				15A3DAEE1682F8A6002FB0C5 /* SimpleAudioEngine.mm in Sources */,
 				3E38EBCC1A5FB2DE0096A595 /* ThirdViewController.cpp in Sources */,
+				3E655F881A80720900832CBD /* IMSetting.cpp in Sources */,
 				B04822C019FA41F70019F1A7 /* CADevice.mm in Sources */,
 				15A3DAEF1682F8A6002FB0C5 /* SimpleAudioEngine_objc.m in Sources */,
 				B00CC6051978B5CE00A62E4C /* RootWindow.cpp in Sources */,
@@ -1373,7 +1378,6 @@
 				3E1657601A660C5500D832E9 /* IMLoginRegister.cpp in Sources */,
 				B047B92319E91CFA00F24BE6 /* DownloadManager.cpp in Sources */,
 				3E0117501A68FD69002F2E61 /* IMTableCell.cpp in Sources */,
-				B00CC61119792FF800A62E4C /* CAStudioViewController.cpp in Sources */,
 				1AFCDA8216D4A25900906EA6 /* RootViewController.mm in Sources */,
 				75D2E5761A6CA6AF0089CE98 /* GroupInfoViewController.cpp in Sources */,
 				1AB87035175E0A84005D39BF /* WebSocket.cpp in Sources */,
@@ -1428,7 +1432,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(SRCROOT)/../../../CrossApp/platform/third_party/ios/libraries\"",
 					"\"$(SRCROOT)/../../../extensions/libwebsockets/ios/lib\"",
-					/Users/chenq/lhj/CrossApp/projects/IM/Classes/EaseMobSDK/lib,
+					/Users/jerson/Documents/git/CrossApp/projects/IM/Classes/EaseMobSDK/lib,
 				);
 				OTHER_CFLAGS = "-O2";
 				OTHER_LDFLAGS = "-ObjC";
@@ -1475,7 +1479,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(SRCROOT)/../../../CrossApp/platform/third_party/ios/libraries\"",
 					"\"$(SRCROOT)/../../../extensions/libwebsockets/ios/lib\"",
-					/Users/chenq/lhj/CrossApp/projects/IM/Classes/EaseMobSDK/lib,
+					/Users/jerson/Documents/git/CrossApp/projects/IM/Classes/EaseMobSDK/lib,
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = IM;
