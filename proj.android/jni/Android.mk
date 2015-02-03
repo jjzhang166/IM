@@ -23,7 +23,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 #$(patsubst jni/%,%, $(shell find $(LOCAL_PATH)/../../Classes/ $(LOCAL_PATH) -name #"*.cpp"))  
 #endef
 #LOCAL_SRC_FILES := $(call all-cpp-files)
-			
+LOCAL_CFLAGS += -DCOCOS2D_DEBUG=1 			
 			
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 

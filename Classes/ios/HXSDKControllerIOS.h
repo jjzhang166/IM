@@ -22,13 +22,11 @@ public:
     
     virtual ~HXSDKControllerIOS();
     
-    //HXSDKControllerIOS* getInstance();
-    
     static bool init_ios();
     
     static bool Login_ios(const char* name, const char* passWord);
     
-    static bool RegisTerAccount_ios(const char* name, const char* passWord);
+    static bool RegisterAccount_ios(const char* name, const char* passWord);
     
     static void Logout_ios();
     
@@ -63,8 +61,6 @@ public:
     static void createGroup_ios(HXSDKGroupStyle groupType,const char* gName,const char* gDescription);
     // 查看我加入的群
     static void getMyGroup_ios();
-
-
 protected:
     
 };

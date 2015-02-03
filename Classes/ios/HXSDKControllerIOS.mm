@@ -9,7 +9,9 @@
 #import "HXSDKControllerIOS.h"
 #import "EaseMob.h"
 #include "IMDATA.h"
+#include "HXSDKController.h"
 #import "HXSDKHelper.h"
+
 
 static EaseMob* easeMob = NULL;
 
@@ -27,6 +29,11 @@ bool HXSDKControllerIOS::init_ios()
     easeMob = [EaseMob sharedInstance];
     NSString *apnsCertName = @"9miao";
     [easeMob registerSDKWithAppKey:@"longtugame#crossappim" apnsCertName:apnsCertName];
+    
+    HXSDKHelper* helper = [[HXSDKHelper alloc]init];
+    [helper registerEaseMobDelegate];
+    
+
     if(easeMob)
     {
         CCLog("HXSDK init success!!!");
@@ -49,8 +56,6 @@ bool HXSDKControllerIOS::Login_ios(const char* name, const char* passWord)
          if (loginInfo && !error) {
              CCLog("登录成功");
              [[NSNotificationCenter defaultCenter] postNotificationName:@KNOTIFICATION_LOGINCHANGE object:@YES];
-             HXSDKHelper* helper = [HXSDKHelper getHXSDKHelper];
-             NSLog(@" dfds %@",helper);
              
              EMError *error = [easeMob.chatManager importDataToNewDatabase];
              if (!error) {
@@ -75,9 +80,10 @@ bool HXSDKControllerIOS::Login_ios(const char* name, const char* passWord)
      } onQueue:nil];
     
     return true;
+
 }
 
-bool HXSDKControllerIOS::RegisTerAccount_ios(const char* name, const char* passWord)
+bool HXSDKControllerIOS::RegisterAccount_ios(const char* name, const char* passWord)
 {
     NSString *string_name = [[NSString alloc] initWithCString:(const char*)name encoding:NSASCIIStringEncoding];
     NSString *string_passWord = [[NSString alloc] initWithCString:(const char*)passWord encoding:NSASCIIStringEncoding];
@@ -149,6 +155,9 @@ void HXSDKControllerIOS::sendMessageWithImage_ios(const char* messageImage, cons
     
 }
 
+
+
+
 void HXSDKControllerIOS::sendAddFriend_ios(const char* accountName, const char* message)
 {
     EMError *error = nil;
@@ -192,7 +201,7 @@ void HXSDKControllerIOS::getFriendsList_ios()
             eHXSDKEMBuddyFollowState = eHXSDKEMBuddyFollowState_FollowedBoth;
         }
         
-//        HXSDKController::getInstance()->pushFriendsDetail(userName, eHXSDKEMBuddyFollowState, isPendingApproval);
+        HXSDKController::getInstance()->pushFriendsDetail(userName, eHXSDKEMBuddyFollowState, isPendingApproval);
     }
 //Log qiaoxin
     if (!error) {
@@ -248,7 +257,40 @@ void HXSDKControllerIOS:: joinNoNeedCheckGroup_ios(const char *groupID)
     } onQueue:nil];
 }
 
+void HXSDKControllerIOS:: joinNeedCheckGroup_ios(const char *groupID,const char* groupName ,const char *message)
+{
+    NSString* str_gID = [[NSString alloc]initWithCString:(const char *)groupID encoding:NSASCIIStringEncoding];
+    NSString* str_gName = [[NSString alloc]initWithCString:(const char *) groupName encoding:NSASCIIStringEncoding];
+    NSString* str_msg = [[NSString alloc]initWithCString:(const char *) message encoding:NSASCIIStringEncoding];
+    
+    [[EaseMob sharedInstance].chatManager asyncApplyJoinPublicGroup:str_gID withGroupname:str_gName message:str_msg completion:^(EMGroup *group, EMError *error) {
+        if (!error) {
+            NSLog(@"申请成功");
+        }
+    } onQueue:nil];
+}
 
+void HXSDKControllerIOS:: exitGroup_ios(const char *groupID)
+{
+    NSString* str_gID = [[NSString alloc]initWithCString:(const char *) groupID encoding:NSASCIIStringEncoding];
+    [[EaseMob sharedInstance].chatManager asyncLeaveGroup:str_gID completion:^(EMGroup *group, EMGroupLeaveReason reason, EMError *error) {
+        if (!error) {
+            NSLog(@"退出群组成功");
+        }
+    } onQueue:nil];
+
+}
+
+void HXSDKControllerIOS:: destoryGroup_ios(const char *groupID)
+{
+    NSString * str_gID = [[NSString alloc]initWithCString:(const char *)groupID encoding:NSASCIIStringEncoding];
+    [[EaseMob sharedInstance].chatManager asyncDestroyGroup:str_gID completion:^(EMGroup *group, EMGroupLeaveReason reason, EMError *error) {
+        if (!error) {
+            NSLog(@"解散成功");
+        }
+    } onQueue:nil];
+
+}
 
 void HXSDKControllerIOS:: getPublicGroup_ios()
 {
@@ -274,7 +316,7 @@ void HXSDKControllerIOS:: getPublicGroup_ios()
             }
             int gOccupantsCount = emGroup.groupOccupantsCount;
             
-//            HXSDKController::getInstance()->pushGroupsDetail(gID, gSub, gDes, gOccupantsCount);
+            HXSDKController::getInstance()->pushGroupsDetail(gID, gSub, gDes, gOccupantsCount);
         }
         
         
@@ -347,7 +389,7 @@ void HXSDKControllerIOS::getMyGroup_ios()
             }
             int gOccupantsCount = emGroup.groupOccupantsCount;
             
-//            HXSDKController::getInstance()->pushMyGroupsDetail(gID, gSub, gDes, gOccupantsCount);
+            HXSDKController::getInstance()->pushMyGroupsDetail(gID, gSub, gDes, gOccupantsCount);
         }
         
 

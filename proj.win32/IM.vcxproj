@@ -133,6 +133,7 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\extensions\libwebsockets\win32\lib\*.*" "$(Ou
     <ClCompile Include="..\Classes\android\com_CrossApp_IM_IM.cpp" />
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\FirstViewController.cpp" />
+    <ClCompile Include="..\Classes\HXSDKBuddy.cpp" />
     <ClCompile Include="..\Classes\HXSDKController.cpp" />
     <ClCompile Include="..\Classes\IMLoginRegister.cpp" />
     <ClCompile Include="..\Classes\IMMyController.cpp" />
@@ -150,6 +151,7 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\extensions\libwebsockets\win32\lib\*.*" "$(Ou
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\AppMacros.h" />
     <ClInclude Include="..\Classes\FirstViewController.h" />
+    <ClInclude Include="..\Classes\HXSDKBuddy.h" />
     <ClInclude Include="..\Classes\HXSDKController.h" />
     <ClInclude Include="..\Classes\IMDATA.h" />
     <ClInclude Include="..\Classes\IMLoginRegister.h" />

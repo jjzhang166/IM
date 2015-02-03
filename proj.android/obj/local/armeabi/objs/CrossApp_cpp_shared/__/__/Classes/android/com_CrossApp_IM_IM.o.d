@@ -25,7 +25,7 @@ obj/local/armeabi/objs/CrossApp_cpp_shared/__/__/Classes/android/com_CrossApp_IM
  E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/alloca.h \
  E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/strings.h \
  E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/memory.h \
- E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/android/log.h \
+ E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/vector \
  D:/CrossApp/CrossApp/platform/android/jni/JniHelper.h \
  E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/string \
  D:/CrossApp/CrossApp/platform/CCPlatformMacros.h \
@@ -33,16 +33,15 @@ obj/local/armeabi/objs/CrossApp_cpp_shared/__/__/Classes/android/com_CrossApp_IM
  D:/CrossApp/CrossApp/platform/CCPlatformConfig.h \
  D:/CrossApp/CrossApp/platform/CCPlatformConfig.h \
  D:/CrossApp/CrossApp/platform/android/CCPlatformDefine.h \
- jni/../../Classes/HXSDKController.h \
- E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/iostream \
- D:/CrossApp/CrossApp/CrossApp.h D:/CrossApp/CrossApp/ccConfig.h \
- D:/CrossApp/CrossApp/ccMacros.h D:/CrossApp/CrossApp/platform/CCCommon.h \
+ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/android/log.h \
+ jni/../../Classes/HXSDKBuddy.h D:/CrossApp/CrossApp/CrossApp.h \
+ D:/CrossApp/CrossApp/ccConfig.h D:/CrossApp/CrossApp/ccMacros.h \
+ D:/CrossApp/CrossApp/platform/CCCommon.h \
  D:/CrossApp/CrossApp/platform/CCPlatformMacros.h \
  D:/CrossApp/CrossApp/platform/android/CCStdC.h \
  E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/math.h \
  D:/CrossApp/CrossApp/ccTypes.h D:/CrossApp/CrossApp/basics/CAGeometry.h \
  D:/CrossApp/CrossApp/basics/CAObject.h \
- E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/vector \
  E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/deque \
  D:/CrossApp/CrossApp/platform/android/CCGL.h \
  E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/GLES2/gl2platform.h \
@@ -52,7 +51,9 @@ obj/local/armeabi/objs/CrossApp_cpp_shared/__/__/Classes/android/com_CrossApp_IM
  D:/CrossApp/CrossApp/actions/CCAction.h \
  D:/CrossApp/CrossApp/basics/CAObject.h \
  D:/CrossApp/CrossApp/basics/CAGeometry.h \
- D:/CrossApp/CrossApp/view/CAView.h D:/CrossApp/CrossApp/ccMacros.h \
+ D:/CrossApp/CrossApp/view/CAView.h \
+ E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/iostream \
+ D:/CrossApp/CrossApp/ccMacros.h \
  D:/CrossApp/CrossApp/shaders/CATransformation.h \
  D:/CrossApp/CrossApp/cocoa/CCArray.h \
  D:/CrossApp/CrossApp/support/data_support/ccCArray.h \
@@ -261,7 +262,34 @@ obj/local/armeabi/objs/CrossApp_cpp_shared/__/__/Classes/android/com_CrossApp_IM
  D:/CrossApp/CrossApp/platform/android/CCEGLView.h \
  D:/CrossApp/CrossApp/platform/CCEGLViewProtocol.h \
  D:/CrossApp/CrossApp/platform/android/CCGL.h \
- D:/CrossApp/CrossApp/platform/android/CCStdC.h
+ D:/CrossApp/CrossApp/platform/android/CCStdC.h \
+ D:/CrossApp/extensions/CrossAppExt.h \
+ D:/CrossApp/extensions/ExtensionMacros.h \
+ D:/CrossApp/extensions/network/HttpRequest.h \
+ D:/CrossApp/extensions/ExtensionMacros.h \
+ D:/CrossApp/extensions/network/HttpResponse.h \
+ D:/CrossApp/extensions/network/HttpRequest.h \
+ D:/CrossApp/extensions/network/HttpClient.h \
+ D:/CrossApp/extensions/network/HttpResponse.h \
+ D:/CrossApp/extensions/network/DownloadManager.h \
+ D:/CrossApp/extensions/Json/CSContentJsonDictionary.h \
+ D:/CrossApp/extensions/Json/lib_json/json_lib.h \
+ D:/CrossApp/extensions/Json/lib_json/autolink.h \
+ D:/CrossApp/extensions/Json/lib_json/config.h \
+ D:/CrossApp/extensions/Json/lib_json/value.h \
+ D:/CrossApp/extensions/Json/lib_json/forwards.h \
+ D:/CrossApp/extensions/Json/lib_json/reader.h \
+ D:/CrossApp/extensions/Json/lib_json/features.h \
+ E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/stack \
+ D:/CrossApp/extensions/Json/lib_json/writer.h \
+ D:/CrossApp/extensions/Json/DictionaryHelper.h \
+ D:/CrossApp/extensions/sqlite3/include/sqlite3.h \
+ D:/CrossApp/extensions/LocalStorage/LocalStorage.h \
+ D:/CrossApp/extensions/device/CADevice.h \
+ D:/CrossApp/extensions/studio/CAStudioViewController.h \
+ D:/CrossApp/extensions/Json/CSContentJsonDictionary.h \
+ D:/CrossApp/extensions/Json/DictionaryHelper.h \
+ jni/../../Classes/HXSDKController.h jni/../../Classes/HXSDKBuddy.h
 
 jni/../../Classes/android/com_CrossApp_IM_IM.h:
 
@@ -313,7 +341,7 @@ E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/strings.h:
 
 E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/memory.h:
 
-E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/android/log.h:
+E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/vector:
 
 D:/CrossApp/CrossApp/platform/android/jni/JniHelper.h:
 
@@ -329,9 +357,9 @@ D:/CrossApp/CrossApp/platform/CCPlatformConfig.h:
 
 D:/CrossApp/CrossApp/platform/android/CCPlatformDefine.h:
 
-jni/../../Classes/HXSDKController.h:
+E:/Android/android-ndk-r9c/platforms/android-17/arch-arm/usr/include/android/log.h:
 
-E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/iostream:
+jni/../../Classes/HXSDKBuddy.h:
 
 D:/CrossApp/CrossApp/CrossApp.h:
 
@@ -353,8 +381,6 @@ D:/CrossApp/CrossApp/basics/CAGeometry.h:
 
 D:/CrossApp/CrossApp/basics/CAObject.h:
 
-E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/vector:
-
 E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/deque:
 
 D:/CrossApp/CrossApp/platform/android/CCGL.h:
@@ -374,6 +400,8 @@ D:/CrossApp/CrossApp/basics/CAObject.h:
 D:/CrossApp/CrossApp/basics/CAGeometry.h:
 
 D:/CrossApp/CrossApp/view/CAView.h:
+
+E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/iostream:
 
 D:/CrossApp/CrossApp/ccMacros.h:
 
@@ -806,3 +834,59 @@ D:/CrossApp/CrossApp/platform/CCEGLViewProtocol.h:
 D:/CrossApp/CrossApp/platform/android/CCGL.h:
 
 D:/CrossApp/CrossApp/platform/android/CCStdC.h:
+
+D:/CrossApp/extensions/CrossAppExt.h:
+
+D:/CrossApp/extensions/ExtensionMacros.h:
+
+D:/CrossApp/extensions/network/HttpRequest.h:
+
+D:/CrossApp/extensions/ExtensionMacros.h:
+
+D:/CrossApp/extensions/network/HttpResponse.h:
+
+D:/CrossApp/extensions/network/HttpRequest.h:
+
+D:/CrossApp/extensions/network/HttpClient.h:
+
+D:/CrossApp/extensions/network/HttpResponse.h:
+
+D:/CrossApp/extensions/network/DownloadManager.h:
+
+D:/CrossApp/extensions/Json/CSContentJsonDictionary.h:
+
+D:/CrossApp/extensions/Json/lib_json/json_lib.h:
+
+D:/CrossApp/extensions/Json/lib_json/autolink.h:
+
+D:/CrossApp/extensions/Json/lib_json/config.h:
+
+D:/CrossApp/extensions/Json/lib_json/value.h:
+
+D:/CrossApp/extensions/Json/lib_json/forwards.h:
+
+D:/CrossApp/extensions/Json/lib_json/reader.h:
+
+D:/CrossApp/extensions/Json/lib_json/features.h:
+
+E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/stack:
+
+D:/CrossApp/extensions/Json/lib_json/writer.h:
+
+D:/CrossApp/extensions/Json/DictionaryHelper.h:
+
+D:/CrossApp/extensions/sqlite3/include/sqlite3.h:
+
+D:/CrossApp/extensions/LocalStorage/LocalStorage.h:
+
+D:/CrossApp/extensions/device/CADevice.h:
+
+D:/CrossApp/extensions/studio/CAStudioViewController.h:
+
+D:/CrossApp/extensions/Json/CSContentJsonDictionary.h:
+
+D:/CrossApp/extensions/Json/DictionaryHelper.h:
+
+jni/../../Classes/HXSDKController.h:
+
+jni/../../Classes/HXSDKBuddy.h:

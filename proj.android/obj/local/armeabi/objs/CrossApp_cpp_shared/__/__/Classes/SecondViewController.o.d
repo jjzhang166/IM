@@ -240,7 +240,33 @@ obj/local/armeabi/objs/CrossApp_cpp_shared/__/__/Classes/SecondViewController.o:
  D:/CrossApp/CrossApp/platform/android/CCGL.h \
  D:/CrossApp/CrossApp/platform/android/CCStdC.h \
  jni/../../Classes/IMDATA.h jni/../../Classes/RootWindow.h \
- jni/../../Classes/HXSDKController.h
+ jni/../../Classes/HXSDKController.h jni/../../Classes/HXSDKBuddy.h \
+ D:/CrossApp/extensions/CrossAppExt.h \
+ D:/CrossApp/extensions/ExtensionMacros.h \
+ D:/CrossApp/extensions/network/HttpRequest.h \
+ D:/CrossApp/extensions/ExtensionMacros.h \
+ D:/CrossApp/extensions/network/HttpResponse.h \
+ D:/CrossApp/extensions/network/HttpRequest.h \
+ D:/CrossApp/extensions/network/HttpClient.h \
+ D:/CrossApp/extensions/network/HttpResponse.h \
+ D:/CrossApp/extensions/network/DownloadManager.h \
+ D:/CrossApp/extensions/Json/CSContentJsonDictionary.h \
+ D:/CrossApp/extensions/Json/lib_json/json_lib.h \
+ D:/CrossApp/extensions/Json/lib_json/autolink.h \
+ D:/CrossApp/extensions/Json/lib_json/config.h \
+ D:/CrossApp/extensions/Json/lib_json/value.h \
+ D:/CrossApp/extensions/Json/lib_json/forwards.h \
+ D:/CrossApp/extensions/Json/lib_json/reader.h \
+ D:/CrossApp/extensions/Json/lib_json/features.h \
+ E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/stack \
+ D:/CrossApp/extensions/Json/lib_json/writer.h \
+ D:/CrossApp/extensions/Json/DictionaryHelper.h \
+ D:/CrossApp/extensions/sqlite3/include/sqlite3.h \
+ D:/CrossApp/extensions/LocalStorage/LocalStorage.h \
+ D:/CrossApp/extensions/device/CADevice.h \
+ D:/CrossApp/extensions/studio/CAStudioViewController.h \
+ D:/CrossApp/extensions/Json/CSContentJsonDictionary.h \
+ D:/CrossApp/extensions/Json/DictionaryHelper.h
 
 jni/../../Classes/SecondViewController.h:
 
@@ -745,3 +771,57 @@ jni/../../Classes/IMDATA.h:
 jni/../../Classes/RootWindow.h:
 
 jni/../../Classes/HXSDKController.h:
+
+jni/../../Classes/HXSDKBuddy.h:
+
+D:/CrossApp/extensions/CrossAppExt.h:
+
+D:/CrossApp/extensions/ExtensionMacros.h:
+
+D:/CrossApp/extensions/network/HttpRequest.h:
+
+D:/CrossApp/extensions/ExtensionMacros.h:
+
+D:/CrossApp/extensions/network/HttpResponse.h:
+
+D:/CrossApp/extensions/network/HttpRequest.h:
+
+D:/CrossApp/extensions/network/HttpClient.h:
+
+D:/CrossApp/extensions/network/HttpResponse.h:
+
+D:/CrossApp/extensions/network/DownloadManager.h:
+
+D:/CrossApp/extensions/Json/CSContentJsonDictionary.h:
+
+D:/CrossApp/extensions/Json/lib_json/json_lib.h:
+
+D:/CrossApp/extensions/Json/lib_json/autolink.h:
+
+D:/CrossApp/extensions/Json/lib_json/config.h:
+
+D:/CrossApp/extensions/Json/lib_json/value.h:
+
+D:/CrossApp/extensions/Json/lib_json/forwards.h:
+
+D:/CrossApp/extensions/Json/lib_json/reader.h:
+
+D:/CrossApp/extensions/Json/lib_json/features.h:
+
+E:/Android/android-ndk-r9c/sources/cxx-stl/gnu-libstdc++/4.6/include/stack:
+
+D:/CrossApp/extensions/Json/lib_json/writer.h:
+
+D:/CrossApp/extensions/Json/DictionaryHelper.h:
+
+D:/CrossApp/extensions/sqlite3/include/sqlite3.h:
+
+D:/CrossApp/extensions/LocalStorage/LocalStorage.h:
+
+D:/CrossApp/extensions/device/CADevice.h:
+
+D:/CrossApp/extensions/studio/CAStudioViewController.h:
+
+D:/CrossApp/extensions/Json/CSContentJsonDictionary.h:
+
+D:/CrossApp/extensions/Json/DictionaryHelper.h:

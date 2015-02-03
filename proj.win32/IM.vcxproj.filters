@@ -8,20 +8,23 @@
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
     <Filter Include="Classes\android">
-      <UniqueIdentifier>{48b95676-47e4-4ac0-95c5-e02789bc74be}</UniqueIdentifier>
+      <UniqueIdentifier>{d01b85f9-5d35-40e4-9a4b-adcf283330a9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>win32</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\AddHeadForgrand.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\AddHeadForgrand.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
     <ClCompile Include="..\Classes\FirstViewController.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HXSDKBuddy.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\HXSDKController.cpp">
@@ -48,27 +51,30 @@
     <ClCompile Include="..\Classes\SecondViewController.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\android\com_CrossApp_IM_IM.cpp">
-      <Filter>Classes\android</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\ThirdViewController.cpp">
       <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\android\com_CrossApp_IM_IM.cpp">
+      <Filter>Classes\android</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
       <Filter>win32</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\AddHeadForgrand.h">
+    <ClInclude Include="..\Classes\AppDelegate.h">
       <Filter>Classes</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\AppDelegate.h">
+    <ClInclude Include="..\Classes\AddHeadForgrand.h">
       <Filter>Classes</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\AppMacros.h">
       <Filter>Classes</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\FirstViewController.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HXSDKBuddy.h">
       <Filter>Classes</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\HXSDKController.h">
@@ -98,11 +104,11 @@
     <ClInclude Include="..\Classes\SecondViewController.h">
       <Filter>Classes</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\android\com_CrossApp_IM_IM.h">
-      <Filter>Classes\android</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\ThirdViewController.h">
       <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\android\com_CrossApp_IM_IM.h">
+      <Filter>Classes\android</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

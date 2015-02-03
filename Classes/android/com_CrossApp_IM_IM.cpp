@@ -38,60 +38,26 @@ extern "C" {
 /*初始化，登录注册相关类*/
 void com_CrossApp_IM_IM::init_android()
 {
-	LOGD("hxsdk init");
+	//LOGD("hxsdk init");
 }
 
 void com_CrossApp_IM_IM::registerAccount_android(const char* userName, const char* passWord)
 {
-	
-	JniMethodInfo info;
-	bool isHave = JniHelper::getStaticMethodInfo(info, "com/CrossApp/IM/IMINIT", "registerAccount_android", "(Ljava/lang/String;Ljava/lang/String;)V");
-	if (isHave)
-	{
-		jstring p_name;
-		jstring p_passWord;
-		p_name = info.env->NewStringUTF(userName);
-		p_passWord = info.env->NewStringUTF(passWord);
-		info.env->CallStaticVoidMethod(info.classID, info.methodID, p_name, p_passWord);
-
-		info.env->DeleteLocalRef(info.classID);
-		info.env->DeleteLocalRef(p_name);
-		info.env->DeleteLocalRef(p_passWord);
-	}
-	
+	CallStaticMethod_void("com/CrossApp/IM/IMINIT", "registerAccount_android", userName, passWord);
 }
 
 void com_CrossApp_IM_IM::login_android(const char* userName, const char* passWord)
 {
 	
-	LOGD("IM jni call login_android");
-	
-	JniMethodInfo info;
-	bool isHave = JniHelper::getStaticMethodInfo(info, "com/CrossApp/IM/IMINIT", "login_android", "(Ljava/lang/String;Ljava/lang/String;)V");
-	if (isHave)
-	{
-		jstring p_name;
-		jstring p_passWord;
-		p_name = info.env->NewStringUTF(userName);
-		p_passWord = info.env->NewStringUTF(passWord);
-		info.env->CallStaticVoidMethod(info.classID, info.methodID, p_name, p_passWord);
-
-		info.env->DeleteLocalRef(info.classID);
-		info.env->DeleteLocalRef(p_name);
-		info.env->DeleteLocalRef(p_passWord);
-	}
+	//LOGD("IM jni call login_android");
+	CallStaticMethod_void("com/CrossApp/IM/IMINIT", "login_android", userName, passWord);
 	
 }
 
 void com_CrossApp_IM_IM::logout_android()
 {
-	LOGD("qiaoxin jni call logout_android");
-	
-	JniMethodInfo t;
-	if (JniHelper::getStaticMethodInfo(t, "com/CrossApp/IM/IMINIT", "logout_android", "()V")) {
-		t.env->CallStaticVoidMethod(t.classID, t.methodID);
-		t.env->DeleteLocalRef(t.classID);
-	}
+	//LOGD("qiaoxin jni call logout_android");
+	CallStaticMethod_void("com/CrossApp/IM/IMINIT", "logout_android");
 	
 }
 
@@ -100,13 +66,13 @@ void com_CrossApp_IM_IM::logout_android()
 /*好友管理*/
 
 //获取好友列表
-std::vector<std::string> com_CrossApp_IM_IM::getContactUserNames_android()
+void com_CrossApp_IM_IM::getContactUserNames_android()
 {
 	JniMethodInfo info;
-	bool ishave = JniHelper::getStaticMethodInfo(info, "com/CrossApp/IM/IMINIT", "getContactUserNames", "()[Ljava/lang/String;");
+	bool ishave = JniHelper::getStaticMethodInfo(info, "com/CrossApp/IM/FRIENDMANAGENT", "getContactUserNames", "()[Ljava/lang/String;");
+	std::vector<std::string> usernameVector;
 	if (ishave)
 	{
-		std::vector<std::string> usernameVector;
 		jobjectArray usernameList = (jobjectArray)info.env->CallStaticObjectMethod(info.classID, info.methodID);
 		int length = info.env->GetArrayLength(usernameList);
 		jstring tmp;
@@ -118,146 +84,492 @@ std::vector<std::string> com_CrossApp_IM_IM::getContactUserNames_android()
 			string pp = result;
 			usernameVector.push_back(pp);
 		}
-		return usernameVector;
 		info.env->DeleteLocalRef(tmp);
 		info.env->DeleteLocalRef(info.classID);
 		info.env->DeleteGlobalRef(usernameList);
 	}
-
+	stringnameToList(usernameVector);
 }
-//查找好友，SDK不提供好友查找的服务, 如需要查找好友, 需要调用开发者自己服务器的用户查询接口
-//为了保证查找到的好友可以添加, 需要将用户自己服务器的用户数据库, 通过SDK的后台接口导入到SDK服务器中
-bool com_CrossApp_IM_IM::findFriends_android(const char* friendsname)
+//从服务器获取的用户名同本地数据进行比较加载
+void com_CrossApp_IM_IM::stringnameToList(std::vector<std::string> pvector)
 {
-	//向自己的服务器实现好友查找
-	return true;
+	std::vector<std::string>::iterator itr = pvector.begin();
+	for (; itr != pvector.end(); itr++)
+	{
+		HXSDKController::getInstance()->pushFriendsDetail(*itr, eHXSDKEMBuddyFollowState_UnKnow, false);
+	}
 }
+
 //添加好友
 void com_CrossApp_IM_IM::addContact_anroid(const char* toAddUsername, const char* reason)
 {
-	JniMethodInfo info;
-	bool ishave = JniHelper::getStaticMethodInfo(info, "com/CrossApp/IM/FRIENDMANAGENT", "addContact", "(Ljava/lang/String;Ljava/lang/String;)V");
-	if (ishave)
-	{
-		jstring username = info.env->NewStringUTF(toAddUsername);
-		jstring p_reason = info.env->NewStringUTF(reason);
-		info.env->CallStaticVoidMethod(info.classID, info.methodID, username, p_reason);
-		info.env->DeleteLocalRef(info.classID);
-		info.env->DeleteLocalRef(username);
-		info.env->DeleteLocalRef(p_reason);
+	bool result = CallStaticMethod_bool("com/CrossApp/IM/FRIENDMANAGENT", "addContact", toAddUsername, reason);
+	if (result){
+		HXSDKController::getInstance()->pushFriendsDetail(toAddUsername, eHXSDKEMBuddyFollowState_NotFollowed, true);
+		//列表刷新
+	}
+	else{
+		//LOGD("add friend fail");
 	}
 }
-//删除好友
-void com_CrossApp_IM_IM::deleteContact_android(const char* username)
+
+/****************群组管理**************************/
+//获取公开群
+void com_CrossApp_IM_IM::getPublicGroup_android()
 {
 	JniMethodInfo info;
-	bool ishave = JniHelper::getStaticMethodInfo(info, "com/CrossApp/IM/FRIENDMANAGENT", "deleteContact", "(Ljava/lang/String;)V");
-	if (ishave)
+	bool isHave = JniHelper::getStaticMethodInfo(info, "com/CrossApp/IM/GROUP", "getPublicGroup_android", "()[Ljava/lang/Object;");
+	if (isHave)
 	{
-		jstring p_username = info.env->NewStringUTF(username);
-		info.env->CallStaticVoidMethod(info.classID, info.methodID, p_username);
+		jobject jobj;
+		jclass class_EMGroupInfo;
+		jmethodID EMGroupInfo_getid;
+		jstring id;
+		jmethodID EMGroupInfo_getname;
+		jstring name;
+
+		jobjectArray publicgrouplist = (jobjectArray)info.env->CallStaticObjectMethod(info.classID, info.methodID);
+		int length = info.env->GetArrayLength(publicgrouplist);
+		for (int i = 0; i < length; i++)
+		{
+			jobj = info.env->GetObjectArrayElement(publicgrouplist,i);
+			class_EMGroupInfo = info.env->GetObjectClass(jobj);
+			//id
+			EMGroupInfo_getid = info.env->GetMethodID(class_EMGroupInfo, "getGroupId", "()Ljava/lang/String;");
+			id = (jstring)info.env->CallObjectMethod(jobj, EMGroupInfo_getid);
+			const char* result_id = (char*)info.env->GetStringUTFChars(id,false);
+			string pp_id = result_id;
+			//name
+			EMGroupInfo_getname = info.env->GetMethodID(class_EMGroupInfo, "getGroupName", "()Ljava/lang/String;");
+			name = (jstring)info.env->CallObjectMethod(jobj, EMGroupInfo_getname);
+			const char* result_name = (char*)info.env->GetStringUTFChars(name, false);
+			string pp_name = result_name;
+			//数据加载到列表
+			HXSDKController::getInstance()->pushGroupsDetail(pp_id, pp_name, "no",0);
+		}
+		//释放资源
 		info.env->DeleteLocalRef(info.classID);
-		info.env->DeleteLocalRef(p_username);
+		info.env->DeleteLocalRef(jobj);
+		info.env->DeleteLocalRef(id);
+		info.env->DeleteLocalRef(name);
 	}
 }
-//同意好友请求
-void com_CrossApp_IM_IM::acceptInvitation_android(const char* username)
+
+//创建群
+void com_CrossApp_IM_IM::createGroup_android(HXSDKGroupStyle groupType, const char* gName, const char* gDescription)
 {
 	JniMethodInfo info;
-	bool ishave = JniHelper::getStaticMethodInfo(info, "com/CrossApp/IM/FRIENDMANAGENT", "acceptInvitation", "(Ljava/lang/String;)V");
-	if (ishave)
+	bool isHave = JniHelper::getStaticMethodInfo(info, "com/CrossApp/IM/GROUP", "createGroup_android", "(Ljava/lang/String;Ljava/lang/String;ZZ)V");
+	if (isHave)
 	{
-		jstring p_username = info.env->NewStringUTF(username);
-		info.env->CallStaticVoidMethod(info.classID, info.methodID, p_username);
+		jstring groupName = info.env->NewStringUTF(gName);
+		jstring groupDescription = info.env->NewStringUTF(gDescription);
+		jboolean isPublic;
+		jboolean isAllow;
+		switch (groupType)
+		{
+		case eHXSDKGroupStyle_PrivateOnlyOwnerInvite:
+			{
+				isPublic = false; isAllow = false;break;
+			}
+		case eHXSDKGroupStyle_PrivateMemberCanInvite:
+			{
+				isPublic = false; isAllow = true; break;
+			}
+		case eHXSDKGroupStyle_PublicJoinNeedApproval:
+			{
+				isPublic = true; isAllow = true; break;
+			}
+		case eHXSDKGroupStyle_PublicOpenJoin:
+			{
+				isPublic = true; isAllow = false; break;
+			}
+		}
+		info.env->CallStaticVoidMethod(info.classID, info.methodID, groupName, groupDescription, isPublic, isAllow);
 		info.env->DeleteLocalRef(info.classID);
-		info.env->DeleteLocalRef(p_username);
+		info.env->DeleteLocalRef(groupName);
+		info.env->DeleteLocalRef(groupDescription);
 	}
 }
-//拒绝好友请求
-void com_CrossApp_IM_IM::refuseInvitation_android(const char* username)
+
+//获取自己创建的群
+void com_CrossApp_IM_IM::getMyGroupList_android()
 {
 	JniMethodInfo info;
-	bool ishave = JniHelper::getStaticMethodInfo(info, "com/CrossApp/IM/FRIENDMANAGENT", "refuseInvitation", "(Ljava/lang/String;)V");
-	if (ishave)
+	bool isHave = JniHelper::getStaticMethodInfo(info, "com/CrossApp/IM/GROUP", "getMyGroupList_android", "()[Ljava/lang/Object;");
+	if (isHave)
 	{
-		jstring p_username = info.env->NewStringUTF(username);
-		info.env->CallStaticVoidMethod(info.classID, info.methodID, p_username);
+		jobject jobj;
+		jclass class_EMGroup;
+
+		jmethodID id_EMGroup_getGroupId;
+		jstring id;
+
+		jmethodID EMGroup_getgroupname;
+		jstring groupname;
+
+		jmethodID EMGroup_getdescription;
+		jstring groupdescription;
+
+		jmethodID EMGroup_getnumbers;
+		jint groupnumbers;
+		
+		jobjectArray grouplist = (jobjectArray)info.env->CallStaticObjectMethod(info.classID, info.methodID);
+		int length = info.env->GetArrayLength(grouplist);
+		
+		for (int i = 0; i < length; i++)
+		{
+			jobj = info.env->GetObjectArrayElement(grouplist, i);
+			class_EMGroup = info.env->GetObjectClass(jobj);
+			//id
+			id_EMGroup_getGroupId = info.env->GetMethodID(class_EMGroup, "getGroupId", "()Ljava/lang/String;");
+			id = (jstring)info.env->CallObjectMethod(jobj, id_EMGroup_getGroupId);
+			const char* result_id = (char*)info.env->GetStringUTFChars(id,false);
+			string pp_id = result_id;
+			//groupname
+			EMGroup_getgroupname = info.env->GetMethodID(class_EMGroup, "getGroupName", "()Ljava/lang/String;");
+			groupname = (jstring)info.env->CallObjectMethod(jobj, EMGroup_getgroupname);
+			const char* result_name = (char*)info.env->GetStringUTFChars(groupname, false);
+			string pp_name = result_name;
+			//groupdescription
+			EMGroup_getdescription = info.env->GetMethodID(class_EMGroup, "getDescription", "()Ljava/lang/String;");
+			groupdescription = (jstring)info.env->CallObjectMethod(jobj, EMGroup_getdescription);
+			const char* result_des = (char*)info.env->GetStringUTFChars(groupdescription, false);
+			string pp_res = result_des;
+			//groupnumbers
+			EMGroup_getnumbers = info.env->GetMethodID(class_EMGroup, "getAffiliationsCount", "()I");
+			groupnumbers = info.env->CallIntMethod(jobj, EMGroup_getnumbers);
+			int pp_numbers = groupnumbers;
+			//获取的数据加载到List中
+			HXSDKController::getInstance()->pushMyGroupsDetail(pp_id,pp_name,pp_res,pp_numbers);
+		}
+		//释放资源
 		info.env->DeleteLocalRef(info.classID);
-		info.env->DeleteLocalRef(p_username);
+		info.env->DeleteLocalRef(id);
+		info.env->DeleteLocalRef(groupname);
+		info.env->DeleteLocalRef(groupdescription);
+		info.env->DeleteLocalRef(grouplist);
 	}
 }
-//监听好友请求
-void com_CrossApp_IM_IM::setContactListener_android()
+
+//加入不需要验证的群
+bool com_CrossApp_IM_IM::joinNoNeedCheckGroup_android(const char* groupId)
+{
+	return CallStaticMethod_bool("com/CrossApp/IM/GROUP", "joinNoNeedCheckGroup_android", groupId);
+}
+
+bool com_CrossApp_IM_IM::joinNeedCheckGroup_android(const char* groupId, const char* groupName, const char* message)
+{
+	return CallStaticMethod_bool("com/CrossApp/IM/GROUP", "joinNeedCheckGroup_android", groupId, message);
+}
+
+
+//退出群
+bool com_CrossApp_IM_IM::exitGroup_android(const char* groupId)
+{
+	return CallStaticMethod_bool("com/CrossApp/IM/GROUP", "exitGroup_android", groupId);
+}
+//解散该群
+bool com_CrossApp_IM_IM::destroyGroup_android(const char* groupId)
+{
+	return CallStaticMethod_bool("com/CrossApp/IM/GROUP", "destroyGroup_android", groupId);
+}
+
+
+//群主加人
+bool com_CrossApp_IM_IM::addUserToGroup_android(const char* groupId, std::vector<char*> usernames)
 {
 	JniMethodInfo info;
-	bool ishave = JniHelper::getStaticMethodInfo(info, "com/CrossApp/IM/FRIENDMANAGENT", "setContactListener", "()V");
-	if (ishave)
+	bool isHave = JniHelper::getStaticMethodInfo(info, "com/CrossApp/IM/GROUP", "addUserToGroup_android", "(Ljava/lang/String;[Ljava/lang/String;)Z");
+	if (isHave)
 	{
-		info.env->CallStaticVoidMethod(info.classID, info.methodID);
+		int i = 0;
+		jstring name;
+		jsize length = usernames.size();
+		jclass myclass = info.env->FindClass("java/lang/String");
+		jobjectArray usernameList = info.env->NewObjectArray(length,myclass,NULL);
+		std::vector<char*>::iterator itr = usernames.begin();
+		for (; itr != usernames.end(); itr++)
+		{
+			name = info.env->NewStringUTF(*itr);
+			info.env->SetObjectArrayElement(usernameList, i, name);
+			i++;
+		}
+		jstring groupid = info.env->NewStringUTF(groupId);
+		jboolean result_android = info.env->CallStaticBooleanMethod(info.classID, info.methodID, groupid, usernameList);
+		bool result = result_android;
 		info.env->DeleteLocalRef(info.classID);
+		info.env->DeleteLocalRef(name);
+		info.env->DeleteLocalRef(groupid);
+		info.env->DeleteLocalRef(myclass);
+		info.env->DeleteLocalRef(usernameList);
+		return result;
 	}
 }
-//监听好友状态事件
-void com_CrossApp_IM_IM::setContactStatus_android()
+
+//私有群加人
+bool com_CrossApp_IM_IM::inviteUser_android(const char* groupId, std::vector<char*> usernames, const char* message)
 {
 	JniMethodInfo info;
-	bool ishave = JniHelper::getStaticMethodInfo(info, "com/CrossApp/IM/FRIENDMANAGENT", "setContactStatus", "()V");
-	if (ishave)
+	bool isHave = JniHelper::getStaticMethodInfo(info, "com/CrossApp/IM/GROUP", "inviteUser_android", "(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Z");
+	if (isHave)
 	{
-		info.env->CallStaticVoidMethod(info.classID, info.methodID);
+		int i = 0;
+		jsize length = usernames.size();
+		jstring name;
+		jclass myclass = info.env->FindClass("java/lang/String");
+		jobjectArray usernameList = info.env->NewObjectArray(length, myclass, NULL);
+		std::vector<char*>::iterator itr = usernames.begin();
+		for (; itr != usernames.end(); itr++)
+		{
+			name = info.env->NewStringUTF(*itr);
+			info.env->SetObjectArrayElement(usernameList, i, name);
+			i++;
+		}
+		jstring groupid = info.env->NewStringUTF(groupId);
+		jstring Message = info.env->NewStringUTF(message);
+		jboolean result_android = info.env->CallStaticBooleanMethod(info.classID, info.methodID, groupid, usernameList,Message);
+		bool result = result_android;
 		info.env->DeleteLocalRef(info.classID);
+		info.env->DeleteLocalRef(name);
+		info.env->DeleteLocalRef(groupid);
+		info.env->DeleteLocalRef(Message);
+		info.env->DeleteLocalRef(myclass);
+		info.env->DeleteLocalRef(usernameList);
+		return result;
 	}
 }
-//获取黑名单
-std::vector<std::string> com_CrossApp_IM_IM::getBlackListUsernames_android()
+
+
+//群聊减人
+bool com_CrossApp_IM_IM::deleteUserFromGroup_android(const char* groupId, const char* userName)
+{
+	return CallStaticMethod_bool("com/CrossApp/IM/GROUP", "deleteUserFromGroup_android", groupId, userName);
+}
+
+//屏蔽群消息，群主不能屏蔽
+bool com_CrossApp_IM_IM::blockGroupMessage_android(const char* groupId)
+{
+	return CallStaticMethod_bool("com/CrossApp/IM/GROUP", "blockGroupMessage_android", groupId);
+}
+//解除屏蔽群消息
+bool com_CrossApp_IM_IM::unblockGroupMessage_android(const char* groupId)
+{
+	return CallStaticMethod_bool("com/CrossApp/IM/GROUP", "unblockGroupMessage_android", groupId);
+}
+//修改群组名称
+bool com_CrossApp_IM_IM::changeGroupName_android(const char* groupId, const char* newgroupName)
+{
+	return CallStaticMethod_bool("com/CrossApp/IM/GROUP", "changeGroupName_android", groupId, newgroupName);
+}
+//设置接收消息不提醒
+bool com_CrossApp_IM_IM::setReceiveNotNoifyGroup_android(std::vector<char*> groupIds)
 {
 	JniMethodInfo info;
-	bool ishave = JniHelper::getStaticMethodInfo(info, "com/CrossApp/IM/FRIENDMANAGENT", "getBlackListUsernames", "()[Ljava/lang/String;");
+	bool isHave = JniHelper::getStaticMethodInfo(info, "com/CrossApp/IM/GROUP", "setReceiveNotNoifyGroup_android", "([Ljava/lang/String;)Z");
+	if (isHave)
+	{
+		int i = 0;
+		jstring name;
+		jsize length = groupIds.size();
+		jclass myclass = info.env->FindClass("java/lang/String");
+		jobjectArray usernameList = info.env->NewObjectArray(length, myclass, NULL);
+		std::vector<char*>::iterator itr = groupIds.begin();
+		for (; itr != groupIds.end(); itr++)
+		{
+			name = info.env->NewStringUTF(*itr);
+			info.env->SetObjectArrayElement(usernameList, i, name);
+			i++;
+		}
+		jboolean result_android = info.env->CallStaticBooleanMethod(info.classID, info.methodID, usernameList);
+		bool result = result_android;
+		info.env->DeleteLocalRef(info.classID);
+		info.env->DeleteLocalRef(name);
+		info.env->DeleteLocalRef(myclass);
+		info.env->DeleteLocalRef(usernameList);
+		return result;
+	}
+}
+//群用户被加入到黑名单
+bool com_CrossApp_IM_IM::blockUser_android(const char* groupId, const char* username)
+{
+	return CallStaticMethod_bool("com/CrossApp/IM/GROUP", "blockUser_android", groupId, username);
+}
+//群用户被移除黑名单
+bool com_CrossApp_IM_IM::unblockUser_android(const char* groupId, const char* username)
+{
+	return CallStaticMethod_bool("com/CrossApp/IM/GROUP", "unblockUser_android", groupId, username);
+}
+//获取群组黑名单
+void com_CrossApp_IM_IM::getBlockedUsers_android(const char* groupId)
+{
+	JniMethodInfo info;
+	bool ishave = JniHelper::getStaticMethodInfo(info, "com/CrossApp/IM/GROUP", "getBlockedUsers_android", "(Ljava/lang/String;)[Ljava/lang/String;");
+	std::vector<std::string> usernameVector;
 	if (ishave)
 	{
-		std::vector<std::string> usernameVector;
-		jobjectArray usernameList = (jobjectArray)info.env->CallStaticObjectMethod(info.classID, info.methodID);
+		jstring groupid = info.env->NewStringUTF(groupId);
+		jobjectArray usernameList = (jobjectArray)info.env->CallStaticObjectMethod(info.classID, info.methodID, groupid);
 		int length = info.env->GetArrayLength(usernameList);
 		jstring tmp;
 		for (int i = 0; i < length; i++)
 		{
 			tmp = (jstring)info.env->GetObjectArrayElement(usernameList, i);
 			const char* result = (char*)info.env->GetStringUTFChars(tmp, 0);
-			string pp = result;
-			usernameVector.push_back(pp);
-			info.env->DeleteLocalRef(tmp);
-		}
 
-		return usernameVector;
+			string pp = result;
+			usernameVector.push_back(pp);  //加入到黑名单列表当中
+		}
 		info.env->DeleteLocalRef(tmp);
 		info.env->DeleteLocalRef(info.classID);
-		info.env->DeleteLocalRef(usernameList);
+		info.env->DeleteGlobalRef(usernameList);
 	}
 }
-//把用户添加到黑名单
-void com_CrossApp_IM_IM::addUserToBlackList_android(const char* username, bool isboth)
+//黑名单转换
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//转换函数-1，返回void，没有参数
+void com_CrossApp_IM_IM::CallStaticMethod_void(const char* classname, const char* methodname)
 {
 	JniMethodInfo info;
-	bool ishave = JniHelper::getStaticMethodInfo(info, "com/CrossApp/IM/FRIENDMANAGENT", "addUserToBlackList", "(Ljava/lang/String;Z)V");
-	if (ishave)
+	bool isHave = JniHelper::getStaticMethodInfo(info, classname, methodname, "()V");
+	if (isHave)
 	{
-		jstring p_username = info.env->NewStringUTF(username);
-		jboolean p_isboth = isboth;
-		info.env->CallStaticVoidMethod(info.classID, info.methodID, p_username, p_isboth);
+		info.env->CallStaticVoidMethod(info.classID, info.methodID);
 		info.env->DeleteLocalRef(info.classID);
-		info.env->DeleteLocalRef(p_username);
 	}
 }
-//把用户从黑名单移除
-void com_CrossApp_IM_IM::deleteUserFromBlackList_android(const char* username)
+//转换函数0：返回bool，没有参数
+bool com_CrossApp_IM_IM::CallStaticMethod_bool(const char* classname, const char* methodname)
 {
 	JniMethodInfo info;
-	bool ishave = JniHelper::getStaticMethodInfo(info, "com/CrossApp/IM/FRIENDMANAGENT", "deleteUserFromBlackList", "(Ljava/lang/String;)V");
-	if (ishave)
+	bool isHave = JniHelper::getStaticMethodInfo(info, classname, methodname, "()Z");
+	if (isHave)
 	{
-		jstring p_username = info.env->NewStringUTF(username);
-		info.env->CallStaticVoidMethod(info.classID, info.methodID, p_username);
+		jboolean result_android = info.env->CallStaticBooleanMethod(info.classID, info.methodID);
+		bool result = result_android;
 		info.env->DeleteLocalRef(info.classID);
-		info.env->DeleteLocalRef(p_username);
+		return result;
+	}
+}
+//转换函数一：返回void，一个string参数
+void com_CrossApp_IM_IM::CallStaticMethod_void(const char* classname, const char* methodname, const char* paragrmone)
+{
+	JniMethodInfo info;
+	bool isHave = JniHelper::getStaticMethodInfo(info, classname, methodname, "(Ljava/lang/String;)V");
+	if (isHave)
+	{
+		jstring parameter;
+		parameter = info.env->NewStringUTF(paragrmone);
+		info.env->CallStaticVoidMethod(info.classID, info.methodID, parameter);
+		info.env->DeleteLocalRef(info.classID);
+		info.env->DeleteLocalRef(parameter);
+	}
+}
+// 转换函数二：返回bool，一个string参数
+bool com_CrossApp_IM_IM::CallStaticMethod_bool(const char* classname, const char* methodname, const char* paragrmone)
+{
+	JniMethodInfo info;
+	bool isHave = JniHelper::getStaticMethodInfo(info, classname, methodname, "(Ljava/lang/String;)Z");
+	if (isHave)
+	{
+		jstring parameter = info.env->NewStringUTF(paragrmone);
+		jboolean result_android = info.env->CallStaticBooleanMethod(info.classID, info.methodID, parameter);
+		bool result = result_android;
+		info.env->DeleteLocalRef(info.classID);
+		info.env->DeleteLocalRef(parameter);
+		return result;
+	}
+}
+//转换函数三：返回void，俩个string参数
+void com_CrossApp_IM_IM::CallStaticMethod_void(const char* classname, const char* methodname, const char* paragrmone,const char* paragrmtwo)
+{
+	JniMethodInfo info;
+	bool isHave = JniHelper::getStaticMethodInfo(info, classname, methodname, "(Ljava/lang/String;Ljava/lang/String;)V");
+	if (isHave)
+	{
+		jstring parameter;
+		jstring parametersecond;
+		parameter = info.env->NewStringUTF(paragrmone);
+		parametersecond = info.env->NewStringUTF(paragrmtwo);
+		info.env->CallStaticVoidMethod(info.classID, info.methodID, parameter, parametersecond);
+		info.env->DeleteLocalRef(info.classID);
+		info.env->DeleteLocalRef(parameter);
+		info.env->DeleteLocalRef(parametersecond);
+	}
+}
+//转换函数四：返回bool，俩个string参数
+bool com_CrossApp_IM_IM::CallStaticMethod_bool(const char* classname, const char* methodname, const char* paragrmone, const char* paragrmtwo)
+{
+	JniMethodInfo info;
+	bool isHave = JniHelper::getStaticMethodInfo(info, classname, methodname, "(Ljava/lang/String;Ljava/lang/String;)Z");
+	if (isHave)
+	{
+		jstring parameter;
+		jstring parametersecond;
+		parameter = info.env->NewStringUTF(paragrmone);
+		parametersecond = info.env->NewStringUTF(paragrmtwo);
+		jboolean result_android = info.env->CallStaticBooleanMethod(info.classID, info.methodID, parameter, parametersecond);
+		bool result = result_android;
+		info.env->DeleteLocalRef(info.classID);
+		info.env->DeleteLocalRef(parameter);
+		info.env->DeleteLocalRef(parametersecond);
+		return result;
+	}
+}
+//转换函数五：返回void，三个string参数
+void com_CrossApp_IM_IM::CallStaticMethod_void(const char* classname, const char* methodname, const char* paragrmone, const char* paragrmtwo, const char* paragrmthree)
+{
+	JniMethodInfo info;
+	bool isHave = JniHelper::getStaticMethodInfo(info, classname, methodname, "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V");
+	if (isHave)
+	{
+		jstring parameter;
+		jstring parametersecond;
+		jstring parameterthird;
+		parameter = info.env->NewStringUTF(paragrmone);
+		parametersecond = info.env->NewStringUTF(paragrmtwo);
+		parameterthird = info.env->NewStringUTF(paragrmthree);
+		info.env->CallStaticVoidMethod(info.classID, info.methodID, parameter, parametersecond, parameterthird);
+		info.env->DeleteLocalRef(info.classID);
+		info.env->DeleteLocalRef(parameter);
+		info.env->DeleteLocalRef(parametersecond);
+		info.env->DeleteLocalRef(parameterthird);
+	}
+}
+//转换函数六，返回bool，三个string参数
+bool com_CrossApp_IM_IM::CallStaticMethod_bool(const char* classname, const char* methodname, const char* paragrmone, const char* paragrmtwo,const char* paragrmthree)
+{
+	JniMethodInfo info;
+	bool isHave = JniHelper::getStaticMethodInfo(info, classname, methodname, "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z");
+	if (isHave)
+	{
+		jstring parameter;
+		jstring parametersecond;
+		jstring parameterthird;
+		parameter = info.env->NewStringUTF(paragrmone);
+		parametersecond = info.env->NewStringUTF(paragrmtwo);
+		parameterthird = info.env->NewStringUTF(paragrmthree);
+		jboolean result_android = info.env->CallStaticBooleanMethod(info.classID, info.methodID, parameter, parametersecond, parameterthird);
+		bool result = result_android;
+		info.env->DeleteLocalRef(info.classID);
+		info.env->DeleteLocalRef(parameter);
+		info.env->DeleteLocalRef(parametersecond);
+		info.env->DeleteLocalRef(parameterthird);
+		return result;
 	}
 }

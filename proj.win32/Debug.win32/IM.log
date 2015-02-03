@@ -1,7 +1,7 @@
-﻿生成启动时间为 2015/1/27 22:46:52。
+﻿生成启动时间为 2015/1/29 12:13:57。
      1>项目“D:\CrossApp\projects\IM\proj.win32\IM.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
-         D:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ID:\CrossApp\projects\IM\proj.win32\..\..\..\CrossApp /ID:\CrossApp\projects\IM\proj.win32\..\..\..\CrossApp\kazmath\include /ID:\CrossApp\projects\IM\proj.win32\..\..\..\CrossApp\platform\win32 /ID:\CrossApp\projects\IM\proj.win32\..\..\..\CrossApp\platform\third_party\win32 /ID:\CrossApp\projects\IM\proj.win32\..\..\..\CrossApp\platform\third_party\win32\pthread /ID:\CrossApp\projects\IM\proj.win32\..\..\..\CrossApp\platform\third_party\win32\OGLES /ID:\CrossApp\projects\IM\proj.win32\..\..\..\CrossApp\platform\third_party\win32\freetype /ID:\CrossApp\projects\IM\proj.win32\..\..\..\external /ID:\CrossApp\projects\IM\proj.win32\..\..\..\CocosDenshion\include /ID:\CrossApp\projects\IM\proj.win32\..\..\..\extensions /I..\Classes /I.. /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USE_MATH_DEFINES /D GL_GLEXT_PROTOTYPES /D CC_ENABLE_CHIPMUNK_INTEGRATION=1 /D COCOS2D_DEBUG=1 /D _CRT_SECURE_NO_WARNINGS /D _SCL_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug.win32\\" /Fd"Debug.win32\vc120.pdb" /Gd /TP /wd4267 /wd4251 /wd4244 /analyze- /errorReport:prompt ..\Classes\HXSDKController.cpp ..\Classes\ThirdViewController.cpp ..\Classes\android\com_CrossApp_IM_IM.cpp
+         D:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ID:\CrossApp\projects\IM\proj.win32\..\..\..\CrossApp /ID:\CrossApp\projects\IM\proj.win32\..\..\..\CrossApp\kazmath\include /ID:\CrossApp\projects\IM\proj.win32\..\..\..\CrossApp\platform\win32 /ID:\CrossApp\projects\IM\proj.win32\..\..\..\CrossApp\platform\third_party\win32 /ID:\CrossApp\projects\IM\proj.win32\..\..\..\CrossApp\platform\third_party\win32\pthread /ID:\CrossApp\projects\IM\proj.win32\..\..\..\CrossApp\platform\third_party\win32\OGLES /ID:\CrossApp\projects\IM\proj.win32\..\..\..\CrossApp\platform\third_party\win32\freetype /ID:\CrossApp\projects\IM\proj.win32\..\..\..\external /ID:\CrossApp\projects\IM\proj.win32\..\..\..\CocosDenshion\include /ID:\CrossApp\projects\IM\proj.win32\..\..\..\extensions /I..\Classes /I.. /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USE_MATH_DEFINES /D GL_GLEXT_PROTOTYPES /D CC_ENABLE_CHIPMUNK_INTEGRATION=1 /D COCOS2D_DEBUG=1 /D _CRT_SECURE_NO_WARNINGS /D _SCL_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug.win32\\" /Fd"Debug.win32\vc120.pdb" /Gd /TP /wd4267 /wd4251 /wd4244 /analyze- /errorReport:prompt ..\Classes\HXSDKController.cpp ..\Classes\SecondViewController.cpp ..\Classes\android\com_CrossApp_IM_IM.cpp
          com_CrossApp_IM_IM.cpp
      1>d:\crossapp\crossapp\dispatcher\catouch.h(20): warning C4305: “参数”: 从“unsigned int”到“float”截断
      1>d:\crossapp\crossapp\dispatcher\catouch.h(21): warning C4305: “参数”: 从“unsigned int”到“float”截断
@@ -26,7 +26,18 @@
      1>d:\crossapp\crossapp\cocoa\cacalendar.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
      1>d:\crossapp\projects\im\classes\android\com_crossapp_im_im.cpp(19): warning C4800: “jboolean”: 将值强制为布尔值“true”或“false”(性能警告)
      1>d:\crossapp\projects\im\classes\android\com_crossapp_im_im.cpp(25): warning C4800: “jboolean”: 将值强制为布尔值“true”或“false”(性能警告)
-         ThirdViewController.cpp
+     1>d:\crossapp\projects\im\classes\android\com_crossapp_im_im.cpp(31): warning C4800: “jboolean”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>d:\crossapp\projects\im\classes\android\com_crossapp_im_im.cpp(41): error C2065: “ANDROID_LOG_DEBUG”: 未声明的标识符
+     1>d:\crossapp\projects\im\classes\android\com_crossapp_im_im.cpp(41): error C3861: “__android_log_print”:  找不到标识符
+     1>d:\crossapp\projects\im\classes\android\com_crossapp_im_im.cpp(67): error C2065: “ANDROID_LOG_DEBUG”: 未声明的标识符
+     1>d:\crossapp\projects\im\classes\android\com_crossapp_im_im.cpp(67): error C3861: “__android_log_print”:  找不到标识符
+     1>d:\crossapp\projects\im\classes\android\com_crossapp_im_im.cpp(88): error C2065: “ANDROID_LOG_DEBUG”: 未声明的标识符
+     1>d:\crossapp\projects\im\classes\android\com_crossapp_im_im.cpp(88): error C3861: “__android_log_print”:  找不到标识符
+     1>d:\crossapp\projects\im\classes\android\com_crossapp_im_im.cpp(152): warning C4800: “jboolean”: 将值强制为布尔值“true”或“false”(性能警告)
+     1>d:\crossapp\projects\im\classes\android\com_crossapp_im_im.cpp(158): error C2065: “ANDROID_LOG_DEBUG”: 未声明的标识符
+     1>d:\crossapp\projects\im\classes\android\com_crossapp_im_im.cpp(158): error C3861: “__android_log_print”:  找不到标识符
+         SecondViewController.cpp
+     1>d:\crossapp\projects\im\classes\secondviewcontroller.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
      1>d:\crossapp\crossapp\dispatcher\catouch.h(20): warning C4305: “参数”: 从“unsigned int”到“float”截断
      1>d:\crossapp\crossapp\dispatcher\catouch.h(21): warning C4305: “参数”: 从“unsigned int”到“float”截断
      1>d:\crossapp\crossapp\dispatcher\catouch.h(22): warning C4305: “参数”: 从“unsigned int”到“float”截断
@@ -49,6 +60,7 @@
                  d:\crossapp\crossapp\view\cadatepickerview.h(33) : 参见“CrossApp::CADatePickerView”的声明
      1>d:\crossapp\crossapp\cocoa\cacalendar.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
          HXSDKController.cpp
+     1>d:\crossapp\projects\im\classes\hxsdkcontroller.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
      1>d:\crossapp\crossapp\dispatcher\catouch.h(20): warning C4305: “参数”: 从“unsigned int”到“float”截断
      1>d:\crossapp\crossapp\dispatcher\catouch.h(21): warning C4305: “参数”: 从“unsigned int”到“float”截断
      1>d:\crossapp\crossapp\dispatcher\catouch.h(22): warning C4305: “参数”: 从“unsigned int”到“float”截断
@@ -71,35 +83,8 @@
                  d:\crossapp\crossapp\view\cadatepickerview.h(33) : 参见“CrossApp::CADatePickerView”的声明
      1>d:\crossapp\crossapp\cocoa\cacalendar.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
          正在生成代码...
-       PreLinkEvent:
-         if not exist "D:\CrossApp\projects\IM\proj.win32\Debug.win32\" mkdir "D:\CrossApp\projects\IM\proj.win32\Debug.win32\"
-         xcopy /Y /Q "D:\CrossApp\projects\IM\proj.win32\..\..\..\extensions\libwebsockets\win32\lib\*.*" "D:\CrossApp\projects\IM\proj.win32\Debug.win32\"
-         :VCEnd
-         复制了 2 个文件
-       Link:
-         D:\Program Files\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\CrossApp\projects\IM\proj.win32\Debug.win32\IM.exe" /INCREMENTAL /NOLOGO /LIBPATH:D:\CrossApp\projects\IM\proj.win32\Debug.win32\ libExtensions.lib libCrossApp.lib libCocosDenshion.lib opengl32.lib glew32.lib libcurl_imp.lib pthreadVCE2.lib websockets.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\CrossApp\projects\IM\proj.win32\Debug.win32\IM.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\CrossApp\projects\IM\proj.win32\Debug.win32\IM.lib" /MACHINE:X86 /SAFESEH Debug.win32\AddHeadForgrand.obj
-         Debug.win32\com_CrossApp_IM_IM.obj
-         Debug.win32\AppDelegate.obj
-         Debug.win32\FirstViewController.obj
-         Debug.win32\HXSDKController.obj
-         Debug.win32\IMLoginRegister.obj
-         Debug.win32\IMMyController.obj
-         Debug.win32\IMMyInfo.obj
-         Debug.win32\IMSetInfomation.obj
-         Debug.win32\IMTableCell.obj
-         Debug.win32\RootWindow.obj
-         Debug.win32\SecondViewController.obj
-         Debug.win32\ThirdViewController.obj
-         Debug.win32\main.obj
-         D:\CrossApp\projects\IM\proj.win32\Debug.win32\libCocosDenshion.lib
-         D:\CrossApp\projects\IM\proj.win32\Debug.win32\libCrossApp.lib
-         D:\CrossApp\projects\IM\proj.win32\Debug.win32\libExtensions.lib
-     1>AddHeadForgrand.obj : warning LNK4075: 忽略“/EDITANDCONTINUE”(由于“/SAFESEH”规范)
-            正在创建库 D:\CrossApp\projects\IM\proj.win32\Debug.win32\IM.lib 和对象 D:\CrossApp\projects\IM\proj.win32\Debug.win32\IM.exp
-     1>com_CrossApp_IM_IM.obj : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: static bool __cdecl CrossApp::JniHelper::getStaticMethodInfo(struct CrossApp::JniMethodInfo_ &,char const *,char const *,char const *)" (__imp_?getStaticMethodInfo@JniHelper@CrossApp@@SA_NAAUJniMethodInfo_@2@PBD11@Z)，该符号在函数 "public: static void __cdecl com_CrossApp_IM_IM::registerAccount_android(char const *,char const *)" (?registerAccount_android@com_CrossApp_IM_IM@@SAXPBD0@Z) 中被引用
-     1>D:\CrossApp\projects\IM\proj.win32\Debug.win32\IM.exe : fatal error LNK1120: 1 个无法解析的外部命令
      1>已完成生成项目“D:\CrossApp\projects\IM\proj.win32\IM.vcxproj”(Build 个目标)的操作 - 失败。
 
 生成失败。
 
-已用时间 00:00:06.83
+已用时间 00:00:09.70

@@ -14,38 +14,36 @@
 
 USING_NS_CC;
 
-class SecondViewController: public CAViewController
+class SecondViewController : public CAViewController
 {
-    
+
 public:
 
 	SecondViewController();
-    
+
 	virtual ~SecondViewController();
-    
-    virtual bool init();
+
+	virtual bool init();
 protected:
-    
-    virtual void viewDidLoad();
-    
-    virtual void viewDidUnload();
-    
-    virtual void viewDidAppear();
-        
-    void onButtonSearch(CAControl* control, CCPoint point);//搜索按钮回调
-    
-    void onButtonAdd(CAControl* control, CCPoint point);//添加按钮回调
-    
-    // testIM
-    void onButtonLogin(CAControl* control, CCPoint point);
-    void onButtonLogOff(CAControl* control, CCPoint point);
-    void onButtonSendText(CAControl* control, CCPoint point);
-    void onButtonGetFriends(CAControl *control, CCPoint point);
-    void onButtonGetGroups(CAControl *control, CCPoint point);
-    void onButtonCreateGroup(CAControl *control, CCPoint point);
-    void onButtonGetMyGroups(CAControl *control, CCPoint point);
 
+	virtual void viewDidLoad();
 
+	virtual void viewDidUnload();
+
+	virtual void viewDidAppear();
+
+	void onButtonSearch(CAControl* control, CCPoint point);//搜索按钮回调
+
+	void onButtonAdd(CAControl* control, CCPoint point);//添加按钮回调
+
+	// testIM
+	void onButtonLogin(CAControl* control, CCPoint point);
+	void onButtonLogOff(CAControl* control, CCPoint point);
+	void onButtonSendText(CAControl* control, CCPoint point);
+	void onButtonGetFriends(CAControl *control, CCPoint point);
+	void onButtonGetGroups(CAControl *control, CCPoint point);
+	void onButtonCreateGroup(CAControl *control, CCPoint point);
+	void onButtonGetMyGroups(CAControl *control, CCPoint point);
 };
 
 
