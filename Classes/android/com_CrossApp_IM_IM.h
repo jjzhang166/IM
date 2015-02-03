@@ -65,6 +65,13 @@ public:
 	//获取黑名单列表
 	  static void getBlockedUsers_android(const char* groupId);
 
+	  /*消息管理*/
+	  static void sendMessage_android(const char* messageText, const char* toUserName);
+	  static void receiveMessage_android();
+
+
+
+
 	//转换函数
 	  static void CallStaticMethod_void(const char* classname, const char* methodname);
 	  static bool CallStaticMethod_bool(const char* classname, const char* methodname);
