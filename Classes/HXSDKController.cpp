@@ -110,8 +110,20 @@ void HXSDKController::sendMessage(const char *messageText, const char *toUserNam
 	//HXSDKControllerIOS::sendMessage_ios(messageText, toUserName);
 
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+	com_CrossApp_IM_IM::sendMessage_android(messageText,toUserName);
 #endif
 }
+void HXSDKController::receiveMessage()
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	//HXSDKControllerIOS::sendMessage_ios(messageText, toUserName);
+
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+	com_CrossApp_IM_IM::receiveMessage_android();
+#endif
+}
+
+
 
 void HXSDKController::sendMessageWithImage(const char *messageText, const char *toUserName)
 {

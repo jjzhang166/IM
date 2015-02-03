@@ -203,16 +203,7 @@ void IMLoginRegister::onLoginSuccess(CAObject* obj)
 {
 	bool isloginsuccess = (bool)obj;
 	if (isloginsuccess){
-		std::vector<HXSDKGroup*> p = HXSDKController::getInstance()->getMyGroupList();
-		std::vector<HXSDKGroup*>::iterator itr = p.begin();
-		for (; itr != p.end(); ++itr)
-		{
-		std::string id = (*itr)->m_sGroupId;
-		if (id == "1422510602364")
-		{
-		}
-		}
-		HXSDKController::getInstance()->deleteUserFromGroup("1422601334466","chinahypo1");
+		HXSDKController::getInstance()->receiveMessage();
 		//std::vector<HXSDKGroup*> p = HXSDKController::getInstance()->getMyGroupList();
 		//std::vector<HXSDKGroup*>::iterator itr = p.begin();
 		//for (; itr != p.end(); ++itr)
