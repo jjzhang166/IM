@@ -10,6 +10,7 @@
 #include "IMDATA.h"
 #include "RootWindow.h"
 #include "IMSettingClassify.h"
+
 IMSetting::IMSetting() :pNagivationitem(NULL)
 , m_pTableView(NULL)
 , cell(NULL)

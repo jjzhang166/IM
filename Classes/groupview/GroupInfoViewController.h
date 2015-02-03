@@ -19,28 +19,32 @@ class GroupInfo
 {
 public:
 
-    GroupInfo() {}
-    GroupInfo(CAImage* _img, std::string _topic,std::string _introduce,std::string _owner,std::string _limit,bool _isON,int _total){
-        faceImg = _img;
-        topic = _topic;
-        introduce = _introduce;
-        owner = _owner;
-        limit = _limit;
-        total = _total;
-        
-        noticeOn = _isON;
+    GroupInfo()
+    {
+        m_bIsNotice = false;
     }
-
+    GroupInfo(CAImage* img, std::string topic,std::string introduce,std::string owner,std::string limit,int otal, bool isON=false)
+    {
+        m_pFaceImg = img;
+        m_sTopic = topic;
+        m_sIntroduce = introduce;
+        m_sOwner = owner;
+        m_sLimit = limit;
+        m_itotal = otal;
+        m_bIsNotice = isON;
+    }
+    ~GroupInfo(){}
     
-    string  groupID; // 群ID
-    CAImage * faceImg; // 群照片
-    std::string  topic; // 主题
-    std::string introduce;   // 介绍
-    std::string  owner;   // 群主
-    int total;  // 群成员数
-    std::string limit; // 权限
-    std::string  totalStr ;
-    bool noticeOn = false ;    // 新消息提醒
+public:
+    std::string     m_sGroupID; // 群ID
+    CAImage *       m_pFaceImg; // 群照片
+    std::string     m_sTopic; // 主题
+    std::string     m_sIntroduce;   // 介绍
+    std::string     m_sOwner;   // 群主
+    int             m_itotal;  // 群成员数
+    std::string     m_sLimit; // 权限
+    std::string     m_sTotalStr;
+    bool            m_bIsNotice;    // 新消息提醒
 
 };
 
@@ -68,15 +72,14 @@ protected:
     bool m_joined; //已加入
     
     
-    CAImageView * m_imgViewHead; // 头像
-    CALabel * m_LabelTopic; // 主题
-    CALabel * m_LabelIntroduce; // 介绍
-    CALabel * m_LabelOwner; // 群主
-    CALabel * m_LabelMember;    // 群成员人数
-    CALabel* m_LabelLimit;  // 加入权限
-    CASwitch* m_SwitchNotice;   // 新消息提醒
-
-    CAButton * m_ExitButton;    // 退群按钮
+    CAImageView*    m_imgViewHead; // 头像
+    CALabel*        m_LabelTopic; // 主题
+    CALabel*        m_LabelIntroduce; // 介绍
+    CALabel*        m_LabelOwner; // 群主
+    CALabel*        m_LabelMember;    // 群成员人数
+    CALabel*        m_LabelLimit;  // 加入权限
+    CASwitch*       m_SwitchNotice;   // 新消息提醒
+    CAButton*       m_ExitButton;    // 退群按钮
 };
 
 #endif /* defined(__IM__GroupInfoViewController__) */

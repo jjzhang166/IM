@@ -126,7 +126,7 @@ void SecondViewController::onButtonAdd(CAControl* control, CCPoint point)
 	//string d = UTF8("我是成员");
 
 
-	//GroupInfo info = GroupInfo(CAImage::create("HelloWorld.png"), a, b, c, d, true, 520);
+	//GroupInfo info = GroupInfo(CAImage::create("HelloWorld.png"), a, b, c, d,  520, true);
 	//GroupInfoViewController * _group = GroupInfoViewController::create(info, false);
 	//RootWindow::getInstance()->getNavigationController()->pushViewController(_group, true);
 

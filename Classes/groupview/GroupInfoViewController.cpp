@@ -63,7 +63,7 @@ void GroupInfoViewController::viewDidLoad()
     CAView* _headView = CAView::createWithFrame(CCRect(0, 0, winRect.size.width, 562), CAColor_white);
     CCRect _headCC = _headView->getBounds() ;
     m_imgViewHead = CAImageView::createWithCenter(CCRect(_headCC.size.width/2, 166, 150, 150));
-    m_imgViewHead->setImage(m_info.faceImg);
+    m_imgViewHead->setImage(m_info.m_pFaceImg);
     _headView->addSubview(m_imgViewHead);
     
 //    CAImageView* _headCover = CAImageView::createWithCenter(CCRect(_headCC.size.width/2, 166, 150, 150));
@@ -83,7 +83,7 @@ void GroupInfoViewController::viewDidLoad()
     _headView->addSubview(topicLabel);
     
     m_LabelTopic = CALabel::createWithFrame(CCRect(240, 372, 300, 39));
-    m_LabelTopic->setText(m_info.topic);
+    m_LabelTopic->setText(m_info.m_sTopic);
     m_LabelTopic->setFontSize(_px(38));
     m_LabelTopic->setColor(ccc4(51, 51, 51, 255));
     _headView->addSubview(m_LabelTopic);
@@ -99,7 +99,7 @@ void GroupInfoViewController::viewDidLoad()
     
     m_LabelIntroduce = CALabel::createWithFrame(CCRect(240, 490, 300, 39));
 //    m_LabelIntroduce->setText(UTF8("介绍是什么"));
-    m_LabelIntroduce->setText(m_info.introduce);
+    m_LabelIntroduce->setText(m_info.m_sIntroduce);
     m_LabelIntroduce->setFontSize(_px(38));
     m_LabelIntroduce->setColor(ccc4(51, 51, 51, 255));
     _headView->addSubview(m_LabelIntroduce);
@@ -119,7 +119,7 @@ void GroupInfoViewController::viewDidLoad()
     
     m_LabelOwner = CALabel::createWithFrame(CCRect(240, 40, 200, 39));
 //    m_LabelOwner->setText(UTF8("群主姓名"));
-    m_LabelOwner->setText(m_info.owner);
+    m_LabelOwner->setText(m_info.m_sOwner);
     m_LabelOwner->setColor(ccc4(51, 51, 51, 255));
     m_LabelOwner->setFontSize(_px(38));
     _memberView->addSubview(m_LabelOwner);
@@ -156,7 +156,7 @@ void GroupInfoViewController::viewDidLoad()
     
     m_LabelLimit = CALabel::createWithFrame(CCRect(240, 40, 400, 39));
 //    m_LabelLimit->setText(UTF8("无需验证即可加入"));
-    m_LabelLimit->setText(m_info.limit);
+    m_LabelLimit->setText(m_info.m_sLimit);
     m_LabelLimit->setColor(ccc4(51, 51, 51, 255));
     m_LabelLimit->setFontSize(_px(38));
     _limitView->addSubview(m_LabelLimit);
@@ -175,7 +175,7 @@ void GroupInfoViewController::viewDidLoad()
     m_SwitchNotice = CASwitch::createWithFrame(CCRect(winRect.size.width - 171, 23, 130, 80));
 //    m_SwitchNotice->setOnImage(CAImage::create(SWITCH_ON));
 //    m_SwitchNotice->setOffImage(CAImage::create(SWITCH_OFF));
-    m_SwitchNotice->setIsOn(m_info.noticeOn, true);
+    m_SwitchNotice->setIsOn(m_info.m_bIsNotice, true);
     _noticeView->addSubview(m_SwitchNotice);
     _noticeView->addSubview(_lineView3);
     
