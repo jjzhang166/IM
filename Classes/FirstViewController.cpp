@@ -10,6 +10,7 @@
 #include "IMDATA.h"
 #include "IMLoginRegister.h"
 #include "RootWindow.h"
+#include "TableLanguage.h"
 
 FirstViewController::FirstViewController()
 :m_pNavigationBarItem(NULL)

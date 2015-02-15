@@ -24,6 +24,9 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		3E0117501A68FD69002F2E61 /* IMTableCell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E01174E1A68FD69002F2E61 /* IMTableCell.cpp */; };
+		3E11DA361A9033EC002E2ADA /* TableBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E11DA321A9033EC002E2ADA /* TableBase.cpp */; };
+		3E11DA371A9033EC002E2ADA /* TableLanguage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E11DA341A9033EC002E2ADA /* TableLanguage.cpp */; };
+		3E11DA3A1A90435D002E2ADA /* Language.json in Resources */ = {isa = PBXBuildFile; fileRef = 3E11DA391A90435D002E2ADA /* Language.json */; };
 		3E1657601A660C5500D832E9 /* IMLoginRegister.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E16575E1A660C5500D832E9 /* IMLoginRegister.cpp */; };
 		3E280D3A1A64C09C00233D5B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E280D391A64C09C00233D5B /* Security.framework */; };
 		3E280D3C1A64C0A500233D5B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E280D3B1A64C0A500233D5B /* MobileCoreServices.framework */; };
@@ -146,6 +149,11 @@
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		3E01174E1A68FD69002F2E61 /* IMTableCell.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMTableCell.cpp; path = ../Classes/IMTableCell.cpp; sourceTree = "<group>"; };
 		3E01174F1A68FD69002F2E61 /* IMTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMTableCell.h; path = ../Classes/IMTableCell.h; sourceTree = "<group>"; };
+		3E11DA321A9033EC002E2ADA /* TableBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TableBase.cpp; sourceTree = "<group>"; };
+		3E11DA331A9033EC002E2ADA /* TableBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableBase.h; sourceTree = "<group>"; };
+		3E11DA341A9033EC002E2ADA /* TableLanguage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TableLanguage.cpp; sourceTree = "<group>"; };
+		3E11DA351A9033EC002E2ADA /* TableLanguage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableLanguage.h; sourceTree = "<group>"; };
+		3E11DA391A90435D002E2ADA /* Language.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Language.json; sourceTree = "<group>"; };
 		3E16575E1A660C5500D832E9 /* IMLoginRegister.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMLoginRegister.cpp; path = ../Classes/IMLoginRegister.cpp; sourceTree = "<group>"; };
 		3E16575F1A660C5500D832E9 /* IMLoginRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMLoginRegister.h; path = ../Classes/IMLoginRegister.h; sourceTree = "<group>"; };
 		3E280D391A64C09C00233D5B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -544,6 +552,7 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3E11DA311A9033EC002E2ADA /* data */,
 				759D26681A6F4BCC00E39203 /* IMSetInfomation.cpp */,
 				759D26691A6F4BCC00E39203 /* IMSetInformation.h */,
 				759D26651A6F4B9300E39203 /* IMMyInfo.cpp */,
@@ -637,6 +646,18 @@
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3E11DA311A9033EC002E2ADA /* data */ = {
+			isa = PBXGroup;
+			children = (
+				3E11DA321A9033EC002E2ADA /* TableBase.cpp */,
+				3E11DA331A9033EC002E2ADA /* TableBase.h */,
+				3E11DA341A9033EC002E2ADA /* TableLanguage.cpp */,
+				3E11DA351A9033EC002E2ADA /* TableLanguage.h */,
+			);
+			name = data;
+			path = ../Classes/data;
 			sourceTree = "<group>";
 		};
 		3E280D471A64C54200233D5B /* EaseMobSDK */ = {
@@ -1104,6 +1125,7 @@
 				B01DFC3A190513FD00214AE2 /* fonts */,
 				B03E8FDF1938879200FD9A06 /* HelloWorld.png */,
 				D4EF949B15BD2D8E00D803EB /* Icon-114.png */,
+				3E11DA391A90435D002E2ADA /* Language.json */,
 				D4EF949F15BD2D9800D803EB /* Icon-144.png */,
 				D4EF949915BD2D8B00D803EB /* Icon-57.png */,
 				D4EF949D15BD2D9600D803EB /* Icon-72.png */,
@@ -1315,6 +1337,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E11DA3A1A90435D002E2ADA /* Language.json in Resources */,
 				B03E8FEC1938879200FD9A06 /* HelloWorld.png in Resources */,
 				B04C0C091901207A009854FD /* json_valueiterator.inl in Resources */,
 				B01F71671951682600BA07A6 /* source_material in Resources */,
@@ -1350,10 +1373,12 @@
 				B04C0C0A1901207A009854FD /* json_writer.cpp in Sources */,
 				B01A293A1994C6D200D42BA0 /* sqlite3.c in Sources */,
 				B04C0C081901207A009854FD /* json_value.cpp in Sources */,
+				3E11DA361A9033EC002E2ADA /* TableBase.cpp in Sources */,
 				15A3DA5D1682F826002FB0C5 /* HttpClient.cpp in Sources */,
 				759D26641A6F4ADA00E39203 /* IMMyController.cpp in Sources */,
 				B0405FF319CC03A100947287 /* LocalStorage.cpp in Sources */,
 				3E655F911A80757100832CBD /* Reachability.m in Sources */,
+				3E11DA371A9033EC002E2ADA /* TableLanguage.cpp in Sources */,
 				B04822BD19FA41F70019F1A7 /* CAAlbumController.mm in Sources */,
 				3E655F891A80720900832CBD /* IMSettingClassify.cpp in Sources */,
 				15A3DAEB1682F8A6002FB0C5 /* CDAudioManager.m in Sources */,
