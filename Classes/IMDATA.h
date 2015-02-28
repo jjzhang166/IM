@@ -5,6 +5,7 @@
 
 /*首页TableBar*/
 #define TABLE_BAR_SIZE 3
+/*
 #define TABLE_BAR_LABEL_0 "AAAA"
 #define TABLE_BAR_LABEL_1 "BBBB"
 #define TABLE_BAR_LABEL_2 "CCCC"
@@ -15,7 +16,7 @@
 #define NAVIGATION_BAR_ITEM_NAME_3 "DDD"
 
 #define SEARCH_CONTENT_TEXT "EEEE"
-
+*/
 /*图片资源*/
 
 #define NAVIGATION_BG "IMResources/NavigationBG.png"

@@ -41,12 +41,12 @@
                   symbolName = "AppDelegate::~AppDelegate()"
                   moduleName = "IM"
                   urlString = "file:///Users/jerson/Documents/git/CrossApp/projects/IM/Classes/AppDelegate.cpp"
-                  timestampString = "445663116.520061"
+                  timestampString = "446802301.069165"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "29"
                   endingLineNumber = "29"
-                  offsetFromSymbolStart = "25">
+                  offsetFromSymbolStart = "38">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -55,12 +55,26 @@
                   symbolName = "AppDelegate::~AppDelegate()"
                   moduleName = "IM"
                   urlString = "file:///Users/jerson/Documents/git/CrossApp/projects/IM/Classes/AppDelegate.cpp"
-                  timestampString = "445663116.520413"
+                  timestampString = "446802301.06941"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "29"
                   endingLineNumber = "29"
-                  offsetFromSymbolStart = "25">
+                  offsetFromSymbolStart = "59">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AppDelegate::~AppDelegate()"
+                  moduleName = "IM"
+                  urlString = "file:///Users/jerson/Documents/git/CrossApp/projects/IM/Classes/AppDelegate.cpp"
+                  timestampString = "446802301.069503"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "79">
                </Location>
             </Locations>
          </BreakpointContent>

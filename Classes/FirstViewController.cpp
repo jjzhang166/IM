@@ -11,6 +11,7 @@
 #include "IMLoginRegister.h"
 #include "RootWindow.h"
 #include "TableLanguage.h"
+#include "table/TableLanguagesfontnewHeader.h"
 
 FirstViewController::FirstViewController()
 :m_pNavigationBarItem(NULL)
@@ -67,16 +68,14 @@ bool FirstViewController::init()
         m_pTitleView->setTitleColorAtIndex(CAColor_black, 1, CAControlStateSelected);
          */
         
-         m_pTitleView->setImageForSegmentAtIndex(CAImage::create(NAVIGATION_BAR_ITEM_POPULAR_NORMAL), 0, CAControlStateNormal);
-         m_pTitleView->setImageForSegmentAtIndex(CAImage::create(NAVIGATION_BAR_ITEM_POPULAR_NORMAL), 0, CAControlStateHighlighted);
-         m_pTitleView->setImageForSegmentAtIndex(CAImage::create(NAVIGATION_BAR_ITEM_POPULAR_SELECTED), 0, CAControlStateSelected);
-         m_pTitleView->setImageForSegmentAtIndex(CAImage::create(NAVIGATION_BAR_ITEM_NEW_NORMAL), 1, CAControlStateNormal);
-         m_pTitleView->setImageForSegmentAtIndex(CAImage::create(NAVIGATION_BAR_ITEM_NEW_NORMAL), 1, CAControlStateHighlighted);
-         m_pTitleView->setImageForSegmentAtIndex(CAImage::create(NAVIGATION_BAR_ITEM_NEW_SELECTED), 1, CAControlStateSelected);
-         m_pTitleView->setTitleForSegmentAtIndex(NAVIGATION_BAR_ITEM_NAME_0, 0);
-         m_pTitleView->setTitleColor(CAColor_white);
-         m_pTitleView->setTitleSelectedColor(CAColor_black);
-         m_pTitleView->setTitleForSegmentAtIndex(NAVIGATION_BAR_ITEM_NAME_1, 1);
+        m_pTitleView->setImageForSegmentAtIndex(CAImage::create(NAVIGATION_BAR_ITEM_POPULAR_NORMAL), 0, CAControlStateNormal);
+        m_pTitleView->setImageForSegmentAtIndex(CAImage::create(NAVIGATION_BAR_ITEM_POPULAR_SELECTED), 0, CAControlStateSelected);
+        m_pTitleView->setImageForSegmentAtIndex(CAImage::create(NAVIGATION_BAR_ITEM_NEW_NORMAL), 1, CAControlStateNormal);
+        m_pTitleView->setImageForSegmentAtIndex(CAImage::create(NAVIGATION_BAR_ITEM_NEW_SELECTED), 1, CAControlStateSelected);
+        m_pTitleView->setTitleForSegmentAtIndex(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_NAVIGATION_BAR_ITEM_NAME_0).c_str(), 0);
+        m_pTitleView->setTitleColor(CAColor_white);
+        m_pTitleView->setTitleSelectedColor(CAColor_red);
+        m_pTitleView->setTitleForSegmentAtIndex(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_NAVIGATION_BAR_ITEM_NAME_1).c_str(), 1);
         m_pTitleView->setSelectedAtIndex(0);
         m_pTitleView->addTarget(this, CASegmentedControl_selector(FirstViewController::onButtonSegmented));
 
@@ -134,7 +133,7 @@ void FirstViewController::init_searchBar()
     
     m_pSearchTextField = CATextField::createWithFrame(CADipRect(20.0f, 10.0f, size.width-40.0f, 50.0f));
     m_pSearchTextField->setBackgroundView(CAView::createWithColor(CAColor_white));
-    m_pSearchTextField->setPlaceHolder(SEARCH_CONTENT_TEXT);
+    m_pSearchTextField->setPlaceHolder(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_SEARCH_CONTENT_TEXT).c_str());
     m_pSearchTextField->setSpaceHolderColor(ccc4(0x96, 0x96, 0x96, 0xff));
     m_pSearchTextField->setFontSize(_px(28.0f));
     m_pSearchTextField->setDelegate(this);
