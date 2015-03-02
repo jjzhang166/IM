@@ -5,7 +5,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import com.easemob.EMCallBack;
 import com.easemob.chat.EMChat;
 import com.easemob.chat.EMChatManager;
@@ -15,6 +14,7 @@ import com.easemob.chat.EMContactManager;
 import com.easemob.chat.EMConversation;
 import com.easemob.chat.EMGroupManager;
 import com.easemob.chat.EMMessage;
+
 import com.easemob.chat.ImageMessageBody;
 import com.easemob.chat.TextMessageBody;
 import com.easemob.chat.VoiceMessageBody;
@@ -23,11 +23,14 @@ import com.easemob.exceptions.EaseMobException;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.Log;
 
+
 public class MESSAGE{
+
 
 	public static void sendMessage_android(String Message,String username)
 	{
@@ -99,11 +102,12 @@ public class MESSAGE{
 		});
 	}
 	
+
 	//接收消息
 	public static void receiveMessage_android()
 	{
 
 		EMChat.getInstance().setAppInited();
 	}
-	
+
 }

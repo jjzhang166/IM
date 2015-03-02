@@ -11,6 +11,8 @@
 //#include "groupview/GroupInfoViewController.h"
 #include "RootWindow.h"
 #include "HXSDKController.h"
+#include "table/TableLanguagesfontnewHeader.h"
+#include "data/TableLanguage.h"
 
 
 using namespace CrossApp;
@@ -30,7 +32,7 @@ bool SecondViewController::init()
 {
 	if (CAViewController::init())
 	{
-		CABarButtonItem* talkButtonItem = CABarButtonItem::create(NAVIGATION_BAR_ITEM_NAME_2, NULL, NULL);
+		CABarButtonItem* talkButtonItem = CABarButtonItem::create(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_NAVIGATION_BAR_ITEM_NAME_2).c_str(), NULL, NULL);
 		CABarButtonItem* searchButtonItem = CABarButtonItem::create("", CAImage::create(NAVIGATION_BAR_ITEM_SEARCH_NORMAL), CAImage::create(NAVIGATION_BAR_ITEM_SEARCH_SELECTED));
 		searchButtonItem->setTarget(this, CAControl_selector(SecondViewController::onButtonSearch));
 		CABarButtonItem* addButtonItem = CABarButtonItem::create("", CAImage::create(NAVIGATION_BAR_ITEM_ADD_NORMAL), CAImage::create(NAVIGATION_BAR_ITEM_ADD_SELECTED));

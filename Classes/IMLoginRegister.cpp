@@ -9,6 +9,8 @@
 #include "IMDATA.h"
 #include "RootWindow.h"
 #include "HXSDKController.h"
+#include "data/TableLanguage.h"
+#include "table/TableLanguagesfontnewHeader.h"
 
 IMLoginRegister::IMLoginRegister()
 :m_pNavigationBarItem(NULL)
@@ -45,9 +47,17 @@ bool IMLoginRegister::init(UserAction action)
 	{
 		m_pAction = action;
 		//∑µªÿ∞¥≈•
-		m_pButtonCancl = CABarButtonItem::create(IM_CANCEL, CAImage::create(NAVIGATION_BG), CAImage::create(NAVIGATION_BG));
+        m_pButtonCancl = CABarButtonItem::create(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_17).c_str(), NULL, NULL);
 		m_pButtonCancl->setTarget(this, CAControl_selector(IMLoginRegister::onButtonCancel));
-		m_pNavigationBarItem = CANavigationBarItem::create(IM_USER_LOGIN);
+        if(	IM_USERLOGIN == action)
+        {
+                    m_pNavigationBarItem = CANavigationBarItem::create(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_05).c_str());
+        }
+        else if(IM_USERREGISTER == action)
+        {
+                   m_pNavigationBarItem = CANavigationBarItem::create(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_03).c_str());
+        }
+
 		m_pNavigationBarItem->setShowGoBackButton(false);
 		m_pNavigationBarItem->addLeftButtonItem(m_pButtonCancl);
 		setNavigationBarItem(m_pNavigationBarItem);
@@ -100,21 +110,21 @@ void IMLoginRegister::loadView()
 	CCRect accr = CCRect(_px(30), _px(30), winRect.size.width - _px(60), _px(82));
 	m_pAccount = CATextField::createWithFrame(accr);
 	m_pAccount->setHoriMargins(_px(20));
-	m_pAccount->setPlaceHolder(UTF8("111111"));
+	m_pAccount->setPlaceHolder(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_01).c_str());
 	m_pAccount->setDelegate(this);
 
 	//◊¢≤·’À∫≈
 
 	m_pAccountRegist = CATextField::createWithFrame(accr);
 	m_pAccountRegist->setHoriMargins(_px(20));
-	m_pAccountRegist->setPlaceHolder(UTF8("22222"));
+	m_pAccountRegist->setPlaceHolder(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_06).c_str());
 	m_pAccountRegist->setDelegate(this);
 
 	//”√ªß√‹¬Î
 	CCRect pwdr = CCRect(_px(30), accr.origin.y + accr.size.height + _px(30), winRect.size.width - _px(60), _px(82));
 	m_pPassword = CATextField::createWithFrame(pwdr);
 	m_pPassword->setHoriMargins(_px(20));
-	m_pPassword->setPlaceHolder(UTF8("33333"));
+	m_pPassword->setPlaceHolder(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_02).c_str());
 	m_pPassword->setInputType(KEY_BOARD_INPUT_PASSWORD);
 	m_pPassword->setDelegate(this);
 
@@ -122,7 +132,7 @@ void IMLoginRegister::loadView()
 	CCRect pwdragain = CCRect(_px(30), pwdr.origin.y + pwdr.size.height + _px(30), winRect.size.width - _px(60), _px(82));
 	m_pPasswordAgain = CATextField::createWithFrame(pwdragain);
 	m_pPasswordAgain->setHoriMargins(_px(20));
-	m_pPasswordAgain->setPlaceHolder(UTF8("4444444"));
+	m_pPasswordAgain->setPlaceHolder(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_08).c_str());
 	m_pPasswordAgain->setInputType(KEY_BOARD_INPUT_PASSWORD);
 	m_pPasswordAgain->setDelegate(this);
 
@@ -130,7 +140,7 @@ void IMLoginRegister::loadView()
 	CCRect login = CCRect(_px(30), pwdr.origin.y + pwdr.size.height + _px(30), winRect.size.width - _px(60), _px(82));
 	m_pLoginButton = CAButton::createWithFrame(login, CAButtonTypeRoundedRect);
 	m_pLoginButton->setBackGroundViewForState(CAControlStateAll, CAView::createWithColor(CAColor_green));
-	m_pLoginButton->setTitleForState(CAControlStateAll, UTF8("55555"));
+	m_pLoginButton->setTitleForState(CAControlStateAll, TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LOGIN).c_str());
 	m_pLoginButton->setTitleColorForState(CAControlStateAll, CAColor_white);
 	m_pLoginButton->setTag(111);
 
@@ -138,28 +148,28 @@ void IMLoginRegister::loadView()
 	CCRect regist = CCRect(_px(30), pwdragain.origin.y + pwdragain.size.height + _px(30), winRect.size.width - _px(60), _px(82));
 	m_pRegisterButton = CAButton::createWithFrame(regist, CAButtonTypeRoundedRect);
 	m_pRegisterButton->setBackGroundViewForState(CAControlStateAll, CAView::createWithColor(CAColor_green));
-	m_pRegisterButton->setTitleForState(CAControlStateAll, UTF8("66666"));
+	m_pRegisterButton->setTitleForState(CAControlStateAll, TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_68).c_str());
 	m_pRegisterButton->setTitleColorForState(CAControlStateAll, CAColor_white);
 
 	//Õ¸º«√‹¬Î
 	CCRect missPassword = CCRect(winRect.size.width - _px(150), login.origin.y + login.size.height + _px(30), _px(120), _px(20));
 	m_pMissPassword = CAButton::createWithFrame(missPassword, CAButtonTypeRoundedRect);
 	m_pMissPassword->setBackGroundViewForState(CAControlStateAll, CAView::createWithColor(CAColor_clear));
-	m_pMissPassword->setTitleForState(CAControlStateAll, UTF8("77777"));
+	m_pMissPassword->setTitleForState(CAControlStateAll, TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_04).c_str());
 	m_pMissPassword->setTitleColorForState(CAControlStateAll, CAColor_gray);
 
 	//«–ªªµΩ◊¢≤·
 	m_pButtonSwitch = CAButton::createWithCenter(CCRect(winRect.size.width*0.5, winRect.size.height*0.9, winRect.size.width*0.4, winRect.size.height*0.1), CAButtonTypeRoundedRect);
 	CAScale9ImageView *switchBg = CAScale9ImageView::createWithImage(CAImage::create(USER_STATUS_BUTTON));
 	m_pButtonSwitch->setBackGroundViewForState(CAControlStateAll, switchBg);
-	m_pButtonSwitch->setTitleForState(CAControlStateAll, UTF8("8888888"));
+	m_pButtonSwitch->setTitleForState(CAControlStateAll, TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_03).c_str());
 	m_pButtonSwitch->setTitleColorForState(CAControlStateAll, CAColor_gray);
 	m_pButtonSwitch->setTag(101);
 	//«–ªªµΩµ«¬º
 	m_pButtonSwitchTo = CAButton::createWithCenter(CCRect(winRect.size.width*0.5, winRect.size.height*0.9, winRect.size.width*0.4, winRect.size.height*0.1), CAButtonTypeRoundedRect);
 	CAScale9ImageView *switchBgTo = CAScale9ImageView::createWithImage(CAImage::create(USER_STATUS_BUTTON));
 	m_pButtonSwitchTo->setBackGroundViewForState(CAControlStateAll, switchBgTo);
-	m_pButtonSwitchTo->setTitleForState(CAControlStateAll, UTF8("999999"));
+	m_pButtonSwitchTo->setTitleForState(CAControlStateAll, TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_09).c_str());
 	m_pButtonSwitchTo->setTitleColorForState(CAControlStateAll, CAColor_gray);
 
 }
@@ -203,16 +213,7 @@ void IMLoginRegister::onLoginSuccess(CAObject* obj)
 {
 	bool isloginsuccess = (bool)obj;
 	if (isloginsuccess){
-		std::vector<HXSDKGroup*> p = HXSDKController::getInstance()->getMyGroupList();
-		std::vector<HXSDKGroup*>::iterator itr = p.begin();
-		for (; itr != p.end(); ++itr)
-		{
-		std::string id = (*itr)->m_sGroupId;
-		if (id == "1422510602364")
-		{
-		}
-		}
-		HXSDKController::getInstance()->deleteUserFromGroup("1422601334466","chinahypo1");
+		HXSDKController::getInstance()->receiveMessage();
 		//std::vector<HXSDKGroup*> p = HXSDKController::getInstance()->getMyGroupList();
 		//std::vector<HXSDKGroup*>::iterator itr = p.begin();
 		//for (; itr != p.end(); ++itr)

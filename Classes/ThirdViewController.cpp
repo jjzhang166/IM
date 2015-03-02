@@ -10,6 +10,8 @@
 #include "IMDATA.h"
 #include "RootWindow.h"
 //#include "GroupInfoViewController.h"
+#include "data/TableLanguage.h"
+#include "table/TableLanguagesfontnewHeader.h"
 
 ThirdViewController::ThirdViewController()
 {
@@ -26,7 +28,7 @@ bool ThirdViewController::init()
 {
     if(CAViewController::init())
     {
-        CABarButtonItem* selfButtonItem = CABarButtonItem::create(NAVIGATION_BAR_ITEM_NAME_3, NULL, NULL);
+        CABarButtonItem* selfButtonItem = CABarButtonItem::create(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_NAVIGATION_BAR_ITEM_NAME_3).c_str(), NULL, NULL);
         CABarButtonItem* searchButtonItem = CABarButtonItem::create("", CAImage::create(NAVIGATION_BAR_ITEM_SEARCH_NORMAL), CAImage::create(NAVIGATION_BAR_ITEM_SEARCH_SELECTED));
         searchButtonItem->setTarget(this, CAControl_selector(ThirdViewController::onButtonSearch));
         CABarButtonItem* addButtonItem = CABarButtonItem::create("", CAImage::create(NAVIGATION_BAR_ITEM_ADD_NORMAL), CAImage::create(NAVIGATION_BAR_ITEM_ADD_SELECTED));

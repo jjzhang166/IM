@@ -428,9 +428,16 @@ void com_CrossApp_IM_IM::getBlockedUsers_android(const char* groupId)
 //黑名单转换
 
 
+/*消息管理*/
+void com_CrossApp_IM_IM::sendMessage_android(const char* messageText, const char* toUserName)
+{
+	CallStaticMethod_void("com/CrossApp/IM/MESSAGE", "sendMessage_android", messageText, toUserName);
+}
 
-
-
+void com_CrossApp_IM_IM::receiveMessage_android()
+{
+	CallStaticMethod_void("com/CrossApp/IM/MESSAGE","receiveMessage_android");
+}
 
 
 

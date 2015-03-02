@@ -34,7 +34,7 @@ protected:
     
     void init_searchBar();
     
-    void onButtonSegmented(CAControl* control, CCPoint point);
+    void onButtonSegmented(CASegmentedControl*, int index);
     /*
     void onButtonPopular(CAControl* control, CCPoint point);//热门按钮回调
     

@@ -8,6 +8,8 @@
 
 #include "AppDelegate.h"
 #include "RootWindow.h"
+#include "TableLanguage.h"
+
 #include "HXSDKController.h"
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 #include <android/log.h>
@@ -18,12 +20,12 @@ USING_NS_CC;
 
 AppDelegate::AppDelegate()
 {
-
+    TableLanguage::getInstance()->loadTableFromJsonFile();
 }
 
 AppDelegate::~AppDelegate() 
 {
-    
+    TableLanguage::getInstance()->destroy();
 }
 
 bool AppDelegate::applicationDidFinishLaunching()
