@@ -96,6 +96,7 @@ void IMSetInformation::loadBaseView()
 	m_pLabel->setFontSize(_px(20));
 	m_pLabel->setColor(CAColor_gray);
 	m_pLabel->setTag(500);
+	m_pLabel->setFontSize(_px(30));
 	this->getView()->addSubview(m_pLabel);
 
 	m_pText = CATextField::createWithCenter(CCRect(winSize.width*0.5, winSize.height*0.1, winSize.width, winSize.height*0.08));
@@ -113,9 +114,29 @@ void IMSetInformation::initViewOfName()
 //设置性别界面
 void IMSetInformation::initViewOfSex()
 {
+	CCRect winRect = this->getView()->getBounds();
 	CALabel *plabelsex = (CALabel*)this->getView()->getSubviewByTag(500);
 	plabelsex->setText(UTF8("性别"));
+	
+	m_pText->setVisible(false);
+	CALabel* topicLabel = CALabel::createWithFrame(CCRect(_px(45), 180, 200, 80));
+	topicLabel->setText(UTF8("男"));
+	topicLabel->setFontSize(_px(38));
+	topicLabel->setColor(ccc4(112, 112, 112, 255));
+	topicLabel->setTextAlignment(CATextAlignmentLeft);
+	this->getView()->addSubview(topicLabel);
 
+	CAView* _lineView2 = CAView::createWithFrame(CCRect(_px(40), 260, winRect.size.width - _px(80), _px(1)), ccc4(200, 200, 200, 255));
+	this->getView()->addSubview(_lineView2);
+
+	CALabel * introduceLabel = CALabel::createWithFrame(CCRect(_px(45), 260, 200, 80));
+	introduceLabel->setText(UTF8("女"));
+	introduceLabel->setFontSize(_px(38));
+	introduceLabel->setColor(ccc4(112, 112, 112, 255));
+	introduceLabel->setTextAlignment(CATextAlignmentLeft);
+	this->getView()->addSubview(introduceLabel);
+	
+	/*
 	m_pText->setVisible(false);
 	pbutton1 = CAButton::createWithCenter(CCRect(winSize.width*0.5,winSize.height*0.2,winSize.width,winSize.height*0.099),CAButtonTypeSquareRect);
 	pbutton1->setTitleColorForState(CAControlStateAll, CAColor_black);
@@ -128,6 +149,7 @@ void IMSetInformation::initViewOfSex()
 	pbutton2->setTitleForState(CAControlStateAll, UTF8("女"));
 	pbutton2->addTarget(this, CAControl_selector(IMSetInformation::setbutton2Visible), CAControlTouchUpInSide);
 	this->getView()->addSubview(pbutton2);
+	*/
 }
 
 void IMSetInformation::setbutton1Visible(CAControl *pTarget, CCPoint point)
