@@ -20,12 +20,12 @@ USING_NS_CC;
 
 AppDelegate::AppDelegate()
 {
-   // TableLanguage::getInstance()->loadTableFromJsonFile();
+    TableLanguage::getInstance()->loadTableFromJsonFile();
 }
 
 AppDelegate::~AppDelegate() 
 {
-    //TableLanguage::getInstance()->destroy();
+    TableLanguage::getInstance()->destroy();
 }
 
 bool AppDelegate::applicationDidFinishLaunching()
