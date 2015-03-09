@@ -224,6 +224,7 @@ void IMLoginRegister::onLoginSuccess(CAObject* obj)
 //◊¢≤·
 void IMLoginRegister::onButtonRegister(CAControl *pTarget, CCPoint point)
 {
+	
     std::string accountName = m_pAccountRegist->getText();
     std::string accountPassword = m_pPassword->getText();
     std::string accountasswordAgain = m_pPasswordAgain->getText();
@@ -251,6 +252,8 @@ void IMLoginRegister::onButtonRegister(CAControl *pTarget, CCPoint point)
 	//添加注册观察者模式
 	CANotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(IMLoginRegister::onRegisterSuccess), KNOTIFICATION_REGISTER, NULL);
     HXSDKController::getInstance()->RegisterAccount(accountName.c_str(),accountasswordAgain.c_str());
+	
+	
 }
 //注册成功跳转函数
 void IMLoginRegister::onRegisterSuccess(CAObject* obj)
@@ -261,6 +264,7 @@ void IMLoginRegister::onRegisterSuccess(CAObject* obj)
 		
 	}
 	else{
+		
 		
 	}
 }

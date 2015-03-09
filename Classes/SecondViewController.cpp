@@ -177,7 +177,9 @@ void SecondViewController::onButtonGetMyGroups(CrossApp::CAControl *control, Cro
 
 void SecondViewController::friendAdd()
 {
-	static const std::string name[3] = {"xxx","yyy","zzz"};
+	static const std::string name[3] = { TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_69).c_str(), 
+		TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_39).c_str(),
+	TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_20).c_str()};
 	addFriendView = CAScale9ImageView::createWithImage(CAImage::create(FRIEND_ADD));
 	addFriendView->setFrame(CCRect(420,0,0,0));
 	this->getView()->addSubview(addFriendView);
