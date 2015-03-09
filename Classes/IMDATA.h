@@ -70,4 +70,7 @@
 #define SETTING_ICON "IMResources/button_set_normal.png"
 //用户详情栏
 #define RIGHT_ARROW "IMResources/button_rightarrow.png"
+
+//添加好友图片
+#define FRIEND_ADD "IMResources/friendAdd.png"
 #endif /* __IMDATA__ */

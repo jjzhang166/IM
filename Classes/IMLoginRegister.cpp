@@ -213,16 +213,7 @@ void IMLoginRegister::onLoginSuccess(CAObject* obj)
 {
 	bool isloginsuccess = (bool)obj;
 	if (isloginsuccess){
-		HXSDKController::getInstance()->receiveMessage();
-		//std::vector<HXSDKGroup*> p = HXSDKController::getInstance()->getMyGroupList();
-		//std::vector<HXSDKGroup*>::iterator itr = p.begin();
-		//for (; itr != p.end(); ++itr)
-		//{
-			//std::string id = (*itr)->m_sGroupId;
-			//if (id == "1422510602364")
-			//{
-			//}
-		//}
+		this->getNavigationController()->popViewControllerAnimated(true);
 	}
 	else{
 		CCLog("denglu shibai");
@@ -266,7 +257,7 @@ void IMLoginRegister::onRegisterSuccess(CAObject* obj)
 {
 	bool isregistersuccess = (bool)obj;
 	if (isregistersuccess){
-		//跳转到登录界面
+		//注册成功，跳转到主界面
 		
 	}
 	else{
@@ -281,17 +272,17 @@ void IMLoginRegister::onButtonMissPassword(CAControl *pTarget, CCPoint point)
 //µ«¬º∫Õ◊¢≤·÷Æº‰Ã¯◊™
 void IMLoginRegister::onButtonSwitchToRegister(CAControl *pTarget, CCPoint point)
 {
-	//IMLoginRegister *pUser = new IMLoginRegister();
-	//pUser->init(IM_USERREGISTER);
-	//this->getNavigationController()->pushViewController(pUser, true);
-	//pUser->autorelease();
+	IMLoginRegister *pUser = new IMLoginRegister();
+	pUser->init(IM_USERREGISTER);
+	this->getNavigationController()->pushViewController(pUser, true);
+	pUser->autorelease();
 }
 void IMLoginRegister::onButtonSwitchToLogin(CAControl *pTarget, CCPoint point)
 {
-//	IMLoginRegister *pUser = new IMLoginRegister();
-//	pUser->init(IM_USERLOGIN);
-//	this->getNavigationController()->pushViewController(pUser,true);
-//	pUser->autorelease();
+	IMLoginRegister *pUser = new IMLoginRegister();
+	pUser->init(IM_USERLOGIN);
+	this->getNavigationController()->pushViewController(pUser,true);
+	pUser->autorelease();
 }
 
 

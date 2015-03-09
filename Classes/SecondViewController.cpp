@@ -14,7 +14,6 @@
 #include "table/TableLanguagesfontnewHeader.h"
 #include "data/TableLanguage.h"
 
-
 using namespace CrossApp;
 
 SecondViewController::SecondViewController()
@@ -102,6 +101,9 @@ void SecondViewController::viewDidLoad()
 	getMyGroupListBtn->addTarget(this, CAControl_selector(SecondViewController::onButtonGetMyGroups), CAControlEventTouchUpInSide);
 	this->getView()->addSubview(getMyGroupListBtn);
 
+
+	//添加朋友界面实现
+	friendAdd();
 }
 
 void SecondViewController::viewDidAppear()
@@ -171,4 +173,41 @@ void SecondViewController::onButtonCreateGroup(CrossApp::CAControl *control, Cro
 void SecondViewController::onButtonGetMyGroups(CrossApp::CAControl *control, CrossApp::CCPoint point)
 {
 	HXSDKController::getInstance()->getMyGroupList();
+}
+
+void SecondViewController::friendAdd()
+{
+	static const std::string name[3] = {"xxx","yyy","zzz"};
+	addFriendView = CAScale9ImageView::createWithImage(CAImage::create(FRIEND_ADD));
+	addFriendView->setFrame(CCRect(420,0,0,0));
+	this->getView()->addSubview(addFriendView);
+	addFriendView->setVisible(true);
+	CCSize picSize = addFriendView->getFrame().size;
+
+	CAButton *labelone = CAButton::createWithCenter(CCRect(picSize.width*0.5, _px(50), picSize.width*0.9, _px(80)), CAButtonTypeCustom);
+	labelone->setBackGroundViewForState(CAControlStateAll, CAView::createWithColor(CAColor_clear));
+	labelone->setTitleForState(CAControlStateAll, name[0]);
+	labelone->setTitleColorForState(CAControlStateAll, CAColor_white);
+	//labelone->addTarget(this, CAControl_selector(), CAControlEventTouchUpInSide);//好友加的群
+	addFriendView->addSubview(labelone);
+
+	CAView *lineView = CAView::createWithCenter(CCRect(picSize.width*0.5, _px(80), picSize.width*0.9, _px(1)));
+	addFriendView->addSubview(lineView);
+
+	CAButton *labeltwo = CAButton::createWithCenter(CCRect(picSize.width*0.5, _px(130), picSize.width*0.9, _px(80)), CAButtonTypeCustom);
+	labeltwo->setBackGroundViewForState(CAControlStateAll, CAView::createWithColor(CAColor_clear));
+	labeltwo->setTitleForState(CAControlStateAll, name[1]);
+	labeltwo->setTitleColorForState(CAControlStateAll, CAColor_white);
+	//labeltwo->addTarget(this, CAControl_selector(), CAControlEventTouchUpInSide);//QQ好友
+	addFriendView->addSubview(labeltwo);
+
+	CAView *lineViewtwo = CAView::createWithCenter(CCRect(picSize.width*0.5, _px(160), picSize.width*0.9, _px(1)));
+	addFriendView->addSubview(lineViewtwo);
+
+	CAButton *labelthree = CAButton::createWithCenter(CCRect(picSize.width*0.5, _px(210), picSize.width*0.9, _px(80)), CAButtonTypeCustom);
+	labelthree->setBackGroundViewForState(CAControlStateAll, CAView::createWithColor(CAColor_clear));
+	labelthree->setTitleForState(CAControlStateAll, name[2]);
+	labelthree->setTitleColorForState(CAControlStateAll, CAColor_white);
+	//labelthree->addTarget(this, CAControl_selector(), CAControlEventTouchUpInSide);//手机联系人
+	addFriendView->addSubview(labelthree);
 }
