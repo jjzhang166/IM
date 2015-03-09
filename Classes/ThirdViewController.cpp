@@ -28,18 +28,21 @@ bool ThirdViewController::init()
 {
     if(CAViewController::init())
     {
-        CABarButtonItem* selfButtonItem = CABarButtonItem::create(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_NAVIGATION_BAR_ITEM_NAME_3).c_str(), NULL, NULL);
-        CABarButtonItem* searchButtonItem = CABarButtonItem::create("", CAImage::create(NAVIGATION_BAR_ITEM_SEARCH_NORMAL), CAImage::create(NAVIGATION_BAR_ITEM_SEARCH_SELECTED));
-        searchButtonItem->setTarget(this, CAControl_selector(ThirdViewController::onButtonSearch));
-        CABarButtonItem* addButtonItem = CABarButtonItem::create("", CAImage::create(NAVIGATION_BAR_ITEM_ADD_NORMAL), CAImage::create(NAVIGATION_BAR_ITEM_ADD_SELECTED));
-        addButtonItem->setTarget(this, CAControl_selector(ThirdViewController::onButtonAdd));
-        
-        m_pNavigationBarItem = CANavigationBarItem::create("");
-        m_pNavigationBarItem->setShowGoBackButton(false);
-        m_pNavigationBarItem->addLeftButtonItem(selfButtonItem);
-        m_pNavigationBarItem->addRightButtonItem(addButtonItem);
-        m_pNavigationBarItem->addRightButtonItem(searchButtonItem);
-        m_pNavigationBarItem->retain();
+//        CABarButtonItem* selfButtonItem = CABarButtonItem::create(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_NAVIGATION_BAR_ITEM_NAME_3).c_str(), NULL, NULL);
+//        CABarButtonItem* searchButtonItem = CABarButtonItem::create("", CAImage::create(NAVIGATION_BAR_ITEM_SEARCH_NORMAL), CAImage::create(NAVIGATION_BAR_ITEM_SEARCH_SELECTED));
+//        searchButtonItem->setTarget(this, CAControl_selector(ThirdViewController::onButtonSearch));
+//        CABarButtonItem* addButtonItem = CABarButtonItem::create("", CAImage::create(NAVIGATION_BAR_ITEM_ADD_NORMAL), CAImage::create(NAVIGATION_BAR_ITEM_ADD_SELECTED));
+//        addButtonItem->setTarget(this, CAControl_selector(ThirdViewController::onButtonAdd));
+//        
+//        m_pNavigationBarItem = CANavigationBarItem::create("");
+//        m_pNavigationBarItem->setShowGoBackButton(false);
+//        m_pNavigationBarItem->addLeftButtonItem(selfButtonItem);
+//        m_pNavigationBarItem->addRightButtonItem(addButtonItem);
+////        m_pNavigationBarItem->addRightButtonItem(searchButtonItem);
+//        setNavigationBarItem(m_pNavigationBarItem);
+//        m_pNavigationBarItem->retain();
+
+      
 
         return true;
     }
