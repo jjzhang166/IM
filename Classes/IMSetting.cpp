@@ -10,6 +10,9 @@
 #include "IMDATA.h"
 #include "RootWindow.h"
 #include "IMSettingClassify.h"
+#include "data/TableLanguage.h"
+#include "table/TableLanguagesfontnewHeader.h"
+
 
 IMSetting::IMSetting() :pNagivationitem(NULL)
 , m_pTableView(NULL)
@@ -32,7 +35,7 @@ bool IMSetting::init()
 {
 	if (CAViewController::init())
 	{
-		pNagivationitem = CANavigationBarItem::create(UTF8("设置"));
+		pNagivationitem = CANavigationBarItem::create(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_30).c_str());
 		setNavigationBarItem(pNagivationitem);
 		return true;
 	}
@@ -145,7 +148,7 @@ CATableViewCell* IMSetting::initMessage(const CCSize& cellsize)
 		nickname->setColor(CAColor_black);
 		nickname->setTextAlignment(CATextAlignmentLeft);
 		nickname->setVerticalTextAlignmet(CAVerticalTextAlignmentCenter);
-		nickname->setText(UTF8("新消息提醒"));
+		nickname->setText(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_37).c_str());
 		nickname->setFontSize(_px(30));
 		cell->addSubview(nickname);
 
@@ -159,7 +162,7 @@ CATableViewCell* IMSetting::initMessage(const CCSize& cellsize)
 	}
 	//网络获取数据或者本地获取，暂时用常量代替
 	CALabel *pUserName = (CALabel*)cell->getSubviewByTag(601);
-	pUserName->setText(UTF8("震动"));
+	pUserName->setText(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_60).c_str());
 	return cell;
 }
 
@@ -172,7 +175,7 @@ CATableViewCell* IMSetting::initChangePwd(const CCSize& cellsize)
 		changePwd->setColor(CAColor_black);
 		changePwd->setTextAlignment(CATextAlignmentLeft);
 		changePwd->setVerticalTextAlignmet(CAVerticalTextAlignmentCenter);
-		changePwd->setText(UTF8("修改密码"));
+		changePwd->setText(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_55).c_str());
 		changePwd->setFontSize(_px(30));
 		cell->addSubview(changePwd);
 	}
@@ -187,7 +190,7 @@ CATableViewCell* IMSetting::initSuggestion(const CCSize& cellsize)
 		suggestion->setColor(CAColor_black);
 		suggestion->setTextAlignment(CATextAlignmentLeft);
 		suggestion->setVerticalTextAlignmet(CAVerticalTextAlignmentCenter);
-		suggestion->setText(UTF8("意见反馈"));
+		suggestion->setText(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_56).c_str());
 		suggestion->setFontSize(_px(30));
 		cell->addSubview(suggestion);
 	}
@@ -202,7 +205,7 @@ CATableViewCell* IMSetting::initScore(const CCSize& cellsize)
 		score->setColor(CAColor_black);
 		score->setTextAlignment(CATextAlignmentLeft);
 		score->setVerticalTextAlignmet(CAVerticalTextAlignmentCenter);
-		score->setText(UTF8("去评分"));
+		score->setText(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_57).c_str());
 		score->setFontSize(_px(30));
 		cell->addSubview(score);
 	}
@@ -217,7 +220,7 @@ CATableViewCell* IMSetting::initLogout(const CCSize& cellsize)
 		logout->setColor(CAColor_black);
 		logout->setTextAlignment(CATextAlignmentCenter);
 		logout->setVerticalTextAlignmet(CAVerticalTextAlignmentCenter);
-		logout->setText(UTF8("退出登录"));
+		logout->setText(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_58).c_str());
 		logout->setFontSize(_px(30));
 		cell->addSubview(logout);
 	}

@@ -41,7 +41,7 @@
                   symbolName = "AppDelegate::~AppDelegate()"
                   moduleName = "IM"
                   urlString = "file:///Users/jerson/Documents/git/CrossApp/projects/IM/Classes/AppDelegate.cpp"
-                  timestampString = "446802301.069165"
+                  timestampString = "447146566.497777"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "29"
@@ -55,7 +55,7 @@
                   symbolName = "AppDelegate::~AppDelegate()"
                   moduleName = "IM"
                   urlString = "file:///Users/jerson/Documents/git/CrossApp/projects/IM/Classes/AppDelegate.cpp"
-                  timestampString = "446802301.06941"
+                  timestampString = "447146566.498058"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "29"
@@ -69,7 +69,7 @@
                   symbolName = "AppDelegate::~AppDelegate()"
                   moduleName = "IM"
                   urlString = "file:///Users/jerson/Documents/git/CrossApp/projects/IM/Classes/AppDelegate.cpp"
-                  timestampString = "446802301.069503"
+                  timestampString = "447146566.498159"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "29"
@@ -77,6 +77,22 @@
                   offsetFromSymbolStart = "79">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../CrossApp/view/CAView.cpp"
+            timestampString = "447146526.710694"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "779"
+            endingLineNumber = "779"
+            landmarkName = "CAView::updateDraw()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
