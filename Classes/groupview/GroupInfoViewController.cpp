@@ -58,7 +58,7 @@ void GroupInfoViewController::viewDidLoad()
     scrollView->setBounceHorizontal(false);
     scrollView->setTouchMovedListenHorizontal(false);
 	scrollView->setShowsHorizontalScrollIndicator(false);
-    
+
 
     CAView* _headView = CAView::createWithFrame(CCRect(0, 0, winRect.size.width, 562), CAColor_white);
     CCRect _headCC = _headView->getBounds() ;
@@ -81,7 +81,7 @@ void GroupInfoViewController::viewDidLoad()
     topicLabel->setFontSize(_px(38));
     topicLabel->setColor(ccc4(112, 112, 112, 255));
     _headView->addSubview(topicLabel);
-    
+
     m_LabelTopic = CALabel::createWithFrame(CCRect(240, 372, 300, 39));
     m_LabelTopic->setText(m_info.m_sTopic);
     m_LabelTopic->setFontSize(_px(38));
@@ -143,7 +143,7 @@ void GroupInfoViewController::viewDidLoad()
 
     
     scrollView->addSubview(_memberView);
-    
+
     
     CAView * _limitView = CAView::createWithFrame(CCRect(0,863, winRect.size.width, 111));
     _limitView->setColor(CAColor_white);
@@ -164,7 +164,7 @@ void GroupInfoViewController::viewDidLoad()
     scrollView->addSubview(_limitView);
 
     CAView* _noticeView = CAView::createWithFrame(CCRect(0,1015, winRect.size.width, 226));
-    _memberView->setColor(CAColor_white);
+    _noticeView->setColor(CAColor_white);
     
     CALabel* noticeLabel = CALabel::createWithFrame(CCRect(_px(40), 40, 200, 39));
     noticeLabel->setText(UTF8("新消息提醒"));
@@ -177,7 +177,9 @@ void GroupInfoViewController::viewDidLoad()
 //    m_SwitchNotice->setOffImage(CAImage::create(SWITCH_OFF));
     m_SwitchNotice->setIsOn(m_info.m_bIsNotice, true);
     _noticeView->addSubview(m_SwitchNotice);
-    _noticeView->addSubview(_lineView3);
+    
+    CAView* _lineView4 = CAView::createWithFrame(CCRect(_px(40), 111, winRect.size.width-_px(80), _px(1)), ccc4(200, 200, 200, 255));
+    _noticeView->addSubview(_lineView4);
     
     CALabel* gmemberLabel = CALabel::createWithFrame(CCRect(_px(40), 152, 150, 39));
     gmemberLabel->setText(UTF8("群成员"));
