@@ -160,6 +160,7 @@ void FirstViewController::onButtonAdd(CAControl* control, CCPoint point)
 {
     //qiaoxin test
     IMLoginRegister* aaa =IMLoginRegister::create(IM_USERLOGIN);
+    //IMLoginRegister* aaa =IMLoginRegister::create(IM_USERREGISTER);
     RootWindow::getInstance()->getNavigationController()->pushViewController(aaa, true);
 }
 
