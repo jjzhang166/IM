@@ -52,7 +52,7 @@ protected:
 	void onButtonGetGroups(CAControl *control, CCPoint point);
 	void onButtonCreateGroup(CAControl *control, CCPoint point);
 	void onButtonGetMyGroups(CAControl *control, CCPoint point);
-<<<<<<< HEAD
+
 
 	void friendAdd(); //添加朋友界面函数
 	void picview();//覆盖处理函数
@@ -60,15 +60,13 @@ protected:
 private:
 	CAView *addFriendView;  //添加朋友界面
 	CAView *m_pPicChoserLayer; //覆盖处理界面
-=======
+
     
 protected:
     CANavigationBarItem* m_pNavigationBarItem;
     
-    CASegmentedControl* m_pTitleView;
-    
     CATextField* m_pSearchTextField;
->>>>>>> branch_lhj
+
 };
 
 
