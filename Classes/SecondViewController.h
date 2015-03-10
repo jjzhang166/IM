@@ -46,8 +46,11 @@ protected:
 	void onButtonGetMyGroups(CAControl *control, CCPoint point);
 
 	void friendAdd(); //添加朋友界面函数
+	void picview();//覆盖处理函数
+	void onDissmiss(CAControl* pTarget, CCPoint point); //添加朋友dismiss函数
 private:
 	CAView *addFriendView;  //添加朋友界面
+	CAView *m_pPicChoserLayer; //覆盖处理界面
 };
 
 
