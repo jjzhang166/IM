@@ -12,6 +12,9 @@
 #include "RootWindow.h"
 #include "AddHeadForgrand.h"
 #include "IMSetting.h"
+#include "data/TableLanguage.h"
+#include "table/TableLanguagesfontnewHeader.h"
+
 //构造函数
 IMMyController::IMMyController() :cell(NULL), m_pTableView(NULL)
 {
@@ -31,13 +34,15 @@ bool IMMyController::init()
 		CABarButtonItem* addButtonItem = CABarButtonItem::create("", CAImage::create(NAVIGATION_BAR_ITEM_ADD_NORMAL), CAImage::create(NAVIGATION_BAR_ITEM_ADD_SELECTED));
 		addButtonItem->setTarget(this, CAControl_selector(IMMyController::onButtonAdd));
 
-		m_pNavigationBarItem = CANavigationBarItem::create(UTF8("我"));
+		m_pNavigationBarItem = CANavigationBarItem::create(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_NAVIGATION_BAR_ITEM_NAME_3).c_str());
 		m_pNavigationBarItem->setShowGoBackButton(false); 
 		m_pNavigationBarItem->addRightButtonItem(addButtonItem);
 		setNavigationBarItem(m_pNavigationBarItem);
 		m_pNavigationBarItem->retain();
 		return true;
-	}
+    
+    
+    }
 	return false;
 }
 /*界面的初始化，主要就是初始化一个tableview*/
@@ -58,6 +63,7 @@ void IMMyController::viewDidUnload()
 /*刷新界面，把navigationitem加载到顶部*/
 void IMMyController::viewDidAppear()
 {
+    this->getTabBarController()->setNavigationBarItem(m_pNavigationBarItem);
 }
 
 void IMMyController::tableViewDidSelectRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row)

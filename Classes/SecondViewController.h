@@ -14,7 +14,7 @@
 
 USING_NS_CC;
 
-class SecondViewController : public CAViewController
+class SecondViewController : public CAViewController, public CATextFieldDelegate
 {
 
 public:
@@ -32,9 +32,17 @@ protected:
 
 	virtual void viewDidAppear();
 
+    void init_searchBar();
+    
 	void onButtonSearch(CAControl* control, CCPoint point);//搜索按钮回调
 
 	void onButtonAdd(CAControl* control, CCPoint point);//添加按钮回调
+
+    /*textFieldDelegate*/
+    bool onTextFieldAttachWithIME(CATextField * sender);
+    bool onTextFieldDetachWithIME(CATextField * sender);
+    virtual bool onTextFieldInsertText(CATextField * sender, const char * text, int nLen);
+    virtual bool onTextFieldDeleteBackward(CATextField * sender, const char * delText, int nLen);
 
 	// testIM
 	void onButtonLogin(CAControl* control, CCPoint point);
@@ -44,6 +52,7 @@ protected:
 	void onButtonGetGroups(CAControl *control, CCPoint point);
 	void onButtonCreateGroup(CAControl *control, CCPoint point);
 	void onButtonGetMyGroups(CAControl *control, CCPoint point);
+<<<<<<< HEAD
 
 	void friendAdd(); //添加朋友界面函数
 	void picview();//覆盖处理函数
@@ -51,6 +60,15 @@ protected:
 private:
 	CAView *addFriendView;  //添加朋友界面
 	CAView *m_pPicChoserLayer; //覆盖处理界面
+=======
+    
+protected:
+    CANavigationBarItem* m_pNavigationBarItem;
+    
+    CASegmentedControl* m_pTitleView;
+    
+    CATextField* m_pSearchTextField;
+>>>>>>> branch_lhj
 };
 
 
