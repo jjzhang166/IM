@@ -16,7 +16,7 @@
 
 using namespace CrossApp;
 
-SecondViewController::SecondViewController()
+SecondViewController::SecondViewController() :friendview(NULL)
 {
 
 
@@ -101,11 +101,14 @@ void SecondViewController::viewDidLoad()
 	getMyGroupListBtn->addTarget(this, CAControl_selector(SecondViewController::onButtonGetMyGroups), CAControlEventTouchUpInSide);
 	this->getView()->addSubview(getMyGroupListBtn);
 
-
-	//添加朋友界面实现
-	picview();//覆盖界面处理函数
-	friendAdd();//朋友添加处理函数
-	
+	//好友添加界面
+	friendview = AddFriendView::create(3, winRect);
+	friendview->setVisible(false);
+	friendview->setItemNameAtIndex(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_69).c_str(), 0);
+	friendview->setItemNameAtIndex(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_39).c_str(), 1);
+	friendview->setItemNameAtIndex(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_20).c_str(), 2);
+	friendview->addTarget(this, AddFriendView_selector(SecondViewController::onFriend));
+	this->getView()->addSubview(friendview);
 }
 
 void SecondViewController::viewDidAppear()
@@ -125,8 +128,7 @@ void SecondViewController::onButtonSearch(CAControl* control, CCPoint point)
 
 void SecondViewController::onButtonAdd(CAControl* control, CCPoint point)
 {
-	m_pPicChoserLayer->setVisible(true);
-	addFriendView->setVisible(true);
+	friendview->setVisible(true);
 	
 //	string a = UTF8("我是主题");
 //	string b = UTF8("我是介绍");
@@ -178,63 +180,13 @@ void SecondViewController::onButtonGetMyGroups(CrossApp::CAControl *control, Cro
 {
 	HXSDKController::getInstance()->getMyGroupList();
 }
-
-//朋友添加函数
-void SecondViewController::friendAdd()
+//点击屏幕处理函数
+void SecondViewController::onFriend(AddFriendView*, int index)
 {
-	static const std::string name[3] = { TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_69).c_str(), 
-	TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_39).c_str(),
-	TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_20).c_str()};
+	if (index == -1)
+	{
+		friendview->setVisible(false);
+	}
+	//根据index进行函数跳转
 
-	addFriendView = CAScale9ImageView::createWithImage(CAImage::create(FRIEND_ADD));
-	addFriendView->setFrame(CCRect(420,0,0,0));
-	m_pPicChoserLayer->insertSubview(addFriendView, 2);
-	addFriendView->setVisible(false);
-	CCSize picSize = addFriendView->getFrame().size;
-
-	CAButton *labelone = CAButton::createWithCenter(CCRect(picSize.width*0.5, _px(50), picSize.width*0.9, _px(80)), CAButtonTypeCustom);
-	labelone->setBackGroundViewForState(CAControlStateAll, CAView::createWithColor(CAColor_clear));
-	labelone->setTitleForState(CAControlStateAll, name[0]);
-	labelone->setTitleColorForState(CAControlStateAll, CAColor_white);
-	//labelone->addTarget(this, CAControl_selector(), CAControlEventTouchUpInSide);//好友加的群
-	addFriendView->addSubview(labelone);
-
-	CAView *lineView = CAView::createWithCenter(CCRect(picSize.width*0.5, _px(80), picSize.width*0.9, _px(1)));
-	addFriendView->addSubview(lineView);
-
-	CAButton *labeltwo = CAButton::createWithCenter(CCRect(picSize.width*0.5, _px(130), picSize.width*0.9, _px(80)), CAButtonTypeCustom);
-	labeltwo->setBackGroundViewForState(CAControlStateAll, CAView::createWithColor(CAColor_clear));
-	labeltwo->setTitleForState(CAControlStateAll, name[1]);
-	labeltwo->setTitleColorForState(CAControlStateAll, CAColor_white);
-	//labeltwo->addTarget(this, CAControl_selector(), CAControlEventTouchUpInSide);//QQ好友
-	addFriendView->addSubview(labeltwo);
-
-	CAView *lineViewtwo = CAView::createWithCenter(CCRect(picSize.width*0.5, _px(160), picSize.width*0.9, _px(1)));
-	addFriendView->addSubview(lineViewtwo);
-
-	CAButton *labelthree = CAButton::createWithCenter(CCRect(picSize.width*0.5, _px(210), picSize.width*0.9, _px(80)), CAButtonTypeCustom);
-	labelthree->setBackGroundViewForState(CAControlStateAll, CAView::createWithColor(CAColor_clear));
-	labelthree->setTitleForState(CAControlStateAll, name[2]);
-	labelthree->setTitleColorForState(CAControlStateAll, CAColor_white);
-	//labelthree->addTarget(this, CAControl_selector(), CAControlEventTouchUpInSide);//手机联系人
-	addFriendView->addSubview(labelthree);
-}
-//覆盖处理函数
-void SecondViewController::picview()
-{
-	m_pPicChoserLayer = CAView::createWithFrame(this->getView()->getFrame(), ccc4(0, 0, 0, 0));
-	m_pPicChoserLayer->setVisible(false);
-	this->getView()->addSubview(m_pPicChoserLayer);
-
-	CAButton *pbutton = CAButton::createWithFrame(this->getView()->getFrame(), CAButtonTypeCustom);
-	pbutton->setBackGroundViewForState(CAControlStateAll, CAView::createWithColor(CAColor_clear));
-	pbutton->setTitleColorForState(CAControlStateAll, CAColor_white);
-	pbutton->addTarget(this, CAControl_selector(SecondViewController::onDissmiss), CAControlEventTouchUpInSide);
-	m_pPicChoserLayer->insertSubview(pbutton, 1);
-}
-//界面消失
-void SecondViewController::onDissmiss(CAControl* pTarget, CCPoint point)
-{
-	addFriendView->setVisible(false);
-	m_pPicChoserLayer->setVisible(false);
 }
