@@ -36,9 +36,9 @@ bool SecondViewController::init()
 		CABarButtonItem* addButtonItem = CABarButtonItem::create("", CAImage::create(NAVIGATION_BAR_ITEM_ADD_NORMAL), CAImage::create(NAVIGATION_BAR_ITEM_ADD_SELECTED));
 		addButtonItem->setTarget(this, CAControl_selector(SecondViewController::onButtonAdd));
 
-		m_pNavigationBarItem = CANavigationBarItem::create("");
+		m_pNavigationBarItem = CANavigationBarItem::create(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_NAVIGATION_BAR_ITEM_NAME_2).c_str());
 		m_pNavigationBarItem->setShowGoBackButton(false);
-		m_pNavigationBarItem->addLeftButtonItem(talkButtonItem);
+//		m_pNavigationBarItem->addLeftButtonItem(talkButtonItem);
 		m_pNavigationBarItem->addRightButtonItem(addButtonItem);
 
 		m_pNavigationBarItem->retain();
@@ -108,8 +108,7 @@ void SecondViewController::viewDidLoad()
 
 
 	//添加朋友界面实现
-	picview();//覆盖界面处理函数
-	friendAdd();//朋友添加处理函数
+	picview();//覆盖界面处理函数wo xianz 	friendAdd();//朋友添加处理函数
 	
 }
 void SecondViewController::init_searchBar()
@@ -167,6 +166,7 @@ void SecondViewController::onButtonAdd(CAControl* control, CCPoint point)
 
 bool SecondViewController::onTextFieldAttachWithIME(CATextField * sender)
 {
+//    CCLog("search");
     CC_UNUSED_PARAM(sender);
     
     return false;
@@ -196,7 +196,6 @@ bool SecondViewController::onTextFieldDeleteBackward(CATextField * sender, const
     
     return false;
 }
-
 
 #pragma mark TEST
 void SecondViewController::onButtonLogin(CAControl* control, CCPoint point)
