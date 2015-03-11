@@ -14,7 +14,10 @@
 
 USING_NS_CC;
 
-class FirstViewController: public CAViewController, public CATextFieldDelegate
+class FirstViewController: public CAViewController,
+public CATextFieldDelegate,
+public CATableViewDelegate,
+public CATableViewDataSource
 {
     
 public:
@@ -34,6 +37,8 @@ protected:
     
     void init_searchBar();
     
+    void init_tableView();
+    
     void onButtonSegmented(CASegmentedControl*, int index);
     /*
     void onButtonPopular(CAControl* control, CCPoint point);//热门按钮回调
@@ -49,12 +54,29 @@ protected:
     virtual bool onTextFieldInsertText(CATextField * sender, const char * text, int nLen);
     virtual bool onTextFieldDeleteBackward(CATextField * sender, const char * delText, int nLen);
     
+public:
+    /*CATableViewDelegate*/
+    virtual void tableViewDidSelectRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row);
+    virtual void tableViewDidDeselectRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row);
+    /*CATableViewDataSource*/
+    virtual CATableViewCell* tableCellAtIndex(CATableView* table, const CCSize& viewSize, unsigned int section, unsigned int row);
+    virtual CAView* tableViewSectionViewForHeaderInSection(CATableView* table, const CCSize& cellsize, unsigned int section);
+    virtual unsigned int numberOfRowsInSection(CATableView *table, unsigned int section);
+    virtual unsigned int numberOfSections(CATableView *table);
+    virtual unsigned int tableViewHeightForRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row);
+    virtual unsigned int tableViewHeightForHeaderInSection(CATableView* table, unsigned int section);
 protected:
-    CANavigationBarItem* m_pNavigationBarItem;
+    CANavigationBarItem*    m_pNavigationBarItem;
     
-    CASegmentedControl* m_pTitleView;
+    CASegmentedControl*     m_pTitleView;
     
-    CATextField* m_pSearchTextField;
+    CATextField*            m_pSearchTextField;
+    
+    CATableView*            m_pTableView;
+    
+    CADipSize               m_pWinSize;
+    
+    CATableViewCell*        cell;  //tableView中的cell
 };
 
 

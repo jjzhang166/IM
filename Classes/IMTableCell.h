@@ -25,14 +25,15 @@ class IMTableCell : public CATableViewCell
 public:
 	IMTableCell();
 	virtual ~IMTableCell();
-	static IMTableCell* create(IMCellType celltype);
+	static IMTableCell* create(IMCellType celltype, CCSize size);
 public:
-	void initCell();
-	void initCellWithGroup();
-	void initCellWithFriend();
-	void initCellWithStrange();
+    void setCellInfo(CAImage* headIcon, const std::string name, const std::string introduce);
 protected:
-	void baseView();
+    void baseView();
+    void initCell();
+    void initCellWithGroup();
+    void initCellWithFriend();
+    void initCellWithStrange();
 private:
 	CAImageView *m_pHead;
 	CAImageView *m_pGroup;

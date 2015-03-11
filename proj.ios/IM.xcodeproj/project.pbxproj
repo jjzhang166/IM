@@ -25,6 +25,7 @@
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		3E0117501A68FD69002F2E61 /* IMTableCell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E01174E1A68FD69002F2E61 /* IMTableCell.cpp */; };
 		3E01CDBD1AA17A240087A29C /* IMJson in Resources */ = {isa = PBXBuildFile; fileRef = 3E01CDBC1AA17A240087A29C /* IMJson */; };
+		3E0607A31AB018C0002AB721 /* ItemInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E0607A11AB018C0002AB721 /* ItemInfo.cpp */; };
 		3E11DA361A9033EC002E2ADA /* TableBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E11DA321A9033EC002E2ADA /* TableBase.cpp */; };
 		3E11DA371A9033EC002E2ADA /* TableLanguage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E11DA341A9033EC002E2ADA /* TableLanguage.cpp */; };
 		3E1657601A660C5500D832E9 /* IMLoginRegister.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E16575E1A660C5500D832E9 /* IMLoginRegister.cpp */; };
@@ -151,6 +152,8 @@
 		3E01174F1A68FD69002F2E61 /* IMTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMTableCell.h; path = ../Classes/IMTableCell.h; sourceTree = "<group>"; };
 		3E01CDBB1AA1797F0087A29C /* TableLanguagesfontnewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableLanguagesfontnewHeader.h; sourceTree = "<group>"; };
 		3E01CDBC1AA17A240087A29C /* IMJson */ = {isa = PBXFileReference; lastKnownFileType = folder; name = IMJson; path = ../Resources/IMJson; sourceTree = "<group>"; };
+		3E0607A11AB018C0002AB721 /* ItemInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ItemInfo.cpp; path = ../Classes/ItemInfo.cpp; sourceTree = "<group>"; };
+		3E0607A21AB018C0002AB721 /* ItemInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemInfo.h; path = ../Classes/ItemInfo.h; sourceTree = "<group>"; };
 		3E11DA321A9033EC002E2ADA /* TableBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TableBase.cpp; sourceTree = "<group>"; };
 		3E11DA331A9033EC002E2ADA /* TableBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableBase.h; sourceTree = "<group>"; };
 		3E11DA341A9033EC002E2ADA /* TableLanguage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TableLanguage.cpp; sourceTree = "<group>"; };
@@ -582,6 +585,8 @@
 				B0AD93E519207CA300EA40BB /* AppMacros.h */,
 				B0AD93E619207CA300EA40BB /* FirstViewController.cpp */,
 				B0AD93E719207CA300EA40BB /* FirstViewController.h */,
+				3E0607A11AB018C0002AB721 /* ItemInfo.cpp */,
+				3E0607A21AB018C0002AB721 /* ItemInfo.h */,
 				3E38EBC71A5FB2DE0096A595 /* SecondViewController.cpp */,
 				3E38EBC81A5FB2DE0096A595 /* SecondViewController.h */,
 				3E38EBC91A5FB2DE0096A595 /* ThirdViewController.cpp */,
@@ -1379,6 +1384,7 @@
 				B04822BE19FA41F70019F1A7 /* CABrightness_iOS.mm in Sources */,
 				B04C0C041901207A009854FD /* DictionaryHelper.cpp in Sources */,
 				759D26671A6F4B9300E39203 /* IMMyInfo.cpp in Sources */,
+				3E0607A31AB018C0002AB721 /* ItemInfo.cpp in Sources */,
 				B04C0C031901207A009854FD /* CSContentJsonDictionary.cpp in Sources */,
 				3E38EBCB1A5FB2DE0096A595 /* SecondViewController.cpp in Sources */,
 				B04C0C0A1901207A009854FD /* json_writer.cpp in Sources */,
