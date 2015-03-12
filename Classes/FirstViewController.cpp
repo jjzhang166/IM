@@ -15,7 +15,7 @@
 #include "IMTableCell.h"
 #include "HXSDKController.h"
 #include "AddFriendView.h"
-#include "GroupInfoViewController.h"
+#include "groupview/GroupInfoViewController.h"
 
 #define SEARCH_HEIGH  75.0f
 
