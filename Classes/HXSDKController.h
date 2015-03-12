@@ -46,7 +46,7 @@ public:
 	std::vector<HXSDKBuddy*> getFriendsList();
 
 	/*获取公开群*/
-	std::vector<HXSDKGroup*> getPublicGroupList();
+	std::vector<HXSDKGroup*>& getPublicGroupList();
 	/*创建群*/
 	void createGroup(HXSDKGroupStyle groupType, const char* gName, const char* gDescription);
 	/*获取已加入的群*/

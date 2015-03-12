@@ -157,7 +157,7 @@ std::vector<HXSDKBuddy*> HXSDKController::getFriendsList()
 	return m_vFriendList;
 }
 
-std::vector<HXSDKGroup*> HXSDKController::getPublicGroupList()
+std::vector<HXSDKGroup*>& HXSDKController::getPublicGroupList()
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	HXSDKControllerIOS::getPublicGroup_ios();

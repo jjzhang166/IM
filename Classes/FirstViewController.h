@@ -11,8 +11,10 @@
 
 #include <iostream>
 #include "CrossApp.h"
+#include "HXSDKBuddy.h"
 
 USING_NS_CC;
+class HXSDKGroup;
 
 class FirstViewController: public CAViewController,
 public CATextFieldDelegate,
@@ -39,6 +41,8 @@ protected:
     
     void init_tableView();
     
+    void refreshTableView();
+    
     void onButtonSegmented(CASegmentedControl*, int index);
     /*
     void onButtonPopular(CAControl* control, CCPoint point);//热门按钮回调
@@ -48,6 +52,9 @@ protected:
     void onButtonSearch(CAControl* control, CCPoint point);//搜索按钮回调
     
     void onButtonAdd(CAControl* control, CCPoint point);//添加按钮回调
+    
+    void isLoginCallBack(CAObject* obj);//登录成功回调
+    
     /*textFieldDelegate*/
     bool onTextFieldAttachWithIME(CATextField * sender);
     bool onTextFieldDetachWithIME(CATextField * sender);
@@ -77,6 +84,8 @@ protected:
     CADipSize               m_pWinSize;
     
     CATableViewCell*        cell;  //tableView中的cell
+    
+    std::vector<HXSDKGroup*> m_vGroups;
 };
 
 
