@@ -258,7 +258,7 @@ void FirstViewController::tableViewDidSelectRowAtIndexPath(CATableView* table, u
     HXSDKGroup* sdkGroup = HXSDKController::getInstance()->getPublicGroupList().at(row);
     
     GroupInfo groupInfo;
-    groupInfo.m_pFaceImg = CAImage::create("IMResources\button_photo Album_normal.png");
+    groupInfo.m_pFaceImg = CAImage::create("IMResources/button_photo Album_normal.png");//qiaoxin test Image : sdk没有返回群图片数据
     groupInfo.m_sGroupID = sdkGroup->m_sGroupId;
     groupInfo.m_sTopic = sdkGroup->m_sGroupSubject;
     groupInfo.m_sIntroduce = sdkGroup->m_sGroupDescription;
