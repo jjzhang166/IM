@@ -46,7 +46,7 @@ public:
 	std::vector<HXSDKBuddy*> getFriendsList();
 
 	/*获取公开群*/
-	std::vector<HXSDKGroup*> getPublicGroupList();
+	std::vector<HXSDKGroup*>& getPublicGroupList();
 	/*创建群*/
 	void createGroup(HXSDKGroupStyle groupType, const char* gName, const char* gDescription);
 	/*获取已加入的群*/
@@ -89,7 +89,7 @@ public:
 
 	void cleanGroupList();
 	// id, 群主题(名称) ,群描述 , 群成员,
-	void pushGroupsDetail(std::string groupID, std::string groupSub, std::string groupDes, int groupOccupantsCount);
+	void pushGroupsDetail(std::string groupID, std::string groupSub, std::string groupDes, int groupOccupantsCount, std::string ower, int groupStyle, bool isNotificationEnable);
 
 	void cleanMyGroupList();
 	void pushMyGroupsDetail(std::string groupID, std::string groupSub, std::string groupDes, int groupOccupantsCount);

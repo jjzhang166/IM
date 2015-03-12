@@ -15,7 +15,7 @@ AddFriendView::AddFriendView() :m_pTarget(NULL)
 
 AddFriendView::~AddFriendView()
 {
-
+    m_pButtons.clear();
 }
 
 AddFriendView* AddFriendView::create(int numbers, const CCRect& rect)
@@ -94,7 +94,6 @@ void AddFriendView::onButtonCallBack(CAControl *pTarget, CCPoint point)
 		number++;
 	}
 }
-
 
 #pragma mark --
 

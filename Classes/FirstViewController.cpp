@@ -13,6 +13,9 @@
 #include "data/TableLanguage.h"
 #include "table/TableLanguagesfontnewHeader.h"
 #include "IMTableCell.h"
+#include "HXSDKController.h"
+#include "AddFriendView.h"
+#include "GroupInfoViewController.h"
 
 #define SEARCH_HEIGH  75.0f
 
@@ -23,8 +26,8 @@ FirstViewController::FirstViewController()
 ,m_pTableView(NULL)
 ,m_pWinSize(CCSizeZero)
 ,cell(NULL)
+,addView(NULL)
 {
-    
 
 }
 
@@ -63,6 +66,10 @@ bool FirstViewController::init()
         m_pNavigationBarItem->setTitleView(m_pTitleView);
         m_pNavigationBarItem->retain();
         
+        CANotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(FirstViewController::isLoginCallBack), KNOTIFICATION_LOGIN, NULL);
+        
+        HXSDKController::getInstance()->getPublicGroupList();
+        
         return true;
     }
     return false;
@@ -76,6 +83,13 @@ void FirstViewController::viewDidLoad()
     
     init_tableView();
     
+    refreshTableView();
+    
+    if(!HXSDKController::getInstance()->isLogin())
+    {
+        IMLoginRegister* LoginController =IMLoginRegister::create(IM_USERLOGIN);
+        RootWindow::getInstance()->getNavigationController()->pushViewController(LoginController, true);
+    }
 }
 
 void FirstViewController::viewDidAppear()
@@ -113,6 +127,13 @@ void FirstViewController::init_tableView()
     this->getView()->addSubview(m_pTableView);
 }
 
+void FirstViewController::refreshTableView()
+{
+    m_vGroups = HXSDKController::getInstance()->getPublicGroupList();
+    
+    m_pTableView->reloadData();
+}
+
 /*
 void FirstViewController::onButtonPopular(CAControl* control, CCPoint point)
 {
@@ -131,10 +152,43 @@ void FirstViewController::onButtonSearch(CAControl* control, CCPoint point)
 */
 void FirstViewController::onButtonAdd(CAControl* control, CCPoint point)
 {
-    //qiaoxin test
-    IMLoginRegister* aaa =IMLoginRegister::create(IM_USERLOGIN);
-    //IMLoginRegister* aaa =IMLoginRegister::create(IM_USERREGISTER);
-    RootWindow::getInstance()->getNavigationController()->pushViewController(aaa, true);
+    if(NULL == addView)
+    {
+        addView = AddFriendView::create(3,CCRectMake(50, 10, m_pWinSize.width, m_pWinSize.height));
+        addView->setItemNameAtIndex(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_25).c_str(), 0);
+        addView->setItemNameAtIndex(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_26).c_str(), 1);
+        addView->setItemNameAtIndex(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_27).c_str(), 2);
+        addView->addTarget(this, AddFriendView_selector(FirstViewController::addViewButtonCallBack));
+        this->getView()->insertSubview(addView, 100);
+    }
+    else if(addView->isVisible())
+    {
+        addView->setVisible(false);
+    }
+    else if(!addView->isVisible())
+    {
+        addView->setVisible(true);
+    }
+}
+
+void FirstViewController::addViewButtonCallBack(AddFriendView* controller, int index)
+{
+    if(-1 == index)
+    {
+        addView->setVisible(false);
+    }
+    else if(0 == index)
+    {
+        
+    }
+    else if(1 == index)
+    {
+        //GroupInfoViewController* groupController = GroupInfoViewController::create(<#GroupInfo info#>, <#bool joined#>)
+    }
+    else if(2 == index)
+    {
+        
+    }
 }
 
 void FirstViewController::onButtonSegmented(CASegmentedControl*, int index)
@@ -148,6 +202,19 @@ void FirstViewController::onButtonSegmented(CASegmentedControl*, int index)
             break;
         default:
             break;
+    }
+}
+
+void FirstViewController::isLoginCallBack(CAObject* obj)
+{
+    if(obj)
+    {
+        CCLog("login success!!!");
+        refreshTableView();
+    }	
+    else
+    {
+        CCLog("login failed...");
     }
 }
 
@@ -188,22 +255,20 @@ bool FirstViewController::onTextFieldDeleteBackward(CATextField * sender, const 
 #pragma mark TableViewDelegate
 void FirstViewController::tableViewDidSelectRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row)
 {
-//    //cell点击处理事件
-//    if (section == 0){
-//        IMMyInfo *pIMMyInfo = IMMyInfo::create();
-//        RootWindow::getInstance()->getNavigationController()->pushViewController(pIMMyInfo, true);
-//    }
-//    else if (section == 1){
-//        //通讯录
-//    }
-//    else if (section == 2)
-//    {
-//        //点击设置栏，进入用户设置页面
-//        IMSetting *pIMSetting = IMSetting::create();
-//        RootWindow::getInstance()->getNavigationController()->pushViewController(pIMSetting, true);
-//    }
-//    else{
-//    }
+    HXSDKGroup* sdkGroup = HXSDKController::getInstance()->getPublicGroupList().at(row);
+    
+    GroupInfo groupInfo;
+    groupInfo.m_pFaceImg = CAImage::create("IMResources\button_photo Album_normal.png");
+    groupInfo.m_sGroupID = sdkGroup->m_sGroupId;
+    groupInfo.m_sTopic = sdkGroup->m_sGroupSubject;
+    groupInfo.m_sIntroduce = sdkGroup->m_sGroupDescription;
+    groupInfo.m_sOwner = sdkGroup->m_sGroupOwer;
+    groupInfo.m_itotal = sdkGroup->m_iGroupOccupantsCount;
+    groupInfo.m_sLimit = sdkGroup->m_eGroupType;
+    groupInfo.m_bIsNotice = sdkGroup->m_bIsPushNotificationEnable;
+    
+    GroupInfoViewController* groupController = GroupInfoViewController::create(groupInfo, false);
+    RootWindow::getInstance()->getNavigationController()->pushViewController(groupController, true);
 }
 
 void FirstViewController::tableViewDidDeselectRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row)
@@ -216,33 +281,10 @@ CATableViewCell* FirstViewController::tableCellAtIndex(CATableView* table, const
     /*cell页面的初始化*/
     cell = table->dequeueReusableCellWithIdentifier("Crossapp");
     CCSize cellSize = CCSizeMake(m_pWinSize.width, _px(90));
-    switch (section)
-    {
-        case 0:
-        {
-            /*初始化用户信息栏*/
-            cell = IMTableCell::create(Group, cellSize);
-            ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), "我是谁", "测试数据");
-            return cell;
-            break;
-        }
-        case 1:
-        {   /*初始化通讯录栏*/
-            cell = IMTableCell::create(Friend, cellSize);
-            ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), "我是谁", "测试数据");
-            return cell;
-            break;
-        }
-        case 2:
-        {     /*初始化设置栏*/
-            cell = IMTableCell::create(Strange, cellSize);
-            ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), "我是谁", "测试数据");
-            return cell;
-            break;
-        }
-        default:
-            break;
-    }
+    
+    cell = IMTableCell::create(Group, cellSize);
+    ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), m_vGroups.at(row)->m_sGroupSubject, m_vGroups.at(row)->m_sGroupDescription);
+    return cell;
 }
 
 /*在section之间添加一个view，就是UI中section之间的灰色地带*/
@@ -255,13 +297,13 @@ CAView* FirstViewController::tableViewSectionViewForHeaderInSection(CATableView*
 /*设置每个section含有的cell个数*/
 unsigned int FirstViewController::numberOfRowsInSection(CATableView *table, unsigned int section)
 {
-    return 1;
+    return m_vGroups.size();
 }
 
 /*设置含有几个section*/
 unsigned int FirstViewController::numberOfSections(CATableView *table)
 {
-    return 3;
+    return 1;
 }
 
 unsigned int FirstViewController::tableViewHeightForRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row)

@@ -12,6 +12,8 @@
 #include "SecondViewController.h"
 #include "IMMyController.h"
 #include "IMDATA.h"
+#include "HXSDKController.h"
+#include "IMLoginRegister.h"
 
 static RootWindow* m_pRootWindow = NULL;
 
@@ -51,6 +53,8 @@ bool RootWindow::init()
     m_pNavigationController = init_navigationController(m_pTabelBarController);
     
     this->setRootViewController(m_pNavigationController);
+    
+
     return true;
 }
 

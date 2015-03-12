@@ -15,27 +15,19 @@
 USING_NS_CC;
 
 
-class GroupInfo
+struct GroupInfo
 {
-public:
+//    GroupInfo(CAImage* img, std::string topic,std::string introduce,std::string owner,std::string limit,int otal, bool isON=false)
+//    {
+//        m_pFaceImg = img;
+//        m_sTopic = topic;
+//        m_sIntroduce = introduce;
+//        m_sOwner = owner;
+//        m_sLimit = limit;
+//        m_itotal = otal;
+//        m_bIsNotice = isON;
+//    }
 
-    GroupInfo()
-    {
-        m_bIsNotice = false;
-    }
-    GroupInfo(CAImage* img, std::string topic,std::string introduce,std::string owner,std::string limit,int otal, bool isON=false)
-    {
-        m_pFaceImg = img;
-        m_sTopic = topic;
-        m_sIntroduce = introduce;
-        m_sOwner = owner;
-        m_sLimit = limit;
-        m_itotal = otal;
-        m_bIsNotice = isON;
-    }
-    ~GroupInfo(){}
-    
-public:
     std::string     m_sGroupID; // 群ID
     CAImage *       m_pFaceImg; // 群照片
     std::string     m_sTopic; // 主题

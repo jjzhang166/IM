@@ -73,10 +73,13 @@ class HXSDKGroup
 public:
 	HXSDKGroup()
 	{
+        m_sGroupId = "";
 		m_sGroupSubject = "";
 		m_sGroupDescription = "";
 		m_iGroupOccupantsCount = 200;
 		m_eGroupType = eHXSDKGroupStyle_Default;
+        m_sGroupOwer = "";
+        m_bIsPushNotificationEnable = true;
 	}
 	~HXSDKGroup()
 	{
@@ -95,6 +98,10 @@ public:
 	int         m_iGroupOccupantsCount;
 	//    群类型（即上面提到的四种群组类型）
 	HXSDKGroupStyle   m_eGroupType;
+    //    群主
+    std::string m_sGroupOwer;
+    //    是否推动消息
+    bool        m_bIsPushNotificationEnable;
 
 };
 
