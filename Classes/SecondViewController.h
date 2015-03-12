@@ -15,7 +15,7 @@
 
 USING_NS_CC;
 
-class SecondViewController : public CAViewController
+class SecondViewController : public CAViewController, public CATextFieldDelegate
 {
 
 public:
@@ -32,24 +32,36 @@ protected:
 	virtual void viewDidUnload();
 
 	virtual void viewDidAppear();
-
-	void onButtonSearch(CAControl* control, CCPoint point);//搜索按钮回调
+    
+    void init_searchBar();
 
 	void onButtonAdd(CAControl* control, CCPoint point);//添加按钮回调
 
-	// testIM
-	void onButtonLogin(CAControl* control, CCPoint point);
-	void onButtonLogOff(CAControl* control, CCPoint point);
-	void onButtonSendText(CAControl* control, CCPoint point);
-	void onButtonGetFriends(CAControl *control, CCPoint point);
-	void onButtonGetGroups(CAControl *control, CCPoint point);
-	void onButtonCreateGroup(CAControl *control, CCPoint point);
-	void onButtonGetMyGroups(CAControl *control, CCPoint point);
-
 	void onFriend(AddFriendView*, int index); //点击屏幕处理函数
+    /*textFieldDelegate*/
+    bool onTextFieldAttachWithIME(CATextField * sender);
+    bool onTextFieldDetachWithIME(CATextField * sender);
+    virtual bool onTextFieldInsertText(CATextField * sender, const char * text, int nLen);
+    virtual bool onTextFieldDeleteBackward(CATextField * sender, const char * delText, int nLen);
+    
+public:
+    /*CATableViewDelegate*/
+//    virtual void tableViewDidSelectRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row);
+//    virtual void tableViewDidDeselectRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row);
+//    /*CATableViewDataSource*/
+//    virtual CATableViewCell* tableCellAtIndex(CATableView* table, const CCSize& viewSize, unsigned int section, unsigned int row);
+//    virtual CAView* tableViewSectionViewForHeaderInSection(CATableView* table, const CCSize& cellsize, unsigned int section);
+//    virtual unsigned int numberOfRowsInSection(CATableView *table, unsigned int section);
+//    virtual unsigned int numberOfSections(CATableView *table);
+//    virtual unsigned int tableViewHeightForRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row);
+//    virtual unsigned int tableViewHeightForHeaderInSection(CATableView* table, unsigned int section);
+
 private:
 	AddFriendView *friendview; //好友添加界面
-
+protected:
+    CATextField*            m_pSearchTextField;
+    CADipSize               m_pWinSize;
+    
 };
 
 

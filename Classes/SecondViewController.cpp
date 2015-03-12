@@ -14,6 +14,8 @@
 #include "table/TableLanguagesfontnewHeader.h"
 #include "data/TableLanguage.h"
 
+#define SEARCH_HEIGH  75.0f
+
 using namespace CrossApp;
 
 SecondViewController::SecondViewController() :friendview(NULL)
@@ -31,9 +33,6 @@ bool SecondViewController::init()
 {
 	if (CAViewController::init())
 	{
-
-		CABarButtonItem* searchButtonItem = CABarButtonItem::create("", CAImage::create(NAVIGATION_BAR_ITEM_SEARCH_NORMAL), CAImage::create(NAVIGATION_BAR_ITEM_SEARCH_SELECTED));
-		searchButtonItem->setTarget(this, CAControl_selector(SecondViewController::onButtonSearch));
 		CABarButtonItem* addButtonItem = CABarButtonItem::create("", CAImage::create(NAVIGATION_BAR_ITEM_ADD_NORMAL), CAImage::create(NAVIGATION_BAR_ITEM_ADD_SELECTED));
 		addButtonItem->setTarget(this, CAControl_selector(SecondViewController::onButtonAdd));
 
@@ -50,56 +49,10 @@ bool SecondViewController::init()
 void SecondViewController::viewDidLoad()
 {
 	CCRect winRect = this->getView()->getBounds();
-	//    CAImageView* imageView = CAImageView::createWithImage(CAImage::create("HelloWorld.png"));
-	//    imageView->setFrame(winRect);
-	//    this->getView()->addSubview(imageView);
-	//    
-	//    CALabel* label = CALabel::createWithCenter(CCRect(winRect.size.width*0.5, winRect.size.height*0.5-270, winRect.size.width, 200));
-	//    label->setTextAlignment(CATextAlignmentCenter);
-	//    label->setVerticalTextAlignmet(CAVerticalTextAlignmentCenter);
-	//    label->setFontSize(72 * CROSSAPP_ADPTATION_RATIO);
-	//    label->setText("SecondViewController");
-	//    label->setColor(CAColor_white);
-	//    this->getView()->insertSubview(label, 1);
+    m_pWinSize = this->getView()->getBounds().size;
 
-	//test IM
-	CAButton * loginBtn = CAButton::createWithFrame(CCRect(100, 100, 500, 50), CAButtonTypeRoundedRect);
-	loginBtn->setTitleForState(CAControlStateAll, "login");
-	loginBtn->addTarget(this, CAControl_selector(SecondViewController::onButtonLogin), CAControlEventTouchUpInSide);
-	this->getView()->addSubview(loginBtn);
-
-	CAButton * logoutBtn = CAButton::createWithFrame(CCRect(100, 200, 500, 50), CAButtonTypeRoundedRect);
-	logoutBtn->setTitleForState(CAControlStateAll, "logout");
-	logoutBtn->addTarget(this, CAControl_selector(SecondViewController::onButtonLogOff), CAControlEventTouchUpInSide);
-	this->getView()->addSubview(logoutBtn);
-
-	CAButton * sendMsgBtn = CAButton::createWithFrame(CCRect(100, 300, 500, 50), CAButtonTypeRoundedRect);
-	sendMsgBtn->setTitleForState(CAControlStateAll, "sendmessage");
-	sendMsgBtn->addTarget(this, CAControl_selector(SecondViewController::onButtonSendText), CAControlEventTouchUpInSide);
-	this->getView()->addSubview(sendMsgBtn);
-
-	CAButton * getFriendsListBtn = CAButton::createWithFrame(CCRect(100, 400, 500, 50), CAButtonTypeRoundedRect);
-	getFriendsListBtn->setTitleForState(CAControlStateAll, "getFrendsList");
-	getFriendsListBtn->addTarget(this, CAControl_selector(SecondViewController::onButtonGetFriends), CAControlEventTouchUpInSide);
-	this->getView()->addSubview(getFriendsListBtn);
-
-
-	CAButton * createGroupBtn = CAButton::createWithFrame(CCRect(100, 500, 500, 50), CAButtonTypeRoundedRect);
-	createGroupBtn->setTitleForState(CAControlStateAll, "create group");
-	createGroupBtn->addTarget(this, CAControl_selector(SecondViewController::onButtonCreateGroup), CAControlEventTouchUpInSide);
-	this->getView()->addSubview(createGroupBtn);
-
-	CAButton * getGroupListBtn = CAButton::createWithFrame(CCRect(100, 600, 500, 50), CAButtonTypeRoundedRect);
-	getGroupListBtn->setTitleForState(CAControlStateAll, "accept group");
-	getGroupListBtn->addTarget(this, CAControl_selector(SecondViewController::onButtonGetGroups), CAControlEventTouchUpInSide);
-	this->getView()->addSubview(getGroupListBtn);
-
-	CAButton * getMyGroupListBtn = CAButton::createWithFrame(CCRect(100, 700, 500, 50), CAButtonTypeRoundedRect);
-	getMyGroupListBtn->setTitleForState(CAControlStateAll, "accept mygroup");
-	getMyGroupListBtn->addTarget(this, CAControl_selector(SecondViewController::onButtonGetMyGroups), CAControlEventTouchUpInSide);
-	this->getView()->addSubview(getMyGroupListBtn);
-
-//	//好友添加界面
+    init_searchBar();
+	//好友添加界面
 //	friendview = AddFriendView::create(3, winRect);
 //	friendview->setVisible(false);
 //	friendview->setItemNameAtIndex(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_69).c_str(), 0);
@@ -119,10 +72,23 @@ void SecondViewController::viewDidUnload()
 
 }
 
-void SecondViewController::onButtonSearch(CAControl* control, CCPoint point)
-{
 
+void SecondViewController::init_searchBar()
+{
+    CAScale9ImageView* searchBackground = CAScale9ImageView::createWithImage(CAImage::create(TABLE_GRAY_BG));
+    searchBackground->setFrame(CADipRect(0.0f, 0.0f, m_pWinSize.width, SEARCH_HEIGH));
+    this->getView()->insertSubview(searchBackground, 10);
+    
+    m_pSearchTextField = CATextField::createWithFrame(CADipRect(20.0f, 10.0f, m_pWinSize.width-40.0f, 50.0f));
+    m_pSearchTextField->setBackgroundView(CAView::createWithColor(CAColor_white));
+    m_pSearchTextField->setPlaceHolder(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_SEARCH_CONTENT_TEXT).c_str());
+    m_pSearchTextField->setSpaceHolderColor(ccc4(0x96, 0x96, 0x96, 0xff));
+    m_pSearchTextField->setFontSize(_px(28.0f));
+    m_pSearchTextField->setDelegate(this);
+    m_pSearchTextField->setKeyboardReturnType(KEY_BOARD_RETURN_SEARCH);
+    searchBackground->addSubview(m_pSearchTextField);
 }
+
 
 void SecondViewController::onButtonAdd(CAControl* control, CCPoint point)
 {
@@ -137,47 +103,8 @@ void SecondViewController::onButtonAdd(CAControl* control, CCPoint point)
 //	GroupInfo info = GroupInfo(CAImage::create("HelloWorld.png"), a, b, c, d,  520, true);
 //	GroupInfoViewController * _group = GroupInfoViewController::create(info, false);
 //	RootWindow::getInstance()->getNavigationController()->pushViewController(_group, true);
-    
-
-
 }
 
-void SecondViewController::onButtonLogin(CAControl* control, CCPoint point)
-{
-	HXSDKController::getInstance()->Login("lhjtest", "123aa123");
-}
-
-void SecondViewController::onButtonLogOff(CAControl* control, CCPoint point)
-{
-	HXSDKController::getInstance()->Logout();
-}
-
-void SecondViewController::onButtonSendText(CrossApp::CAControl *control, CrossApp::CCPoint point)
-{
-
-}
-
-
-void SecondViewController::onButtonGetFriends(CrossApp::CAControl *control, CrossApp::CCPoint point)
-{
-	HXSDKController::getInstance()->getFriendsList();
-}
-
-void SecondViewController::onButtonGetGroups(CrossApp::CAControl *control, CrossApp::CCPoint point)
-{
-
-	HXSDKController::getInstance()->getPublicGroupList();
-}
-
-void SecondViewController::onButtonCreateGroup(CrossApp::CAControl *control, CrossApp::CCPoint point)
-{
-	//HXSDKController::getInstance()->createGroup(eHXSDKGroupStyle_PublicOpenJoin, UTF8("傻逼群组"), UTF8("傻逼描述"));
-}
-
-void SecondViewController::onButtonGetMyGroups(CrossApp::CAControl *control, CrossApp::CCPoint point)
-{
-	HXSDKController::getInstance()->getMyGroupList();
-}
 //点击屏幕处理函数
 void SecondViewController::onFriend(AddFriendView*, int index)
 {
@@ -187,4 +114,37 @@ void SecondViewController::onFriend(AddFriendView*, int index)
 	}
 	//根据index进行函数跳转
 
+}
+#pragma mark TextFieldDelegate
+
+bool SecondViewController::onTextFieldAttachWithIME(CATextField * sender)
+{
+    CC_UNUSED_PARAM(sender);
+    
+    return false;
+}
+
+bool SecondViewController::onTextFieldDetachWithIME(CATextField * sender)
+{
+    CC_UNUSED_PARAM(sender);
+    
+    return false;
+}
+
+bool SecondViewController::onTextFieldInsertText(CATextField * sender, const char * text, int nLen)
+{
+    CC_UNUSED_PARAM(sender);
+    CC_UNUSED_PARAM(text);
+    CC_UNUSED_PARAM(nLen);
+    
+    return false;
+}
+
+bool SecondViewController::onTextFieldDeleteBackward(CATextField * sender, const char * delText, int nLen)
+{
+    CC_UNUSED_PARAM(sender);
+    CC_UNUSED_PARAM(delText);
+    CC_UNUSED_PARAM(nLen);
+    
+    return false;
 }
