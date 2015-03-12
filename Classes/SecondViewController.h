@@ -14,7 +14,7 @@
 
 USING_NS_CC;
 
-class SecondViewController : public CAViewController, public CATextFieldDelegate
+class SecondViewController : public CAViewController, public CATextFieldDelegate,public CATableViewDelegate, public CATableViewDataSource
 {
     
 public:
@@ -34,6 +34,8 @@ protected:
     
     void init_searchBar();
     
+    void init_searchResultTable();
+    
     void onButtonAdd(CAControl* control, CCPoint point);//添加按钮回调
     
     /*textFieldDelegate*/
@@ -41,6 +43,19 @@ protected:
     bool onTextFieldDetachWithIME(CATextField * sender);
     virtual bool onTextFieldInsertText(CATextField * sender, const char * text, int nLen);
     virtual bool onTextFieldDeleteBackward(CATextField * sender, const char * delText, int nLen);
+public:
+    /*CATableViewDelegate*/
+    virtual void tableViewDidSelectRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row);
+    virtual void tableViewDidDeselectRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row);
+    /*CATableViewDataSource*/
+    virtual CATableViewCell* tableCellAtIndex(CATableView* table, const CCSize& viewSize, unsigned int section, unsigned int row);
+    virtual CAView* tableViewSectionViewForHeaderInSection(CATableView* table, const CCSize& cellsize, unsigned int section);
+    virtual unsigned int numberOfRowsInSection(CATableView *table, unsigned int section);
+    virtual unsigned int numberOfSections(CATableView *table);
+    virtual unsigned int tableViewHeightForRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row);
+    virtual unsigned int tableViewHeightForHeaderInSection(CATableView* table, unsigned int section);private:
+    CADipSize size;
+    CATableView* p_TableView;
     
 protected:
     CANavigationBarItem* m_pNavigationBarItem;
@@ -48,6 +63,12 @@ protected:
     CASegmentedControl* m_pTitleView;
     
     CATextField* m_pSearchTextField;
+    
+    CATableView*            m_pTableView;
+    
+    CADipSize               m_pWinSize;
+    
+    CATableViewCell*        cell;  //tableView中的cell
 };
 
 
