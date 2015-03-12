@@ -12,6 +12,9 @@
 #include "IMDATA.h"
 #include "HXSDKController.h"
 #include "AddHeadForgrand.h"
+#include "../data/TableLanguage.h"
+#include "../table/TableLanguagesfontnewHeader.h"
+
 
 GroupInfoViewController::GroupInfoViewController()
 {};
@@ -37,7 +40,7 @@ bool GroupInfoViewController::init(GroupInfo info,bool joined)
         
         CABarButtonItem* backItem = CABarButtonItem::create("back", NULL, NULL);
         backItem->setTarget(this, CAControl_selector(GroupInfoViewController::onButtonBack));
-        CANavigationBarItem* navigation = CANavigationBarItem::create(UTF8("群信息"));
+        CANavigationBarItem* navigation = CANavigationBarItem::create(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_31).c_str());
         navigation->setShowGoBackButton(false);
         navigation->addLeftButtonItem(backItem);
         setNavigationBarItem(navigation);
@@ -77,7 +80,7 @@ void GroupInfoViewController::viewDidLoad()
     _headView->addSubview(_lineView);
     
     CALabel* topicLabel = CALabel::createWithFrame(CCRect(_px(45),372, 80, 39));
-    topicLabel->setText(UTF8("主题"));
+    topicLabel->setText(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_32).c_str());
     topicLabel->setFontSize(_px(38));
     topicLabel->setColor(ccc4(112, 112, 112, 255));
     _headView->addSubview(topicLabel);
@@ -92,7 +95,7 @@ void GroupInfoViewController::viewDidLoad()
     _headView->addSubview(_lineView2);
     
     CALabel * introduceLabel = CALabel::createWithFrame(CCRect(_px(45),490, 80, 39));
-    introduceLabel->setText(UTF8("介绍"));
+    introduceLabel->setText(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_33).c_str());
     introduceLabel->setFontSize(_px(38));
     introduceLabel->setColor(ccc4(112, 112, 112, 255));
     _headView->addSubview(introduceLabel);
@@ -112,7 +115,7 @@ void GroupInfoViewController::viewDidLoad()
     _memberView->setColor(CAColor_white);
     
     CALabel* ownerLabel = CALabel::createWithFrame(CCRect(_px(40), 40, 80, 39));
-    ownerLabel->setText(UTF8("群主"));
+    ownerLabel->setText(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_34).c_str());
     ownerLabel->setColor(ccc4(112, 112, 112, 255));
     ownerLabel->setFontSize(_px(38));
     _memberView->addSubview(ownerLabel);
@@ -129,13 +132,13 @@ void GroupInfoViewController::viewDidLoad()
     _memberView->addSubview(_lineView3);
     
     CALabel* memberLabel = CALabel::createWithFrame(CCRect(_px(40), 152, 80, 39));
-    memberLabel->setText(UTF8("成员"));
+    memberLabel->setText(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_35).c_str());
     memberLabel->setColor(ccc4(112, 112, 112, 255));
     memberLabel->setFontSize(_px(38));
     _memberView->addSubview(memberLabel);
     
     m_LabelMember = CALabel::createWithFrame(CCRect(240, 152, 200, 39));
-    m_LabelMember->setText(UTF8("成员人数"));
+    m_LabelMember->setText( CCString::createWithFormat("%d",m_info.m_itotal)->getCString());
 //    m_LabelMember->setText(*m_info.);
     m_LabelMember->setColor(ccc4(51, 51, 51, 255));
     m_LabelMember->setFontSize(_px(38));
@@ -149,7 +152,7 @@ void GroupInfoViewController::viewDidLoad()
     _limitView->setColor(CAColor_white);
     
     CALabel* limitLabel = CALabel::createWithFrame(CCRect(_px(40), 40, 80, 39));
-    limitLabel->setText(UTF8("权限"));
+    limitLabel->setText(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_36).c_str());
     limitLabel->setColor(ccc4(112, 112, 112, 255));
     limitLabel->setFontSize(_px(38));
     _limitView->addSubview(limitLabel);
@@ -167,7 +170,7 @@ void GroupInfoViewController::viewDidLoad()
     _noticeView->setColor(CAColor_white);
     
     CALabel* noticeLabel = CALabel::createWithFrame(CCRect(_px(40), 40, 200, 39));
-    noticeLabel->setText(UTF8("新消息提醒"));
+    noticeLabel->setText(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_37).c_str());
     noticeLabel->setColor(ccc4(51, 51, 51, 255));
     noticeLabel->setFontSize(_px(38));
     _noticeView->addSubview(noticeLabel);
@@ -182,7 +185,7 @@ void GroupInfoViewController::viewDidLoad()
     _noticeView->addSubview(_lineView4);
     
     CALabel* gmemberLabel = CALabel::createWithFrame(CCRect(_px(40), 152, 150, 39));
-    gmemberLabel->setText(UTF8("群成员"));
+    gmemberLabel->setText(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_38).c_str());
     gmemberLabel->setColor(ccc4(51, 51, 51, 255));
     gmemberLabel->setFontSize(_px(38));
     _noticeView->addSubview(gmemberLabel);
@@ -192,13 +195,13 @@ void GroupInfoViewController::viewDidLoad()
     
     m_ExitButton = CAButton::createWithFrame(CCRect(_px(40), 1572, winRect.size.width-_px(80), 110), CAButtonTypeRoundedRect);
        if (m_joined) {
-        m_ExitButton->setTitleForState(CAControlStateAll, UTF8("退出群聊"));
+        m_ExitButton->setTitleForState(CAControlStateAll, TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_41).c_str());
         CAImage * btnBG = CAImage::create(BUTTON_EXIT_GROUP );
         CAImageView * imgView = CAImageView::create();
         imgView->setImage(btnBG);
         m_ExitButton->setBackGroundViewForState(CAControlStateAll,imgView);
     } else{
-        m_ExitButton->setTitleForState(CAControlStateAll, UTF8("加入群聊"));
+        m_ExitButton->setTitleForState(CAControlStateAll, TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_25).c_str());
         CAImage * btnBG = CAImage::create(BUTTON_JOIN_GROUP );
         CAImageView * imgView = CAImageView::create();
         imgView->setImage(btnBG);
