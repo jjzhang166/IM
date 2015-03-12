@@ -31,17 +31,15 @@ bool SecondViewController::init()
 {
 	if (CAViewController::init())
 	{
-		CABarButtonItem* talkButtonItem = CABarButtonItem::create(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_NAVIGATION_BAR_ITEM_NAME_2).c_str(), NULL, NULL);
+
 		CABarButtonItem* searchButtonItem = CABarButtonItem::create("", CAImage::create(NAVIGATION_BAR_ITEM_SEARCH_NORMAL), CAImage::create(NAVIGATION_BAR_ITEM_SEARCH_SELECTED));
 		searchButtonItem->setTarget(this, CAControl_selector(SecondViewController::onButtonSearch));
 		CABarButtonItem* addButtonItem = CABarButtonItem::create("", CAImage::create(NAVIGATION_BAR_ITEM_ADD_NORMAL), CAImage::create(NAVIGATION_BAR_ITEM_ADD_SELECTED));
 		addButtonItem->setTarget(this, CAControl_selector(SecondViewController::onButtonAdd));
 
-		m_pNavigationBarItem = CANavigationBarItem::create("");
+		m_pNavigationBarItem = CANavigationBarItem::create(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_NAVIGATION_BAR_ITEM_NAME_2).c_str());
 		m_pNavigationBarItem->setShowGoBackButton(false);
-		m_pNavigationBarItem->addLeftButtonItem(talkButtonItem);
 		m_pNavigationBarItem->addRightButtonItem(addButtonItem);
-		m_pNavigationBarItem->addRightButtonItem(searchButtonItem);
 		m_pNavigationBarItem->retain();
 
 		return true;
@@ -101,14 +99,14 @@ void SecondViewController::viewDidLoad()
 	getMyGroupListBtn->addTarget(this, CAControl_selector(SecondViewController::onButtonGetMyGroups), CAControlEventTouchUpInSide);
 	this->getView()->addSubview(getMyGroupListBtn);
 
-	//好友添加界面
-	friendview = AddFriendView::create(3, winRect);
-	friendview->setVisible(false);
-	friendview->setItemNameAtIndex(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_69).c_str(), 0);
-	friendview->setItemNameAtIndex(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_39).c_str(), 1);
-	friendview->setItemNameAtIndex(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_20).c_str(), 2);
-	friendview->addTarget(this, AddFriendView_selector(SecondViewController::onFriend));
-	this->getView()->addSubview(friendview);
+//	//好友添加界面
+//	friendview = AddFriendView::create(3, winRect);
+//	friendview->setVisible(false);
+//	friendview->setItemNameAtIndex(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_69).c_str(), 0);
+//	friendview->setItemNameAtIndex(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_39).c_str(), 1);
+//	friendview->setItemNameAtIndex(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_20).c_str(), 2);
+//	friendview->addTarget(this, AddFriendView_selector(SecondViewController::onFriend));
+//	this->getView()->addSubview(friendview);
 }
 
 void SecondViewController::viewDidAppear()
