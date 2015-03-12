@@ -14,6 +14,7 @@
 #include "table/TableLanguagesfontnewHeader.h"
 #include "IMTableCell.h"
 #include "HXSDKController.h"
+#include "AddFriendView.h"
 
 #define SEARCH_HEIGH  75.0f
 
@@ -24,6 +25,7 @@ FirstViewController::FirstViewController()
 ,m_pTableView(NULL)
 ,m_pWinSize(CCSizeZero)
 ,cell(NULL)
+,addView(NULL)
 {
 
 }
@@ -149,10 +151,43 @@ void FirstViewController::onButtonSearch(CAControl* control, CCPoint point)
 */
 void FirstViewController::onButtonAdd(CAControl* control, CCPoint point)
 {
-    //qiaoxin test
-    IMLoginRegister* aaa =IMLoginRegister::create(IM_USERLOGIN);
-    //IMLoginRegister* aaa =IMLoginRegister::create(IM_USERREGISTER);
-    RootWindow::getInstance()->getNavigationController()->pushViewController(aaa, true);
+    if(NULL == addView)
+    {
+        addView = AddFriendView::create(3,CCRectMake(50, 10, m_pWinSize.width, m_pWinSize.height));
+        addView->setItemNameAtIndex(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_25).c_str(), 0);
+        addView->setItemNameAtIndex(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_26).c_str(), 1);
+        addView->setItemNameAtIndex(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_27).c_str(), 2);
+        addView->addTarget(this, AddFriendView_selector(FirstViewController::addViewButtonCallBack));
+        this->getView()->insertSubview(addView, 100);
+    }
+    else if(addView->isVisible())
+    {
+        addView->setVisible(false);
+    }
+    else if(!addView->isVisible())
+    {
+        addView->setVisible(true);
+    }
+}
+
+void FirstViewController::addViewButtonCallBack(AddFriendView* controller, int index)
+{
+    if(-1 == index)
+    {
+        addView->setVisible(false);
+    }
+    else if(0 == index)
+    {
+        
+    }
+    else if(1 == index)
+    {
+        
+    }
+    else if(2 == index)
+    {
+        
+    }
 }
 
 void FirstViewController::onButtonSegmented(CASegmentedControl*, int index)

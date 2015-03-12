@@ -15,6 +15,7 @@
 
 USING_NS_CC;
 class HXSDKGroup;
+class AddFriendView;
 
 class FirstViewController: public CAViewController,
 public CATextFieldDelegate,
@@ -53,6 +54,8 @@ protected:
     
     void onButtonAdd(CAControl* control, CCPoint point);//添加按钮回调
     
+    void addViewButtonCallBack(AddFriendView* controller, int index);//加好小窗口按钮回调
+    
     void isLoginCallBack(CAObject* obj);//登录成功回调
     
     /*textFieldDelegate*/
@@ -86,6 +89,8 @@ protected:
     CATableViewCell*        cell;  //tableView中的cell
     
     std::vector<HXSDKGroup*> m_vGroups;
+    
+    AddFriendView*          addView;
 };
 
 
