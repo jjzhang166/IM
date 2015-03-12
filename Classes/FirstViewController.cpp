@@ -15,6 +15,7 @@
 #include "IMTableCell.h"
 #include "HXSDKController.h"
 #include "AddFriendView.h"
+#include "GroupInfoViewController.h"
 
 #define SEARCH_HEIGH  75.0f
 
@@ -182,7 +183,7 @@ void FirstViewController::addViewButtonCallBack(AddFriendView* controller, int i
     }
     else if(1 == index)
     {
-        
+        //GroupInfoViewController* groupController = GroupInfoViewController::create(<#GroupInfo info#>, <#bool joined#>)
     }
     else if(2 == index)
     {
@@ -254,22 +255,20 @@ bool FirstViewController::onTextFieldDeleteBackward(CATextField * sender, const 
 #pragma mark TableViewDelegate
 void FirstViewController::tableViewDidSelectRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row)
 {
-//    //cell点击处理事件
-//    if (section == 0){
-//        IMMyInfo *pIMMyInfo = IMMyInfo::create();
-//        RootWindow::getInstance()->getNavigationController()->pushViewController(pIMMyInfo, true);
-//    }
-//    else if (section == 1){
-//        //通讯录
-//    }
-//    else if (section == 2)
-//    {
-//        //点击设置栏，进入用户设置页面
-//        IMSetting *pIMSetting = IMSetting::create();
-//        RootWindow::getInstance()->getNavigationController()->pushViewController(pIMSetting, true);
-//    }
-//    else{
-//    }
+    HXSDKGroup* sdkGroup = HXSDKController::getInstance()->getPublicGroupList().at(row);
+    
+    GroupInfo groupInfo;
+    groupInfo.m_pFaceImg = CAImage::create("IMResources\button_photo Album_normal.png");
+    groupInfo.m_sGroupID = sdkGroup->m_sGroupId;
+    groupInfo.m_sTopic = sdkGroup->m_sGroupSubject;
+    groupInfo.m_sIntroduce = sdkGroup->m_sGroupDescription;
+    groupInfo.m_sOwner = sdkGroup->m_sGroupOwer;
+    groupInfo.m_itotal = sdkGroup->m_iGroupOccupantsCount;
+    groupInfo.m_sLimit = sdkGroup->m_eGroupType;
+    groupInfo.m_bIsNotice = sdkGroup->m_bIsPushNotificationEnable;
+    
+    GroupInfoViewController* groupController = GroupInfoViewController::create(groupInfo, false);
+    RootWindow::getInstance()->getNavigationController()->pushViewController(groupController, true);
 }
 
 void FirstViewController::tableViewDidDeselectRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row)

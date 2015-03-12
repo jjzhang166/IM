@@ -349,13 +349,16 @@ void HXSDKController::cleanGroupList()
 	}
 }
 
-void HXSDKController::pushGroupsDetail(std::string groupID, std::string groupSub, std::string groupDes, int groupOccupantsCount)
+void HXSDKController::pushGroupsDetail(std::string groupID, std::string groupSub, std::string groupDes, int groupOccupantsCount, std::string ower, int groupStyle, bool isNotificationEnable)
 {
 	HXSDKGroup* sdkGroup = new HXSDKGroup();
 	sdkGroup->m_sGroupId = groupID;
 	sdkGroup->m_sGroupSubject = groupSub;
 	sdkGroup->m_sGroupDescription = groupDes;
-	sdkGroup->m_iGroupOccupantsCount = groupOccupantsCount;
+    sdkGroup->m_iGroupOccupantsCount = groupOccupantsCount;
+    sdkGroup->m_sGroupOwer = ower;
+    sdkGroup->m_eGroupType = (HXSDKGroupStyle)groupStyle;
+    sdkGroup->m_bIsPushNotificationEnable = isNotificationEnable;
 
 	m_vPublicGroupList.push_back(sdkGroup);
 }

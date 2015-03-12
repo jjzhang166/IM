@@ -308,6 +308,7 @@ void HXSDKControllerIOS:: getPublicGroup_ios()
             std::string gID ;
             std::string gSub;
             std::string gDes;
+            std::string gOwner;
             if (emGroup.groupId) {
                gID = [emGroup.groupId UTF8String];
             }
@@ -317,9 +318,18 @@ void HXSDKControllerIOS:: getPublicGroup_ios()
             if (emGroup.groupDescription) {
                gDes = [emGroup.groupDescription UTF8String];
             }
+            
             int gOccupantsCount = emGroup.groupOccupantsCount;
             
-            HXSDKController::getInstance()->pushGroupsDetail(gID, gSub, gDes, gOccupantsCount);
+            if (emGroup.owner) {
+                gOwner = [emGroup.owner UTF8String];
+            }
+            
+            int gGroupStyle = emGroup.groupSetting.groupStyle;
+            
+            bool gIsPushNotification = emGroup.isPushNotificationEnabled;
+            
+            HXSDKController::getInstance()->pushGroupsDetail(gID, gSub, gDes, gOccupantsCount, gOwner, gGroupStyle, gIsPushNotification);
         }
         
         
