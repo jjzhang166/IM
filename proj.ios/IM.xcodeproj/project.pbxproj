@@ -25,6 +25,7 @@
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		3E0117501A68FD69002F2E61 /* IMTableCell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E01174E1A68FD69002F2E61 /* IMTableCell.cpp */; };
 		3E01CDBD1AA17A240087A29C /* IMJson in Resources */ = {isa = PBXBuildFile; fileRef = 3E01CDBC1AA17A240087A29C /* IMJson */; };
+		3E02C5991AB12C88007CA47D /* AddFriendView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E02C5971AB12C87007CA47D /* AddFriendView.cpp */; };
 		3E0607A31AB018C0002AB721 /* ItemInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E0607A11AB018C0002AB721 /* ItemInfo.cpp */; };
 		3E11DA361A9033EC002E2ADA /* TableBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E11DA321A9033EC002E2ADA /* TableBase.cpp */; };
 		3E11DA371A9033EC002E2ADA /* TableLanguage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E11DA341A9033EC002E2ADA /* TableLanguage.cpp */; };
@@ -152,6 +153,8 @@
 		3E01174F1A68FD69002F2E61 /* IMTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMTableCell.h; path = ../Classes/IMTableCell.h; sourceTree = "<group>"; };
 		3E01CDBB1AA1797F0087A29C /* TableLanguagesfontnewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableLanguagesfontnewHeader.h; sourceTree = "<group>"; };
 		3E01CDBC1AA17A240087A29C /* IMJson */ = {isa = PBXFileReference; lastKnownFileType = folder; name = IMJson; path = ../Resources/IMJson; sourceTree = "<group>"; };
+		3E02C5971AB12C87007CA47D /* AddFriendView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AddFriendView.cpp; path = ../Classes/AddFriendView.cpp; sourceTree = "<group>"; };
+		3E02C5981AB12C88007CA47D /* AddFriendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddFriendView.h; path = ../Classes/AddFriendView.h; sourceTree = "<group>"; };
 		3E0607A11AB018C0002AB721 /* ItemInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ItemInfo.cpp; path = ../Classes/ItemInfo.cpp; sourceTree = "<group>"; };
 		3E0607A21AB018C0002AB721 /* ItemInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemInfo.h; path = ../Classes/ItemInfo.h; sourceTree = "<group>"; };
 		3E11DA321A9033EC002E2ADA /* TableBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TableBase.cpp; sourceTree = "<group>"; };
@@ -564,6 +567,8 @@
 				759D26661A6F4B9300E39203 /* IMMyInfo.h */,
 				759D26621A6F4ADA00E39203 /* IMMyController.cpp */,
 				759D26631A6F4ADA00E39203 /* IMMyController.h */,
+				3E02C5971AB12C87007CA47D /* AddFriendView.cpp */,
+				3E02C5981AB12C88007CA47D /* AddFriendView.h */,
 				759D265F1A6F4AC300E39203 /* AddHeadForgrand.cpp */,
 				759D26601A6F4AC300E39203 /* AddHeadForgrand.h */,
 				75D2E5731A6CA6AF0089CE98 /* groupview */,
@@ -1392,6 +1397,7 @@
 				B04C0C081901207A009854FD /* json_value.cpp in Sources */,
 				3E11DA361A9033EC002E2ADA /* TableBase.cpp in Sources */,
 				15A3DA5D1682F826002FB0C5 /* HttpClient.cpp in Sources */,
+				3E02C5991AB12C88007CA47D /* AddFriendView.cpp in Sources */,
 				759D26641A6F4ADA00E39203 /* IMMyController.cpp in Sources */,
 				B0405FF319CC03A100947287 /* LocalStorage.cpp in Sources */,
 				3E655F911A80757100832CBD /* Reachability.m in Sources */,

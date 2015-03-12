@@ -55,13 +55,16 @@ bool HXSDKControllerIOS::Login_ios(const char* name, const char* passWord)
 
          if (loginInfo && !error) {
              CCLog("登录成功");
-             [[NSNotificationCenter defaultCenter] postNotificationName:@KNOTIFICATION_LOGINCHANGE object:@YES];
+             HXSDKController::getInstance()->postNotification_isLogin(true);
+             //[[NSNotificationCenter defaultCenter] postNotificationName:@KNOTIFICATION_LOGINCHANGE object:@YES];
              
              EMError *error = [easeMob.chatManager importDataToNewDatabase];
              if (!error) {
                  error = [easeMob.chatManager loadDataFromDatabase];
              }
          }else {
+             //[[NSNotificationCenter defaultCenter] postNotificationName:@KNOTIFICATION_LOGINCHANGE object:@NO];
+             HXSDKController::getInstance()->postNotification_isLogin(false);
              switch (error.errorCode) {
                  case EMErrorServerNotReachable:
                      CCLog("连接服务器失败!");
@@ -297,7 +300,7 @@ void HXSDKControllerIOS:: getPublicGroup_ios()
     EMError *error = nil;
     NSArray *publicGroupList = [[EaseMob sharedInstance].chatManager fetchAllPublicGroupsWithError:&error];
     if (!error) {
-        NSLog(@"获取成功 -- %d", publicGroupList.count);
+        NSLog(@"群列表获取成功 -- %d", publicGroupList.count);
         
         for (int i = 0; i<publicGroupList.count; i++) {
 
