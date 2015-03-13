@@ -10,6 +10,7 @@
 #include "AddHeadForgrand.h"
 #include "IMSetInformation.h"
 #include "RootWindow.h"
+#include "IMUserManager.h"
 IMMyInfo::IMMyInfo() :cell(NULL), m_pTableView(NULL)
 , m_pUserHead(NULL)
 , m_pUserName(NULL)
@@ -324,13 +325,29 @@ void IMMyInfo::onCancelBtnClick(CAControl *pTarget, CCPoint point)
 void IMMyInfo::getSelectedImage(CAImage* image)
 {
 	m_pUserHead->setImage(image);
+	//获取头像保存到本地
+	CADipSize size = m_pUserHead->getFrame().size;
+	CARenderImage *renderImage = CARenderImage::create(size.width, size.height);
+	renderImage->beginWithClear(0, 0, 0, 255);
+	m_pUserHead->visit();
+	renderImage->end();
+	CCImage *ccImage = renderImage->newCCImage();
+	photoname = CCFileUtils::sharedFileUtils()->getWritablePath() + "head.png";
+	ccImage->saveToFile(photoname.c_str());
 }
 
 void IMMyInfo::onStartBtnClick(CAControl *pTarget, CCPoint point)
 {
-	//开始使用按钮点击
-}
+	//开始使用按钮点击，获取用户填写的信息上传到服务器
 
+}
+void IMMyInfo::onStartBtnClickBack()
+{
+	//上传数据到服务器成功后保存数据到本地
+	User user;
+	user.init("100", m_pUserName->getText(), m_pUserSex->getText(), photoname, m_pUserSignature->getText(), online);
+	IMUserManager::Instance()->userLogin(user);
+}
 
 
 /*设置每个section含有的cell个数*/

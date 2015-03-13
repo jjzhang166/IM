@@ -135,21 +135,6 @@ void IMSetInformation::initViewOfSex()
 	introduceLabel->setColor(ccc4(112, 112, 112, 255));
 	introduceLabel->setTextAlignment(CATextAlignmentLeft);
 	this->getView()->addSubview(introduceLabel);
-	
-	/*
-	m_pText->setVisible(false);
-	pbutton1 = CAButton::createWithCenter(CCRect(winSize.width*0.5,winSize.height*0.2,winSize.width,winSize.height*0.099),CAButtonTypeSquareRect);
-	pbutton1->setTitleColorForState(CAControlStateAll, CAColor_black);
-	pbutton1->setTitleForState(CAControlStateAll, UTF8("男"));
-	pbutton1->addTarget(this, CAControl_selector(IMSetInformation::setbutton1Visible), CAControlTouchUpInSide);
-	this->getView()->addSubview(pbutton1);
-	
-	pbutton2 = CAButton::createWithCenter(CCRect(winSize.width*0.5, winSize.height*0.3, winSize.width, winSize.height*0.099), CAButtonTypeSquareRect);
-	pbutton2->setTitleColorForState(CAControlStateAll, CAColor_black);
-	pbutton2->setTitleForState(CAControlStateAll, UTF8("女"));
-	pbutton2->addTarget(this, CAControl_selector(IMSetInformation::setbutton2Visible), CAControlTouchUpInSide);
-	this->getView()->addSubview(pbutton2);
-	*/
 }
 
 void IMSetInformation::setbutton1Visible(CAControl *pTarget, CCPoint point)

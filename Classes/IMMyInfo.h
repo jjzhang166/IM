@@ -28,6 +28,7 @@ public:
 	void onAlbumBtnClick(CAControl* pTarget, CCPoint point);
 	void onCancelBtnClick(CAControl* pTarget, CCPoint point);
 	void onStartBtnClick(CAControl* pTarget, CCPoint point);
+	void onStartBtnClickBack();
 	void addPicChoserLayer();
 	void addRightArrow(CATableViewCell *m_pCell,const CCSize& pcellsize);
 protected:
@@ -62,6 +63,7 @@ private:
 	CALabel *m_pUserSex;
 	CALabel *m_pUserSignature;
 	CAView *m_pPicChoserLayer;
+	std::string photoname;
 };
 
 #endif /*defined(__IM__MyInfo__)*/

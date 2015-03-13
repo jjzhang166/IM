@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include "CrossApp.h"
+#include "sqlite3/include/sqlite3.h"
 
 USING_NS_CC;
 
@@ -38,6 +39,8 @@ protected:
     CATabBarController* m_pTabelBarController;
     
     CANavigationController* m_pNavigationController;
+public:
+	CC_SYNTHESIZE_READONLY(sqlite3*, m_pSqlite3, Sqlite3);
     
 };
 

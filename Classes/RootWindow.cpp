@@ -32,13 +32,15 @@ RootWindow::RootWindow()
 :m_pTabelBarController(NULL)
 ,m_pNavigationController(NULL)
 {
-    
+	std::string fullPath = CCFileUtils::sharedFileUtils()->getWritablePath() + "userinformation.db";
+	sqlite3_open(fullPath.c_str(), &m_pSqlite3);
 }
 
 RootWindow::~RootWindow()
 {
     CC_SAFE_RELEASE(m_pTabelBarController);
     CC_SAFE_RELEASE(m_pNavigationController);
+	sqlite3_close(m_pSqlite3);
 }
 
 bool RootWindow::init()

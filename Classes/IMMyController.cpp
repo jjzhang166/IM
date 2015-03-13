@@ -16,7 +16,7 @@
 #include "table/TableLanguagesfontnewHeader.h"
 
 //构造函数
-IMMyController::IMMyController() :cell(NULL), m_pTableView(NULL)
+IMMyController::IMMyController() :cell(NULL), m_pTableView(NULL), user(NULL)
 {
 	
 }
@@ -24,6 +24,7 @@ IMMyController::IMMyController() :cell(NULL), m_pTableView(NULL)
 IMMyController::~IMMyController()
 {
 	CC_SAFE_RELEASE(m_pNavigationBarItem);   //release掉navigationbaritem
+	delete user;
 }
 /*controller的初始化*/
 bool IMMyController::init()
@@ -39,9 +40,9 @@ bool IMMyController::init()
 		m_pNavigationBarItem->addRightButtonItem(addButtonItem);
 		setNavigationBarItem(m_pNavigationBarItem);
 		m_pNavigationBarItem->retain();
+		//获取当前登录用户
+		user = IMUserManager::Instance()->onLineUser();
 		return true;
-    
-    
     }
 	return false;
 }
@@ -129,6 +130,7 @@ CATableViewCell* IMMyController::initViewOfMe(const CCSize& cellsize)
 		cell = CATableViewCell::create("CrossApp");
 		/*添加头像view*/
 		CAImageView *phead = CAImageView::createWithCenter(CCRect(cellsize.width*0.1, cellsize.height*0.5, _px(120), _px(120)));
+		//phead->setImage(CAImage::create(user->photo));
 		phead->setTag(300);
 		AddHeadForgrand::getInstance()->addHeadForgrand(phead);
 		cell->addSubview(phead);
@@ -140,6 +142,7 @@ CATableViewCell* IMMyController::initViewOfMe(const CCSize& cellsize)
 		pname->setVerticalTextAlignmet(CAVerticalTextAlignmentCenter);
 		pname->setFontSize(_px(30));
 		pname->setTag(301);
+		//pname->setText(user->nickname);
 		cell->addSubview(pname);
 		/*添加用户自我介绍label*/
 		CALabel *pcontent = CALabel::createWithCenter(CCRect(cellsize.width*0.6, cellsize.height*0.75, cellsize.width*0.8, cellsize.height*0.5));
@@ -148,6 +151,7 @@ CATableViewCell* IMMyController::initViewOfMe(const CCSize& cellsize)
 		pcontent->setVerticalTextAlignmet(CAVerticalTextAlignmentTop);
 		pcontent->setFontSize(_px(30));
 		pcontent->setTag(302);
+		//pcontent->setText(user->signature);
 		cell->addSubview(pcontent);
 		
 	}
