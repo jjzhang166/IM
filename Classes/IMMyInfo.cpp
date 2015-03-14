@@ -18,6 +18,7 @@ IMMyInfo::IMMyInfo() :cell(NULL), m_pTableView(NULL)
 , m_pUserSignature(NULL)
 , m_pPicChoserLayer(NULL)
 , m_pStart(NULL)
+, pbutton(NULL)
 {
 
 }
@@ -165,14 +166,14 @@ CATableViewCell* IMMyInfo::initHeadImage(const CCSize& cellsize)
 		/*添加头像view*/
 		m_pUserHead = CAImageView::createWithCenter(CCRect(cellsize.width*0.5, cellsize.height*0.5, _px(100), _px(100)));
 		m_pUserHead->setTag(400);
-		cell->addSubview(m_pUserHead);
+		//cell->addSubview(m_pUserHead);
 		AddHeadForgrand::getInstance()->addHeadForgrand(m_pUserHead);
+		m_pUserHead->setImage(CAImage::create("head.png"));
 		addRightArrow(cell, cellsize);
-		
+		pbutton = CAButton::createWithFrame(m_pUserHead->getFrame(),CAButtonTypeCustom);
+		pbutton->setBackGroundViewForState(CAControlStateAll, m_pUserHead);
+		cell->addSubview(pbutton);
 	}
-	//获取网络数据源或者本地数据库,暂时用本地数据代替
-	CAImageView *p_head = (CAImageView*)cell->getSubviewByTag(400);
-	p_head->setImage(CAImage::create("head.png"));
 	return cell;
 }
 
@@ -336,12 +337,14 @@ void IMMyInfo::onCancelBtnClick(CAControl *pTarget, CCPoint point)
 //头像获取
 void IMMyInfo::getSelectedImage(CAImage* image)
 {
-	m_pUserHead->setImage(image);
-	//获取头像保存到本地
-	CCSize size = m_pUserHead->getFrame().size;
+	CAImageView *bac = CAImageView::createWithFrame(m_pUserHead->getFrame());
+	bac->setImage(image);
+	pbutton->setBackGroundViewForState(CAControlStateNormal, bac);
+	//CAImage变成数据
+	CADipSize size = bac->getFrame().size;
 	CARenderImage *renderImage = CARenderImage::create(size.width, size.height);
 	renderImage->beginWithClear(0, 0, 0, 255);
-	m_pUserHead->visit();
+	bac->visit();
 	renderImage->end();
 	CCImage *ccImage = renderImage->newCCImage();
 	photoname = CCFileUtils::sharedFileUtils()->getWritablePath() + "head.png";
@@ -350,12 +353,16 @@ void IMMyInfo::getSelectedImage(CAImage* image)
 
 void IMMyInfo::onStartBtnClick(CAControl *pTarget, CCPoint point)
 {
+	
 	//开始使用按钮点击，获取用户填写的信息上传到服务器
 	onStartBtnClickBack();
 
 }
 void IMMyInfo::onStartBtnClickBack()
 {
+	
+	
+	
 	//上传数据到服务器成功后保存数据到本地
 	User user;
 	user.init("100", m_pUserName->getText(), "Man", photoname, m_pUserSignature->getText(), online);

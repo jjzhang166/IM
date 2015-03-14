@@ -67,6 +67,7 @@ private:
 	CALabel *m_pUserSignature;
 	CAView *m_pPicChoserLayer;
 	std::string photoname;
+	CAButton *pbutton;
 };
 
 #endif /*defined(__IM__MyInfo__)*/
