@@ -8,6 +8,7 @@
 #include "IMSetInformation.h"
 #include "IMDATA.h"
 #include "RootWindow.h"
+static IMSetInformation *p_IMsetinfo = NULL;
 IMSetInformation::IMSetInformation() :m_pLabel(NULL)
 , m_pText(NULL)
 , pbutton1(NULL)
@@ -27,7 +28,7 @@ IMSetInformation::~IMSetInformation()
 
 IMSetInformation* IMSetInformation::create(IMinfoset p_infoset)
 {
-	IMSetInformation *p_IMsetinfo = new IMSetInformation();
+	p_IMsetinfo = new IMSetInformation();
 	p_IMsetinfo->infoset = p_infoset;
 	p_IMsetinfo->init();
 	p_IMsetinfo->autorelease();
@@ -166,6 +167,23 @@ void IMSetInformation::viewDidAppear()
 void IMSetInformation::onaddFinishBtn(CAControl *pTarget, CCPoint point)
 {
 	//函数处理，根据条件选择处理昵称，性别或者签名
+	std::string name_temp = m_pText->getText();
+	if (infoset == NAMESET)
+	{
+		CANotificationCenter::sharedNotificationCenter()->postNotification(KNOTIFICATION_NAME, (CAObject*)name_temp.c_str());
+		this->getNavigationController()->popViewControllerAnimated(true);
+	}
+	else if (infoset == SEXSET)
+	{
+		CANotificationCenter::sharedNotificationCenter()->postNotification(KNOTIFICATION_SEX, (CAObject*)name_temp.c_str());
+		this->getNavigationController()->popViewControllerAnimated(true);
+	}
+	else if (infoset == SIGNATURESET)
+	{
+		CANotificationCenter::sharedNotificationCenter()->postNotification(KNOTIFICATION_SIGNATURE, (CAObject*)name_temp.c_str());
+		this->getNavigationController()->popViewControllerAnimated(true);
+	}
+	
 }
 
 void IMSetInformation::onaddCancelBtn(CAControl *pTarget, CCPoint point)
@@ -203,6 +221,5 @@ bool IMSetInformation::onTextFieldDeleteBackward(CATextField * sender, const cha
 	CC_UNUSED_PARAM(sender);
 	CC_UNUSED_PARAM(delText);
 	CC_UNUSED_PARAM(nLen);
-
 	return false;
 }

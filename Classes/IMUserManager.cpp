@@ -113,12 +113,12 @@ User* IMUserManager::onLineUser()
 	int ok = SQLITE_OK;
 	User *user = new User();
 	if (sqlite3_step(_sqlite_stmt_online) == SQLITE_ROW){
-		const unsigned char *m_uid = sqlite3_column_text(_sqlite_stmt_online, 1);
-		const unsigned char *m_nickname = sqlite3_column_text(_sqlite_stmt_online, 2);
-		const unsigned char *m_sex = sqlite3_column_text(_sqlite_stmt_online, 3);
-		const unsigned char *m_photo = sqlite3_column_text(_sqlite_stmt_online, 4);
-		const unsigned char *m_signature = sqlite3_column_text(_sqlite_stmt_online, 5);
-		const int m_status = sqlite3_column_int(_sqlite_stmt_online, 6);
+		const unsigned char *m_uid = sqlite3_column_text(_sqlite_stmt_online, 0);
+		const unsigned char *m_nickname = sqlite3_column_text(_sqlite_stmt_online, 1);
+		const unsigned char *m_sex = sqlite3_column_text(_sqlite_stmt_online, 2);
+		const unsigned char *m_photo = sqlite3_column_text(_sqlite_stmt_online, 3);
+		const unsigned char *m_signature = sqlite3_column_text(_sqlite_stmt_online, 4);
+		const int m_status = sqlite3_column_int(_sqlite_stmt_online, 5);
 		user->init((const char*)m_uid, (const char*)m_nickname, (const char*)m_sex, (const char*)m_photo, (const char*)m_signature, (UserStatus)m_status);
 	}
 	ok |= sqlite3_reset(_sqlite_stmt_online);

@@ -16,7 +16,7 @@
 #include "table/TableLanguagesfontnewHeader.h"
 
 //构造函数
-IMMyController::IMMyController() :cell(NULL), m_pTableView(NULL), user(NULL)
+IMMyController::IMMyController() :cell(NULL), m_pTableView(NULL), user(NULL), phead(NULL), pname(NULL), pcontent(NULL)
 {
 	
 }
@@ -40,8 +40,6 @@ bool IMMyController::init()
 		m_pNavigationBarItem->addRightButtonItem(addButtonItem);
 		setNavigationBarItem(m_pNavigationBarItem);
 		m_pNavigationBarItem->retain();
-		//获取当前登录用户
-		user = IMUserManager::Instance()->onLineUser();
 		return true;
     }
 	return false;
@@ -49,6 +47,7 @@ bool IMMyController::init()
 /*界面的初始化，主要就是初始化一个tableview*/
 void IMMyController::viewDidLoad()
 {
+	user = IMUserManager::Instance()->onLineUser();
 	winSize = this->getView()->getBounds().size;
 	m_pTableView = CATableView::createWithCenter(CCRect(winSize.width*0.5, winSize.height*0.5, winSize.width, winSize.height));
 	m_pTableView->setTableViewDataSource(this);
@@ -65,6 +64,7 @@ void IMMyController::viewDidUnload()
 void IMMyController::viewDidAppear()
 {
     this->getTabBarController()->setNavigationBarItem(m_pNavigationBarItem);
+	viewDidLoad();
 }
 
 void IMMyController::tableViewDidSelectRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row)
@@ -129,42 +129,38 @@ CATableViewCell* IMMyController::initViewOfMe(const CCSize& cellsize)
 		
 		cell = CATableViewCell::create("CrossApp");
 		/*添加头像view*/
-		CAImageView *phead = CAImageView::createWithCenter(CCRect(cellsize.width*0.1, cellsize.height*0.5, _px(120), _px(120)));
-		//phead->setImage(CAImage::create(user->photo));
+		phead = CAImageView::createWithCenter(CCRect(cellsize.width*0.1, cellsize.height*0.5, _px(120), _px(120)));
 		phead->setTag(300);
 		AddHeadForgrand::getInstance()->addHeadForgrand(phead);
 		cell->addSubview(phead);
 		
 		/*添加用户名label*/
-		CALabel *pname = CALabel::createWithCenter(CCRect(cellsize.width*0.6, cellsize.height*0.25, cellsize.width*0.8, cellsize.height*0.5));
+		pname = CALabel::createWithCenter(CCRect(cellsize.width*0.6, cellsize.height*0.25, cellsize.width*0.8, cellsize.height*0.5));
 		pname->setColor(CAColor_black);
 		pname->setTextAlignment(CATextAlignmentLeft);
 		pname->setVerticalTextAlignmet(CAVerticalTextAlignmentCenter);
 		pname->setFontSize(_px(30));
 		pname->setTag(301);
-		//pname->setText(user->nickname);
 		cell->addSubview(pname);
 		/*添加用户自我介绍label*/
-		CALabel *pcontent = CALabel::createWithCenter(CCRect(cellsize.width*0.6, cellsize.height*0.75, cellsize.width*0.8, cellsize.height*0.5));
+		pcontent = CALabel::createWithCenter(CCRect(cellsize.width*0.6, cellsize.height*0.75, cellsize.width*0.8, cellsize.height*0.5));
 		pcontent->setColor(CAColor_gray);
 		pcontent->setTextAlignment(CATextAlignmentLeft);
 		pcontent->setVerticalTextAlignmet(CAVerticalTextAlignmentTop);
 		pcontent->setFontSize(_px(30));
 		pcontent->setTag(302);
-		//pcontent->setText(user->signature);
 		cell->addSubview(pcontent);
 		
 	}
-	//获取网络数据源或者本地数据库,暂时用本地数据代替
+	//获取网络数据源或者本地数据库
 	CAImageView *p_head = (CAImageView*)cell->getSubviewByTag(300);
-	p_head->setImage(CAImage::create("head.png"));
+	p_head->setImage(CAImage::create(user->photo));
 
 	CALabel *p_name = (CALabel*)cell->getSubviewByTag(301);
-	p_name->setText(UTF8("我的用户名"));
+	p_name->setText(user->nickname);
 
 	CALabel *p_content = (CALabel*)cell->getSubviewByTag(302);
-	p_content->setText(UTF8("我的自我介绍"));
-
+	p_content->setText(user->signature);
 	return cell;
 }
 

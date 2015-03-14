@@ -50,7 +50,10 @@ protected:
 	CATableViewCell* initName(const CCSize& cellsize);
 	CATableViewCell* initSex(const CCSize& cellsize);
 	CATableViewCell* initSignature(const CCSize& cellsize);
-	//void 进入不同界面
+protected:
+	void getUserName(CAObject* obj); //获取用户昵称
+	void getUserSex(CAObject* obj);  //获取性别
+	void getUserSignature(CAObject* obj);  //获取签名
 
 private:
 	CANavigationBarItem *pNagivationitem;

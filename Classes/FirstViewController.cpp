@@ -68,7 +68,7 @@ bool FirstViewController::init()
         
         CANotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(FirstViewController::isLoginCallBack), KNOTIFICATION_LOGIN, NULL);
         
-       HXSDKController::getInstance()->getPublicGroupList();
+      // HXSDKController::getInstance()->getPublicGroupList();
         
         return true;
     }
@@ -130,7 +130,7 @@ void FirstViewController::init_tableView()
 
 void FirstViewController::refreshTableView()
 {
-   m_vGroups = HXSDKController::getInstance()->getPublicGroupList();
+  // m_vGroups = HXSDKController::getInstance()->getPublicGroupList();
     
     m_pTableView->reloadData();
 }

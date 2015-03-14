@@ -46,6 +46,9 @@ private:
 	CATableView *m_pTableView;  
 	CATableViewCell *cell;  //tableView中的cell
 	User *user;
+	CAImageView *phead;
+	CALabel *pname;
+	CALabel *pcontent;
 
 };
 

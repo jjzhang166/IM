@@ -30,7 +30,7 @@ IMLoginRegister::IMLoginRegister()
 
 IMLoginRegister::~IMLoginRegister()
 {
-	
+	CANotificationCenter::sharedNotificationCenter()->removeAllObservers(this);
 }
 
 IMLoginRegister* IMLoginRegister::create(UserAction action)

@@ -61,6 +61,4 @@ protected:
 	CAButton *m_pButtonSwitchTo;
 };
 
-
-
 #endif
