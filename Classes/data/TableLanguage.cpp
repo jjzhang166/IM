@@ -67,7 +67,7 @@ bool TableLanguage::addRow( const CSJson::Value& Vl )
 		CC_BREAK_IF(!TableBase::addRow(Vl));
         int id = Vl["ID"].asInt();
         std::string str = Vl["Value"].asString();
-        CCLog("id is:%d, language is:%s", id, str.c_str());
+        //CCLog("id is:%d, language is:%s", id, str.c_str());
         m_mTableData.insert(MAP_TableLanguage::value_type(id, str));
         bRet = true;
 	}while(0);
