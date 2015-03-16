@@ -53,6 +53,11 @@ void IMTableCell::initCell()
 	case Strange:
 		{initCellWithStrange();
 		break; }
+    case SearchResult:
+    {
+        initCellWithSearchResult();
+        break;
+    }
 		default:
 			break;
 	}
@@ -83,6 +88,12 @@ void IMTableCell::baseView()
 	m_pContent->setVerticalTextAlignmet(CAVerticalTextAlignmentTop);
 	m_pContent->setFontSize(18 * CROSSAPP_ADPTATION_RATIO);
 	m_pContent->setTag(203);
+    
+    m_pResult = CALabel::createWithFrame(CCRect(cellsize.width * 0.3,cellsize.height *0.25,cellsize.width*0.76,cellsize.height*0.4));
+    m_pResult->setColor(ccc4(22, 22, 22, 255));
+    m_pResult->setVerticalTextAlignmet(CAVerticalTextAlignmentTop);
+    m_pResult->setFontSize(_px(38));
+    m_pResult->setTag(204);
 }
 
 void IMTableCell::initCellWithGroup()
@@ -112,9 +123,23 @@ void IMTableCell::initCellWithStrange()
 	this->addSubview(m_pContent);
 }
 
+void IMTableCell::initCellWithSearchResult()
+{
+    baseView();
+    this->addSubview(m_pHead);
+    this->addSubview(m_pResult);
+
+}
+
 void IMTableCell::setCellInfo(CAImage* headIcon, const std::string name, const std::string introduce)
 {
     m_pHead->setImage(headIcon);
     m_pName->setText(name);
     m_pContent->setText(introduce);
+}
+
+void IMTableCell:: setCellInfo(CAImage* headIcon,const std::string result)
+{
+    m_pHead->setImage(headIcon);
+    m_pResult->setText(result);
 }

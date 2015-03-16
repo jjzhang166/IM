@@ -176,33 +176,9 @@ CATableViewCell* SecondViewController::tableCellAtIndex(CATableView* table, cons
     /*cell页面的初始化*/
     cell = table->dequeueReusableCellWithIdentifier("Crossapp");
     CCSize cellSize = CCSizeMake(m_pWinSize.width, _px(90));
-    switch (section)
-    {
-        case 0:
-        {
-            /*初始化用户信息栏*/
-            cell = IMTableCell::create(Group, cellSize);
-            ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), "我是谁", "测试数据");
-            return cell;
-            break;
-        }
-        case 1:
-        {   /*初始化通讯录栏*/
-            cell = IMTableCell::create(Friend, cellSize);
-            ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), "我是谁", "测试数据");
-            return cell;
-            break;
-        }
-        case 2:
-        {     /*初始化设置栏*/
-            cell = IMTableCell::create(Strange, cellSize);
-            ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), "我是谁", "测试数据");
-            return cell;
-            break;
-        }
-        default:
-            break;
-    }
+    cell = IMTableCell::create(SearchResult, cellSize);
+    ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), "麻辣烫");
+    return cell;
 }
 
 /*在section之间添加一个view，就是UI中section之间的灰色地带*/

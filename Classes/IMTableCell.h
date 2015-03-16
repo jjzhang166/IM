@@ -12,7 +12,8 @@
 typedef enum{
 	Group = 0,
 	Friend,
-	Strange
+	Strange,
+    SearchResult
 }IMCellType;
 
 #include "CrossApp.h"
@@ -28,18 +29,22 @@ public:
 	static IMTableCell* create(IMCellType celltype, CCSize size);
 public:
     void setCellInfo(CAImage* headIcon, const std::string name, const std::string introduce);
+    void setCellInfo(CAImage* headIcon,const std::string result);
 protected:
     void baseView();
     void initCell();
     void initCellWithGroup();
     void initCellWithFriend();
     void initCellWithStrange();
+    void initCellWithSearchResult();
 private:
 	CAImageView *m_pHead;
 	CAImageView *m_pGroup;
 	CALabel *m_pName;
 	CALabel *m_pContent;
 	IMCellType m_pcelltype;
+    
+    CALabel* m_pResult;
 };
 
 
