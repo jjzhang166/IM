@@ -6,8 +6,8 @@
 //
 //
 
-#ifndef __BabyGenius__LocalStorageUserData__
-#define __BabyGenius__LocalStorageUserData__
+#ifndef __HelloCpp__LocalStorageUserData__
+#define __HelloCpp__LocalStorageUserData__
 
 #include <stdio.h>
 #include <stdlib.h>

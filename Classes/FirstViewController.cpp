@@ -15,7 +15,7 @@
 #include "IMTableCell.h"
 #include "HXSDKController.h"
 #include "AddFriendView.h"
-#include "GroupInfoViewController.h"
+#include "groupview/GroupInfoViewController.h"
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #include "LocalStorageUserData.h"

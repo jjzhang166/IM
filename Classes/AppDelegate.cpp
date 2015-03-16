@@ -11,7 +11,7 @@
 #include "data/TableLanguage.h"
 #include "HXSDKController.h"
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
 #include "LocalStorageUserData.h"
 
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
@@ -28,7 +28,7 @@ AppDelegate::AppDelegate()
 
 AppDelegate::~AppDelegate() 
 {
-    TableLanguage::getInstance()->destroy();
+    TableLanguage::getInstance()->destroy(); 
 }
 
 bool AppDelegate::applicationDidFinishLaunching()

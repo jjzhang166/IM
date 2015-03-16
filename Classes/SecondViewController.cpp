@@ -1,11 +1,3 @@
-//
-//  SecondViewController.cpp
-//  IM
-//
-//  Created by qiaoxin265@126.com on 15-1-9.
-//  Copyright (c) 2015 http://www.9miao.com All rights reserved.
-//
-
 #include "SecondViewController.h"
 #include "IMDATA.h"
 #include "groupview/GroupInfoViewController.h"
@@ -96,17 +88,7 @@ void SecondViewController::viewDidUnload()
 
 void SecondViewController::onButtonAdd(CAControl* control, CCPoint point)
 {
-    
-    //	string a = UTF8("我是主题");
-    //	string b = UTF8("我是介绍");
-    //	string c = UTF8("我是群主");
-    //	string d = UTF8("我是成员");
-    
-    
-    //	GroupInfo info = GroupInfo(CAImage::create("HelloWorld.png"), a, b, c, d,  520, true);
-    //	GroupInfoViewController * _group = GroupInfoViewController::create(info, false);
-    //	RootWindow::getInstance()->getNavigationController()->pushViewController(_group, true);
-    
+
 }
 
 
@@ -147,22 +129,7 @@ bool SecondViewController::onTextFieldDeleteBackward(CATextField * sender, const
 #pragma mark CATableViewDelegate
 void SecondViewController::tableViewDidSelectRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row)
 {
-    //    //cell点击处理事件
-    //    if (section == 0){
-    //        IMMyInfo *pIMMyInfo = IMMyInfo::create();
-    //        RootWindow::getInstance()->getNavigationController()->pushViewController(pIMMyInfo, true);
-    //    }
-    //    else if (section == 1){
-    //        //通讯录
-    //    }
-    //    else if (section == 2)
-    //    {
-    //        //点击设置栏，进入用户设置页面
-    //        IMSetting *pIMSetting = IMSetting::create();
-    //        RootWindow::getInstance()->getNavigationController()->pushViewController(pIMSetting, true);
-    //    }
-    //    else{
-    //    }
+
 }
 
 void SecondViewController::tableViewDidDeselectRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row)
@@ -172,30 +139,28 @@ void SecondViewController::tableViewDidDeselectRowAtIndexPath(CATableView* table
 
 CATableViewCell* SecondViewController::tableCellAtIndex(CATableView* table, const CCSize& cellsize, unsigned int section, unsigned int row)
 {
-    /*cell页面的初始化*/
     cell = table->dequeueReusableCellWithIdentifier("Crossapp");
     CCSize cellSize = CCSizeMake(m_pWinSize.width, _px(90));
     switch (section)
     {
         case 0:
         {
-            /*初始化用户信息栏*/
             cell = IMTableCell::create(Group, cellSize);
-            ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), "我是谁", "测试数据");
+            ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), "", "");
             return cell;
             break;
         }
         case 1:
-        {   /*初始化通讯录栏*/
+        {
             cell = IMTableCell::create(Friend, cellSize);
-            ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), "我是谁", "测试数据");
+            ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), "", "");
             return cell;
             break;
         }
         case 2:
-        {     /*初始化设置栏*/
+        {
             cell = IMTableCell::create(Strange, cellSize);
-            ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), "我是谁", "测试数据");
+            ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), "", "");
             return cell;
             break;
         }
@@ -204,27 +169,26 @@ CATableViewCell* SecondViewController::tableCellAtIndex(CATableView* table, cons
     }
 }
 
-/*在section之间添加一个view，就是UI中section之间的灰色地带*/
 CAView* SecondViewController::tableViewSectionViewForHeaderInSection(CATableView* table, const CCSize& viewSize, unsigned int section)
 {
     CAView* view = CAView::createWithFrame(CADipRect(0, 0, m_pWinSize.width, 25.0f), ccc4(230, 230, 230, 255));
     return view;
 }
 
-/*设置每个section含有的cell个数*/
+
 unsigned int SecondViewController::numberOfRowsInSection(CATableView *table, unsigned int section)
 {
     return 1;
 }
 
-/*设置含有几个section*/
+
 unsigned int SecondViewController::numberOfSections(CATableView *table)
 {
     return 3;
 }
 
 unsigned int SecondViewController::tableViewHeightForRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row)
-{	/*section的大小设置*/
+{	
     
     return _px(90);
 }
