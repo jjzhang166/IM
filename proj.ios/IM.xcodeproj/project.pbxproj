@@ -27,6 +27,8 @@
 		3E01CDBD1AA17A240087A29C /* IMJson in Resources */ = {isa = PBXBuildFile; fileRef = 3E01CDBC1AA17A240087A29C /* IMJson */; };
 		3E02C5991AB12C88007CA47D /* AddFriendView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E02C5971AB12C87007CA47D /* AddFriendView.cpp */; };
 		3E0607A31AB018C0002AB721 /* ItemInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E0607A11AB018C0002AB721 /* ItemInfo.cpp */; };
+		3E08F6B11AB67145003F9192 /* LocalStorageUserData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E08F6AF1AB67145003F9192 /* LocalStorageUserData.cpp */; };
+		3E08F6B31AB67B8E003F9192 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E08F6B21AB67B8E003F9192 /* libsqlite3.0.dylib */; };
 		3E11DA361A9033EC002E2ADA /* TableBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E11DA321A9033EC002E2ADA /* TableBase.cpp */; };
 		3E11DA371A9033EC002E2ADA /* TableLanguage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E11DA341A9033EC002E2ADA /* TableLanguage.cpp */; };
 		3E1657601A660C5500D832E9 /* IMLoginRegister.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E16575E1A660C5500D832E9 /* IMLoginRegister.cpp */; };
@@ -35,7 +37,6 @@
 		3E280D3E1A64C0AA00233D5B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E280D3D1A64C0AA00233D5B /* CFNetwork.framework */; };
 		3E280D401A64C0D400233D5B /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E280D3F1A64C0D400233D5B /* libiconv.dylib */; };
 		3E280D421A64C0E700233D5B /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E280D411A64C0E700233D5B /* libstdc++.dylib */; };
-		3E280D441A64C0EF00233D5B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E280D431A64C0EF00233D5B /* libsqlite3.dylib */; };
 		3E280D461A64C10D00233D5B /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E280D451A64C10D00233D5B /* libresolv.dylib */; };
 		3E280DA91A64C55D00233D5B /* libEaseMobClientSDKLite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E280DA61A64C54200233D5B /* libEaseMobClientSDKLite.a */; };
 		3E280E0C1A64C5DE00233D5B /* libEaseMobClientSDKLite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E280E091A64C5DE00233D5B /* libEaseMobClientSDKLite.a */; };
@@ -157,6 +158,9 @@
 		3E02C5981AB12C88007CA47D /* AddFriendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddFriendView.h; path = ../Classes/AddFriendView.h; sourceTree = "<group>"; };
 		3E0607A11AB018C0002AB721 /* ItemInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ItemInfo.cpp; path = ../Classes/ItemInfo.cpp; sourceTree = "<group>"; };
 		3E0607A21AB018C0002AB721 /* ItemInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemInfo.h; path = ../Classes/ItemInfo.h; sourceTree = "<group>"; };
+		3E08F6AF1AB67145003F9192 /* LocalStorageUserData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LocalStorageUserData.cpp; path = ../Classes/LocalStorageUserData.cpp; sourceTree = "<group>"; };
+		3E08F6B01AB67145003F9192 /* LocalStorageUserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalStorageUserData.h; path = ../Classes/LocalStorageUserData.h; sourceTree = "<group>"; };
+		3E08F6B21AB67B8E003F9192 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		3E11DA321A9033EC002E2ADA /* TableBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TableBase.cpp; sourceTree = "<group>"; };
 		3E11DA331A9033EC002E2ADA /* TableBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableBase.h; sourceTree = "<group>"; };
 		3E11DA341A9033EC002E2ADA /* TableLanguage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TableLanguage.cpp; sourceTree = "<group>"; };
@@ -441,11 +445,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E08F6B31AB67B8E003F9192 /* libsqlite3.0.dylib in Frameworks */,
 				3E655F8E1A80753900832CBD /* MediaPlayer.framework in Frameworks */,
 				3E655F8C1A80752F00832CBD /* SystemConfiguration.framework in Frameworks */,
 				3E280DA91A64C55D00233D5B /* libEaseMobClientSDKLite.a in Frameworks */,
 				3E280D461A64C10D00233D5B /* libresolv.dylib in Frameworks */,
-				3E280D441A64C0EF00233D5B /* libsqlite3.dylib in Frameworks */,
 				3E280D421A64C0E700233D5B /* libstdc++.dylib in Frameworks */,
 				3E280D401A64C0D400233D5B /* libiconv.dylib in Frameworks */,
 				BF1712471292920000B8313A /* libz.dylib in Frameworks */,
@@ -559,6 +563,8 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3E08F6AF1AB67145003F9192 /* LocalStorageUserData.cpp */,
+				3E08F6B01AB67145003F9192 /* LocalStorageUserData.h */,
 				3E01CDBA1AA1797F0087A29C /* table */,
 				3E11DA311A9033EC002E2ADA /* data */,
 				759D26681A6F4BCC00E39203 /* IMSetInfomation.cpp */,
@@ -633,6 +639,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3E08F6B21AB67B8E003F9192 /* libsqlite3.0.dylib */,
 				3E655F8D1A80753900832CBD /* MediaPlayer.framework */,
 				3E655F8B1A80752F00832CBD /* SystemConfiguration.framework */,
 				3E280D471A64C54200233D5B /* EaseMobSDK */,
@@ -1411,6 +1418,7 @@
 				3E655F871A80720900832CBD /* HXSDKBuddy.cpp in Sources */,
 				15A3DAED1682F8A6002FB0C5 /* CocosDenshion.m in Sources */,
 				759D266A1A6F4BCC00E39203 /* IMSetInfomation.cpp in Sources */,
+				3E08F6B11AB67145003F9192 /* LocalStorageUserData.cpp in Sources */,
 				B04822C119FA41F70019F1A7 /* CALocation.mm in Sources */,
 				15A3DAEE1682F8A6002FB0C5 /* SimpleAudioEngine.mm in Sources */,
 				3E38EBCC1A5FB2DE0096A595 /* ThirdViewController.cpp in Sources */,

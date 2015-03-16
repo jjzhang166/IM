@@ -17,6 +17,14 @@
 #include "AddFriendView.h"
 #include "GroupInfoViewController.h"
 
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+#include "LocalStorageUserData.h"
+
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#include <android/log.h>
+#define  LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,"",__VA_ARGS__)
+#endif
+
 #define SEARCH_HEIGH  75.0f
 
 FirstViewController::FirstViewController()
@@ -85,6 +93,12 @@ void FirstViewController::viewDidLoad()
     
     refreshTableView();
     
+    
+    
+//    std::string fullPath = CCFileUtils::sharedFileUtils()->getWritablePath() + "local_storage_user_data.db";
+//    localStorageUserDataInit(fullPath.c_str());
+    
+    HXSDKController::getInstance()->autoLogin();
     if(!HXSDKController::getInstance()->isLogin())
     {
         IMLoginRegister* LoginController =IMLoginRegister::create(IM_USERLOGIN);
