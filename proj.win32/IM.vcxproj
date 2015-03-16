@@ -67,7 +67,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\CrossApp;$(ProjectDir)..\..\..\CrossApp\kazmath\include;$(ProjectDir)..\..\..\CrossApp\platform\win32;$(ProjectDir)..\..\..\CrossApp\platform\third_party\win32;$(ProjectDir)..\..\..\CrossApp\platform\third_party\win32\pthread;$(ProjectDir)..\..\..\CrossApp\platform\third_party\win32\OGLES;$(ProjectDir)..\..\..\CrossApp\platform\third_party\win32\freetype;$(ProjectDir)..\..\..\external;$(ProjectDir)..\..\..\CocosDenshion\include;$(ProjectDir)..\..\..\extensions;..\Classes;..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\CrossApp;$(ProjectDir)..\..\..\CrossApp\kazmath\include;$(ProjectDir)..\..\..\CrossApp\platform\win32;$(ProjectDir)..\..\..\CrossApp\platform\third_party\win32;$(ProjectDir)..\..\..\CrossApp\platform\third_party\win32\pthread;$(ProjectDir)..\..\..\CrossApp\platform\third_party\win32\OGLES;$(ProjectDir)..\..\..\CrossApp\platform\third_party\win32\freetype;$(ProjectDir)..\..\..\external;$(ProjectDir)..\..\..\CocosDenshion\include;$(ProjectDir)..\..\..\extensions;$(ProjectDir)..\..\..\extensions\sqlite3\include;..\Classes;..;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;CC_ENABLE_CHIPMUNK_INTEGRATION=1;COCOS2D_DEBUG=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -129,28 +129,37 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\extensions\libwebsockets\win32\lib\*.*" "$(Ou
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Classes\AddFriendView.cpp" />
     <ClCompile Include="..\Classes\AddHeadForgrand.cpp" />
-    <ClCompile Include="..\Classes\android\com_CrossApp_IM_IM.cpp" />
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\data\TableBase.cpp" />
+    <ClCompile Include="..\Classes\data\TableLanguage.cpp" />
     <ClCompile Include="..\Classes\FirstViewController.cpp" />
+    <ClCompile Include="..\Classes\groupview\GroupInfoViewController.cpp" />
     <ClCompile Include="..\Classes\HXSDKBuddy.cpp" />
     <ClCompile Include="..\Classes\HXSDKController.cpp" />
     <ClCompile Include="..\Classes\IMLoginRegister.cpp" />
     <ClCompile Include="..\Classes\IMMyController.cpp" />
     <ClCompile Include="..\Classes\IMMyInfo.cpp" />
     <ClCompile Include="..\Classes\IMSetInfomation.cpp" />
+    <ClCompile Include="..\Classes\IMSetting.cpp" />
+    <ClCompile Include="..\Classes\IMSettingClassify.cpp" />
     <ClCompile Include="..\Classes\IMTableCell.cpp" />
+    <ClCompile Include="..\Classes\LocalStorageUserData.cpp" />
     <ClCompile Include="..\Classes\RootWindow.cpp" />
     <ClCompile Include="..\Classes\SecondViewController.cpp" />
     <ClCompile Include="..\Classes\ThirdViewController.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Classes\AddFriendView.h" />
     <ClInclude Include="..\Classes\AddHeadForgrand.h" />
-    <ClInclude Include="..\Classes\android\com_CrossApp_IM_IM.h" />
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\AppMacros.h" />
+    <ClInclude Include="..\Classes\data\TableBase.h" />
+    <ClInclude Include="..\Classes\data\TableLanguage.h" />
     <ClInclude Include="..\Classes\FirstViewController.h" />
+    <ClInclude Include="..\Classes\groupview\GroupInfoViewController.h" />
     <ClInclude Include="..\Classes\HXSDKBuddy.h" />
     <ClInclude Include="..\Classes\HXSDKController.h" />
     <ClInclude Include="..\Classes\IMDATA.h" />
@@ -158,9 +167,13 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\extensions\libwebsockets\win32\lib\*.*" "$(Ou
     <ClInclude Include="..\Classes\IMMyController.h" />
     <ClInclude Include="..\Classes\IMMyInfo.h" />
     <ClInclude Include="..\Classes\IMSetInformation.h" />
+    <ClInclude Include="..\Classes\IMSetting.h" />
+    <ClInclude Include="..\Classes\IMSettingClassify.h" />
     <ClInclude Include="..\Classes\IMTableCell.h" />
+    <ClInclude Include="..\Classes\LocalStorageUserData.h" />
     <ClInclude Include="..\Classes\RootWindow.h" />
     <ClInclude Include="..\Classes\SecondViewController.h" />
+    <ClInclude Include="..\Classes\table\TableLanguagesfontnewHeader.h" />
     <ClInclude Include="..\Classes\ThirdViewController.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
