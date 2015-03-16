@@ -55,11 +55,7 @@ void SecondViewController::viewDidLoad()
     size = this->getView()->getBounds().size;
     m_pWinSize = this->getView()->getBounds().size;
     
-    m_pTableView = CATableView::createWithCenter(CCRect(m_pWinSize.width*0.5, m_pWinSize.height*0.5f + 75.0F*0.5f, m_pWinSize.width, m_pWinSize.height - 75.0F));
-    m_pTableView->setTableViewDataSource(this);
-    m_pTableView->setTableViewDelegate(this);
-    m_pTableView->setAllowsSelection(true);
-    this->getView()->addSubview(m_pTableView);
+    init_searchResultTable();
 }
 void SecondViewController::init_searchBar()
 {
@@ -81,6 +77,11 @@ void SecondViewController::init_searchBar()
 
 void SecondViewController::init_searchResultTable()
 {
+    m_pTableView = CATableView::createWithCenter(CCRect(m_pWinSize.width*0.5, m_pWinSize.height*0.5f + 75.0F*0.5f-25.0f, m_pWinSize.width, m_pWinSize.height - 75.0F));
+    m_pTableView->setTableViewDataSource(this);
+    m_pTableView->setTableViewDelegate(this);
+    m_pTableView->setAllowsSelection(true);
+    this->getView()->addSubview(m_pTableView);
 
 }
 
@@ -207,7 +208,31 @@ CATableViewCell* SecondViewController::tableCellAtIndex(CATableView* table, cons
 /*在section之间添加一个view，就是UI中section之间的灰色地带*/
 CAView* SecondViewController::tableViewSectionViewForHeaderInSection(CATableView* table, const CCSize& viewSize, unsigned int section)
 {
-    CAView* view = CAView::createWithFrame(CADipRect(0, 0, m_pWinSize.width, 25.0f), ccc4(230, 230, 230, 255));
+    CAView* view = CAView::createWithFrame(CADipRect(0, 0, m_pWinSize.width, 130.0f));
+    CAView* splitview = CAView::createWithFrame(CADipRect(0, 0, m_pWinSize.width, 25.0f), ccc4(230, 230, 230, 255));
+    view->addSubview(splitview);
+
+    CALabel* label = CALabel::createWithFrame(CCRect(40, 65.0f, m_pWinSize.width, 104.0f));
+    label->setColor(ccc4(152, 152, 152, 255));
+    label->setFontSize(_px(38));
+    switch (section) {
+        case 0:
+               label->setText(UTF8("群聊"));
+            break;
+        case 1:
+               label->setText(UTF8("好友"));
+            break;
+        case 2:
+            label->setText(UTF8("聊天记录"));
+            break;
+        default:
+            break;
+    }
+    view->addSubview(label);
+
+    CAView* lineview = CAView::createWithFrame(CCRect(40.0f, 129.0f, m_pWinSize.width-80.0f, 1.0f), ccc4(200, 200, 200, 255));
+    view->addSubview(lineview);
+    
     return view;
 }
 
@@ -231,5 +256,5 @@ unsigned int SecondViewController::tableViewHeightForRowAtIndexPath(CATableView*
 
 unsigned int SecondViewController::tableViewHeightForHeaderInSection(CATableView* table, unsigned int section)
 {
-    return _px(5);
+    return _px(130);
 }
