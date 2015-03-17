@@ -52,6 +52,7 @@
 		3E655F8C1A80752F00832CBD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E655F8B1A80752F00832CBD /* SystemConfiguration.framework */; };
 		3E655F8E1A80753900832CBD /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E655F8D1A80753900832CBD /* MediaPlayer.framework */; };
 		3E655F911A80757100832CBD /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E655F901A80757100832CBD /* Reachability.m */; };
+		3EC269A01AB8178600C9ADC1 /* IMUserManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3EC2699E1AB8178600C9ADC1 /* IMUserManager.cpp */; };
 		758BDF151A7637A300E07F9B /* HXSDKHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 758BDF141A7637A300E07F9B /* HXSDKHelper.m */; };
 		759D26611A6F4AC300E39203 /* AddHeadForgrand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 759D265F1A6F4AC300E39203 /* AddHeadForgrand.cpp */; };
 		759D26641A6F4ADA00E39203 /* IMMyController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 759D26621A6F4ADA00E39203 /* IMMyController.cpp */; };
@@ -356,6 +357,8 @@
 		3E655F8D1A80753900832CBD /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		3E655F8F1A80757100832CBD /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		3E655F901A80757100832CBD /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		3EC2699E1AB8178600C9ADC1 /* IMUserManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUserManager.cpp; path = ../Classes/IMUserManager.cpp; sourceTree = "<group>"; };
+		3EC2699F1AB8178600C9ADC1 /* IMUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUserManager.h; path = ../Classes/IMUserManager.h; sourceTree = "<group>"; };
 		758BDF131A7637A300E07F9B /* HXSDKHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXSDKHelper.h; sourceTree = "<group>"; };
 		758BDF141A7637A300E07F9B /* HXSDKHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXSDKHelper.m; sourceTree = "<group>"; };
 		759D265F1A6F4AC300E39203 /* AddHeadForgrand.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AddHeadForgrand.cpp; path = ../Classes/AddHeadForgrand.cpp; sourceTree = "<group>"; };
@@ -563,6 +566,8 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3EC2699E1AB8178600C9ADC1 /* IMUserManager.cpp */,
+				3EC2699F1AB8178600C9ADC1 /* IMUserManager.h */,
 				3E08F6AF1AB67145003F9192 /* LocalStorageUserData.cpp */,
 				3E08F6B01AB67145003F9192 /* LocalStorageUserData.h */,
 				3E01CDBA1AA1797F0087A29C /* table */,
@@ -1410,6 +1415,7 @@
 				3E655F911A80757100832CBD /* Reachability.m in Sources */,
 				3E11DA371A9033EC002E2ADA /* TableLanguage.cpp in Sources */,
 				B04822BD19FA41F70019F1A7 /* CAAlbumController.mm in Sources */,
+				3EC269A01AB8178600C9ADC1 /* IMUserManager.cpp in Sources */,
 				3E655F891A80720900832CBD /* IMSettingClassify.cpp in Sources */,
 				15A3DAEB1682F8A6002FB0C5 /* CDAudioManager.m in Sources */,
 				B0AD93EA19207CA300EA40BB /* FirstViewController.cpp in Sources */,
