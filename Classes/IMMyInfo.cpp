@@ -10,6 +10,7 @@
 #include "AddHeadForgrand.h"
 #include "IMSetInformation.h"
 #include "RootWindow.h"
+#include "IMUserManager.h"
 IMMyInfo::IMMyInfo() :cell(NULL), m_pTableView(NULL)
 , m_pUserHead(NULL)
 , m_pUserName(NULL)
@@ -17,12 +18,14 @@ IMMyInfo::IMMyInfo() :cell(NULL), m_pTableView(NULL)
 , m_pUserSignature(NULL)
 , m_pPicChoserLayer(NULL)
 , m_pStart(NULL)
+, pbutton(NULL)
 {
 
 }
 IMMyInfo::~IMMyInfo()
 {
 	CC_SAFE_RELEASE(pNagivationitem);
+	CANotificationCenter::sharedNotificationCenter()->removeAllObservers(this);
 }
 
 bool IMMyInfo::init()
@@ -163,14 +166,14 @@ CATableViewCell* IMMyInfo::initHeadImage(const CCSize& cellsize)
 		/*添加头像view*/
 		m_pUserHead = CAImageView::createWithCenter(CCRect(cellsize.width*0.5, cellsize.height*0.5, _px(100), _px(100)));
 		m_pUserHead->setTag(400);
-		cell->addSubview(m_pUserHead);
+		//cell->addSubview(m_pUserHead);
 		AddHeadForgrand::getInstance()->addHeadForgrand(m_pUserHead);
+		m_pUserHead->setImage(CAImage::create("head.png"));
 		addRightArrow(cell, cellsize);
-		
+		pbutton = CAButton::createWithFrame(m_pUserHead->getFrame(),CAButtonTypeCustom);
+		pbutton->setBackGroundViewForState(CAControlStateAll, m_pUserHead);
+		cell->addSubview(pbutton);
 	}
-	//获取网络数据源或者本地数据库,暂时用本地数据代替
-	CAImageView *p_head = (CAImageView*)cell->getSubviewByTag(400);
-	p_head->setImage(CAImage::create("head.png"));
 	return cell;
 }
 
@@ -196,13 +199,16 @@ CATableViewCell* IMMyInfo::initName(const CCSize& cellsize)
 		m_pUserName->setTag(401);
 		cell->addSubview(m_pUserName);
 		addRightArrow(cell, cellsize);
+		CANotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(IMMyInfo::getUserName), KNOTIFICATION_NAME, NULL);
 	}
-	//网络获取数据或者本地获取，暂时用常量代替
-	CALabel *pUserName = (CALabel*)cell->getSubviewByTag(401);
-	pUserName->setText(UTF8("心飞扬"));
 	return cell;
 }
 
+void IMMyInfo::getUserName(CAObject* obj)
+{
+	std::string temp_name = (char*)obj;
+	m_pUserName->setText(temp_name);
+}
 CATableViewCell* IMMyInfo::initSex(const CCSize& cellsize)
 {
 	if (cell == NULL)
@@ -224,12 +230,16 @@ CATableViewCell* IMMyInfo::initSex(const CCSize& cellsize)
 		m_pUserSex->setTag(402);
 		cell->addSubview(m_pUserSex);
 		addRightArrow(cell, cellsize);
+		CANotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(IMMyInfo::getUserSex), KNOTIFICATION_SEX, NULL);
 	}
-	CALabel *pUserSex = (CALabel*)cell->getSubviewByTag(402);
-	pUserSex->setText(UTF8("女"));
 	return cell;
 }
 
+void IMMyInfo::getUserSex(CAObject* obj)
+{
+	std::string temp_sex = (char*)obj;
+	m_pUserSex->setText(temp_sex);
+}
 CATableViewCell* IMMyInfo::initSignature(const CCSize& cellsize)
 {
 	if (cell == NULL)
@@ -251,10 +261,14 @@ CATableViewCell* IMMyInfo::initSignature(const CCSize& cellsize)
 		m_pUserSignature->setTag(403);
 		cell->addSubview(m_pUserSignature);
 		addRightArrow(cell, cellsize);
+		CANotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(IMMyInfo::getUserSignature), KNOTIFICATION_SIGNATURE, NULL);
 	}
-	CALabel *pUserSig = (CALabel*)cell->getSubviewByTag(403);
-	pUserSig->setText(UTF8("一个人漂泊找地方落脚"));
 	return cell;
+}
+void IMMyInfo::getUserSignature(CAObject* obj)
+{
+	std::string temp_signature = (char*)obj;
+	m_pUserSignature->setText(temp_signature);
 }
 //向右箭头处理
 void IMMyInfo::addRightArrow(CATableViewCell *m_pCell, const CCSize& pcellsize)
@@ -323,14 +337,38 @@ void IMMyInfo::onCancelBtnClick(CAControl *pTarget, CCPoint point)
 //头像获取
 void IMMyInfo::getSelectedImage(CAImage* image)
 {
-	m_pUserHead->setImage(image);
+	CAImageView *bac = CAImageView::createWithFrame(m_pUserHead->getFrame());
+	bac->setImage(image);
+	pbutton->setBackGroundViewForState(CAControlStateNormal, bac);
+	//CAImage变成数据
+	CADipSize size = bac->getFrame().size;
+	CARenderImage *renderImage = CARenderImage::create(size.width, size.height);
+	renderImage->beginWithClear(0, 0, 0, 255);
+	bac->visit();
+	renderImage->end();
+	CCImage *ccImage = renderImage->newCCImage();
+	photoname = CCFileUtils::sharedFileUtils()->getWritablePath() + "head.png";
+	ccImage->saveToFile(photoname.c_str());
 }
 
 void IMMyInfo::onStartBtnClick(CAControl *pTarget, CCPoint point)
 {
-	//开始使用按钮点击
-}
+	
+	//开始使用按钮点击，获取用户填写的信息上传到服务器
+	onStartBtnClickBack();
 
+}
+void IMMyInfo::onStartBtnClickBack()
+{
+	
+	
+	
+	//上传数据到服务器成功后保存数据到本地
+	User user;
+	user.init("100", m_pUserName->getText(), "Man", photoname, m_pUserSignature->getText(), online);
+	IMUserManager::Instance()->userLogin(user);
+	this->getNavigationController()->popViewControllerAnimated(true);
+}
 
 
 /*设置每个section含有的cell个数*/

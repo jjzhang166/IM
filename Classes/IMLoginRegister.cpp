@@ -30,7 +30,7 @@ IMLoginRegister::IMLoginRegister()
 
 IMLoginRegister::~IMLoginRegister()
 {
-	
+	CANotificationCenter::sharedNotificationCenter()->removeAllObservers(this);
 }
 
 IMLoginRegister* IMLoginRegister::create(UserAction action)
@@ -215,10 +215,12 @@ void IMLoginRegister::onLoginSuccess(CAObject* obj)
 {
 	bool isloginsuccess = (bool)obj;
 	if (isloginsuccess){
-		this->getNavigationController()->popViewControllerAnimated(true);
+
+		this->getNavigationController()->popToRootViewControllerAnimated(true);
+		//this->getNavigationController()->popViewControllerAnimated(true);
 	}
 	else{
-		CCLog("denglu shibai");
+		CCLog("login fail");
 	}
 	
 	
@@ -263,11 +265,11 @@ void IMLoginRegister::onRegisterSuccess(CAObject* obj)
 	bool isregistersuccess = (bool)obj;
 	if (isregistersuccess){
 		//注册成功，跳转到主界面
-		
+		this->getNavigationController()->popToRootViewControllerAnimated(true);
 	}
 	else{
 		
-		
+		CCLog("register success");
 	}
 }
 //Õ¸º«√‹¬Î

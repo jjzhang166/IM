@@ -8,6 +8,7 @@
 #include "IMSetInformation.h"
 #include "IMDATA.h"
 #include "RootWindow.h"
+static IMSetInformation *p_IMsetinfo = NULL;
 IMSetInformation::IMSetInformation() :m_pLabel(NULL)
 , m_pText(NULL)
 , pbutton1(NULL)
@@ -27,7 +28,7 @@ IMSetInformation::~IMSetInformation()
 
 IMSetInformation* IMSetInformation::create(IMinfoset p_infoset)
 {
-	IMSetInformation *p_IMsetinfo = new IMSetInformation();
+	p_IMsetinfo = new IMSetInformation();
 	p_IMsetinfo->infoset = p_infoset;
 	p_IMsetinfo->init();
 	p_IMsetinfo->autorelease();
@@ -135,21 +136,6 @@ void IMSetInformation::initViewOfSex()
 	introduceLabel->setColor(ccc4(112, 112, 112, 255));
 	introduceLabel->setTextAlignment(CATextAlignmentLeft);
 	this->getView()->addSubview(introduceLabel);
-	
-	/*
-	m_pText->setVisible(false);
-	pbutton1 = CAButton::createWithCenter(CCRect(winSize.width*0.5,winSize.height*0.2,winSize.width,winSize.height*0.099),CAButtonTypeSquareRect);
-	pbutton1->setTitleColorForState(CAControlStateAll, CAColor_black);
-	pbutton1->setTitleForState(CAControlStateAll, UTF8("男"));
-	pbutton1->addTarget(this, CAControl_selector(IMSetInformation::setbutton1Visible), CAControlTouchUpInSide);
-	this->getView()->addSubview(pbutton1);
-	
-	pbutton2 = CAButton::createWithCenter(CCRect(winSize.width*0.5, winSize.height*0.3, winSize.width, winSize.height*0.099), CAButtonTypeSquareRect);
-	pbutton2->setTitleColorForState(CAControlStateAll, CAColor_black);
-	pbutton2->setTitleForState(CAControlStateAll, UTF8("女"));
-	pbutton2->addTarget(this, CAControl_selector(IMSetInformation::setbutton2Visible), CAControlTouchUpInSide);
-	this->getView()->addSubview(pbutton2);
-	*/
 }
 
 void IMSetInformation::setbutton1Visible(CAControl *pTarget, CCPoint point)
@@ -181,6 +167,23 @@ void IMSetInformation::viewDidAppear()
 void IMSetInformation::onaddFinishBtn(CAControl *pTarget, CCPoint point)
 {
 	//函数处理，根据条件选择处理昵称，性别或者签名
+	std::string name_temp = m_pText->getText();
+	if (infoset == NAMESET)
+	{
+		CANotificationCenter::sharedNotificationCenter()->postNotification(KNOTIFICATION_NAME, (CAObject*)name_temp.c_str());
+		this->getNavigationController()->popViewControllerAnimated(true);
+	}
+	else if (infoset == SEXSET)
+	{
+		CANotificationCenter::sharedNotificationCenter()->postNotification(KNOTIFICATION_SEX, (CAObject*)name_temp.c_str());
+		this->getNavigationController()->popViewControllerAnimated(true);
+	}
+	else if (infoset == SIGNATURESET)
+	{
+		CANotificationCenter::sharedNotificationCenter()->postNotification(KNOTIFICATION_SIGNATURE, (CAObject*)name_temp.c_str());
+		this->getNavigationController()->popViewControllerAnimated(true);
+	}
+	
 }
 
 void IMSetInformation::onaddCancelBtn(CAControl *pTarget, CCPoint point)
@@ -218,6 +221,5 @@ bool IMSetInformation::onTextFieldDeleteBackward(CATextField * sender, const cha
 	CC_UNUSED_PARAM(sender);
 	CC_UNUSED_PARAM(delText);
 	CC_UNUSED_PARAM(nLen);
-
 	return false;
 }
