@@ -73,4 +73,7 @@
 
 //添加好友图片
 #define FRIEND_ADD "IMResources/friendAdd.png"
+
+//Debug sqlite3
+#define DEBUG_SQLITE3 1
 #endif /* __IMDATA__ */

@@ -8,10 +8,10 @@
 
 #include "HXSDKController.h"
 #include "IMDATA.h"
+#include "LocalStorageUserData.h"
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #import "HXSDKControllerIOS.h"
-#include "LocalStorageUserData.h"
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 #include "android/com_CrossApp_IM_IM.h"
 #include <android/log.h>
@@ -74,12 +74,14 @@ void HXSDKController::LoginBefore(CrossApp::CAObject *target, SEL_CallFuncO sele
 void HXSDKController::Login(const char* name, const char* passWord)
 {
 	m_sUserName = name;
-	m_sUserPassword = passWord;
+    m_sUserPassword = passWord;
+    if(DEBUG_SQLITE3)
+    {
+        localStorageUserDataSetItem("userName", name);
+        localStorageUserDataSetItem("userPassword", passWord);
+    }
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	HXSDKControllerIOS::Login_ios(name, passWord);
-    localStorageUserDataSetItem("userName", m_sUserName.c_str());
-    localStorageUserDataSetItem("userPassword", m_sUserPassword.c_str() );
-
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 	com_CrossApp_IM_IM::login_android(name, passWord);
 #endif
@@ -87,15 +89,9 @@ void HXSDKController::Login(const char* name, const char* passWord)
 
 void HXSDKController::autoLogin()
 {
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     std::string name=localStorageUserDataGetItem("userName");
     std::string password=localStorageUserDataGetItem("userPassword");
-    
-    Login(name.c_str(), password.c_str());
-    
-#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    
-#endif
+    //Login(name.c_str(), password.c_str());
 }
 
 void HXSDKController::RegisterAccount(const char* name, const char* passWord)

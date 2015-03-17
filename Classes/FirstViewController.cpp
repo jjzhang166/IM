@@ -76,7 +76,7 @@ bool FirstViewController::init()
         
         CANotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(FirstViewController::isLoginCallBack), KNOTIFICATION_LOGIN, NULL);
         
-        HXSDKController::getInstance()->getPublicGroupList();
+        //HXSDKController::getInstance()->getPublicGroupList();
         
         return true;
     }
@@ -91,12 +91,7 @@ void FirstViewController::viewDidLoad()
     
     init_tableView();
     
-    refreshTableView();
-    
-    
-    
-//    std::string fullPath = CCFileUtils::sharedFileUtils()->getWritablePath() + "local_storage_user_data.db";
-//    localStorageUserDataInit(fullPath.c_str());
+
     
     HXSDKController::getInstance()->autoLogin();
     if(!HXSDKController::getInstance()->isLogin())
@@ -269,7 +264,7 @@ bool FirstViewController::onTextFieldDeleteBackward(CATextField * sender, const 
 #pragma mark TableViewDelegate
 void FirstViewController::tableViewDidSelectRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row)
 {
-    HXSDKGroup* sdkGroup = HXSDKController::getInstance()->getPublicGroupList().at(row);
+    HXSDKGroup* sdkGroup = m_vGroups.at(row);
     
     GroupInfo groupInfo;
     groupInfo.m_pFaceImg = CAImage::create("IMResources/button_photo Album_normal.png");//qiaoxin test Image : sdk没有返回群图片数据

@@ -194,19 +194,21 @@ void IMLoginRegister::onButtonLogin(CAControl *pTarget, CCPoint point)
     std::string accountName = m_pAccount->getText();
     std::string accountPassword = m_pPassword->getText();
     
-    if(accountName.empty())
-    {
-        CCLog("account name is empty");
-        return;
-    }
-    if(accountPassword.empty())
-    {
-        CCLog("account password is empty");
-        return;
-    }
+//    if(accountName.empty())
+//    {
+//        CCLog("account name is empty");
+//        return;
+//    }
+//    if(accountPassword.empty())
+//    {
+//        CCLog("account password is empty");
+//        return;
+//    }
 	//添加观察者模式
 	CANotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(IMLoginRegister::onLoginSuccess), KNOTIFICATION_LOGIN, NULL);
-    HXSDKController::getInstance()->Login(accountName.c_str(),accountPassword.c_str());
+    //HXSDKController::getInstance()->Login(accountName.c_str(),accountPassword.c_str());
+    
+    HXSDKController::getInstance()->Login("qiaoxin5","123456");
 }
 // 登录成功回调函数
 void IMLoginRegister::onLoginSuccess(CAObject* obj)

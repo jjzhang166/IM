@@ -145,7 +145,7 @@ void com_CrossApp_IM_IM::getPublicGroup_android()
 			const char* result_name = (char*)info.env->GetStringUTFChars(name, false);
 			string pp_name = result_name;
 			//数据加载到列表
-			HXSDKController::getInstance()->pushGroupsDetail(pp_id, pp_name, "no",0);
+			HXSDKController::getInstance()->pushGroupsDetail(pp_id, pp_name, "no",0, "qiaoxintest", 1, true);
 		}
 		//释放资源
 		info.env->DeleteLocalRef(info.classID);
