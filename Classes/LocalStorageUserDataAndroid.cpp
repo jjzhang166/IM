@@ -1,4 +1,4 @@
-//
+﻿//
 //  LocalStorageUserDataAndroid.cpp
 //  BabyGenius
 //

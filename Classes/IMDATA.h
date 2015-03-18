@@ -38,9 +38,9 @@
 #define NAVIGATION_BAR_ITEM_NEW_SELECTED "IMResources/button_segmentRight_selected.png"
 
 #define NAVIGATION_BAR_ITEM_SEARCH_NORMAL "IMResources/button_search_normal.png"
-#define NAVIGATION_BAR_ITEM_SEARCH_SELECTED "IMResources/button_search_normal.png"
+#define NAVIGATION_BAR_ITEM_SEARCH_SELECTED "IMResources/button_search_normal.png.png"
 #define NAVIGATION_BAR_ITEM_ADD_NORMAL "IMResources/button_add_normal.png"
-#define NAVIGATION_BAR_ITEM_ADD_SELECTED "IMResources/button_add_normal.png"
+#define NAVIGATION_BAR_ITEM_ADD_SELECTED "IMResources/button_add_normal.png.png"
 
 #define BUTTON_EXIT_GROUP "IMResources/button_leaveGroup_button.png"
 #define BUTTON_JOIN_GROUP "IMResources/button_joinGroup_normal.png"
@@ -54,6 +54,7 @@
 #define KNOTIFICATION_SENDMESSAGE_RESULT "HXSDKSendMessageResult"
 #define KNOTIFICATION_LOGINCHANGE "HXSDKLoginIn"
 #define KNOTIFICATION_MSGARRIVAL "HXMSGARRIVAL"
+#define KNOTIFICATION_BACK "HXSDKBACK"
 
 #define KNOTIFICATION_NAME "UserName"
 #define KNOTIFICATION_SEX "UserSex"
