@@ -14,6 +14,9 @@
 
 USING_NS_CC;
 
+class HXSDKBuddy;
+class HXSDKGroup;
+
 class SecondViewController : public CAViewController, public CATextFieldDelegate,public CATableViewDelegate, public CATableViewDataSource
 {
     
@@ -69,6 +72,10 @@ protected:
     CADipSize               m_pWinSize;
     
     CATableViewCell*        cell;  //tableView中的cell
+    
+    std::vector<HXSDKBuddy*> m_vMyFriends;
+    
+    std::vector<HXSDKGroup*> m_vMyGroups;
 };
 
 

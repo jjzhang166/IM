@@ -91,7 +91,7 @@ void HXSDKController::autoLogin()
 {
     std::string name=localStorageUserDataGetItem("userName");
     std::string password=localStorageUserDataGetItem("userPassword");
-    //Login(name.c_str(), password.c_str());
+    Login(name.c_str(), password.c_str());
 }
 
 void HXSDKController::RegisterAccount(const char* name, const char* passWord)
@@ -339,6 +339,7 @@ void HXSDKController::cleanFriendsLise()
 	{
 		CC_SAFE_DELETE(*itr);
 	}
+    m_vFriendList.clear();
 }
 
 void HXSDKController::pushFriendsDetail(std::string userName, HXSDKBuddyFollowState eHXSDKEMBuddyFollowState, bool isPendingApproval)
@@ -358,6 +359,7 @@ void HXSDKController::cleanGroupList()
 	{
 		CC_SAFE_DELETE(*itr);
 	}
+    m_vPublicGroupList.clear();
 }
 
 void HXSDKController::pushGroupsDetail(std::string groupID, std::string groupSub, std::string groupDes, int groupOccupantsCount, std::string ower, int groupStyle, bool isNotificationEnable)
@@ -381,6 +383,7 @@ void HXSDKController::cleanMyGroupList()
 	{
 		CC_SAFE_DELETE(*itr);
 	}
+    m_vMyGroupList.clear();
 }
 
 void HXSDKController::pushMyGroupsDetail(std::string groupID, std::string groupSub, std::string groupDes, int groupOccupantsCount)

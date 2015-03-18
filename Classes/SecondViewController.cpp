@@ -88,6 +88,13 @@ void SecondViewController::init_searchResultTable()
 void SecondViewController::viewDidAppear()
 {
     this->getTabBarController()->setNavigationBarItem(m_pNavigationBarItem);
+    
+    m_vMyFriends = HXSDKController::getInstance()->getFriendsList();
+    m_vMyGroups = HXSDKController::getInstance()->getMyGroupList();
+
+    
+    
+    m_pTableView->reloadData();
 }
 
 void SecondViewController::viewDidUnload()
@@ -176,8 +183,28 @@ CATableViewCell* SecondViewController::tableCellAtIndex(CATableView* table, cons
     /*cell页面的初始化*/
     cell = table->dequeueReusableCellWithIdentifier("Crossapp");
     CCSize cellSize = CCSizeMake(m_pWinSize.width, _px(90));
-    cell = IMTableCell::create(SearchResult, cellSize);
-    ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), "麻辣烫");
+    switch (section) {
+        case 0:
+        {
+            cell = IMTableCell::create(SearchResult, cellSize);
+            ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), m_vMyGroups.at(row)->m_sGroupSubject);
+            break;
+        }
+        case 1:
+        {
+            cell = IMTableCell::create(SearchResult, cellSize);
+            ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), m_vMyFriends.at(row)->m_sUserName);
+            break;
+        }
+        case 2:
+        {
+            cell = IMTableCell::create(SearchResult, cellSize);
+            ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), "test");
+            break;
+        }
+        default:
+            break;
+    }
     return cell;
 }
 
@@ -215,7 +242,21 @@ CAView* SecondViewController::tableViewSectionViewForHeaderInSection(CATableView
 /*设置每个section含有的cell个数*/
 unsigned int SecondViewController::numberOfRowsInSection(CATableView *table, unsigned int section)
 {
-    return 1;
+    int num=0;
+    switch (section) {
+        case 0:
+            num = m_vMyGroups.size();
+            break;
+        case 1:
+            num = m_vMyFriends.size();
+            break;
+        case 2:
+            num = 1;
+            break;
+        default:
+            break;
+    }
+    return num;
 }
 
 /*设置含有几个section*/

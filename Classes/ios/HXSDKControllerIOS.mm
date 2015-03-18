@@ -181,36 +181,37 @@ void HXSDKControllerIOS::getFriendsList_ios()
     EMError *error = nil;
     NSArray *buddyList = [easeMob.chatManager fetchBuddyListWithError:&error];
     
-    for(int i=0; i<buddyList.count; ++i)
-    {
-        EMBuddy* buddy = buddyList[i];
-        std::string userName = [buddy.username UTF8String];
-        bool isPendingApproval = buddy.isPendingApproval;
-        HXSDKBuddyFollowState eHXSDKEMBuddyFollowState;
-        if( eEMBuddyFollowState_NotFollowed == buddy.followState)
-        {
-            eHXSDKEMBuddyFollowState = eHXSDKEMBuddyFollowState_NotFollowed;
-        }
-        else if( eEMBuddyFollowState_Followed == buddy.followState)
-        {
-            eHXSDKEMBuddyFollowState = eHXSDKEMBuddyFollowState_Followed;
-        }
-        else if( eEMBuddyFollowState_BeFollowed == buddy.followState)
-        {
-            eHXSDKEMBuddyFollowState = eHXSDKEMBuddyFollowState_BeFollowed;
-        }
-        else if( eEMBuddyFollowState_FollowedBoth == buddy.followState)
-        {
-            eHXSDKEMBuddyFollowState = eHXSDKEMBuddyFollowState_FollowedBoth;
-        }
-        
-        HXSDKController::getInstance()->pushFriendsDetail(userName, eHXSDKEMBuddyFollowState, isPendingApproval);
-    }
-//Log qiaoxin
     if (!error) {
-       CCLog("get friends list success!!! %d",buddyList.count);
+        CCLog("get friends list success!!! %d",buddyList.count);
+        HXSDKController::getInstance()->cleanGroupList();
+        for(int i=0; i<buddyList.count; ++i)
+        {
+            EMBuddy* buddy = buddyList[i];
+            std::string userName = [buddy.username UTF8String];
+            bool isPendingApproval = buddy.isPendingApproval;
+            HXSDKBuddyFollowState eHXSDKEMBuddyFollowState;
+            if( eEMBuddyFollowState_NotFollowed == buddy.followState)
+            {
+                eHXSDKEMBuddyFollowState = eHXSDKEMBuddyFollowState_NotFollowed;
+            }
+            else if( eEMBuddyFollowState_Followed == buddy.followState)
+            {
+                eHXSDKEMBuddyFollowState = eHXSDKEMBuddyFollowState_Followed;
+            }
+            else if( eEMBuddyFollowState_BeFollowed == buddy.followState)
+            {
+                eHXSDKEMBuddyFollowState = eHXSDKEMBuddyFollowState_BeFollowed;
+            }
+            else if( eEMBuddyFollowState_FollowedBoth == buddy.followState)
+            {
+                eHXSDKEMBuddyFollowState = eHXSDKEMBuddyFollowState_FollowedBoth;
+            }
+            
+            HXSDKController::getInstance()->pushFriendsDetail(userName, eHXSDKEMBuddyFollowState, isPendingApproval);
+        }
     }
-    else{
+    else
+    {
         CCLog("get friends list fail!!!");
     }
 }
@@ -301,7 +302,7 @@ void HXSDKControllerIOS:: getPublicGroup_ios()
     NSArray *publicGroupList = [[EaseMob sharedInstance].chatManager fetchAllPublicGroupsWithError:&error];
     if (!error) {
         NSLog(@"群列表获取成功 -- %d", publicGroupList.count);
-        
+        HXSDKController::getInstance()->cleanGroupList();
         for (int i = 0; i<publicGroupList.count; i++) {
 
             EMGroup * emGroup = publicGroupList[i];
@@ -331,10 +332,7 @@ void HXSDKControllerIOS:: getPublicGroup_ios()
             
             HXSDKController::getInstance()->pushGroupsDetail(gID, gSub, gDes, gOccupantsCount, gOwner, gGroupStyle, gIsPushNotification);
         }
-        
-        
     }
-    
     // block 异步同样无法获取 群描述 属性,
 //    [[EaseMob sharedInstance].chatManager asyncFetchAllPublicGroupsWithCompletion:^(NSArray *groups, EMError *error) {
 //        if (!error) {
@@ -361,7 +359,6 @@ void HXSDKControllerIOS:: createGroup_ios(HXSDKGroupStyle groupType,const char* 
         case eGroupStyle_PublicJoinNeedApproval:
             groupStyleSetting.groupStyle = eGroupStyle_PublicJoinNeedApproval;
             break;
-            
         case eGroupStyle_PrivateMemberCanInvite:
             groupStyleSetting.groupStyle = eGroupStyle_PrivateMemberCanInvite;
             break;
@@ -385,6 +382,7 @@ void HXSDKControllerIOS::getMyGroup_ios()
     NSArray *myGroups = [[EaseMob sharedInstance].chatManager fetchMyGroupsListWithError:&error];
     if (!error) {
         NSLog(@"获取成功 -- %d",myGroups.count);
+        HXSDKController::getInstance()->cleanMyGroupList();
         for (int i = 0; i<myGroups.count; i++) {
 
             EMGroup * emGroup = myGroups[i];
@@ -404,8 +402,6 @@ void HXSDKControllerIOS::getMyGroup_ios()
             
             HXSDKController::getInstance()->pushMyGroupsDetail(gID, gSub, gDes, gOccupantsCount);
         }
-        
-
     }
 }
 
