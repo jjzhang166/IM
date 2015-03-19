@@ -50,14 +50,35 @@ bool RootWindow::init()
         return false;
     }
     
+    HXSDKController::getInstance()->autoLogin();
+    if(!HXSDKController::getInstance()->isLogin())
+    {
+        init_LoginController();
+    }
+    else
+    {
+        init_ViewController();
+    }
+    return true;
+}
+
+void RootWindow::init_LoginController()
+{
+    IMLoginRegister* LoginController =IMLoginRegister::create(IM_USERLOGIN);
+    
+    CANavigationController* navigationController = new CANavigationController();
+    navigationController->setNavigationBarBackGroundImage(CAImage::create(NAVIGATION_BG));
+    navigationController->initWithRootViewController(LoginController);
+    this->setRootViewController(navigationController);
+}
+
+void RootWindow::init_ViewController()
+{
     m_pTabelBarController = init_tabelBarController();
     
     m_pNavigationController = init_navigationController(m_pTabelBarController);
     
     this->setRootViewController(m_pNavigationController);
-    
-
-    return true;
 }
 
 CATabBarController* RootWindow::init_tabelBarController()

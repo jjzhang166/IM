@@ -28,6 +28,10 @@ public:
     
     virtual bool init();
     
+    void init_LoginController();
+    
+    void init_ViewController();
+    
     CANavigationController* getNavigationController();
 
 protected:

@@ -9,6 +9,7 @@
 #include "HXSDKController.h"
 #include "IMDATA.h"
 #include "LocalStorageUserData.h"
+#include "RootWindow.h"
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #import "HXSDKControllerIOS.h"
@@ -407,6 +408,7 @@ void HXSDKController::postNotification_isLogin(bool isLogin)
 {
 	m_bIsLogin = isLogin;
 	CANotificationCenter::sharedNotificationCenter()->postNotification(KNOTIFICATION_LOGIN, (CAObject*)isLogin);
+    RootWindow::getInstance()->init_ViewController();
 }
 
 void HXSDKController::postNotification_isLogOut(bool isLogout)

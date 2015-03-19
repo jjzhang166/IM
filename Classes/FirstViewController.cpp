@@ -74,9 +74,7 @@ bool FirstViewController::init()
         m_pNavigationBarItem->setTitleView(m_pTitleView);
         m_pNavigationBarItem->retain();
         
-        CANotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(FirstViewController::isLoginCallBack), KNOTIFICATION_LOGIN, NULL);
-        
-        //HXSDKController::getInstance()->getPublicGroupList();
+        //CANotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(FirstViewController::isLoginCallBack), KNOTIFICATION_LOGIN, NULL);
         
         return true;
     }
@@ -90,20 +88,12 @@ void FirstViewController::viewDidLoad()
     init_searchBar();
     
     init_tableView();
-    
-
-    
-    HXSDKController::getInstance()->autoLogin();
-    if(!HXSDKController::getInstance()->isLogin())
-    {
-        IMLoginRegister* LoginController =IMLoginRegister::create(IM_USERLOGIN);
-        RootWindow::getInstance()->getNavigationController()->pushViewController(LoginController, true);
-    }
 }
 
 void FirstViewController::viewDidAppear()
 {
     this->getTabBarController()->setNavigationBarItem(m_pNavigationBarItem);
+    refreshTableView();
 }
 
 void FirstViewController::viewDidUnload()
@@ -139,7 +129,6 @@ void FirstViewController::init_tableView()
 void FirstViewController::refreshTableView()
 {
     m_vGroups = HXSDKController::getInstance()->getPublicGroupList();
-    
     m_pTableView->reloadData();
 }
 
@@ -290,8 +279,10 @@ CATableViewCell* FirstViewController::tableCellAtIndex(CATableView* table, const
     /*cell页面的初始化*/
     cell = table->dequeueReusableCellWithIdentifier("Crossapp");
     CCSize cellSize = CCSizeMake(m_pWinSize.width, _px(90));
-    
-    cell = IMTableCell::create(Group, cellSize);
+    if(cell == NULL)
+    {
+        cell = IMTableCell::create(Group, cellSize);
+    }
     ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), m_vGroups.at(row)->m_sGroupSubject, m_vGroups.at(row)->m_sGroupDescription);
     return cell;
 }

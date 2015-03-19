@@ -183,7 +183,7 @@ void HXSDKControllerIOS::getFriendsList_ios()
     
     if (!error) {
         CCLog("get friends list success!!! %d",buddyList.count);
-        HXSDKController::getInstance()->cleanGroupList();
+        HXSDKController::getInstance()->cleanFriendsLise();
         for(int i=0; i<buddyList.count; ++i)
         {
             EMBuddy* buddy = buddyList[i];
@@ -301,7 +301,7 @@ void HXSDKControllerIOS:: getPublicGroup_ios()
     EMError *error = nil;
     NSArray *publicGroupList = [[EaseMob sharedInstance].chatManager fetchAllPublicGroupsWithError:&error];
     if (!error) {
-        NSLog(@"群列表获取成功 -- %d", publicGroupList.count);
+        CCLog("get publicGroup List success!!! %d ", publicGroupList.count);
         HXSDKController::getInstance()->cleanGroupList();
         for (int i = 0; i<publicGroupList.count; i++) {
 
@@ -381,7 +381,7 @@ void HXSDKControllerIOS::getMyGroup_ios()
     EMError *error = nil;
     NSArray *myGroups = [[EaseMob sharedInstance].chatManager fetchMyGroupsListWithError:&error];
     if (!error) {
-        NSLog(@"获取成功 -- %d",myGroups.count);
+        CCLog("get MYGroup List success !!!  %d",myGroups.count);
         HXSDKController::getInstance()->cleanMyGroupList();
         for (int i = 0; i<myGroups.count; i++) {
 

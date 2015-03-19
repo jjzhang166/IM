@@ -49,23 +49,19 @@ bool SecondViewController::init()
 
 void SecondViewController::viewDidLoad()
 {
-    init_searchBar();
-    
-    CCRect winRect = this->getView()->getBounds();
-    size = this->getView()->getBounds().size;
     m_pWinSize = this->getView()->getBounds().size;
+    
+    init_searchBar();
     
     init_searchResultTable();
 }
 void SecondViewController::init_searchBar()
 {
-    CADipSize size = this->getView()->getBounds().size;
-
     CAScale9ImageView* searchBackground = CAScale9ImageView::createWithImage(CAImage::create(TABLE_GRAY_BG));
-    searchBackground->setFrame(CADipRect(0.0f, 0.0f, size.width, 75.0f));
+    searchBackground->setFrame(CADipRect(0.0f, 0.0f, m_pWinSize.width, 75.0f));
     this->getView()->insertSubview(searchBackground, 10);
     
-    m_pSearchTextField = CATextField::createWithFrame(CADipRect(20.0f, 10.0F, size.width-40.0f, 50.0f));
+    m_pSearchTextField = CATextField::createWithFrame(CADipRect(20.0f, 10.0F, m_pWinSize.width-40.0f, 50.0f));
     m_pSearchTextField->setBackgroundView(CAView::createWithColor(CAColor_white));
     m_pSearchTextField->setPlaceHolder(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_SEARCH_CONTENT_TEXT).c_str());
     m_pSearchTextField->setSpaceHolderColor(ccc4(0x96, 0x96, 0x96, 0xff));
@@ -92,8 +88,6 @@ void SecondViewController::viewDidAppear()
     m_vMyFriends = HXSDKController::getInstance()->getFriendsList();
     m_vMyGroups = HXSDKController::getInstance()->getMyGroupList();
 
-    
-    
     m_pTableView->reloadData();
 }
 
@@ -183,22 +177,23 @@ CATableViewCell* SecondViewController::tableCellAtIndex(CATableView* table, cons
     /*cell页面的初始化*/
     cell = table->dequeueReusableCellWithIdentifier("Crossapp");
     CCSize cellSize = CCSizeMake(m_pWinSize.width, _px(90));
+    if(cell == NULL)
+    {
+        cell = IMTableCell::create(SearchResult, cellSize);
+    }
     switch (section) {
         case 0:
         {
-            cell = IMTableCell::create(SearchResult, cellSize);
             ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), m_vMyGroups.at(row)->m_sGroupSubject);
             break;
         }
         case 1:
         {
-            cell = IMTableCell::create(SearchResult, cellSize);
             ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), m_vMyFriends.at(row)->m_sUserName);
             break;
         }
         case 2:
         {
-            cell = IMTableCell::create(SearchResult, cellSize);
             ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), "test");
             break;
         }
