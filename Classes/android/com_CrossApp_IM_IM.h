@@ -75,6 +75,8 @@ public:
 	  static void sendMessage_android(const char* messageText, const char* toUserName);
 	  static void receiveMessage_android();
 
+	  //chinahypo-2015-3-19
+	  static void loadMessage_android(const char* generalname);
 
 
 

@@ -5,7 +5,7 @@
 #include <iostream>
 #include "CrossApp.h"
 #include "CrossAppExt.h"
-
+#include "HXSDKController.h"
 USING_NS_CC;
 USING_NS_CC_EXT;
 
@@ -44,7 +44,10 @@ public:
 private:
 	CADipSize size;
 	CATableView* p_TableView;
-	std::string id;
+	const char* id;
+	char* time;
+	string timeLast;
+	std::vector<HXSDKMessage*> message;
 };
 
 

@@ -6,9 +6,9 @@
 #define CAColor_blueStyle ccc4(51,204,255,255)
 static IMChatController* m_vController = NULL;
 
-IMChatController::IMChatController(std::string ID)
+IMChatController::IMChatController(std::string ID):message(NULL)
 {
-	id = ID;
+	id = ID.c_str();
 }
 
 IMChatController::~IMChatController()
@@ -31,6 +31,7 @@ IMChatController* IMChatController::create(std::string _id)
 
 void IMChatController::viewDidLoad()
 {
+		
 	// Do any additional setup after loading the view from its nib.
 	size = this->getView()->getBounds().size;
 
@@ -38,8 +39,11 @@ void IMChatController::viewDidLoad()
 	p_TableView->setTableViewDataSource(this);
 	p_TableView->setTableViewDelegate(this);
 	//p_TableView->setAllowsSelection(true);
-	//p_TableView->setAllowsMultipleSelection(true);
+	//p_TableView->setAllowsMultipleSelection(true);s
 	//p_TableView->setSeparatorColor(CAColor_clear);
+	
+	//chinahypo 2015-3-19
+	message = HXSDKController::getInstance()->loadMessage(id);
 	this->getView()->addSubview(p_TableView);
 }
 
@@ -70,6 +74,35 @@ CATableViewCell* IMChatController::tableCellAtIndex(CATableView* table, const CC
 	}
 	if (loaded)
 		return cell;
+	string dpos;
+	sprintf(time,"%f",message.at(row)->m_vTime);
+	timeLast = time;
+	cell->setMsgTime(timeLast);
+	if (message.at(row)->m_vReceive == id)
+	{
+		dpos = "left";
+	}
+	else
+	{
+		dpos = "right";
+	}
+	cell->showTextMsg(message.at(row)->m_vMessage, dpos.c_str());
+	return cell;
+	/*
+	// 开始显示
+	cell->setMsgTime(strTime);
+	string dpos = (isMe == true) ? "right" : "left";
+	if (isImg)
+	{// 暂时仅支持JPG格式
+		cell->showImgMsg(url, dpos.c_str());
+	}
+	else
+	{
+		cell->showTextMsg(msg, dpos.c_str());
+	}
+
+	return cell;
+
 	// 解析出来的信息//测试
 	string strTime = "14:11:13";
 	bool isMe = false;
@@ -158,6 +191,7 @@ CATableViewCell* IMChatController::tableCellAtIndex(CATableView* table, const CC
 	}
 
 	return cell;
+	*/
 }
 
 // CAView* FirstViewController::tableViewSectionViewForHeaderInSection(CATableView* table, const CCSize& viewSize, unsigned int section)
@@ -188,7 +222,7 @@ CATableViewCell* IMChatController::tableCellAtIndex(CATableView* table, const CC
 
 unsigned int IMChatController::numberOfRowsInSection(CATableView *table, unsigned int section)
 {
-	return 8;
+	return message.size();
 }
 
 unsigned int IMChatController::numberOfSections(CATableView *table)

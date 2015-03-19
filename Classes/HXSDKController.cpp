@@ -34,6 +34,8 @@ HXSDKController::~HXSDKController()
 	cleanFriendsLise();
 	cleanGroupList();
 	cleanMyGroupList();
+	//chinahypo-2015-3-19
+	cleanMessageList();
 	CC_SAFE_DELETE(HXsdkController);
 }
 
@@ -145,6 +147,17 @@ void HXSDKController::sendMessageWithImage(const char *messageText, const char *
 
 
 #endif
+}
+
+//chinahypo-2015-3-19
+std::vector<HXSDKMessage*> HXSDKController::loadMessage(const char* generalname)
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+	//
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+	com_CrossApp_IM_IM::loadMessage_android(generalname);
+#endif
+	return m_vMessageList;
 }
 
 void HXSDKController::sendAddFriend(const char* accountName, const char* message)
@@ -397,6 +410,27 @@ void HXSDKController::pushMyGroupsDetail(std::string groupID, std::string groupS
 	m_vMyGroupList.push_back(sdkGroup);
 }
 
+//chinahypo - 2015 - 3 - 19
+void HXSDKController::pushMessageDetail(int pMessageType, long pTime, std::string pSendName, std::string pReceiveName, int pChatStyle, std::string pMessage)
+{
+	HXSDKMessage* chatMessage = new HXSDKMessage();
+	chatMessage->m_vType = (HXSDKMsgType)pMessageType;
+	chatMessage->m_vTime = pTime;
+	chatMessage->m_vSend = pSendName;
+	chatMessage->m_vReceive = pReceiveName;
+	chatMessage->m_vChatStyle = (HXSDKChatStyle)pChatStyle;
+	chatMessage->m_vMessage = pMessage;
+	m_vMessageList.push_back(chatMessage);
+}
+void HXSDKController::cleanMessageList()
+{
+	std::vector<HXSDKMessage*>::iterator itr = m_vMessageList.begin();
+	for (; itr != m_vMessageList.end(); itr++)
+	{
+		CC_SAFE_DELETE(*itr);
+	}
+	m_vMessageList.clear();
+}
 /***************************************NotificationCenter*******************************************/
 void HXSDKController::postNotification_isRegister(bool isRegister)
 {

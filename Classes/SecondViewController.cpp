@@ -94,7 +94,7 @@ void SecondViewController::viewDidAppear()
 
     
     
-    m_pTableView->reloadData();
+   // m_pTableView->reloadData();
 }
 
 void SecondViewController::viewDidUnload()
@@ -158,7 +158,7 @@ void SecondViewController::tableViewDidSelectRowAtIndexPath(CATableView* table, 
 	//chinahypo 2015-3-18 测试
 	if (section = 2)
 	{
-		IMChatController *pController = IMChatController::create("Test");
+		IMChatController *pController = IMChatController::create("qiaoxin5");
 		RootWindow::getInstance()->getNavigationController()->pushViewController(pController,true);
 	}
 

@@ -102,7 +102,43 @@ public:
     std::string m_sGroupOwer;
     //    是否推动消息
     bool        m_bIsPushNotificationEnable;
-
 };
+
+//消息体
+typedef enum{
+	TXTMESSAGE = 0,
+	IMAGEMESSAGE = 1,
+	VOICEMESSAGE = 2
+}HXSDKMsgType;
+typedef enum{
+	CHATSTYLE_CHAT = 0,
+	CHATSTYLE_GROUP =1
+}HXSDKChatStyle;
+class HXSDKMessage
+{
+public:
+	HXSDKMessage()
+	{
+		m_vType = TXTMESSAGE;
+		m_vTime = 0.0;
+		m_vSend = "";
+		m_vReceive = "";
+		m_vChatStyle = CHATSTYLE_CHAT;
+		m_vMessage = "";
+	}
+	~HXSDKMessage()
+	{
+
+	}
+
+public:
+	HXSDKMsgType m_vType;  //消息类型
+	long m_vTime;  //消息发送时间
+	std::string m_vSend; //消息发送者
+	std::string m_vReceive;  //消息接收者
+	HXSDKChatStyle m_vChatStyle;
+	std::string m_vMessage;
+};
+
 
 #endif /*defined(__IM__HXSDKBUDDY__)*/
