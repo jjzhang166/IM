@@ -1,4 +1,4 @@
-//
+﻿//
 //  SecondViewController.cpp
 //  IM
 //
@@ -49,27 +49,19 @@ bool SecondViewController::init()
 
 void SecondViewController::viewDidLoad()
 {
-    init_searchBar();
-    
-    CCRect winRect = this->getView()->getBounds();
-    size = this->getView()->getBounds().size;
     m_pWinSize = this->getView()->getBounds().size;
     
-    m_pTableView = CATableView::createWithCenter(CCRect(m_pWinSize.width*0.5, m_pWinSize.height*0.5f + 75.0F*0.5f, m_pWinSize.width, m_pWinSize.height - 75.0F));
-    m_pTableView->setTableViewDataSource(this);
-    m_pTableView->setTableViewDelegate(this);
-    m_pTableView->setAllowsSelection(true);
-    this->getView()->addSubview(m_pTableView);
+    init_searchBar();
+    
+    init_searchResultTable();
 }
 void SecondViewController::init_searchBar()
 {
-    CADipSize size = this->getView()->getBounds().size;
-
     CAScale9ImageView* searchBackground = CAScale9ImageView::createWithImage(CAImage::create(TABLE_GRAY_BG));
-    searchBackground->setFrame(CADipRect(0.0f, 0.0f, size.width, 75.0f));
+    searchBackground->setFrame(CADipRect(0.0f, 0.0f, m_pWinSize.width, 75.0f));
     this->getView()->insertSubview(searchBackground, 10);
     
-    m_pSearchTextField = CATextField::createWithFrame(CADipRect(20.0f, 10.0F, size.width-40.0f, 50.0f));
+    m_pSearchTextField = CATextField::createWithFrame(CADipRect(20.0f, 10.0F, m_pWinSize.width-40.0f, 50.0f));
     m_pSearchTextField->setBackgroundView(CAView::createWithColor(CAColor_white));
     m_pSearchTextField->setPlaceHolder(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_SEARCH_CONTENT_TEXT).c_str());
     m_pSearchTextField->setSpaceHolderColor(ccc4(0x96, 0x96, 0x96, 0xff));
@@ -81,12 +73,22 @@ void SecondViewController::init_searchBar()
 
 void SecondViewController::init_searchResultTable()
 {
+    m_pTableView = CATableView::createWithCenter(CCRect(m_pWinSize.width*0.5, m_pWinSize.height*0.5f + 75.0F*0.5f-25.0f, m_pWinSize.width, m_pWinSize.height - 75.0F));
+    m_pTableView->setTableViewDataSource(this);
+    m_pTableView->setTableViewDelegate(this);
+    m_pTableView->setAllowsSelection(true);
+    this->getView()->addSubview(m_pTableView);
 
 }
 
 void SecondViewController::viewDidAppear()
 {
     this->getTabBarController()->setNavigationBarItem(m_pNavigationBarItem);
+    
+//    m_vMyFriends = HXSDKController::getInstance()->getFriendsList();
+//    m_vMyGroups = HXSDKController::getInstance()->getMyGroupList();
+//
+//    m_pTableView->reloadData();
 }
 
 void SecondViewController::viewDidUnload()
@@ -147,6 +149,8 @@ bool SecondViewController::onTextFieldDeleteBackward(CATextField * sender, const
 #pragma mark CATableViewDelegate
 void SecondViewController::tableViewDidSelectRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row)
 {
+	
+
     //    //cell点击处理事件
     //    if (section == 0){
     //        IMMyInfo *pIMMyInfo = IMMyInfo::create();
@@ -175,46 +179,81 @@ CATableViewCell* SecondViewController::tableCellAtIndex(CATableView* table, cons
     /*cell页面的初始化*/
     cell = table->dequeueReusableCellWithIdentifier("Crossapp");
     CCSize cellSize = CCSizeMake(m_pWinSize.width, _px(90));
-    switch (section)
+    if(cell == NULL)
     {
+        cell = IMTableCell::create(SearchResult, cellSize);
+    }
+    switch (section) {
         case 0:
         {
-            /*初始化用户信息栏*/
-            cell = IMTableCell::create(Group, cellSize);
-            ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), "我是谁", "测试数据");
-            return cell;
+            ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), m_vMyGroups.at(row)->m_sGroupSubject);
             break;
         }
         case 1:
-        {   /*初始化通讯录栏*/
-            cell = IMTableCell::create(Friend, cellSize);
-            ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), "我是谁", "测试数据");
-            return cell;
+        {
+            ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), m_vMyFriends.at(row)->m_sUserName);
             break;
         }
         case 2:
-        {     /*初始化设置栏*/
-            cell = IMTableCell::create(Strange, cellSize);
-            ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), "我是谁", "测试数据");
-            return cell;
+        {
+            ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), "test");
             break;
         }
         default:
             break;
     }
+    return cell;
 }
 
 /*在section之间添加一个view，就是UI中section之间的灰色地带*/
 CAView* SecondViewController::tableViewSectionViewForHeaderInSection(CATableView* table, const CCSize& viewSize, unsigned int section)
 {
-    CAView* view = CAView::createWithFrame(CADipRect(0, 0, m_pWinSize.width, 25.0f), ccc4(230, 230, 230, 255));
+    CAView* view = CAView::createWithFrame(CADipRect(0, 0, m_pWinSize.width, 130.0f));
+    CAView* splitview = CAView::createWithFrame(CADipRect(0, 0, m_pWinSize.width, 25.0f), ccc4(230, 230, 230, 255));
+    view->addSubview(splitview);
+
+    CALabel* label = CALabel::createWithFrame(CCRect(40, 65.0f, m_pWinSize.width, 104.0f));
+    label->setColor(ccc4(152, 152, 152, 255));
+    label->setFontSize(_px(38));
+    switch (section) {
+        case 0:
+               label->setText(UTF8("群聊"));
+            break;
+        case 1:
+               label->setText(UTF8("好友"));
+            break;
+        case 2:
+            label->setText(UTF8("聊天记录"));
+            break;
+        default:
+            break;
+    }
+    view->addSubview(label);
+
+    CAView* lineview = CAView::createWithFrame(CCRect(40.0f, 129.0f, m_pWinSize.width-80.0f, 1.0f), ccc4(200, 200, 200, 255));
+    view->addSubview(lineview);
+    
     return view;
 }
 
 /*设置每个section含有的cell个数*/
 unsigned int SecondViewController::numberOfRowsInSection(CATableView *table, unsigned int section)
 {
-    return 1;
+    int num=0;
+    switch (section) {
+        case 0:
+            num = m_vMyGroups.size();
+            break;
+        case 1:
+            num = m_vMyFriends.size();
+            break;
+        case 2:
+            num = 1;
+            break;
+        default:
+            break;
+    }
+    return num;
 }
 
 /*设置含有几个section*/
@@ -231,5 +270,5 @@ unsigned int SecondViewController::tableViewHeightForRowAtIndexPath(CATableView*
 
 unsigned int SecondViewController::tableViewHeightForHeaderInSection(CATableView* table, unsigned int section)
 {
-    return _px(5);
+    return _px(130);
 }
