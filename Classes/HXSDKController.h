@@ -54,6 +54,7 @@ public:
 	/*获取已加入的群*/
 	std::vector<HXSDKGroup*> getMyGroupList();
 
+    std::string getMyName();
 
 
 

@@ -14,6 +14,7 @@
 #include "IMSetting.h"
 #include "data/TableLanguage.h"
 #include "table/TableLanguagesfontnewHeader.h"
+#include "HXSDKController.h"
 
 //构造函数
 IMMyController::IMMyController() :cell(NULL), m_pTableView(NULL), user(NULL), phead(NULL), pname(NULL), pcontent(NULL)
@@ -147,7 +148,8 @@ CATableViewCell* IMMyController::initViewOfMe(const CCSize& cellsize)
 		pcontent->setColor(CAColor_gray);
 		pcontent->setTextAlignment(CATextAlignmentLeft);
 		pcontent->setVerticalTextAlignmet(CAVerticalTextAlignmentTop);
-		pcontent->setFontSize(_px(30));
+        pcontent->setFontSize(_px(30));
+        pcontent->setText("test data");
 		pcontent->setTag(302);
 		cell->addSubview(pcontent);
 		
@@ -157,7 +159,8 @@ CATableViewCell* IMMyController::initViewOfMe(const CCSize& cellsize)
 	p_head->setImage(CAImage::create(user->photo));
 
 	CALabel *p_name = (CALabel*)cell->getSubviewByTag(301);
-	p_name->setText(user->nickname);
+    //p_name->setText(user->nickname);
+    p_name->setText(HXSDKController::getInstance()->getMyName());
 
 	CALabel *p_content = (CALabel*)cell->getSubviewByTag(302);
 	p_content->setText(user->signature);

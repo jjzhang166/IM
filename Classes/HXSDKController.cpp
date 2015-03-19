@@ -332,6 +332,11 @@ bool HXSDKController::isRegister()
 	return m_bIsRegister;
 }
 
+std::string HXSDKController::getMyName()
+{
+    return m_sUserName;
+}
+
 /****************************************Data******************************************/
 void HXSDKController::cleanFriendsLise()
 {
