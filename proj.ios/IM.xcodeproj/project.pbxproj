@@ -43,6 +43,8 @@
 		3E280E0D1A64C5DE00233D5B /* EaseMob.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3E280E0B1A64C5DE00233D5B /* EaseMob.bundle */; };
 		3E280E1E1A652E7C00233D5B /* HXSDKController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E280E1C1A652E7C00233D5B /* HXSDKController.cpp */; };
 		3E280E221A652EB400233D5B /* HXSDKControllerIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3E280E211A652EB400233D5B /* HXSDKControllerIOS.mm */; };
+		3E32B7F31ABA7BE1003A0179 /* ChatViewCell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E32B7EF1ABA7BE1003A0179 /* ChatViewCell.cpp */; };
+		3E32B7F41ABA7BE1003A0179 /* IMChatController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E32B7F11ABA7BE1003A0179 /* IMChatController.cpp */; };
 		3E365D7D1A63C0AF0073F2AF /* IMResources in Resources */ = {isa = PBXBuildFile; fileRef = 3E365D7C1A63C0AF0073F2AF /* IMResources */; };
 		3E38EBCB1A5FB2DE0096A595 /* SecondViewController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E38EBC71A5FB2DE0096A595 /* SecondViewController.cpp */; };
 		3E38EBCC1A5FB2DE0096A595 /* ThirdViewController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E38EBC91A5FB2DE0096A595 /* ThirdViewController.cpp */; };
@@ -341,6 +343,10 @@
 		3E280E1D1A652E7C00233D5B /* HXSDKController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HXSDKController.h; path = ../Classes/HXSDKController.h; sourceTree = "<group>"; };
 		3E280E201A652EB400233D5B /* HXSDKControllerIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXSDKControllerIOS.h; sourceTree = "<group>"; };
 		3E280E211A652EB400233D5B /* HXSDKControllerIOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HXSDKControllerIOS.mm; sourceTree = "<group>"; };
+		3E32B7EF1ABA7BE1003A0179 /* ChatViewCell.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChatViewCell.cpp; sourceTree = "<group>"; };
+		3E32B7F01ABA7BE1003A0179 /* ChatViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewCell.h; sourceTree = "<group>"; };
+		3E32B7F11ABA7BE1003A0179 /* IMChatController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMChatController.cpp; sourceTree = "<group>"; };
+		3E32B7F21ABA7BE1003A0179 /* IMChatController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMChatController.h; sourceTree = "<group>"; };
 		3E365D7C1A63C0AF0073F2AF /* IMResources */ = {isa = PBXFileReference; lastKnownFileType = folder; name = IMResources; path = ../Resources/IMResources; sourceTree = "<group>"; };
 		3E38EBC51A5F85970096A595 /* IMDATA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMDATA.h; path = ../Classes/IMDATA.h; sourceTree = "<group>"; };
 		3E38EBC71A5FB2DE0096A595 /* SecondViewController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SecondViewController.cpp; path = ../Classes/SecondViewController.cpp; sourceTree = "<group>"; };
@@ -566,6 +572,7 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3E32B7EE1ABA7BE1003A0179 /* chat */,
 				3EC2699E1AB8178600C9ADC1 /* IMUserManager.cpp */,
 				3EC2699F1AB8178600C9ADC1 /* IMUserManager.h */,
 				3E08F6AF1AB67145003F9192 /* LocalStorageUserData.cpp */,
@@ -1140,6 +1147,18 @@
 			path = ../Classes/ios;
 			sourceTree = "<group>";
 		};
+		3E32B7EE1ABA7BE1003A0179 /* chat */ = {
+			isa = PBXGroup;
+			children = (
+				3E32B7EF1ABA7BE1003A0179 /* ChatViewCell.cpp */,
+				3E32B7F01ABA7BE1003A0179 /* ChatViewCell.h */,
+				3E32B7F11ABA7BE1003A0179 /* IMChatController.cpp */,
+				3E32B7F21ABA7BE1003A0179 /* IMChatController.h */,
+			);
+			name = chat;
+			path = ../Classes/chat;
+			sourceTree = "<group>";
+		};
 		75D2E5731A6CA6AF0089CE98 /* groupview */ = {
 			isa = PBXGroup;
 			children = (
@@ -1430,11 +1449,13 @@
 				3E38EBCC1A5FB2DE0096A595 /* ThirdViewController.cpp in Sources */,
 				3E655F881A80720900832CBD /* IMSetting.cpp in Sources */,
 				B04822C019FA41F70019F1A7 /* CADevice.mm in Sources */,
+				3E32B7F41ABA7BE1003A0179 /* IMChatController.cpp in Sources */,
 				15A3DAEF1682F8A6002FB0C5 /* SimpleAudioEngine_objc.m in Sources */,
 				B00CC6051978B5CE00A62E4C /* RootWindow.cpp in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
 				3E280E1E1A652E7C00233D5B /* HXSDKController.cpp in Sources */,
 				758BDF151A7637A300E07F9B /* HXSDKHelper.m in Sources */,
+				3E32B7F31ABA7BE1003A0179 /* ChatViewCell.cpp in Sources */,
 				1AC3624916D4A1E8000847F2 /* AppController.mm in Sources */,
 				1AC3624B16D4A1E8000847F2 /* main.m in Sources */,
 				3E1657601A660C5500D832E9 /* IMLoginRegister.cpp in Sources */,

@@ -207,7 +207,7 @@ std::vector<HXSDKGroup*> HXSDKController::getMyGroupList()
 void HXSDKController::joinNoNeedCheckGroup(const char* groupId)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-	//
+    HXSDKControllerIOS::joinNoNeedCheckGroup_ios(groupId);
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 	com_CrossApp_IM_IM::joinNoNeedCheckGroup_android(groupId);
 #endif
@@ -408,13 +408,19 @@ void HXSDKController::postNotification_isLogin(bool isLogin)
 {
 	m_bIsLogin = isLogin;
 	CANotificationCenter::sharedNotificationCenter()->postNotification(KNOTIFICATION_LOGIN, (CAObject*)isLogin);
-    RootWindow::getInstance()->init_ViewController();
+    if(m_bIsLogin)
+    {
+        RootWindow::getInstance()->init_ViewController();
+    }
 }
 
 void HXSDKController::postNotification_isLogOut(bool isLogout)
 {
 	m_bIsLogin = !isLogout;
+    localStorageUserDataSetItem("userName", "");
+    localStorageUserDataSetItem("userPassword", "");
 	CANotificationCenter::sharedNotificationCenter()->postNotification(KNOTIFICATION_LOGOUT, (CAObject*)isLogout);
+    RootWindow::getInstance()->init_LoginController();
 }
 
 void HXSDKController::postNotification_sendMessageResult(bool success)

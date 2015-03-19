@@ -17,17 +17,6 @@ USING_NS_CC;
 
 struct GroupInfo
 {
-//    GroupInfo(CAImage* img, std::string topic,std::string introduce,std::string owner,std::string limit,int otal, bool isON=false)
-//    {
-//        m_pFaceImg = img;
-//        m_sTopic = topic;
-//        m_sIntroduce = introduce;
-//        m_sOwner = owner;
-//        m_sLimit = limit;
-//        m_itotal = otal;
-//        m_bIsNotice = isON;
-//    }
-
     std::string     m_sGroupID; // 群ID
     CAImage *       m_pFaceImg; // 群照片
     std::string     m_sTopic; // 主题
@@ -58,6 +47,7 @@ protected:
     public :
     void onButtonBack(CAControl *pTarget, CCPoint point); // 返回按钮
     void onSwitchChanged(CAControl *target,CCPoint point); // 消息提醒开关
+    void onButtonJoin(CAControl* target, CCPoint point); //加入群
     void onButtonExit(CAControl* target,CCPoint point);
 protected:
     GroupInfo m_info;

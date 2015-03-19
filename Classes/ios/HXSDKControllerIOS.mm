@@ -121,6 +121,8 @@ bool HXSDKControllerIOS::RegisterAccount_ios(const char* name, const char* passW
 void HXSDKControllerIOS::Logout_ios()
 {
     [easeMob.chatManager asyncLogoff];
+    HXSDKController::getInstance()->postNotification_isLogOut(true);
+    CCLog("LogOut is success !!!");
 }
 
 void HXSDKControllerIOS::sendMessage_ios(const char* messageText, const char* toUserName)

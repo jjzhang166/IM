@@ -14,7 +14,7 @@
 #include "table/TableLanguagesfontnewHeader.h"
 #include "data/TableLanguage.h"
 #include "IMTableCell.h"
-#include "chat\IMChatController.h"
+#include "chat/IMChatController.h"
 
 using namespace CrossApp;
 

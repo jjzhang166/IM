@@ -1,7 +1,7 @@
 ﻿
 #include "IMChatController.h"
 
-#include "chat/ChatViewCell.h"
+#include "ChatViewCell.h"
 
 #define CAColor_blueStyle ccc4(51,204,255,255)
 static IMChatController* m_vController = NULL;
