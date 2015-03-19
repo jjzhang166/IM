@@ -1,4 +1,4 @@
-//
+﻿//
 //  LocalStorageUserData.h
 //  BabyGenius
 //

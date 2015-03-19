@@ -1,4 +1,4 @@
-//
+﻿//
 //  SecondViewController.cpp
 //  IM
 //
@@ -14,7 +14,7 @@
 #include "table/TableLanguagesfontnewHeader.h"
 #include "data/TableLanguage.h"
 #include "IMTableCell.h"
-
+#include "chat\IMChatController.h"
 
 using namespace CrossApp;
 
@@ -149,6 +149,13 @@ bool SecondViewController::onTextFieldDeleteBackward(CATextField * sender, const
 #pragma mark CATableViewDelegate
 void SecondViewController::tableViewDidSelectRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row)
 {
+	//chinahypo 2015-3-18 测试
+	if (section = 2)
+	{
+		IMChatController *pController = IMChatController::create("Test");
+		RootWindow::getInstance()->getNavigationController()->pushViewController(pController,true);
+	}
+
     //    //cell点击处理事件
     //    if (section == 0){
     //        IMMyInfo *pIMMyInfo = IMMyInfo::create();

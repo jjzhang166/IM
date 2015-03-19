@@ -61,6 +61,8 @@ private:
 	CAImageView *pchoose;
 	CAButton *pbutton1;
 	CAButton *pbutton2;
+	CAImageView *pimage1;
+	CAImageView *pimage2;
 };
 
 #endif /*defined(__IM_SETINFORMATION_H__)*/

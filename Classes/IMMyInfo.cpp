@@ -365,7 +365,7 @@ void IMMyInfo::onStartBtnClickBack()
 	
 	//上传数据到服务器成功后保存数据到本地
 	User user;
-	user.init("100", m_pUserName->getText(), "Man", photoname, m_pUserSignature->getText(), online);
+	user.init("100", m_pUserName->getText(), m_pUserSex->getText(), photoname, m_pUserSignature->getText(), online);
 	IMUserManager::Instance()->userLogin(user);
 	this->getNavigationController()->popViewControllerAnimated(true);
 }
