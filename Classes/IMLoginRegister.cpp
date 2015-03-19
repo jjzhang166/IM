@@ -59,7 +59,7 @@ bool IMLoginRegister::init(UserAction action)
         }
 
 		m_pNavigationBarItem->setShowGoBackButton(false);
-		m_pNavigationBarItem->addLeftButtonItem(m_pButtonCancl);
+		//m_pNavigationBarItem->addLeftButtonItem(m_pButtonCancl);
 		setNavigationBarItem(m_pNavigationBarItem);
 		return true;
 	}
@@ -265,11 +265,11 @@ void IMLoginRegister::onRegisterSuccess(CAObject* obj)
 	bool isregistersuccess = (bool)obj;
 	if (isregistersuccess){
 		//注册成功，跳转到主界面
-		this->getNavigationController()->popToRootViewControllerAnimated(true);
+        this->getNavigationController()->popToRootViewControllerAnimated(true);
+        CCLog("register success!!!");
 	}
 	else{
-		
-		CCLog("register success");
+        CCLog("register failed...");
 	}
 }
 //Õ¸º«√‹¬Î

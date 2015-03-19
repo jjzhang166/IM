@@ -97,7 +97,8 @@ bool HXSDKControllerIOS::RegisterAccount_ios(const char* name, const char* passW
      ^(NSString *username, NSString *password, EMError *error) {
          
          if (!error) {
-             CCLog("注册成功,请登录");
+             HXSDKController::getInstance()->postNotification_isRegister(true);
+             HXSDKController::getInstance()->Login(name, passWord);
          }else{
              switch (error.errorCode) {
                  case EMErrorServerNotReachable:
