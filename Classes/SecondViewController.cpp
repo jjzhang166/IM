@@ -84,9 +84,15 @@ void SecondViewController::init_searchResultTable()
 void SecondViewController::viewDidAppear()
 {
     this->getTabBarController()->setNavigationBarItem(m_pNavigationBarItem);
+    m_sKeyWord = m_pSearchTextField->getText();
     
-    m_vMyFriends = HXSDKController::getInstance()->getFriendsList();
-    m_vMyGroups = HXSDKController::getInstance()->getMyGroupList();
+    if (m_sKeyWord == "") {
+        m_vMyFriends = HXSDKController::getInstance()->getFriendsList();
+        m_vMyGroups = HXSDKController::getInstance()->getMyGroupList();
+    }else{
+        getMyFriendsWithKeyWords(m_sKeyWord.c_str());
+        getMyGroupsWithKeyWords(m_sKeyWord.c_str());
+    }
     
     m_pTableView->reloadData();
 }
@@ -107,8 +113,6 @@ void SecondViewController::onButtonAdd(CAControl* control, CCPoint point)
 /*通过关键字搜索好友列表*/
 void SecondViewController:: getMyFriendsWithKeyWords(const char *keywords)
 {
-    
-    m_vMyGroupsWithKeyWords.clear();
     m_vMyFriendsWithKeyWords.clear();
     
     for (int i = 0; i<m_vMyFriends.size(); i++) {
@@ -120,6 +124,11 @@ void SecondViewController:: getMyFriendsWithKeyWords(const char *keywords)
         }
        
     }
+}
+
+void SecondViewController::getMyGroupsWithKeyWords(const char *keywords)
+{
+    m_vMyGroupsWithKeyWords.clear();
     for (int i = 0; i<m_vMyGroups.size(); i++) {
         std::string subject = m_vMyGroups.at(i)->m_sGroupSubject;
         string::size_type idx = subject.find(keywords);
@@ -129,8 +138,7 @@ void SecondViewController:: getMyFriendsWithKeyWords(const char *keywords)
         }
         
     }
-    
-    m_pTableView->reloadData()  ;
+
 }
 
 #pragma mark TextFieldDelegate
@@ -148,6 +156,8 @@ bool SecondViewController::onTextFieldDetachWithIME(CATextField * sender)
 
     m_sKeyWord = m_pSearchTextField->getText();
     getMyFriendsWithKeyWords(m_sKeyWord.c_str());
+    getMyGroupsWithKeyWords(m_sKeyWord.c_str());
+    m_pTableView->reloadData();
     
     return false;
 }
