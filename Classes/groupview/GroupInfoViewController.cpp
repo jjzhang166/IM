@@ -239,5 +239,5 @@ void GroupInfoViewController:: onButtonJoin(CAControl* target, CCPoint point)
 // 退群按钮
 void GroupInfoViewController:: onButtonExit(CAControl* target, CCPoint point)
 {
-    HXSDKController::getInstance()->Login("lhjtest", "123aa123");
+    
 }

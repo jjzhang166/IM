@@ -60,6 +60,7 @@ public:
 
     CATableView* p_TableView;
     
+    
 protected:
     CANavigationBarItem* m_pNavigationBarItem;
     
@@ -76,6 +77,19 @@ protected:
     std::vector<HXSDKBuddy*> m_vMyFriends;
     
     std::vector<HXSDKGroup*> m_vMyGroups;
+    
+    /*搜索关键字*/
+    std::string m_sKeyWord;
+    /*带有搜索关键字的好友*/
+    std::vector<HXSDKBuddy*> m_vMyFriendsWithKeyWords;
+    /*带有搜索关键字的群组*/
+    std::vector<HXSDKGroup*> m_vMyGroupsWithKeyWords;
+    
+    void cleanMyFriendsListWithKeyWords();
+    void getMyFriendsWithKeyWords(const char * keywords);
+ 
+    void cleanMyGroupListWithKeyWords();
+    void getMyGroupsWithKeyWords(const char* keywords);
 };
 
 

@@ -77,19 +77,18 @@ void SecondViewController::init_searchResultTable()
     m_pTableView->setTableViewDataSource(this);
     m_pTableView->setTableViewDelegate(this);
     m_pTableView->setAllowsSelection(true);
-    m_pTableView->setVisible(false);
-    this->getView()->addSubview(m_pTableView);
 
+    this->getView()->addSubview(m_pTableView);
 }
 
 void SecondViewController::viewDidAppear()
 {
     this->getTabBarController()->setNavigationBarItem(m_pNavigationBarItem);
     
-//    m_vMyFriends = HXSDKController::getInstance()->getFriendsList();
-//    m_vMyGroups = HXSDKController::getInstance()->getMyGroupList();
-//
-//    m_pTableView->reloadData();
+    m_vMyFriends = HXSDKController::getInstance()->getFriendsList();
+    m_vMyGroups = HXSDKController::getInstance()->getMyGroupList();
+    
+    m_pTableView->reloadData();
 }
 
 void SecondViewController::viewDidUnload()
@@ -104,6 +103,47 @@ void SecondViewController::onButtonAdd(CAControl* control, CCPoint point)
     
 }
 
+void SecondViewController::cleanMyFriendsListWithKeyWords()
+{
+    std::vector<HXSDKBuddy*>::iterator itr = m_vMyFriendsWithKeyWords.begin();
+    for (; itr != m_vMyFriendsWithKeyWords.end(); ++itr)
+    {
+        CC_SAFE_DELETE(*itr);
+    }
+    m_vMyFriendsWithKeyWords.clear();
+}
+
+void SecondViewController::cleanMyGroupListWithKeyWords()
+{
+    std::vector<HXSDKGroup*>::iterator itr = m_vMyGroupsWithKeyWords.begin();
+    for (; itr !=m_vMyGroupsWithKeyWords.end(); ++itr) {
+        CC_SAFE_DELETE(*itr);
+    }
+    
+    m_vMyGroupsWithKeyWords.clear();
+
+}
+
+/*通过关键字搜索好友列表*/
+void SecondViewController:: getMyFriendsWithKeyWords(const char *keywords)
+{
+    
+    cleanMyGroupListWithKeyWords();
+    cleanMyFriendsListWithKeyWords();
+ 
+    for (int i = 0; i<m_vMyFriends.size(); i++) {
+        std::string name = m_vMyFriends.at(i)->m_sUserName;
+        string::size_type idx = name.find(keywords);
+        if ( idx != string::npos )
+        {
+            m_vMyFriendsWithKeyWords.push_back(m_vMyFriends.at(i));
+        }
+       
+    }
+    
+    
+    m_pTableView->reloadData()  ;
+}
 
 #pragma mark TextFieldDelegate
 
@@ -116,9 +156,11 @@ bool SecondViewController::onTextFieldAttachWithIME(CATextField * sender)
 
 bool SecondViewController::onTextFieldDetachWithIME(CATextField * sender)
 {
+    CC_UNUSED_PARAM(sender);
 
+    m_sKeyWord = m_pSearchTextField->getText();
+    getMyFriendsWithKeyWords(m_sKeyWord.c_str());
     
-    m_pTableView->setVisible(true);
     return false;
 }
 
@@ -185,17 +227,32 @@ CATableViewCell* SecondViewController::tableCellAtIndex(CATableView* table, cons
     switch (section) {
         case 0:
         {
-            ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), m_vMyGroups.at(row)->m_sGroupSubject);
+            if (m_sKeyWord == "") {
+                ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), m_vMyGroups.at(row)->m_sGroupSubject);
+            }
+            else{
+                ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), m_vMyGroupsWithKeyWords.at(row)
+                                                  ->m_sGroupSubject);
+            }
             break;
         }
         case 1:
         {
-            ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), m_vMyFriends.at(row)->m_sUserName);
+            if (m_sKeyWord == "") {
+                ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), m_vMyFriends.at(row)->m_sUserName);
+            }
+            else{
+                ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), m_vMyFriendsWithKeyWords.at(row)
+                                                  ->m_sUserName);
+            }
+            
             break;
         }
         case 2:
         {
+
             ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), "test");
+            
             break;
         }
         default:
@@ -241,10 +298,19 @@ unsigned int SecondViewController::numberOfRowsInSection(CATableView *table, uns
     int num=0;
     switch (section) {
         case 0:
-            num = m_vMyGroups.size();
+            if (m_sKeyWord == "") {
+                 num = m_vMyGroups.size();
+            } else{
+                 num = m_vMyGroupsWithKeyWords.size();
+            }
+           
             break;
         case 1:
-            num = m_vMyFriends.size();
+            if (m_sKeyWord == "") {
+                num = m_vMyFriends.size();
+            } else{
+                num = m_vMyFriendsWithKeyWords.size();
+            }
             break;
         case 2:
             num = 1;
