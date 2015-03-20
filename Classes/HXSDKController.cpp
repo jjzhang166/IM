@@ -74,6 +74,7 @@ void HXSDKController::LoginBefore(CrossApp::CAObject *target, SEL_CallFuncO sele
 
 void HXSDKController::Login(const char* name, const char* passWord)
 {
+    CCLog("login user is: %s --- %s", name, passWord);
 	m_sUserName = name;
     m_sUserPassword = passWord;
     if(DEBUG_SQLITE3)
@@ -90,9 +91,9 @@ void HXSDKController::Login(const char* name, const char* passWord)
 
 void HXSDKController::autoLogin()
 {
-    std::string name=localStorageUserDataGetItem("userName");
-    std::string password=localStorageUserDataGetItem("userPassword");
-    Login(name.c_str(), password.c_str());
+    std::string sName = (char*)localStorageUserDataGetItem("userName");
+    std::string sPassword = (char*)localStorageUserDataGetItem("userPassword");
+    Login(sName.c_str(), sPassword.c_str());
 }
 
 void HXSDKController::RegisterAccount(const char* name, const char* passWord)
