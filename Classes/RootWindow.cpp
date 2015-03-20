@@ -50,7 +50,7 @@ bool RootWindow::init()
         return false;
     }
     
-//    HXSDKController::getInstance()->autoLogin();
+    HXSDKController::getInstance()->autoLogin();
     if(!HXSDKController::getInstance()->isLogin())
     {
         init_LoginController();

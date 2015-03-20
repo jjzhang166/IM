@@ -77,6 +77,7 @@ void SecondViewController::init_searchResultTable()
     m_pTableView->setTableViewDataSource(this);
     m_pTableView->setTableViewDelegate(this);
     m_pTableView->setAllowsSelection(true);
+    m_pTableView->setVisible(false);
     this->getView()->addSubview(m_pTableView);
 
 }
@@ -109,14 +110,15 @@ void SecondViewController::onButtonAdd(CAControl* control, CCPoint point)
 bool SecondViewController::onTextFieldAttachWithIME(CATextField * sender)
 {
     CC_UNUSED_PARAM(sender);
-    
+
     return false;
 }
 
 bool SecondViewController::onTextFieldDetachWithIME(CATextField * sender)
 {
-    CC_UNUSED_PARAM(sender);
+
     
+    m_pTableView->setVisible(true);
     return false;
 }
 
@@ -125,7 +127,7 @@ bool SecondViewController::onTextFieldInsertText(CATextField * sender, const cha
     CC_UNUSED_PARAM(sender);
     CC_UNUSED_PARAM(text);
     CC_UNUSED_PARAM(nLen);
-    
+
     return false;
 }
 
@@ -134,7 +136,7 @@ bool SecondViewController::onTextFieldDeleteBackward(CATextField * sender, const
     CC_UNUSED_PARAM(sender);
     CC_UNUSED_PARAM(delText);
     CC_UNUSED_PARAM(nLen);
-    
+
     return false;
 }
 
