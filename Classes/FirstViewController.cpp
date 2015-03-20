@@ -93,7 +93,8 @@ void FirstViewController::viewDidLoad()
 void FirstViewController::viewDidAppear()
 {
     this->getTabBarController()->setNavigationBarItem(m_pNavigationBarItem);
-    refreshTableView();
+    if(HXSDKController::getInstance()->isLogin())
+        refreshTableView();
 }
 
 void FirstViewController::viewDidUnload()

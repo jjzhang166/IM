@@ -74,6 +74,7 @@ void HXSDKController::LoginBefore(CrossApp::CAObject *target, SEL_CallFuncO sele
 
 void HXSDKController::Login(const char* name, const char* passWord)
 {
+    CCLog("login user is: %s --- %s", name, passWord);
 	m_sUserName = name;
     m_sUserPassword = passWord;
     if(DEBUG_SQLITE3)
