@@ -17,20 +17,22 @@
 
 
 GroupInfoViewController::GroupInfoViewController()
-{};
+{
+    
+}
 
 GroupInfoViewController::~GroupInfoViewController()
-{};
-
+{
+    
+}
 
 GroupInfoViewController* GroupInfoViewController::create(GroupInfo info,bool joined)
 {
     GroupInfoViewController* controller = new GroupInfoViewController();
     controller->init(info,joined);
-    
     controller->autorelease();
     return controller;
-};
+}
 
 bool GroupInfoViewController::init(GroupInfo info,bool joined)
 {
@@ -46,11 +48,8 @@ bool GroupInfoViewController::init(GroupInfo info,bool joined)
         setNavigationBarItem(navigation);
         return true;
     }
-    
     return false;
-    
-};
-
+}
 
 void GroupInfoViewController::viewDidLoad()
 {
@@ -62,7 +61,6 @@ void GroupInfoViewController::viewDidLoad()
     scrollView->setTouchMovedListenHorizontal(false);
 	scrollView->setShowsHorizontalScrollIndicator(false);
 
-
     CAView* _headView = CAView::createWithFrame(CCRect(0, 0, winRect.size.width, 562), CAColor_white);
     CCRect _headCC = _headView->getBounds() ;
     m_imgViewHead = CAImageView::createWithCenter(CCRect(_headCC.size.width/2, 166, 150, 150));
@@ -73,8 +71,6 @@ void GroupInfoViewController::viewDidLoad()
 //    _headCover->setImage(CAImage::create(HEADBEFORE));
 //    _headView->insertSubview(_headCover, 1);
     AddHeadForgrand::getInstance()->addHeadForgrand(m_imgViewHead);
-    
-    
     
     CAView* _lineView = CAView::createWithFrame(CCRect(_px(40), 336, winRect.size.width-_px(80), _px(1)), ccc4(200, 200, 200, 255));
     _headView->addSubview(_lineView);
@@ -194,13 +190,16 @@ void GroupInfoViewController::viewDidLoad()
 
     
     m_ExitButton = CAButton::createWithFrame(CCRect(_px(40), 1572, winRect.size.width-_px(80), 110), CAButtonTypeRoundedRect);
-       if (m_joined) {
+    if(m_joined)
+    {
         m_ExitButton->setTitleForState(CAControlStateAll, TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_41).c_str());
         CAImage * btnBG = CAImage::create(BUTTON_EXIT_GROUP );
         CAImageView * imgView = CAImageView::create();
         imgView->setImage(btnBG);
         m_ExitButton->setBackGroundViewForState(CAControlStateAll,imgView);
-    } else{
+    }
+    else
+    {
         m_ExitButton->setTitleForState(CAControlStateAll, TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_25).c_str());
         CAImage * btnBG = CAImage::create(BUTTON_JOIN_GROUP );
         CAImageView * imgView = CAImageView::create();
@@ -208,31 +207,40 @@ void GroupInfoViewController::viewDidLoad()
         m_ExitButton->setBackGroundViewForState(CAControlStateAll,imgView);
     }
     m_ExitButton->setTitleColorForState(CAControlStateAll, CAColor_white);
-    m_ExitButton->addTarget(this, CAControl_selector(GroupInfoViewController::onButtonExit), CAControlTouchUpInSide);
+    m_ExitButton->addTarget(this, CAControl_selector(GroupInfoViewController::onButtonJoin), CAControlTouchUpInSide);
     
     scrollView->addSubview(m_ExitButton);
 
     scrollView->setViewSize(CCSize(winRect.size.width,1737));
     this->getView()->addSubview(scrollView);
-};
+}
 
 void GroupInfoViewController::viewDidUnLoad()
-{};
+{
+
+}
 
 // 返回按钮
 void GroupInfoViewController:: onButtonBack(CAControl* target, CCPoint point)
 {
     RootWindow::getInstance()->getNavigationController()->popViewControllerAnimated(this);
     
-};
+}
+
 // 消息提醒
 void GroupInfoViewController:: onSwitchChanged(CAControl* target, CCPoint point)
 {
-};
+    
+}
+
+// 加入群按钮
+void GroupInfoViewController:: onButtonJoin(CAControl* target, CCPoint point)
+{
+    HXSDKController::getInstance()->joinNoNeedCheckGroup( m_info.m_sGroupID.c_str());
+}
+
 // 退群按钮
 void GroupInfoViewController:: onButtonExit(CAControl* target, CCPoint point)
 {
     HXSDKController::getInstance()->Login("lhjtest", "123aa123");
-
-
-};
+}

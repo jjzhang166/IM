@@ -15,6 +15,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 ../../Classes/HXSDKBuddy.cpp \
 ../../Classes/groupview/GroupInfoViewController.cpp \
 ../../Classes/AddHeadForgrand.cpp \
+../../Classes/AddFriendView.cpp \
 ../../Classes/IMLoginRegister.cpp \
 ../../Classes/IMMyInfo.cpp \
 ../../Classes/IMMyController.cpp \
@@ -22,7 +23,10 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 ../../Classes/IMTableCell.cpp \
 ../../Classes/IMSettingClassify.cpp \
 ../../Classes/IMSetting.cpp \
-../../Classes/android/com_CrossApp_IM_IM.cpp
+../../Classes/android/com_CrossApp_IM_IM.cpp \
+../../Classes/data/TableBase.cpp \
+../../Classes/data/TableLanguage.cpp \
+../../Classes/LocalStorageUserDataAndroid.cpp
 
 #define all-cpp-files
 #$(patsubst jni/%,%, $(shell find $(LOCAL_PATH)/../../Classes/ $(LOCAL_PATH) -name #"*.cpp"))  

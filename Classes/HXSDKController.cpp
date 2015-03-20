@@ -8,6 +8,8 @@
 
 #include "HXSDKController.h"
 #include "IMDATA.h"
+#include "LocalStorageUserData.h"
+#include "RootWindow.h"
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #import "HXSDKControllerIOS.h"
@@ -57,7 +59,6 @@ bool HXSDKController::initSDK()
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	return (HXSDKControllerIOS::init_ios());
 
-
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 	com_CrossApp_IM_IM::init_android();
 	return true;
@@ -74,13 +75,24 @@ void HXSDKController::LoginBefore(CrossApp::CAObject *target, SEL_CallFuncO sele
 void HXSDKController::Login(const char* name, const char* passWord)
 {
 	m_sUserName = name;
-	m_sUserPassword = passWord;
+    m_sUserPassword = passWord;
+    if(DEBUG_SQLITE3)
+    {
+        localStorageUserDataSetItem("userName", name);
+        localStorageUserDataSetItem("userPassword", passWord);
+    }
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	HXSDKControllerIOS::Login_ios(name, passWord);
-
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 	com_CrossApp_IM_IM::login_android(name, passWord);
 #endif
+}
+
+void HXSDKController::autoLogin()
+{
+    std::string name=localStorageUserDataGetItem("userName");
+    std::string password=localStorageUserDataGetItem("userPassword");
+    Login(name.c_str(), password.c_str());
 }
 
 void HXSDKController::RegisterAccount(const char* name, const char* passWord)
@@ -195,7 +207,7 @@ std::vector<HXSDKGroup*> HXSDKController::getMyGroupList()
 void HXSDKController::joinNoNeedCheckGroup(const char* groupId)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-	//
+    HXSDKControllerIOS::joinNoNeedCheckGroup_ios(groupId);
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 	com_CrossApp_IM_IM::joinNoNeedCheckGroup_android(groupId);
 #endif
@@ -320,6 +332,11 @@ bool HXSDKController::isRegister()
 	return m_bIsRegister;
 }
 
+std::string HXSDKController::getMyName()
+{
+    return m_sUserName;
+}
+
 /****************************************Data******************************************/
 void HXSDKController::cleanFriendsLise()
 {
@@ -328,6 +345,7 @@ void HXSDKController::cleanFriendsLise()
 	{
 		CC_SAFE_DELETE(*itr);
 	}
+    m_vFriendList.clear();
 }
 
 void HXSDKController::pushFriendsDetail(std::string userName, HXSDKBuddyFollowState eHXSDKEMBuddyFollowState, bool isPendingApproval)
@@ -347,6 +365,7 @@ void HXSDKController::cleanGroupList()
 	{
 		CC_SAFE_DELETE(*itr);
 	}
+    m_vPublicGroupList.clear();
 }
 
 void HXSDKController::pushGroupsDetail(std::string groupID, std::string groupSub, std::string groupDes, int groupOccupantsCount, std::string ower, int groupStyle, bool isNotificationEnable)
@@ -370,6 +389,7 @@ void HXSDKController::cleanMyGroupList()
 	{
 		CC_SAFE_DELETE(*itr);
 	}
+    m_vMyGroupList.clear();
 }
 
 void HXSDKController::pushMyGroupsDetail(std::string groupID, std::string groupSub, std::string groupDes, int groupOccupantsCount)
@@ -393,12 +413,19 @@ void HXSDKController::postNotification_isLogin(bool isLogin)
 {
 	m_bIsLogin = isLogin;
 	CANotificationCenter::sharedNotificationCenter()->postNotification(KNOTIFICATION_LOGIN, (CAObject*)isLogin);
+    if(m_bIsLogin)
+    {
+        RootWindow::getInstance()->init_ViewController();
+    }
 }
 
 void HXSDKController::postNotification_isLogOut(bool isLogout)
 {
 	m_bIsLogin = !isLogout;
+    localStorageUserDataSetItem("userName", "");
+    localStorageUserDataSetItem("userPassword", "");
 	CANotificationCenter::sharedNotificationCenter()->postNotification(KNOTIFICATION_LOGOUT, (CAObject*)isLogout);
+    RootWindow::getInstance()->init_LoginController();
 }
 
 void HXSDKController::postNotification_sendMessageResult(bool success)

@@ -30,6 +30,8 @@ public:
 	void LoginBefore(CrossApp::CAObject *target, SEL_CallFuncO selector, CrossApp::CAObject *obj);
 	/*登陆*/
 	void Login(const char* name, const char* passWord);
+    /*自动登录*/
+    void autoLogin();
 	/*注册*/
 	void RegisterAccount(const char* name, const char* passWord);
 	/*退出登陆*/
@@ -52,6 +54,7 @@ public:
 	/*获取已加入的群*/
 	std::vector<HXSDKGroup*> getMyGroupList();
 
+    std::string getMyName();
 
 
 

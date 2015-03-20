@@ -27,6 +27,8 @@
 		3E01CDBD1AA17A240087A29C /* IMJson in Resources */ = {isa = PBXBuildFile; fileRef = 3E01CDBC1AA17A240087A29C /* IMJson */; };
 		3E02C5991AB12C88007CA47D /* AddFriendView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E02C5971AB12C87007CA47D /* AddFriendView.cpp */; };
 		3E0607A31AB018C0002AB721 /* ItemInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E0607A11AB018C0002AB721 /* ItemInfo.cpp */; };
+		3E08F6B11AB67145003F9192 /* LocalStorageUserData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E08F6AF1AB67145003F9192 /* LocalStorageUserData.cpp */; };
+		3E08F6B31AB67B8E003F9192 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E08F6B21AB67B8E003F9192 /* libsqlite3.0.dylib */; };
 		3E11DA361A9033EC002E2ADA /* TableBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E11DA321A9033EC002E2ADA /* TableBase.cpp */; };
 		3E11DA371A9033EC002E2ADA /* TableLanguage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E11DA341A9033EC002E2ADA /* TableLanguage.cpp */; };
 		3E1657601A660C5500D832E9 /* IMLoginRegister.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E16575E1A660C5500D832E9 /* IMLoginRegister.cpp */; };
@@ -35,13 +37,14 @@
 		3E280D3E1A64C0AA00233D5B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E280D3D1A64C0AA00233D5B /* CFNetwork.framework */; };
 		3E280D401A64C0D400233D5B /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E280D3F1A64C0D400233D5B /* libiconv.dylib */; };
 		3E280D421A64C0E700233D5B /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E280D411A64C0E700233D5B /* libstdc++.dylib */; };
-		3E280D441A64C0EF00233D5B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E280D431A64C0EF00233D5B /* libsqlite3.dylib */; };
 		3E280D461A64C10D00233D5B /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E280D451A64C10D00233D5B /* libresolv.dylib */; };
 		3E280DA91A64C55D00233D5B /* libEaseMobClientSDKLite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E280DA61A64C54200233D5B /* libEaseMobClientSDKLite.a */; };
 		3E280E0C1A64C5DE00233D5B /* libEaseMobClientSDKLite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E280E091A64C5DE00233D5B /* libEaseMobClientSDKLite.a */; };
 		3E280E0D1A64C5DE00233D5B /* EaseMob.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3E280E0B1A64C5DE00233D5B /* EaseMob.bundle */; };
 		3E280E1E1A652E7C00233D5B /* HXSDKController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E280E1C1A652E7C00233D5B /* HXSDKController.cpp */; };
 		3E280E221A652EB400233D5B /* HXSDKControllerIOS.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3E280E211A652EB400233D5B /* HXSDKControllerIOS.mm */; };
+		3E32B7F31ABA7BE1003A0179 /* ChatViewCell.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E32B7EF1ABA7BE1003A0179 /* ChatViewCell.cpp */; };
+		3E32B7F41ABA7BE1003A0179 /* IMChatController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E32B7F11ABA7BE1003A0179 /* IMChatController.cpp */; };
 		3E365D7D1A63C0AF0073F2AF /* IMResources in Resources */ = {isa = PBXBuildFile; fileRef = 3E365D7C1A63C0AF0073F2AF /* IMResources */; };
 		3E38EBCB1A5FB2DE0096A595 /* SecondViewController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E38EBC71A5FB2DE0096A595 /* SecondViewController.cpp */; };
 		3E38EBCC1A5FB2DE0096A595 /* ThirdViewController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E38EBC91A5FB2DE0096A595 /* ThirdViewController.cpp */; };
@@ -51,6 +54,7 @@
 		3E655F8C1A80752F00832CBD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E655F8B1A80752F00832CBD /* SystemConfiguration.framework */; };
 		3E655F8E1A80753900832CBD /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E655F8D1A80753900832CBD /* MediaPlayer.framework */; };
 		3E655F911A80757100832CBD /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E655F901A80757100832CBD /* Reachability.m */; };
+		3EC269A01AB8178600C9ADC1 /* IMUserManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3EC2699E1AB8178600C9ADC1 /* IMUserManager.cpp */; };
 		758BDF151A7637A300E07F9B /* HXSDKHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 758BDF141A7637A300E07F9B /* HXSDKHelper.m */; };
 		759D26611A6F4AC300E39203 /* AddHeadForgrand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 759D265F1A6F4AC300E39203 /* AddHeadForgrand.cpp */; };
 		759D26641A6F4ADA00E39203 /* IMMyController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 759D26621A6F4ADA00E39203 /* IMMyController.cpp */; };
@@ -157,6 +161,9 @@
 		3E02C5981AB12C88007CA47D /* AddFriendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddFriendView.h; path = ../Classes/AddFriendView.h; sourceTree = "<group>"; };
 		3E0607A11AB018C0002AB721 /* ItemInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ItemInfo.cpp; path = ../Classes/ItemInfo.cpp; sourceTree = "<group>"; };
 		3E0607A21AB018C0002AB721 /* ItemInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemInfo.h; path = ../Classes/ItemInfo.h; sourceTree = "<group>"; };
+		3E08F6AF1AB67145003F9192 /* LocalStorageUserData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LocalStorageUserData.cpp; path = ../Classes/LocalStorageUserData.cpp; sourceTree = "<group>"; };
+		3E08F6B01AB67145003F9192 /* LocalStorageUserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalStorageUserData.h; path = ../Classes/LocalStorageUserData.h; sourceTree = "<group>"; };
+		3E08F6B21AB67B8E003F9192 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		3E11DA321A9033EC002E2ADA /* TableBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TableBase.cpp; sourceTree = "<group>"; };
 		3E11DA331A9033EC002E2ADA /* TableBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableBase.h; sourceTree = "<group>"; };
 		3E11DA341A9033EC002E2ADA /* TableLanguage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TableLanguage.cpp; sourceTree = "<group>"; };
@@ -336,6 +343,10 @@
 		3E280E1D1A652E7C00233D5B /* HXSDKController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HXSDKController.h; path = ../Classes/HXSDKController.h; sourceTree = "<group>"; };
 		3E280E201A652EB400233D5B /* HXSDKControllerIOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXSDKControllerIOS.h; sourceTree = "<group>"; };
 		3E280E211A652EB400233D5B /* HXSDKControllerIOS.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HXSDKControllerIOS.mm; sourceTree = "<group>"; };
+		3E32B7EF1ABA7BE1003A0179 /* ChatViewCell.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChatViewCell.cpp; sourceTree = "<group>"; };
+		3E32B7F01ABA7BE1003A0179 /* ChatViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewCell.h; sourceTree = "<group>"; };
+		3E32B7F11ABA7BE1003A0179 /* IMChatController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IMChatController.cpp; sourceTree = "<group>"; };
+		3E32B7F21ABA7BE1003A0179 /* IMChatController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMChatController.h; sourceTree = "<group>"; };
 		3E365D7C1A63C0AF0073F2AF /* IMResources */ = {isa = PBXFileReference; lastKnownFileType = folder; name = IMResources; path = ../Resources/IMResources; sourceTree = "<group>"; };
 		3E38EBC51A5F85970096A595 /* IMDATA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMDATA.h; path = ../Classes/IMDATA.h; sourceTree = "<group>"; };
 		3E38EBC71A5FB2DE0096A595 /* SecondViewController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SecondViewController.cpp; path = ../Classes/SecondViewController.cpp; sourceTree = "<group>"; };
@@ -352,6 +363,8 @@
 		3E655F8D1A80753900832CBD /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		3E655F8F1A80757100832CBD /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		3E655F901A80757100832CBD /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		3EC2699E1AB8178600C9ADC1 /* IMUserManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUserManager.cpp; path = ../Classes/IMUserManager.cpp; sourceTree = "<group>"; };
+		3EC2699F1AB8178600C9ADC1 /* IMUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUserManager.h; path = ../Classes/IMUserManager.h; sourceTree = "<group>"; };
 		758BDF131A7637A300E07F9B /* HXSDKHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXSDKHelper.h; sourceTree = "<group>"; };
 		758BDF141A7637A300E07F9B /* HXSDKHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXSDKHelper.m; sourceTree = "<group>"; };
 		759D265F1A6F4AC300E39203 /* AddHeadForgrand.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AddHeadForgrand.cpp; path = ../Classes/AddHeadForgrand.cpp; sourceTree = "<group>"; };
@@ -441,11 +454,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E08F6B31AB67B8E003F9192 /* libsqlite3.0.dylib in Frameworks */,
 				3E655F8E1A80753900832CBD /* MediaPlayer.framework in Frameworks */,
 				3E655F8C1A80752F00832CBD /* SystemConfiguration.framework in Frameworks */,
 				3E280DA91A64C55D00233D5B /* libEaseMobClientSDKLite.a in Frameworks */,
 				3E280D461A64C10D00233D5B /* libresolv.dylib in Frameworks */,
-				3E280D441A64C0EF00233D5B /* libsqlite3.dylib in Frameworks */,
 				3E280D421A64C0E700233D5B /* libstdc++.dylib in Frameworks */,
 				3E280D401A64C0D400233D5B /* libiconv.dylib in Frameworks */,
 				BF1712471292920000B8313A /* libz.dylib in Frameworks */,
@@ -559,6 +572,11 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3E32B7EE1ABA7BE1003A0179 /* chat */,
+				3EC2699E1AB8178600C9ADC1 /* IMUserManager.cpp */,
+				3EC2699F1AB8178600C9ADC1 /* IMUserManager.h */,
+				3E08F6AF1AB67145003F9192 /* LocalStorageUserData.cpp */,
+				3E08F6B01AB67145003F9192 /* LocalStorageUserData.h */,
 				3E01CDBA1AA1797F0087A29C /* table */,
 				3E11DA311A9033EC002E2ADA /* data */,
 				759D26681A6F4BCC00E39203 /* IMSetInfomation.cpp */,
@@ -633,6 +651,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3E08F6B21AB67B8E003F9192 /* libsqlite3.0.dylib */,
 				3E655F8D1A80753900832CBD /* MediaPlayer.framework */,
 				3E655F8B1A80752F00832CBD /* SystemConfiguration.framework */,
 				3E280D471A64C54200233D5B /* EaseMobSDK */,
@@ -1128,6 +1147,18 @@
 			path = ../Classes/ios;
 			sourceTree = "<group>";
 		};
+		3E32B7EE1ABA7BE1003A0179 /* chat */ = {
+			isa = PBXGroup;
+			children = (
+				3E32B7EF1ABA7BE1003A0179 /* ChatViewCell.cpp */,
+				3E32B7F01ABA7BE1003A0179 /* ChatViewCell.h */,
+				3E32B7F11ABA7BE1003A0179 /* IMChatController.cpp */,
+				3E32B7F21ABA7BE1003A0179 /* IMChatController.h */,
+			);
+			name = chat;
+			path = ../Classes/chat;
+			sourceTree = "<group>";
+		};
 		75D2E5731A6CA6AF0089CE98 /* groupview */ = {
 			isa = PBXGroup;
 			children = (
@@ -1403,6 +1434,7 @@
 				3E655F911A80757100832CBD /* Reachability.m in Sources */,
 				3E11DA371A9033EC002E2ADA /* TableLanguage.cpp in Sources */,
 				B04822BD19FA41F70019F1A7 /* CAAlbumController.mm in Sources */,
+				3EC269A01AB8178600C9ADC1 /* IMUserManager.cpp in Sources */,
 				3E655F891A80720900832CBD /* IMSettingClassify.cpp in Sources */,
 				15A3DAEB1682F8A6002FB0C5 /* CDAudioManager.m in Sources */,
 				B0AD93EA19207CA300EA40BB /* FirstViewController.cpp in Sources */,
@@ -1411,16 +1443,19 @@
 				3E655F871A80720900832CBD /* HXSDKBuddy.cpp in Sources */,
 				15A3DAED1682F8A6002FB0C5 /* CocosDenshion.m in Sources */,
 				759D266A1A6F4BCC00E39203 /* IMSetInfomation.cpp in Sources */,
+				3E08F6B11AB67145003F9192 /* LocalStorageUserData.cpp in Sources */,
 				B04822C119FA41F70019F1A7 /* CALocation.mm in Sources */,
 				15A3DAEE1682F8A6002FB0C5 /* SimpleAudioEngine.mm in Sources */,
 				3E38EBCC1A5FB2DE0096A595 /* ThirdViewController.cpp in Sources */,
 				3E655F881A80720900832CBD /* IMSetting.cpp in Sources */,
 				B04822C019FA41F70019F1A7 /* CADevice.mm in Sources */,
+				3E32B7F41ABA7BE1003A0179 /* IMChatController.cpp in Sources */,
 				15A3DAEF1682F8A6002FB0C5 /* SimpleAudioEngine_objc.m in Sources */,
 				B00CC6051978B5CE00A62E4C /* RootWindow.cpp in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
 				3E280E1E1A652E7C00233D5B /* HXSDKController.cpp in Sources */,
 				758BDF151A7637A300E07F9B /* HXSDKHelper.m in Sources */,
+				3E32B7F31ABA7BE1003A0179 /* ChatViewCell.cpp in Sources */,
 				1AC3624916D4A1E8000847F2 /* AppController.mm in Sources */,
 				1AC3624B16D4A1E8000847F2 /* main.m in Sources */,
 				3E1657601A660C5500D832E9 /* IMLoginRegister.cpp in Sources */,

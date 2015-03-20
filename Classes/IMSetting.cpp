@@ -12,6 +12,7 @@
 #include "IMSettingClassify.h"
 #include "data/TableLanguage.h"
 #include "table/TableLanguagesfontnewHeader.h"
+#include "HXSDKController.h"
 
 
 IMSetting::IMSetting() :pNagivationitem(NULL)
@@ -83,6 +84,10 @@ void IMSetting::tableViewDidSelectRowAtIndexPath(CATableView *table, unsigned in
 		IMSettingClassifySuggestion *pmessage = IMSettingClassify::getInstance()->suggestionCreate();
 		RootWindow::getInstance()->getNavigationController()->pushViewController(pmessage, true);
 	}
+    else if (section == 3 && row == 0)
+    {
+        HXSDKController::getInstance()->Logout();
+    }
 }
 void IMSetting::tableViewDidDeselectRowAtIndexPath(CATableView *table, unsigned int section, unsigned int row)
 {

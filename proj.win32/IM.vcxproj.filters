@@ -7,8 +7,14 @@
     <Filter Include="Classes">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\android">
-      <UniqueIdentifier>{d01b85f9-5d35-40e4-9a4b-adcf283330a9}</UniqueIdentifier>
+    <Filter Include="Classes\data">
+      <UniqueIdentifier>{beb29ed4-2c32-4d60-88f7-2d405605c7a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\groupview">
+      <UniqueIdentifier>{18809520-09cb-4c5a-9321-8f34e2423811}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\table">
+      <UniqueIdentifier>{d8ef2488-68eb-4bbe-9034-9f6c16f74987}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -54,8 +60,26 @@
     <ClCompile Include="..\Classes\ThirdViewController.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\android\com_CrossApp_IM_IM.cpp">
-      <Filter>Classes\android</Filter>
+    <ClCompile Include="..\Classes\LocalStorageUserData.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\data\TableBase.cpp">
+      <Filter>Classes\data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\data\TableLanguage.cpp">
+      <Filter>Classes\data</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\groupview\GroupInfoViewController.cpp">
+      <Filter>Classes\groupview</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AddFriendView.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\IMSetting.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\IMSettingClassify.cpp">
+      <Filter>Classes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -107,8 +131,29 @@
     <ClInclude Include="..\Classes\ThirdViewController.h">
       <Filter>Classes</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\android\com_CrossApp_IM_IM.h">
-      <Filter>Classes\android</Filter>
+    <ClInclude Include="..\Classes\LocalStorageUserData.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\data\TableBase.h">
+      <Filter>Classes\data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\data\TableLanguage.h">
+      <Filter>Classes\data</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\groupview\GroupInfoViewController.h">
+      <Filter>Classes\groupview</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\table\TableLanguagesfontnewHeader.h">
+      <Filter>Classes\table</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AddFriendView.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\IMSetting.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\IMSettingClassify.h">
+      <Filter>Classes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

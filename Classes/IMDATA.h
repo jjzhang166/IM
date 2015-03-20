@@ -54,7 +54,11 @@
 #define KNOTIFICATION_SENDMESSAGE_RESULT "HXSDKSendMessageResult"
 #define KNOTIFICATION_LOGINCHANGE "HXSDKLoginIn"
 #define KNOTIFICATION_MSGARRIVAL "HXMSGARRIVAL"
+#define KNOTIFICATION_BACK "HXSDKBACK"
 
+#define KNOTIFICATION_NAME "UserName"
+#define KNOTIFICATION_SEX "UserSex"
+#define KNOTIFICATION_SIGNATURE "UserSignature"
 
 /*用户登录*/
 #define IM_USER_LOGIN UTF8("USER_LOGIN")
@@ -73,4 +77,7 @@
 
 //添加好友图片
 #define FRIEND_ADD "IMResources/friendAdd.png"
+
+//Debug sqlite3
+#define DEBUG_SQLITE3 1
 #endif /* __IMDATA__ */

@@ -28,6 +28,7 @@ public:
 	void onAlbumBtnClick(CAControl* pTarget, CCPoint point);
 	void onCancelBtnClick(CAControl* pTarget, CCPoint point);
 	void onStartBtnClick(CAControl* pTarget, CCPoint point);
+	void onStartBtnClickBack();
 	void addPicChoserLayer();
 	void addRightArrow(CATableViewCell *m_pCell,const CCSize& pcellsize);
 protected:
@@ -49,7 +50,10 @@ protected:
 	CATableViewCell* initName(const CCSize& cellsize);
 	CATableViewCell* initSex(const CCSize& cellsize);
 	CATableViewCell* initSignature(const CCSize& cellsize);
-	//void 进入不同界面
+protected:
+	void getUserName(CAObject* obj); //获取用户昵称
+	void getUserSex(CAObject* obj);  //获取性别
+	void getUserSignature(CAObject* obj);  //获取签名
 
 private:
 	CANavigationBarItem *pNagivationitem;
@@ -62,6 +66,8 @@ private:
 	CALabel *m_pUserSex;
 	CALabel *m_pUserSignature;
 	CAView *m_pPicChoserLayer;
+	std::string photoname;
+	CAButton *pbutton;
 };
 
 #endif /*defined(__IM__MyInfo__)*/

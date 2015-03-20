@@ -30,7 +30,7 @@ IMLoginRegister::IMLoginRegister()
 
 IMLoginRegister::~IMLoginRegister()
 {
-	
+	CANotificationCenter::sharedNotificationCenter()->removeAllObservers(this);
 }
 
 IMLoginRegister* IMLoginRegister::create(UserAction action)
@@ -59,7 +59,7 @@ bool IMLoginRegister::init(UserAction action)
         }
 
 		m_pNavigationBarItem->setShowGoBackButton(false);
-		m_pNavigationBarItem->addLeftButtonItem(m_pButtonCancl);
+		//m_pNavigationBarItem->addLeftButtonItem(m_pButtonCancl);
 		setNavigationBarItem(m_pNavigationBarItem);
 		return true;
 	}
@@ -194,29 +194,33 @@ void IMLoginRegister::onButtonLogin(CAControl *pTarget, CCPoint point)
     std::string accountName = m_pAccount->getText();
     std::string accountPassword = m_pPassword->getText();
     
-    if(accountName.empty())
-    {
-        CCLog("account name is empty");
-        return;
-    }
-    if(accountPassword.empty())
-    {
-        CCLog("account password is empty");
-        return;
-    }
+//    if(accountName.empty())
+//    {
+//        CCLog("account name is empty");
+//        return;
+//    }
+//    if(accountPassword.empty())
+//    {
+//        CCLog("account password is empty");
+//        return;
+//    }
 	//添加观察者模式
 	CANotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(IMLoginRegister::onLoginSuccess), KNOTIFICATION_LOGIN, NULL);
-    HXSDKController::getInstance()->Login(accountName.c_str(),accountPassword.c_str());
+    //HXSDKController::getInstance()->Login(accountName.c_str(),accountPassword.c_str());
+    
+    HXSDKController::getInstance()->Login("qiaoxin5","123456");
 }
 // 登录成功回调函数
 void IMLoginRegister::onLoginSuccess(CAObject* obj)
 {
 	bool isloginsuccess = (bool)obj;
 	if (isloginsuccess){
-		this->getNavigationController()->popViewControllerAnimated(true);
+
+		this->getNavigationController()->popToRootViewControllerAnimated(true);
+		//this->getNavigationController()->popViewControllerAnimated(true);
 	}
 	else{
-		CCLog("denglu shibai");
+		CCLog("login fail");
 	}
 	
 	
@@ -261,11 +265,11 @@ void IMLoginRegister::onRegisterSuccess(CAObject* obj)
 	bool isregistersuccess = (bool)obj;
 	if (isregistersuccess){
 		//注册成功，跳转到主界面
-		
+        this->getNavigationController()->popToRootViewControllerAnimated(true);
+        CCLog("register success!!!");
 	}
 	else{
-		
-		
+        CCLog("register failed...");
 	}
 }
 //Õ¸º«√‹¬Î

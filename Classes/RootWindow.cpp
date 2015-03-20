@@ -32,13 +32,15 @@ RootWindow::RootWindow()
 :m_pTabelBarController(NULL)
 ,m_pNavigationController(NULL)
 {
-    
+	std::string fullPath = CCFileUtils::sharedFileUtils()->getWritablePath() + "userinformation.db";
+	sqlite3_open(fullPath.c_str(), &m_pSqlite3);
 }
 
 RootWindow::~RootWindow()
 {
     CC_SAFE_RELEASE(m_pTabelBarController);
     CC_SAFE_RELEASE(m_pNavigationController);
+	sqlite3_close(m_pSqlite3);
 }
 
 bool RootWindow::init()
@@ -48,14 +50,35 @@ bool RootWindow::init()
         return false;
     }
     
+    HXSDKController::getInstance()->autoLogin();
+    if(!HXSDKController::getInstance()->isLogin())
+    {
+        init_LoginController();
+    }
+    else
+    {
+        init_ViewController();
+    }
+    return true;
+}
+
+void RootWindow::init_LoginController()
+{
+    IMLoginRegister* LoginController =IMLoginRegister::create(IM_USERLOGIN);
+    
+    CANavigationController* navigationController = new CANavigationController();
+    navigationController->setNavigationBarBackGroundImage(CAImage::create(NAVIGATION_BG));
+    navigationController->initWithRootViewController(LoginController);
+    this->setRootViewController(navigationController);
+}
+
+void RootWindow::init_ViewController()
+{
     m_pTabelBarController = init_tabelBarController();
     
     m_pNavigationController = init_navigationController(m_pTabelBarController);
     
     this->setRootViewController(m_pNavigationController);
-    
-
-    return true;
 }
 
 CATabBarController* RootWindow::init_tabelBarController()

@@ -11,6 +11,7 @@
 
 #include "CrossApp.h"
 #include <iostream>
+#include "IMUserManager.h"
 USING_NS_CC;
 //用户信息控制页面
 class IMMyController:public CAViewController
@@ -44,6 +45,10 @@ private:
 	CCSize winSize;  //屏幕大小
 	CATableView *m_pTableView;  
 	CATableViewCell *cell;  //tableView中的cell
+	User *user;
+	CAImageView *phead;
+	CALabel *pname;
+	CALabel *pcontent;
 
 };
 
