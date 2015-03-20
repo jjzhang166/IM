@@ -261,7 +261,7 @@ void FirstViewController::tableViewDidSelectRowAtIndexPath(CATableView* table, u
     groupInfo.m_sTopic = sdkGroup->m_sGroupSubject;
     groupInfo.m_sIntroduce = sdkGroup->m_sGroupDescription;
     groupInfo.m_sOwner = sdkGroup->m_sGroupOwer;
-    groupInfo.m_itotal = sdkGroup->m_iGroupOccupantsCount;
+    groupInfo.m_itotal = sdkGroup->m_iGroupOccupantsCount+1;
     groupInfo.m_sLimit = sdkGroup->m_eGroupType;
     groupInfo.m_bIsNotice = sdkGroup->m_bIsPushNotificationEnable;
     

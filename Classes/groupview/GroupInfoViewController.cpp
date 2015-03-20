@@ -97,7 +97,6 @@ void GroupInfoViewController::viewDidLoad()
     _headView->addSubview(introduceLabel);
     
     m_LabelIntroduce = CALabel::createWithFrame(CCRect(240, 490, 300, 39));
-//    m_LabelIntroduce->setText(UTF8("介绍是什么"));
     m_LabelIntroduce->setText(m_info.m_sIntroduce);
     m_LabelIntroduce->setFontSize(_px(38));
     m_LabelIntroduce->setColor(ccc4(51, 51, 51, 255));
@@ -117,7 +116,7 @@ void GroupInfoViewController::viewDidLoad()
     _memberView->addSubview(ownerLabel);
     
     m_LabelOwner = CALabel::createWithFrame(CCRect(240, 40, 200, 39));
-//    m_LabelOwner->setText(UTF8("群主姓名"));
+    m_LabelOwner->setText(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_34).c_str());
     m_LabelOwner->setText(m_info.m_sOwner);
     m_LabelOwner->setColor(ccc4(51, 51, 51, 255));
     m_LabelOwner->setFontSize(_px(38));
@@ -134,8 +133,7 @@ void GroupInfoViewController::viewDidLoad()
     _memberView->addSubview(memberLabel);
     
     m_LabelMember = CALabel::createWithFrame(CCRect(240, 152, 200, 39));
-    m_LabelMember->setText( CCString::createWithFormat("%d",m_info.m_itotal)->getCString());
-//    m_LabelMember->setText(*m_info.);
+    m_LabelMember->setText( CCString::createWithFormat("%d人",m_info.m_itotal)->getCString());
     m_LabelMember->setColor(ccc4(51, 51, 51, 255));
     m_LabelMember->setFontSize(_px(38));
     _memberView->addSubview(m_LabelMember);
@@ -147,14 +145,13 @@ void GroupInfoViewController::viewDidLoad()
     CAView * _limitView = CAView::createWithFrame(CCRect(0,863, winRect.size.width, 111));
     _limitView->setColor(CAColor_white);
     
-    CALabel* limitLabel = CALabel::createWithFrame(CCRect(_px(40), 40, 80, 39));
+    CALabel* limitLabel = CALabel::createWithFrame(CCRect(_px(40), 40, 200, 39));
     limitLabel->setText(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_36).c_str());
     limitLabel->setColor(ccc4(112, 112, 112, 255));
     limitLabel->setFontSize(_px(38));
     _limitView->addSubview(limitLabel);
     
     m_LabelLimit = CALabel::createWithFrame(CCRect(240, 40, 400, 39));
-//    m_LabelLimit->setText(UTF8("无需验证即可加入"));
     m_LabelLimit->setText(m_info.m_sLimit);
     m_LabelLimit->setColor(ccc4(51, 51, 51, 255));
     m_LabelLimit->setFontSize(_px(38));

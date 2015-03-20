@@ -85,10 +85,10 @@ void SecondViewController::viewDidAppear()
 {
     this->getTabBarController()->setNavigationBarItem(m_pNavigationBarItem);
     
-    m_vMyFriends = HXSDKController::getInstance()->getFriendsList();
-    m_vMyGroups = HXSDKController::getInstance()->getMyGroupList();
-
-    m_pTableView->reloadData();
+//    m_vMyFriends = HXSDKController::getInstance()->getFriendsList();
+//    m_vMyGroups = HXSDKController::getInstance()->getMyGroupList();
+//
+//    m_pTableView->reloadData();
 }
 
 void SecondViewController::viewDidUnload()
@@ -99,15 +99,7 @@ void SecondViewController::viewDidUnload()
 void SecondViewController::onButtonAdd(CAControl* control, CCPoint point)
 {
     
-    //	string a = UTF8("我是主题");
-    //	string b = UTF8("我是介绍");
-    //	string c = UTF8("我是群主");
-    //	string d = UTF8("我是成员");
-    
-    
-    //	GroupInfo info = GroupInfo(CAImage::create("HelloWorld.png"), a, b, c, d,  520, true);
-    //	GroupInfoViewController * _group = GroupInfoViewController::create(info, false);
-    //	RootWindow::getInstance()->getNavigationController()->pushViewController(_group, true);
+
     
 }
 
