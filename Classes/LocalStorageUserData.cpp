@@ -110,7 +110,7 @@ const char* localStorageUserDataGetItem( const char *key )
     ok |= sqlite3_step(_stmt_select_userData);
     const unsigned char *ret = sqlite3_column_text(_stmt_select_userData, 0);
     
-    CCLog("sqlite key-value: %s---%s",key,ret);
+    //CCLog("sqlite key-value: %s---%s",key,ret);
     
     if( ok != SQLITE_OK && ok != SQLITE_DONE && ok != SQLITE_ROW)
         printf("Error in localStorageUserData.getItem()\n");

@@ -39,6 +39,10 @@ bool HXSDKControllerIOS::init_ios()
         CCLog("HXSDK init success!!!");
         return true;
     }
+    else
+    {
+        CCLog("HXSDK init failed...");
+    }
     
     return false;
 }
@@ -157,7 +161,7 @@ void HXSDKControllerIOS::sendMessageWithImage_ios(const char* messageImage, cons
     //发送数据是否需要加密
     retureMsg.requireEncryption = false;
     //发送图片消息
-    [[EaseMob sharedInstance].chatManager asyncSendMessage:retureMsg progress:nil];
+    [easeMob.chatManager asyncSendMessage:retureMsg progress:nil];
     
 }
 
@@ -225,7 +229,7 @@ void HXSDKControllerIOS::acceptContact_ios(const char* toUserName)
     NSString *string_toUserName = [[NSString alloc]initWithCString:(const char *) toUserName encoding:NSASCIIStringEncoding];
     
     EMError *error = nil;
-    BOOL isSuccess = [[EaseMob sharedInstance].chatManager acceptBuddyRequest:string_toUserName error:&error];
+    BOOL isSuccess = [easeMob.chatManager acceptBuddyRequest:string_toUserName error:&error];
     if (isSuccess && !error) {
         NSLog(@"发送同意成功");
     }
@@ -236,7 +240,7 @@ void HXSDKControllerIOS::refuseContact_ios(const char*toUserName,const char* rea
     NSString* str_user = [[NSString alloc]initWithCString:(const char *) toUserName encoding:NSASCIIStringEncoding];
     NSString * str_reason = [[NSString alloc]initWithCString:(const char *) toUserName encoding:NSASCIIStringEncoding];
     EMError *error = nil;
-    BOOL isSuccess = [[EaseMob sharedInstance].chatManager rejectBuddyRequest:str_user reason:str_reason error:&error];
+    BOOL isSuccess = [easeMob.chatManager rejectBuddyRequest:str_user reason:str_reason error:&error];
     if (isSuccess && !error) {
         NSLog(@"发送拒绝成功");
     }
@@ -247,7 +251,7 @@ void HXSDKControllerIOS::deleteContact_ios(const char *userName,bool removeSelf)
     NSString * str_name = [[NSString alloc]initWithCString:(const char *) userName encoding:NSASCIIStringEncoding];
     EMError *error = nil;
     // 删除好友
-    BOOL isSuccess = [[EaseMob sharedInstance].chatManager removeBuddy:str_name removeFromRemote:removeSelf error:&error];
+    BOOL isSuccess = [easeMob.chatManager removeBuddy:str_name removeFromRemote:removeSelf error:&error];
     if (isSuccess && !error) {
         NSLog(@"删除成功");
     }
@@ -257,7 +261,7 @@ void HXSDKControllerIOS:: joinNoNeedCheckGroup_ios(const char *groupID)
 {
     NSString* str_gID = [[NSString alloc]initWithCString:(const char *) groupID encoding:NSASCIIStringEncoding];
     EMError * error = nil;
-    [[EaseMob sharedInstance].chatManager asyncJoinPublicGroup:str_gID completion:^(EMGroup *group, EMError *error) {
+    [easeMob.chatManager asyncJoinPublicGroup:str_gID completion:^(EMGroup *group, EMError *error) {
         if (!error) {
             NSLog(@"入群成功");
         }
@@ -270,7 +274,7 @@ void HXSDKControllerIOS:: joinNeedCheckGroup_ios(const char *groupID,const char*
     NSString* str_gName = [[NSString alloc]initWithCString:(const char *) groupName encoding:NSASCIIStringEncoding];
     NSString* str_msg = [[NSString alloc]initWithCString:(const char *) message encoding:NSASCIIStringEncoding];
     
-    [[EaseMob sharedInstance].chatManager asyncApplyJoinPublicGroup:str_gID withGroupname:str_gName message:str_msg completion:^(EMGroup *group, EMError *error) {
+    [easeMob.chatManager asyncApplyJoinPublicGroup:str_gID withGroupname:str_gName message:str_msg completion:^(EMGroup *group, EMError *error) {
         if (!error) {
             NSLog(@"申请成功");
         }
@@ -280,7 +284,7 @@ void HXSDKControllerIOS:: joinNeedCheckGroup_ios(const char *groupID,const char*
 void HXSDKControllerIOS:: exitGroup_ios(const char *groupID)
 {
     NSString* str_gID = [[NSString alloc]initWithCString:(const char *) groupID encoding:NSASCIIStringEncoding];
-    [[EaseMob sharedInstance].chatManager asyncLeaveGroup:str_gID completion:^(EMGroup *group, EMGroupLeaveReason reason, EMError *error) {
+    [easeMob.chatManager asyncLeaveGroup:str_gID completion:^(EMGroup *group, EMGroupLeaveReason reason, EMError *error) {
         if (!error) {
             NSLog(@"退出群组成功");
         }
@@ -291,7 +295,7 @@ void HXSDKControllerIOS:: exitGroup_ios(const char *groupID)
 void HXSDKControllerIOS:: destoryGroup_ios(const char *groupID)
 {
     NSString * str_gID = [[NSString alloc]initWithCString:(const char *)groupID encoding:NSASCIIStringEncoding];
-    [[EaseMob sharedInstance].chatManager asyncDestroyGroup:str_gID completion:^(EMGroup *group, EMGroupLeaveReason reason, EMError *error) {
+    [easeMob.chatManager asyncDestroyGroup:str_gID completion:^(EMGroup *group, EMGroupLeaveReason reason, EMError *error) {
         if (!error) {
             NSLog(@"解散成功");
         }
@@ -302,7 +306,7 @@ void HXSDKControllerIOS:: destoryGroup_ios(const char *groupID)
 void HXSDKControllerIOS:: getPublicGroup_ios()
 {
     EMError *error = nil;
-    NSArray *publicGroupList = [[EaseMob sharedInstance].chatManager fetchAllPublicGroupsWithError:&error];
+    NSArray *publicGroupList = [easeMob.chatManager fetchAllPublicGroupsWithError:&error];
     if (!error) {
         CCLog("get publicGroup List success!!! %d ", publicGroupList.count);
         HXSDKController::getInstance()->cleanGroupList();
@@ -313,31 +317,38 @@ void HXSDKControllerIOS:: getPublicGroup_ios()
             std::string gSub;
             std::string gDes;
             std::string gOwner;
+            int gOccupantsCount = 0;
+            int gGroupStyle = 0;
+            bool gIsPushNotification = true;
+            
             if (emGroup.groupId) {
                gID = [emGroup.groupId UTF8String];
             }
             if (emGroup.groupSubject) {
                 gSub = [emGroup.groupSubject UTF8String];
             }
-            if (emGroup.groupDescription) {
-               gDes = [emGroup.groupDescription UTF8String];
-            }
-            
-            int gOccupantsCount = emGroup.groupOccupantsCount;
-            
-            if (emGroup.owner) {
-                gOwner = [emGroup.owner UTF8String];
-            }
-            
-            int gGroupStyle = emGroup.groupSetting.groupStyle;
-            
-            bool gIsPushNotification = emGroup.isPushNotificationEnabled;
-            
+//          gGroupStyle = emGroup.groupSetting.groupStyle;
+//            
+//          gIsPushNotification = emGroup.isPushNotificationEnabled;
+            //异步查询群详情
+//            [easeMob.chatManager asyncFetchGroupInfo:emGroup.groupId completion:^(EMGroup *group, EMError *error) {
+//                if(!error)
+//                {
+//                    CCLog("get Group Info success!!! ---%s",[group.groupDescription UTF8String]);
+//                }
+//            }onQueue:nil];
+            EMGroup * groupInfo = [easeMob.chatManager fetchGroupInfo:emGroup.groupId error:&error];
+            gDes = [groupInfo.groupDescription UTF8String];
+            gOwner = [groupInfo.owner UTF8String];
+            gOccupantsCount = groupInfo.groupOccupantsCount;
+            gGroupStyle = groupInfo.groupSetting.groupStyle;
+            gIsPushNotification = groupInfo.isPushNotificationEnabled;
+                          
             HXSDKController::getInstance()->pushGroupsDetail(gID, gSub, gDes, gOccupantsCount, gOwner, gGroupStyle, gIsPushNotification);
         }
     }
     // block 异步同样无法获取 群描述 属性,
-//    [[EaseMob sharedInstance].chatManager asyncFetchAllPublicGroupsWithCompletion:^(NSArray *groups, EMError *error) {
+//    [easeMob.chatManager asyncFetchAllPublicGroupsWithCompletion:^(NSArray *groups, EMError *error) {
 //        if (!error) {
 //            NSLog(@"获取成功 -- %@",groups);
 //        }
@@ -372,7 +383,7 @@ void HXSDKControllerIOS:: createGroup_ios(HXSDKGroupStyle groupType,const char* 
    
     NSString*  str_gName = [[NSString alloc]initWithCString:(const char *) gName encoding:NSUTF8StringEncoding];
     NSString* str_gDes = [[NSString alloc]initWithCString:(const char *) gDescription encoding:NSUTF8StringEncoding];
-    EMGroup *group = [[EaseMob sharedInstance].chatManager createGroupWithSubject:str_gName description:str_gDes invitees:nil initialWelcomeMessage:nil styleSetting:groupStyleSetting error:&error];
+    EMGroup *group = [easeMob.chatManager createGroupWithSubject:str_gName description:str_gDes invitees:nil initialWelcomeMessage:nil styleSetting:groupStyleSetting error:&error];
     if(!error){
         NSLog(@"创建成功 -- %@",group);
     }
@@ -382,7 +393,7 @@ void HXSDKControllerIOS:: createGroup_ios(HXSDKGroupStyle groupType,const char* 
 void HXSDKControllerIOS::getMyGroup_ios()
 {
     EMError *error = nil;
-    NSArray *myGroups = [[EaseMob sharedInstance].chatManager fetchMyGroupsListWithError:&error];
+    NSArray *myGroups = [easeMob.chatManager fetchMyGroupsListWithError:&error];
     if (!error) {
         CCLog("get MYGroup List success !!!  %d",myGroups.count);
         HXSDKController::getInstance()->cleanMyGroupList();
