@@ -331,19 +331,28 @@ void HXSDKControllerIOS:: getPublicGroup_ios()
 //            
 //          gIsPushNotification = emGroup.isPushNotificationEnabled;
             //异步查询群详情
-//            [easeMob.chatManager asyncFetchGroupInfo:emGroup.groupId completion:^(EMGroup *group, EMError *error) {
-//                if(!error)
-//                {
-//                    CCLog("get Group Info success!!! ---%s",[group.groupDescription UTF8String]);
-//                }
-//            }onQueue:nil];
-            EMGroup * groupInfo = [easeMob.chatManager fetchGroupInfo:emGroup.groupId error:&error];
-            gDes = [groupInfo.groupDescription UTF8String];
-            gOwner = [groupInfo.owner UTF8String];
-            gOccupantsCount = groupInfo.groupOccupantsCount;
-            gGroupStyle = groupInfo.groupSetting.groupStyle;
-            gIsPushNotification = groupInfo.isPushNotificationEnabled;
-                          
+            [easeMob.chatManager asyncFetchGroupInfo:emGroup.groupId completion:^(EMGroup *groupInfo, EMError *error) {
+                if(!error)
+                {
+                    CCLog("get Group Info success!!! ---%s",[groupInfo.groupId UTF8String]);
+
+                    HXSDKController::getInstance()->setGroupsDetailByID([groupInfo.groupId UTF8String],
+                                                                        [groupInfo.groupSubject UTF8String],
+                                                                        [groupInfo.groupDescription UTF8String],
+                                                                         groupInfo.groupOccupantsCount,
+                                                                        [groupInfo.owner UTF8String],
+                                                                         groupInfo.groupSetting.groupStyle,
+                                                                         groupInfo.isPushNotificationEnabled);
+                }
+            }onQueue:nil];
+            //同步查询
+//            EMGroup * groupInfo = [easeMob.chatManager fetchGroupInfo:emGroup.groupId error:&error];
+//            gDes = [groupInfo.groupDescription UTF8String];
+//            gOwner = [groupInfo.owner UTF8String];
+//            gOccupantsCount = groupInfo.groupOccupantsCount;
+//            gGroupStyle = groupInfo.groupSetting.groupStyle;
+//            gIsPushNotification = groupInfo.isPushNotificationEnabled;
+            
             HXSDKController::getInstance()->pushGroupsDetail(gID, gSub, gDes, gOccupantsCount, gOwner, gGroupStyle, gIsPushNotification);
         }
     }

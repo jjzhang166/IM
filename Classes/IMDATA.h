@@ -38,9 +38,9 @@
 #define NAVIGATION_BAR_ITEM_NEW_SELECTED "IMResources/button_segmentRight_selected.png"
 
 #define NAVIGATION_BAR_ITEM_SEARCH_NORMAL "IMResources/button_search_normal.png"
-#define NAVIGATION_BAR_ITEM_SEARCH_SELECTED "IMResources/button_search_normal.png.png"
+#define NAVIGATION_BAR_ITEM_SEARCH_SELECTED "IMResources/button_search_normal.png"
 #define NAVIGATION_BAR_ITEM_ADD_NORMAL "IMResources/button_add_normal.png"
-#define NAVIGATION_BAR_ITEM_ADD_SELECTED "IMResources/button_add_normal.png.png"
+#define NAVIGATION_BAR_ITEM_ADD_SELECTED "IMResources/button_add_normal.png"
 
 #define BUTTON_EXIT_GROUP "IMResources/button_leaveGroup_button.png"
 #define BUTTON_JOIN_GROUP "IMResources/button_joinGroup_normal.png"

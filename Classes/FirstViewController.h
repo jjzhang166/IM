@@ -30,6 +30,8 @@ public:
 	virtual ~FirstViewController();
     
     virtual bool init();
+    
+    void refreshTableView();
 protected:
     
     virtual void viewDidLoad();
@@ -42,7 +44,6 @@ protected:
     
     void init_tableView();
     
-    void refreshTableView();
     
     void onButtonSegmented(CASegmentedControl*, int index);
     /*
@@ -58,13 +59,7 @@ protected:
     
     void isLoginCallBack(CAObject* obj);//登录成功回调
     
-    /*textFieldDelegate*/
-    bool onTextFieldAttachWithIME(CATextField * sender);
-    bool onTextFieldDetachWithIME(CATextField * sender);
-    virtual bool onTextFieldInsertText(CATextField * sender, const char * text, int nLen);
-    virtual bool onTextFieldDeleteBackward(CATextField * sender, const char * delText, int nLen);
-    
-public:
+protected:
     /*CATableViewDelegate*/
     virtual void tableViewDidSelectRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row);
     virtual void tableViewDidDeselectRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row);
@@ -75,6 +70,13 @@ public:
     virtual unsigned int numberOfSections(CATableView *table);
     virtual unsigned int tableViewHeightForRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row);
     virtual unsigned int tableViewHeightForHeaderInSection(CATableView* table, unsigned int section);
+    
+    /*textFieldDelegate*/
+    bool onTextFieldAttachWithIME(CATextField * sender);
+    bool onTextFieldDetachWithIME(CATextField * sender);
+    virtual bool onTextFieldInsertText(CATextField * sender, const char * text, int nLen);
+    virtual bool onTextFieldDeleteBackward(CATextField * sender, const char * delText, int nLen);
+    
 protected:
     CANavigationBarItem*    m_pNavigationBarItem;
     

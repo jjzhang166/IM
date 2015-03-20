@@ -10,6 +10,7 @@
 #include "IMDATA.h"
 #include "LocalStorageUserData.h"
 #include "RootWindow.h"
+#include "FirstViewController.h"
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #import "HXSDKControllerIOS.h"
@@ -381,6 +382,25 @@ void HXSDKController::pushGroupsDetail(std::string groupID, std::string groupSub
     sdkGroup->m_bIsPushNotificationEnable = isNotificationEnable;
 
 	m_vPublicGroupList.push_back(sdkGroup);
+}
+
+void HXSDKController::setGroupsDetailByID(std::string groupID, std::string groupSub, std::string groupDes, int groupOccupantsCount, std::string ower, int groupStyle, bool isNotificationEnable)
+{
+    std::vector<HXSDKGroup*>::iterator itr = m_vPublicGroupList.begin();
+    for(; itr!= m_vPublicGroupList.end(); itr++)
+    {
+        if ( !(*itr)->m_sGroupId.compare(groupID) )
+        {
+            (*itr)->m_sGroupSubject = groupSub;
+            (*itr)->m_sGroupDescription = groupDes;
+            (*itr)->m_iGroupOccupantsCount = groupOccupantsCount;
+            (*itr)->m_sGroupOwer = ower;
+            (*itr)->m_eGroupType = (HXSDKGroupStyle)groupStyle;
+            (*itr)->m_bIsPushNotificationEnable = isNotificationEnable;
+            break;
+        }
+    }
+    ((FirstViewController*)((CATabBarController*)(RootWindow::getInstance()->getNavigationController()->getViewControllerAtIndex(0)))->getViewControllerAtIndex(0))->refreshTableView();
 }
 
 void HXSDKController::cleanMyGroupList()
