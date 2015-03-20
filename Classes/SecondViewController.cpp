@@ -103,34 +103,14 @@ void SecondViewController::onButtonAdd(CAControl* control, CCPoint point)
     
 }
 
-void SecondViewController::cleanMyFriendsListWithKeyWords()
-{
-    std::vector<HXSDKBuddy*>::iterator itr = m_vMyFriendsWithKeyWords.begin();
-    for (; itr != m_vMyFriendsWithKeyWords.end(); ++itr)
-    {
-        CC_SAFE_DELETE(*itr);
-    }
-    m_vMyFriendsWithKeyWords.clear();
-}
-
-void SecondViewController::cleanMyGroupListWithKeyWords()
-{
-    std::vector<HXSDKGroup*>::iterator itr = m_vMyGroupsWithKeyWords.begin();
-    for (; itr !=m_vMyGroupsWithKeyWords.end(); ++itr) {
-        CC_SAFE_DELETE(*itr);
-    }
-    
-    m_vMyGroupsWithKeyWords.clear();
-
-}
 
 /*通过关键字搜索好友列表*/
 void SecondViewController:: getMyFriendsWithKeyWords(const char *keywords)
 {
     
-    cleanMyGroupListWithKeyWords();
-    cleanMyFriendsListWithKeyWords();
- 
+    m_vMyGroupsWithKeyWords.clear();
+    m_vMyFriendsWithKeyWords.clear();
+    
     for (int i = 0; i<m_vMyFriends.size(); i++) {
         std::string name = m_vMyFriends.at(i)->m_sUserName;
         string::size_type idx = name.find(keywords);
@@ -140,7 +120,15 @@ void SecondViewController:: getMyFriendsWithKeyWords(const char *keywords)
         }
        
     }
-    
+    for (int i = 0; i<m_vMyGroups.size(); i++) {
+        std::string subject = m_vMyGroups.at(i)->m_sGroupSubject;
+        string::size_type idx = subject.find(keywords);
+        if ( idx != string::npos )
+        {
+            m_vMyGroupsWithKeyWords.push_back(m_vMyGroups.at(i));
+        }
+        
+    }
     
     m_pTableView->reloadData()  ;
 }

@@ -85,10 +85,7 @@ protected:
     /*带有搜索关键字的群组*/
     std::vector<HXSDKGroup*> m_vMyGroupsWithKeyWords;
     
-    void cleanMyFriendsListWithKeyWords();
     void getMyFriendsWithKeyWords(const char * keywords);
- 
-    void cleanMyGroupListWithKeyWords();
     void getMyGroupsWithKeyWords(const char* keywords);
 };
 
