@@ -29,7 +29,8 @@ struct GroupInfo
 
 };
 
-//用户登录或者注册事件
+
+
 
 class GroupInfoViewController : public CAViewController
 {
@@ -62,6 +63,9 @@ protected:
     CALabel*        m_LabelLimit;  // 加入权限
     CASwitch*       m_SwitchNotice;   // 新消息提醒
     CAButton*       m_ExitButton;    // 退群按钮
+
+    
+    
 };
 
 #endif /* defined(__IM__GroupInfoViewController__) */

@@ -15,7 +15,7 @@
 #include "data/TableLanguage.h"
 #include "IMTableCell.h"
 #include "chat/IMChatController.h"
-
+#include "GroupCreateViewController.h"
 using namespace CrossApp;
 
 SecondViewController::SecondViewController()
@@ -189,6 +189,12 @@ void SecondViewController::tableViewDidSelectRowAtIndexPath(CATableView* table, 
 		IMChatController *pController = IMChatController::create("Test");
 		RootWindow::getInstance()->getNavigationController()->pushViewController(pController,true);
 	}
+    
+    if (section == 1)
+    {
+        GroupCreateViewController *pController = GroupCreateViewController::create();
+        RootWindow::getInstance()->getNavigationController()->pushViewController(pController,true);
+    }
 
     //    //cell点击处理事件
     //    if (section == 0){
