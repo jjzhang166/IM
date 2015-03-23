@@ -1,12 +1,12 @@
 //
-//  GroupInfoViewController.cpp
+//  GroupCreateViewController.cpp
 //  IM
 //
-//  Created by chenq on 15-1-16.
+//  Created by lhj on 15/3/23.
 //
 //
 
-#include "GroupInfoViewController.h"
+#include "GroupCreateViewController.h"
 #include "CrossApp.h"
 #include "RootWindow.h"
 #include "IMDATA.h"
@@ -14,45 +14,39 @@
 #include "AddHeadForgrand.h"
 #include "../data/TableLanguage.h"
 #include "../table/TableLanguagesfontnewHeader.h"
-#include "../groupview/GroupMembersController.h"
 
 
-GroupInfoViewController::GroupInfoViewController()
+
+GroupCreateViewController::GroupCreateViewController()
+{
+    
+}
+GroupCreateViewController::~GroupCreateViewController()
 {
     
 }
 
-GroupInfoViewController::~GroupInfoViewController()
+GroupCreateViewController* GroupCreateViewController::create()
 {
-    
-}
-
-GroupInfoViewController* GroupInfoViewController::create(GroupInfo info,bool joined)
-{
-    GroupInfoViewController* controller = new GroupInfoViewController();
-    controller->init(info,joined);
+    GroupCreateViewController* controller = new GroupCreateViewController();
+    controller->init();
     controller->autorelease();
     return controller;
 }
 
-bool GroupInfoViewController::init(GroupInfo info,bool joined)
+bool GroupCreateViewController::init()
 {
     if (CAViewController::init()) {
-        m_info = info ;
-        m_joined = joined;
+//        TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_31).c_str()
+        CANavigationBarItem* navigation = CANavigationBarItem::create(UTF8("创建群"));
         
-        CABarButtonItem* backItem = CABarButtonItem::create(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LOGOUT).c_str(), NULL, NULL);
-        backItem->setTarget(this, CAControl_selector(GroupInfoViewController::onButtonBack));
-        CANavigationBarItem* navigation = CANavigationBarItem::create(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_31).c_str());
-        navigation->setShowGoBackButton(false);
-        navigation->addLeftButtonItem(backItem);
         setNavigationBarItem(navigation);
         return true;
     }
     return false;
 }
 
-void GroupInfoViewController::viewDidLoad()
+void GroupCreateViewController::viewDidLoad()
 {
     CCRect winRect = this->getView()->getBounds();
     
@@ -60,12 +54,12 @@ void GroupInfoViewController::viewDidLoad()
     scrollView->setBackGroundColor(ccc4(240, 240, 240, 255));
     scrollView->setBounceHorizontal(false);
     scrollView->setTouchMovedListenHorizontal(false);
-	scrollView->setShowsHorizontalScrollIndicator(false);
-
+    scrollView->setShowsHorizontalScrollIndicator(false);
+    
     CAView* _headView = CAView::createWithFrame(CCRect(0, 0, winRect.size.width, 562), CAColor_white);
     CCRect _headCC = _headView->getBounds() ;
     m_imgViewHead = CAImageView::createWithCenter(CCRect(_headCC.size.width/2, 166, 150, 150));
-    m_imgViewHead->setImage(m_info.m_pFaceImg);
+    m_imgViewHead->setImage(CAImage::create(GROUP));
     _headView->addSubview(m_imgViewHead);
     
     AddHeadForgrand::getInstance()->addHeadForgrand(m_imgViewHead);
@@ -79,12 +73,12 @@ void GroupInfoViewController::viewDidLoad()
     topicLabel->setColor(ccc4(112, 112, 112, 255));
     _headView->addSubview(topicLabel);
     
-    m_LabelTopic = CALabel::createWithFrame(CCRect(240, 372, 300, 39));
-    m_LabelTopic->setText(m_info.m_sTopic);
+    m_LabelTopic = CATextField::createWithFrame(CCRect(240, 365, 320, 60));
+//    m_LabelTopic->setText(m_info.m_sTopic);
     m_LabelTopic->setFontSize(_px(38));
     m_LabelTopic->setColor(ccc4(51, 51, 51, 255));
     _headView->addSubview(m_LabelTopic);
-  
+    
     CAView* _lineView2 = CAView::createWithFrame(CCRect(_px(40), 450, winRect.size.width-_px(80), _px(1)), ccc4(200, 200, 200, 255));
     _headView->addSubview(_lineView2);
     
@@ -94,14 +88,14 @@ void GroupInfoViewController::viewDidLoad()
     introduceLabel->setColor(ccc4(112, 112, 112, 255));
     _headView->addSubview(introduceLabel);
     
-    m_LabelIntroduce = CALabel::createWithFrame(CCRect(240, 490, 300, 39));
-    m_LabelIntroduce->setText(m_info.m_sIntroduce);
+    m_LabelIntroduce = CATextField::createWithFrame(CCRect(240, 482, 320, 60));
+//    m_LabelIntroduce->setText(m_info.m_sIntroduce);
     m_LabelIntroduce->setFontSize(_px(38));
     m_LabelIntroduce->setColor(ccc4(51, 51, 51, 255));
     _headView->addSubview(m_LabelIntroduce);
-
+    
     scrollView->addSubview(_headView);
-
+    
     
     CAView* _memberView = CAView::createWithFrame(CCRect(0, _headCC.size.height+40, winRect.size.width, 226));
     _memberView->setColor(CAColor_white);
@@ -114,7 +108,7 @@ void GroupInfoViewController::viewDidLoad()
     
     m_LabelOwner = CALabel::createWithFrame(CCRect(240, 40, 200, 39));
     m_LabelOwner->setText(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_34).c_str());
-    m_LabelOwner->setText(m_info.m_sOwner);
+    m_LabelOwner->setText(HXSDKController::getInstance()->getMyName());
     m_LabelOwner->setColor(ccc4(51, 51, 51, 255));
     m_LabelOwner->setFontSize(_px(38));
     _memberView->addSubview(m_LabelOwner);
@@ -130,14 +124,14 @@ void GroupInfoViewController::viewDidLoad()
     _memberView->addSubview(memberLabel);
     
     m_LabelMember = CALabel::createWithFrame(CCRect(240, 152, 200, 39));
-    m_LabelMember->setText( CCString::createWithFormat("%d人",m_info.m_itotal-1)->getCString());
+//    m_LabelMember->setText( CCString::createWithFormat("%d人",m_info.m_itotal)->getCString());
     m_LabelMember->setColor(ccc4(51, 51, 51, 255));
     m_LabelMember->setFontSize(_px(38));
     _memberView->addSubview(m_LabelMember);
-
+    
     
     scrollView->addSubview(_memberView);
-
+    
     
     CAView * _limitView = CAView::createWithFrame(CCRect(0,863, winRect.size.width, 111));
     _limitView->setColor(CAColor_white);
@@ -149,13 +143,13 @@ void GroupInfoViewController::viewDidLoad()
     _limitView->addSubview(limitLabel);
     
     m_LabelLimit = CALabel::createWithFrame(CCRect(240, 40, 400, 39));
-    m_LabelLimit->setText(m_info.m_sLimit);
+//    m_LabelLimit->setText(m_info.m_sLimit);
     m_LabelLimit->setColor(ccc4(51, 51, 51, 255));
     m_LabelLimit->setFontSize(_px(38));
     _limitView->addSubview(m_LabelLimit);
     
     scrollView->addSubview(_limitView);
-
+    
     CAView* _noticeView = CAView::createWithFrame(CCRect(0,1015, winRect.size.width, 226));
     _noticeView->setColor(CAColor_white);
     
@@ -164,11 +158,11 @@ void GroupInfoViewController::viewDidLoad()
     noticeLabel->setColor(ccc4(51, 51, 51, 255));
     noticeLabel->setFontSize(_px(38));
     _noticeView->addSubview(noticeLabel);
-
+    
     m_SwitchNotice = CASwitch::createWithFrame(CCRect(winRect.size.width - 171, 23, 130, 80));
-//    m_SwitchNotice->setOnImage(CAImage::create(SWITCH_ON));
-//    m_SwitchNotice->setOffImage(CAImage::create(SWITCH_OFF));
-    m_SwitchNotice->setIsOn(m_info.m_bIsNotice, true);
+    //    m_SwitchNotice->setOnImage(CAImage::create(SWITCH_ON));
+    //    m_SwitchNotice->setOffImage(CAImage::create(SWITCH_OFF));
+//    m_SwitchNotice->setIsOn(m_info.m_bIsNotice, true);
     _noticeView->addSubview(m_SwitchNotice);
     
     CAView* _lineView4 = CAView::createWithFrame(CCRect(_px(40), 111, winRect.size.width-_px(80), _px(1)), ccc4(200, 200, 200, 255));
@@ -180,75 +174,31 @@ void GroupInfoViewController::viewDidLoad()
     gmemberLabel->setFontSize(_px(38));
     _noticeView->addSubview(gmemberLabel);
     
-    CAButton* groupMenbersButton = CAButton::createWithFrame(CCRect(_px(240), 152, 200, 39), CAButtonTypeRoundedRect);
-    groupMenbersButton->setBackGroundViewForState(CAControlStateAll,CAImageView::createWithImage(CAImage::create(BUTTON_EXIT_GROUP)));
-    groupMenbersButton->addTarget(this, CAControl_selector(GroupInfoViewController::onButtonGroupMenbers), CAControlTouchUpInSide);
-    _noticeView->addSubview(groupMenbersButton);
-    
     scrollView->addSubview(_noticeView);
-
+    
     
     m_ExitButton = CAButton::createWithFrame(CCRect(_px(40), 1572, winRect.size.width-_px(80), 110), CAButtonTypeRoundedRect);
-    
-    if(m_joined)
-    {
-        m_ExitButton->setTitleForState(CAControlStateAll, TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_41).c_str());
-        CAImage * btnBG = CAImage::create(BUTTON_EXIT_GROUP );
-        CAImageView * imgView = CAImageView::create();
-        imgView->setImage(btnBG);
-        m_ExitButton->setBackGroundViewForState(CAControlStateAll,imgView);
-    }
-    else
-    {
-        m_ExitButton->setTitleForState(CAControlStateAll, TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_25).c_str());
-        CAImage * btnBG = CAImage::create(BUTTON_JOIN_GROUP );
-        CAImageView * imgView = CAImageView::create();
-        imgView->setImage(btnBG);
-        m_ExitButton->setBackGroundViewForState(CAControlStateAll,imgView);
-    }
+//    , TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_25).c_str()
+    m_ExitButton->setTitleForState(CAControlStateAll,UTF8("创建群"));
+    CAImage * btnBG = CAImage::create(BUTTON_JOIN_GROUP );
+    CAImageView * imgView = CAImageView::create();
+    imgView->setImage(btnBG);
+    m_ExitButton->setBackGroundViewForState(CAControlStateAll,imgView);
     m_ExitButton->setTitleColorForState(CAControlStateAll, CAColor_white);
-    m_ExitButton->addTarget(this, CAControl_selector(GroupInfoViewController::onButtonJoin), CAControlTouchUpInSide);
     
     scrollView->addSubview(m_ExitButton);
-
+    
     scrollView->setViewSize(CCSize(winRect.size.width,1737));
     this->getView()->addSubview(scrollView);
 }
 
-void GroupInfoViewController::viewDidUnLoad()
-{
-
-}
-
-// 群成员按钮
-void GroupInfoViewController::onButtonGroupMenbers(CAControl* target, CCPoint point)
-{
-    std::vector<HXSDKBuddy*> vMembers = HXSDKController::getInstance()->getGroupMemberListByID(m_info.m_sGroupID);
-    GroupMembersController* memberController = GroupMembersController::create(vMembers);
-    RootWindow::getInstance()->getNavigationController()->pushViewController(memberController, true);
-}
-
-// 返回按钮
-void GroupInfoViewController:: onButtonBack(CAControl* target, CCPoint point)
-{
-    RootWindow::getInstance()->getNavigationController()->popViewControllerAnimated(this);
-    
-}
-
-// 消息提醒
-void GroupInfoViewController:: onSwitchChanged(CAControl* target, CCPoint point)
+void GroupCreateViewController::viewDidUnLoad()
 {
     
 }
 
-// 加入群按钮
-void GroupInfoViewController:: onButtonJoin(CAControl* target, CCPoint point)
-{
-    HXSDKController::getInstance()->joinNoNeedCheckGroup( m_info.m_sGroupID.c_str());
-}
-
-// 退群按钮
-void GroupInfoViewController:: onButtonExit(CAControl* target, CCPoint point)
+void GroupCreateViewController::onCreateBtn(CrossApp::CAControl *pTarget, CrossApp::CCPoint point)
 {
     
 }
+
