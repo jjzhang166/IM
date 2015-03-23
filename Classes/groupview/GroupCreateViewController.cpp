@@ -73,7 +73,7 @@ void GroupCreateViewController::viewDidLoad()
     topicLabel->setColor(ccc4(112, 112, 112, 255));
     _headView->addSubview(topicLabel);
     
-    m_LabelTopic = CATextField::createWithFrame(CCRect(240, 372, 320, 60));
+    m_LabelTopic = CATextField::createWithFrame(CCRect(240, 365, 320, 60));
 //    m_LabelTopic->setText(m_info.m_sTopic);
     m_LabelTopic->setFontSize(_px(38));
     m_LabelTopic->setColor(ccc4(51, 51, 51, 255));
@@ -88,7 +88,7 @@ void GroupCreateViewController::viewDidLoad()
     introduceLabel->setColor(ccc4(112, 112, 112, 255));
     _headView->addSubview(introduceLabel);
     
-    m_LabelIntroduce = CATextField::createWithFrame(CCRect(240, 490, 320, 60));
+    m_LabelIntroduce = CATextField::createWithFrame(CCRect(240, 482, 320, 60));
 //    m_LabelIntroduce->setText(m_info.m_sIntroduce);
     m_LabelIntroduce->setFontSize(_px(38));
     m_LabelIntroduce->setColor(ccc4(51, 51, 51, 255));

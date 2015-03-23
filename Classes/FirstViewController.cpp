@@ -15,7 +15,8 @@
 #include "IMTableCell.h"
 #include "HXSDKController.h"
 #include "AddFriendView.h"
-#include "groupview/GroupInfoViewController.h"
+#include "GroupInfoViewController.h"
+#include "groupview/GroupCreateViewController.h"
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #include "LocalStorageUserData.h"
@@ -182,7 +183,8 @@ void FirstViewController::addViewButtonCallBack(AddFriendView* controller, int i
     }
     else if(1 == index)
     {
-        //GroupInfoViewController* groupController = GroupInfoViewController::create(<#GroupInfo info#>, <#bool joined#>)
+        GroupCreateViewController *pController = GroupCreateViewController::create();
+        RootWindow::getInstance()->getNavigationController()->pushViewController(pController,true);
     }
     else if(2 == index)
     {

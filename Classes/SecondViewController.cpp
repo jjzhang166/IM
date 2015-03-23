@@ -190,11 +190,7 @@ void SecondViewController::tableViewDidSelectRowAtIndexPath(CATableView* table, 
 		RootWindow::getInstance()->getNavigationController()->pushViewController(pController,true);
 	}
     
-    if (section == 1)
-    {
-        GroupCreateViewController *pController = GroupCreateViewController::create();
-        RootWindow::getInstance()->getNavigationController()->pushViewController(pController,true);
-    }
+
 
     //    //cell点击处理事件
     //    if (section == 0){
