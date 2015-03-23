@@ -37,9 +37,11 @@ GroupCreateViewController* GroupCreateViewController::create()
 bool GroupCreateViewController::init()
 {
     if (CAViewController::init()) {
-//        TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_31).c_str()
-        CANavigationBarItem* navigation = CANavigationBarItem::create(UTF8("创建群"));
-        
+        CABarButtonItem* backItem = CABarButtonItem::create(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LOGOUT).c_str(), NULL, NULL);
+        backItem->setTarget(this, CAControl_selector(GroupCreateViewController::onButtonBack));
+        CANavigationBarItem* navigation = CANavigationBarItem::create(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_26).c_str());
+        navigation->setShowGoBackButton(false);
+        navigation->addLeftButtonItem(backItem);
         setNavigationBarItem(navigation);
         return true;
     }
@@ -179,7 +181,7 @@ void GroupCreateViewController::viewDidLoad()
     
     m_ExitButton = CAButton::createWithFrame(CCRect(_px(40), 1572, winRect.size.width-_px(80), 110), CAButtonTypeRoundedRect);
 //    , TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_25).c_str()
-    m_ExitButton->setTitleForState(CAControlStateAll,UTF8("创建群"));
+    m_ExitButton->setTitleForState(CAControlStateAll,TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_26).c_str());
     CAImage * btnBG = CAImage::create(BUTTON_JOIN_GROUP );
     CAImageView * imgView = CAImageView::create();
     imgView->setImage(btnBG);
@@ -202,3 +204,7 @@ void GroupCreateViewController::onCreateBtn(CrossApp::CAControl *pTarget, CrossA
     
 }
 
+void GroupCreateViewController::onButtonBack(CAControl* control, CCPoint point)
+{
+    RootWindow::getInstance()->getNavigationController()->popViewControllerAnimated(this);
+}

@@ -62,7 +62,6 @@ void AddFriendController::viewDidLoad()
     this->getView()->addSubview(searchBackground);
     
     m_pNameTextField = CATextField::createWithFrame(CADipRect(20.0f, 10.0F, m_winSize.width-40.0f, 50.0f));
-    m_pNameTextField->setBackgroundView(CAView::createWithColor(CAColor_white));
     m_pNameTextField->setPlaceHolder(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_11).c_str());
     m_pNameTextField->setSpaceHolderColor(ccc4(0x96, 0x96, 0x96, 0xff));
     m_pNameTextField->setFontSize(_px(28.0f));
@@ -71,7 +70,6 @@ void AddFriendController::viewDidLoad()
     this->getView()->addSubview(m_pNameTextField);
     
     m_pMessageTextField = CATextField::createWithFrame(CADipRect(20.0f, 70.0F, m_winSize.width-40.0f, 150.0f));
-    m_pMessageTextField->setBackgroundView(CAView::createWithColor(CAColor_white));
     m_pMessageTextField->setPlaceHolder(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_49).c_str());
     m_pMessageTextField->setSpaceHolderColor(ccc4(0x96, 0x96, 0x96, 0xff));
     m_pMessageTextField->setFontSize(_px(28.0f));
