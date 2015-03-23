@@ -16,6 +16,8 @@
 #include "HXSDKController.h"
 #include "AddFriendView.h"
 #include "groupview/GroupInfoViewController.h"
+#include "SearchController.h"
+#include "AddFriendController.h"
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #include "LocalStorageUserData.h"
@@ -178,7 +180,8 @@ void FirstViewController::addViewButtonCallBack(AddFriendView* controller, int i
     }
     else if(0 == index)
     {
-        
+        SearchController* searchController = SearchController::create();
+        RootWindow::getInstance()->getNavigationController()->pushViewController(searchController, true);
     }
     else if(1 == index)
     {
@@ -186,6 +189,8 @@ void FirstViewController::addViewButtonCallBack(AddFriendView* controller, int i
     }
     else if(2 == index)
     {
+        AddFriendController* addFriendController = AddFriendController::create();
+        RootWindow::getInstance()->getNavigationController()->pushViewController(addFriendController, true);
         
     }
 }
