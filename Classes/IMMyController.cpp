@@ -38,7 +38,7 @@ bool IMMyController::init()
 
 		m_pNavigationBarItem = CANavigationBarItem::create(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_NAVIGATION_BAR_ITEM_NAME_3).c_str());
 		m_pNavigationBarItem->setShowGoBackButton(false); 
-		m_pNavigationBarItem->addRightButtonItem(addButtonItem);
+		//m_pNavigationBarItem->addRightButtonItem(addButtonItem);
 		setNavigationBarItem(m_pNavigationBarItem);
 		m_pNavigationBarItem->retain();
 		return true;

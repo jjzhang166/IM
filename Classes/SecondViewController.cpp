@@ -38,7 +38,7 @@ bool SecondViewController::init()
         
         m_pNavigationBarItem = CANavigationBarItem::create(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_NAVIGATION_BAR_ITEM_NAME_2).c_str());
         m_pNavigationBarItem->setShowGoBackButton(false);
-        m_pNavigationBarItem->addRightButtonItem(addButtonItem);
+        //m_pNavigationBarItem->addRightButtonItem(addButtonItem);
         
         m_pNavigationBarItem->retain();
         
