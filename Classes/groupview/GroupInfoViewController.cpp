@@ -40,11 +40,8 @@ bool GroupInfoViewController::init(GroupInfo info,bool joined)
         m_info = info ;
         m_joined = joined;
         
-        CABarButtonItem* backItem = CABarButtonItem::create("back", NULL, NULL);
-        backItem->setTarget(this, CAControl_selector(GroupInfoViewController::onButtonBack));
         CANavigationBarItem* navigation = CANavigationBarItem::create(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_31).c_str());
-        navigation->setShowGoBackButton(false);
-        navigation->addLeftButtonItem(backItem);
+
         setNavigationBarItem(navigation);
         return true;
     }
