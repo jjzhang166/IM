@@ -61,6 +61,8 @@ public:
     static void createGroup_ios(HXSDKGroupStyle groupType,const char* gName,const char* gDescription);
     // 查看我加入的群
     static void getMyGroup_ios();
+    //查找群成员
+    static void getGroupMenberListByID_ios(const char * groupID);
 protected:
     
 };

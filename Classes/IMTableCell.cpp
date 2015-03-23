@@ -45,19 +45,29 @@ void IMTableCell::initCell()
 {
 	switch (m_pcelltype){
 	case Group:
-		{initCellWithGroup();
-		break; }
+        {
+            initCellWithGroup();
+            break;
+        }
 	case Friend:
-		{initCellWithFriend();
-		break; }
+		{
+            initCellWithFriend();
+            break;
+        }
 	case Strange:
-		{initCellWithStrange();
-		break; }
+		{
+            initCellWithStrange();
+            break;
+        }
     case SearchResult:
-    {
-        initCellWithSearchResult();
-        break;
-    }
+        {
+            initCellWithSearchResult();
+            break;
+        }
+    case UNKnow:
+        {
+            break;
+        }
 		default:
 			break;
 	}
@@ -128,7 +138,6 @@ void IMTableCell::initCellWithSearchResult()
     baseView();
     this->addSubview(m_pHead);
     this->addSubview(m_pResult);
-
 }
 
 void IMTableCell::setCellInfo(CAImage* headIcon, const std::string name, const std::string introduce)

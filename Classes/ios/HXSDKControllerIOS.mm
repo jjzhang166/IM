@@ -335,7 +335,16 @@ void HXSDKControllerIOS:: getPublicGroup_ios()
                 if(!error)
                 {
                     CCLog("get Group Info success!!! ---%s",[groupInfo.groupId UTF8String]);
-
+//                    std::vector<HXSDKBuddy*> vec_menmbers;
+//                    NSArray* members = groupInfo.occupants;
+//                    for(int i=0; i<members.count; i++)
+//                    {
+//                        HXSDKBuddy* buddy = new HXSDKBuddy();
+//                        EMBuddy*   SDKBuddy =[members objectAtIndex:i];
+//                        buddy->m_sUserName = [SDKBuddy.username UTF8String];
+//                        vec_menmbers.push_back(buddy);
+//                        CC_SAFE_DELETE(buddy);
+//                    }
                     HXSDKController::getInstance()->setGroupsDetailByID([groupInfo.groupId UTF8String],
                                                                         [groupInfo.groupSubject UTF8String],
                                                                         [groupInfo.groupDescription UTF8String],
@@ -428,7 +437,24 @@ void HXSDKControllerIOS::getMyGroup_ios()
     }
 }
 
-
+void HXSDKControllerIOS::getGroupMenberListByID_ios(const char * groupID)
+{
+    NSString *string_groupID = [[NSString alloc]initWithCString:(const char *) groupID encoding:NSASCIIStringEncoding];
+    
+    EMError *error = nil;
+    NSArray *myGroupMembers = [easeMob.chatManager fetchOccupantList:string_groupID error:&error];
+    if(!error)
+    {
+        std::vector<HXSDKBuddy*> vec_menmbers;
+        for (int i = 0; i<myGroupMembers.count; i++) {
+            HXSDKBuddy* buddy = new HXSDKBuddy();
+            NSString*   buddyName =[myGroupMembers objectAtIndex:i];
+            buddy->m_sUserName = [buddyName UTF8String];
+            vec_menmbers.push_back(buddy);
+            HXSDKController::getInstance()->setGroupMembersByID(groupID, vec_menmbers);
+        }
+    }
+}
 
 
 

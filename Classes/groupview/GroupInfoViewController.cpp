@@ -14,6 +14,7 @@
 #include "AddHeadForgrand.h"
 #include "../data/TableLanguage.h"
 #include "../table/TableLanguagesfontnewHeader.h"
+#include "../groupview/GroupMembersController.h"
 
 
 GroupInfoViewController::GroupInfoViewController()
@@ -40,7 +41,7 @@ bool GroupInfoViewController::init(GroupInfo info,bool joined)
         m_info = info ;
         m_joined = joined;
         
-        CABarButtonItem* backItem = CABarButtonItem::create("back", NULL, NULL);
+        CABarButtonItem* backItem = CABarButtonItem::create(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LOGOUT).c_str(), NULL, NULL);
         backItem->setTarget(this, CAControl_selector(GroupInfoViewController::onButtonBack));
         CANavigationBarItem* navigation = CANavigationBarItem::create(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_31).c_str());
         navigation->setShowGoBackButton(false);
@@ -133,7 +134,7 @@ void GroupInfoViewController::viewDidLoad()
     _memberView->addSubview(memberLabel);
     
     m_LabelMember = CALabel::createWithFrame(CCRect(240, 152, 200, 39));
-    m_LabelMember->setText( CCString::createWithFormat("%d人",m_info.m_itotal)->getCString());
+    m_LabelMember->setText( CCString::createWithFormat("%d人",m_info.m_itotal-1)->getCString());
     m_LabelMember->setColor(ccc4(51, 51, 51, 255));
     m_LabelMember->setFontSize(_px(38));
     _memberView->addSubview(m_LabelMember);
@@ -182,11 +183,17 @@ void GroupInfoViewController::viewDidLoad()
     gmemberLabel->setColor(ccc4(51, 51, 51, 255));
     gmemberLabel->setFontSize(_px(38));
     _noticeView->addSubview(gmemberLabel);
-
+    
+    CAButton* groupMenbersButton = CAButton::createWithFrame(CCRect(_px(240), 152, 200, 39), CAButtonTypeRoundedRect);
+    groupMenbersButton->setBackGroundViewForState(CAControlStateAll,CAImageView::createWithImage(CAImage::create(BUTTON_EXIT_GROUP)));
+    groupMenbersButton->addTarget(this, CAControl_selector(GroupInfoViewController::onButtonGroupMenbers), CAControlTouchUpInSide);
+    _noticeView->addSubview(groupMenbersButton);
+    
     scrollView->addSubview(_noticeView);
 
     
     m_ExitButton = CAButton::createWithFrame(CCRect(_px(40), 1572, winRect.size.width-_px(80), 110), CAButtonTypeRoundedRect);
+    
     if(m_joined)
     {
         m_ExitButton->setTitleForState(CAControlStateAll, TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_41).c_str());
@@ -215,6 +222,14 @@ void GroupInfoViewController::viewDidLoad()
 void GroupInfoViewController::viewDidUnLoad()
 {
 
+}
+
+// 群成员按钮
+void GroupInfoViewController::onButtonGroupMenbers(CAControl* target, CCPoint point)
+{
+    std::vector<HXSDKBuddy*> vMembers = HXSDKController::getInstance()->getGroupMemberListByID(m_info.m_sGroupID);
+    GroupMembersController* memberController = GroupMembersController::create(vMembers);
+    RootWindow::getInstance()->getNavigationController()->pushViewController(memberController, true);
 }
 
 // 返回按钮

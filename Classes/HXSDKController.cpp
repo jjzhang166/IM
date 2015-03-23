@@ -204,6 +204,16 @@ std::vector<HXSDKGroup*> HXSDKController::getMyGroupList()
 	return m_vMyGroupList;
 }
 
+std::vector<HXSDKBuddy*> HXSDKController::getGroupMemberListByID(std::string groupID)
+{
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    HXSDKControllerIOS::getGroupMenberListByID_ios(groupID.c_str());
+    
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    //
+#endif
+    return HXSDKController::getInstance()->groupMenberListByID(groupID);
+}
 
 /////////////////////////////////////////////////////////////////////新增
 void HXSDKController::joinNoNeedCheckGroup(const char* groupId)
@@ -397,10 +407,35 @@ void HXSDKController::setGroupsDetailByID(std::string groupID, std::string group
             (*itr)->m_sGroupOwer = ower;
             (*itr)->m_eGroupType = (HXSDKGroupStyle)groupStyle;
             (*itr)->m_bIsPushNotificationEnable = isNotificationEnable;
+//            for(int i=0; i<menbers.size(); i++)
+//            {
+//                (*itr)->m_vMenbers.push_back(menbers.at(i));
+//            }
             break;
         }
     }
-    ((FirstViewController*)((CATabBarController*)(RootWindow::getInstance()->getNavigationController()->getViewControllerAtIndex(0)))->getViewControllerAtIndex(0))->refreshTableView();
+    if(((CATabBarController*)(RootWindow::getInstance()->getNavigationController()->getViewControllerAtIndex(0)))->getSelectedViewControllerAtIndex() == 0)
+    {
+        ((FirstViewController*)((CATabBarController*)(RootWindow::getInstance()->getNavigationController()->getViewControllerAtIndex(0)))->getViewControllerAtIndex(0))->refreshTableView();
+    }
+
+}
+
+void HXSDKController::setGroupMembersByID(std::string groupID, std::vector<HXSDKBuddy *> members)
+{
+    std::vector<HXSDKGroup*>::iterator itr = m_vPublicGroupList.begin();
+    for(; itr!= m_vPublicGroupList.end(); itr++)
+    {
+        if ( !(*itr)->m_sGroupId.compare(groupID) )
+        {
+            (*itr)->m_vMenbers.clear();
+            for(int i=0; i<members.size(); i++)
+            {
+                (*itr)->m_vMenbers.push_back(members.at(i));
+            }
+            break;
+        }
+    }
 }
 
 void HXSDKController::cleanMyGroupList()
@@ -422,6 +457,19 @@ void HXSDKController::pushMyGroupsDetail(std::string groupID, std::string groupS
 	sdkGroup->m_iGroupOccupantsCount = groupOccupantsCount;
 
 	m_vMyGroupList.push_back(sdkGroup);
+}
+
+std::vector<HXSDKBuddy*> HXSDKController::groupMenberListByID(std::string groupID)
+{
+    
+    std::vector<HXSDKGroup*>::iterator itr = m_vPublicGroupList.begin();
+    for(; itr!= m_vPublicGroupList.end(); itr++)
+    {
+        if ( !(*itr)->m_sGroupId.compare(groupID) )
+        {
+            return(*itr)->m_vMenbers;
+        }
+    }
 }
 
 /***************************************NotificationCenter*******************************************/

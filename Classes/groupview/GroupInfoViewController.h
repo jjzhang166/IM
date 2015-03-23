@@ -44,15 +44,15 @@ protected:
     void viewDidLoad();
     void viewDidUnLoad();
     
-    public :
+public :
     void onButtonBack(CAControl *pTarget, CCPoint point); // 返回按钮
     void onSwitchChanged(CAControl *target,CCPoint point); // 消息提醒开关
     void onButtonJoin(CAControl* target, CCPoint point); //加入群
     void onButtonExit(CAControl* target,CCPoint point);
+    void onButtonGroupMenbers(CAControl* target, CCPoint point);//群成员列表
 protected:
     GroupInfo m_info;
     bool m_joined; //已加入
-    
     
     CAImageView*    m_imgViewHead; // 头像
     CALabel*        m_LabelTopic; // 主题

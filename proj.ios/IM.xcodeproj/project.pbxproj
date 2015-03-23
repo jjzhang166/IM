@@ -32,6 +32,7 @@
 		3E11DA361A9033EC002E2ADA /* TableBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E11DA321A9033EC002E2ADA /* TableBase.cpp */; };
 		3E11DA371A9033EC002E2ADA /* TableLanguage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E11DA341A9033EC002E2ADA /* TableLanguage.cpp */; };
 		3E1657601A660C5500D832E9 /* IMLoginRegister.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E16575E1A660C5500D832E9 /* IMLoginRegister.cpp */; };
+		3E2491221ABFF7BB0014FE15 /* GroupMembersController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E2491201ABFF7BB0014FE15 /* GroupMembersController.cpp */; };
 		3E280D3A1A64C09C00233D5B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E280D391A64C09C00233D5B /* Security.framework */; };
 		3E280D3C1A64C0A500233D5B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E280D3B1A64C0A500233D5B /* MobileCoreServices.framework */; };
 		3E280D3E1A64C0AA00233D5B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E280D3D1A64C0AA00233D5B /* CFNetwork.framework */; };
@@ -170,6 +171,8 @@
 		3E11DA351A9033EC002E2ADA /* TableLanguage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableLanguage.h; sourceTree = "<group>"; };
 		3E16575E1A660C5500D832E9 /* IMLoginRegister.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMLoginRegister.cpp; path = ../Classes/IMLoginRegister.cpp; sourceTree = "<group>"; };
 		3E16575F1A660C5500D832E9 /* IMLoginRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMLoginRegister.h; path = ../Classes/IMLoginRegister.h; sourceTree = "<group>"; };
+		3E2491201ABFF7BB0014FE15 /* GroupMembersController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GroupMembersController.cpp; sourceTree = "<group>"; };
+		3E2491211ABFF7BB0014FE15 /* GroupMembersController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupMembersController.h; sourceTree = "<group>"; };
 		3E280D391A64C09C00233D5B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		3E280D3B1A64C0A500233D5B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		3E280D3D1A64C0AA00233D5B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -1162,6 +1165,8 @@
 		75D2E5731A6CA6AF0089CE98 /* groupview */ = {
 			isa = PBXGroup;
 			children = (
+				3E2491201ABFF7BB0014FE15 /* GroupMembersController.cpp */,
+				3E2491211ABFF7BB0014FE15 /* GroupMembersController.h */,
 				75D2E5741A6CA6AF0089CE98 /* GroupInfoViewController.cpp */,
 				75D2E5751A6CA6AF0089CE98 /* GroupInfoViewController.h */,
 			);
@@ -1424,6 +1429,7 @@
 				B04C0C031901207A009854FD /* CSContentJsonDictionary.cpp in Sources */,
 				3E38EBCB1A5FB2DE0096A595 /* SecondViewController.cpp in Sources */,
 				B04C0C0A1901207A009854FD /* json_writer.cpp in Sources */,
+				3E2491221ABFF7BB0014FE15 /* GroupMembersController.cpp in Sources */,
 				B01A293A1994C6D200D42BA0 /* sqlite3.c in Sources */,
 				B04C0C081901207A009854FD /* json_value.cpp in Sources */,
 				3E11DA361A9033EC002E2ADA /* TableBase.cpp in Sources */,
