@@ -327,27 +327,23 @@ void HXSDKControllerIOS:: getPublicGroup_ios()
             if (emGroup.groupSubject) {
                 gSub = [emGroup.groupSubject UTF8String];
             }
-//          gGroupStyle = emGroup.groupSetting.groupStyle;
-//            
-//          gIsPushNotification = emGroup.isPushNotificationEnabled;
             //异步查询群详情
             [easeMob.chatManager asyncFetchGroupInfo:emGroup.groupId completion:^(EMGroup *groupInfo, EMError *error) {
                 if(!error)
                 {
+                  
                     CCLog("get Group Info success!!! ---%s",[groupInfo.groupId UTF8String]);
-//                    std::vector<HXSDKBuddy*> vec_menmbers;
-//                    NSArray* members = groupInfo.occupants;
-//                    for(int i=0; i<members.count; i++)
-//                    {
-//                        HXSDKBuddy* buddy = new HXSDKBuddy();
-//                        EMBuddy*   SDKBuddy =[members objectAtIndex:i];
-//                        buddy->m_sUserName = [SDKBuddy.username UTF8String];
-//                        vec_menmbers.push_back(buddy);
-//                        CC_SAFE_DELETE(buddy);
-//                    }
+                    CCLog("11111111111 groupSub:%s  ",[groupInfo.groupSubject UTF8String]);
+                    CCLog("11111111111 des:%s ",[groupInfo.groupDescription UTF8String]);
+                    CCLog("11111111111 icount:%d ",groupInfo.groupOccupantsCount);
+                    CCLog("11111111111 ower:%s",[groupInfo.owner UTF8String]);
+                    CCLog("11111111111 groupStyle:%d  ",groupInfo.groupSetting.groupStyle);
+                    
+                    const char* des = [groupInfo.groupDescription UTF8String];
+
                     HXSDKController::getInstance()->setGroupsDetailByID([groupInfo.groupId UTF8String],
                                                                         [groupInfo.groupSubject UTF8String],
-                                                                        [groupInfo.groupDescription UTF8String],
+                                                                        des,
                                                                          groupInfo.groupOccupantsCount,
                                                                         [groupInfo.owner UTF8String],
                                                                          groupInfo.groupSetting.groupStyle,

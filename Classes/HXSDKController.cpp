@@ -50,7 +50,6 @@ HXSDKController* HXSDKController::getInstance()
 			return HXsdkController;
 		}
 	}
-
 	return HXsdkController;
 }
 
@@ -394,7 +393,7 @@ void HXSDKController::pushGroupsDetail(std::string groupID, std::string groupSub
 	m_vPublicGroupList.push_back(sdkGroup);
 }
 
-void HXSDKController::setGroupsDetailByID(std::string groupID, std::string groupSub, std::string groupDes, int groupOccupantsCount, std::string ower, int groupStyle, bool isNotificationEnable)
+void HXSDKController::setGroupsDetailByID(const char* groupID, const char* groupSub, const char* groupDes, int groupOccupantsCount, const char* ower, int groupStyle, bool isNotificationEnable)
 {
     std::vector<HXSDKGroup*>::iterator itr = m_vPublicGroupList.begin();
     for(; itr!= m_vPublicGroupList.end(); itr++)
@@ -402,15 +401,18 @@ void HXSDKController::setGroupsDetailByID(std::string groupID, std::string group
         if ( !(*itr)->m_sGroupId.compare(groupID) )
         {
             (*itr)->m_sGroupSubject = groupSub;
-            (*itr)->m_sGroupDescription = groupDes;
+            if(groupDes == NULL)
+            {
+                (*itr)->m_sGroupDescription = "";
+            }
+            else
+            {
+                (*itr)->m_sGroupDescription = groupDes;
+            }
             (*itr)->m_iGroupOccupantsCount = groupOccupantsCount;
             (*itr)->m_sGroupOwer = ower;
             (*itr)->m_eGroupType = (HXSDKGroupStyle)groupStyle;
             (*itr)->m_bIsPushNotificationEnable = isNotificationEnable;
-//            for(int i=0; i<menbers.size(); i++)
-//            {
-//                (*itr)->m_vMenbers.push_back(menbers.at(i));
-//            }
             break;
         }
     }

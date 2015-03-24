@@ -81,7 +81,7 @@ bool FirstViewController::init()
         
         //CANotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(FirstViewController::isLoginCallBack), KNOTIFICATION_LOGIN, NULL);
         m_vGroups = HXSDKController::getInstance()->getPublicGroupList();
-        
+        HXSDKController::getInstance()->getMyGroupList();
         return true;
     }
     return false;
