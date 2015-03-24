@@ -25,7 +25,6 @@ static EaseMob* easeMob = NULL;
 
 bool HXSDKControllerIOS::init_ios()
 {
-    
     easeMob = [EaseMob sharedInstance];
     NSString *apnsCertName = @"9miao";
     [easeMob registerSDKWithAppKey:@"longtugame#crossappim" apnsCertName:apnsCertName];
@@ -36,15 +35,13 @@ bool HXSDKControllerIOS::init_ios()
 
     if(easeMob)
     {
-        CCLog("HXSDK init success!!!");
         return true;
     }
     else
     {
         CCLog("HXSDK init failed...");
+        return false;
     }
-    
-    return false;
 }
 
 bool HXSDKControllerIOS::Login_ios(const char* name, const char* passWord)
@@ -327,8 +324,11 @@ void HXSDKControllerIOS:: getPublicGroup_ios()
             if (emGroup.groupSubject) {
                 gSub = [emGroup.groupSubject UTF8String];
             }
+            
+            //NSLog(@"sget public Group success!!! ---%s",[emGroup.groupId UTF8String]);
             //异步查询群详情
-            [easeMob.chatManager asyncFetchGroupInfo:emGroup.groupId completion:^(EMGroup *groupInfo, EMError *error) {
+            [easeMob.chatManager asyncFetchGroupInfo:emGroup.groupId includesOccupantList:NO completion:^(EMGroup *groupInfo, EMError *error)
+            {
                 if(!error)
                 {
                   
@@ -338,6 +338,8 @@ void HXSDKControllerIOS:: getPublicGroup_ios()
                     CCLog("11111111111 icount:%d ",groupInfo.groupOccupantsCount);
                     CCLog("11111111111 ower:%s",[groupInfo.owner UTF8String]);
                     CCLog("11111111111 groupStyle:%d  ",groupInfo.groupSetting.groupStyle);
+//                    NSLog(@"get Group Info success!!! ---%s",[groupInfo.groupId UTF8String]);
+//                    NSLog(@"group des: ---%s",[groupInfo.groupDescription UTF8String]);
                     
                     const char* des = [groupInfo.groupDescription UTF8String];
 
