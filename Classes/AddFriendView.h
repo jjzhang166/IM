@@ -24,8 +24,8 @@ class AddFriendView :public CAView
 public:
 	AddFriendView();
 	virtual ~AddFriendView();
-	static AddFriendView* create(int numbers,const CCRect& rect);
-	bool init(int numbers, const CCRect& rect);
+	static AddFriendView* create(int numbers,const CCRect& rect,const CCRect& winRect);
+	bool init(int numbers, const CCRect& rect,const CCRect& winRect);
 	void setItemNameAtIndex(string name, int index);
 	void addTarget(CAObject* target, SEL_AddFriendView selector);
 
@@ -38,7 +38,7 @@ public:
 private:
 	CAObject*                   m_pTarget;
 	SEL_AddFriendView           m_pCallFunc;
-	CCRect winRect;
+	CCRect m_rect;
 	vector<CAButton*> m_pButtons;
 	int count;
 	CAView *background;

@@ -106,7 +106,7 @@ void FirstViewController::viewDidAppear()
        getMyGroupsWithKeyWords(m_sKeyWord.c_str());
     }
     
-    m_pTableView->reloadData();
+   // m_pTableView->reloadData();
 }
 
 void FirstViewController::viewDidUnload()
@@ -178,7 +178,7 @@ void FirstViewController::onButtonAdd(CAControl* control, CCPoint point)
 {
     if(NULL == addView)
     {
-        addView = AddFriendView::create(3,CCRectMake(50, 10, m_pWinSize.width, m_pWinSize.height));
+        addView = AddFriendView::create(3,CCRect(m_pWinSize.width-250, 10, 230, 300), this->getView()->getBounds());
         addView->setItemNameAtIndex(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_25).c_str(), 0);
         addView->setItemNameAtIndex(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_26).c_str(), 1);
         addView->setItemNameAtIndex(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_27).c_str(), 2);

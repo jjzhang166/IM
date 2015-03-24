@@ -18,10 +18,10 @@ AddFriendView::~AddFriendView()
     m_pButtons.clear();
 }
 
-AddFriendView* AddFriendView::create(int numbers, const CCRect& rect)
+AddFriendView* AddFriendView::create(int numbers, const CCRect& rect,const CCRect& winRect)
 {
 	addfriendview = new AddFriendView();
-	if (addfriendview && addfriendview->init(numbers, rect))
+	if (addfriendview && addfriendview->init(numbers, rect, winRect))
 	{
 		addfriendview->autorelease();
 		return addfriendview;
@@ -30,32 +30,37 @@ AddFriendView* AddFriendView::create(int numbers, const CCRect& rect)
 	return NULL;
 }
 
-bool AddFriendView::init(int numbers, const CCRect& rect)
+bool AddFriendView::init(int numbers, const CCRect& rect,const CCRect& winRect)
 {
-	count = numbers;
-	winRect = rect;
-	addfriendview->setFrame(winRect);
-	addfriendview->setColor(ccc4(0, 0, 0, 0));
-	background = CAScale9ImageView::createWithImage(CAImage::create(FRIEND_ADD));
-	background->setFrame(CCRect(winRect.size.width*0.5, 0, winRect.size.width*0.4, winRect.size.height*0.1*count));
-	addfriendview->addSubview(background);
-	for (int i = 0; i < count; i++)
-	{
-		CAButton* button[10];
-		CAView* line[9];
-		button[i] = CAButton::createWithCenter(CCRect(winRect.size.width*0.7, winRect.size.height*0.05*(2*i+1), WIDTH, HEIGHT), CAButtonTypeCustom);
-		button[i]->setBackGroundViewForState(CAControlStateAll, CAView::createWithColor(CAColor_clear));
-		button[i]->setTitleColorForState(CAControlStateAll, CAColor_white);
-		m_pButtons.push_back(button[i]);
-		addfriendview->addSubview(button[i]);
-		if (i < count - 1)
-		{
-			line[i] = CAView::createWithCenter(CCRect(winRect.size.width*0.7, winRect.size.height*0.1*(i + 1), WIDTH, _px(1)));
-			addfriendview->addSubview(line[i]);
-		}
-
-	}
-	return true;
+    if(CAView::init())
+    {
+        count = numbers;
+        m_rect = rect;
+        addfriendview->setFrame(winRect);
+        addfriendview->setColor(ccc4(0, 100, 0, 0));
+        background = CAScale9ImageView::createWithImage(CAImage::create(FRIEND_ADD));
+        background->setFrame(m_rect);
+        addfriendview->addSubview(background);
+        float tmp = m_rect.size.height/count;
+        for (int i = 0; i < count; i++)
+        {
+            CAButton* button[10];
+            CAView* line[9];
+            button[i] = CAButton::createWithCenter(CCRect(m_rect.size.width*0.5, tmp*(0.5+i), m_rect.size.width, tmp), CAButtonTypeCustom);
+            button[i]->setBackGroundViewForState(CAControlStateAll, CAView::createWithColor(CAColor_clear));
+            button[i]->setTitleColorForState(CAControlStateAll, CAColor_white);
+            m_pButtons.push_back(button[i]);
+            background->addSubview(button[i]);
+            if (i != 0)
+            {
+                line[i] = CAView::createWithCenter(CCRect(m_rect.size.width*0.5, tmp*i, m_rect.size.width, _px(1)));
+                background->addSubview(line[i]);
+            }
+            
+        }
+        return true;
+    }
+    return false;
 }
 
 void AddFriendView::setItemNameAtIndex(string name, int index)
