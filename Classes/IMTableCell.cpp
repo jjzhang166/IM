@@ -77,29 +77,29 @@ void IMTableCell::initCell()
 void IMTableCell::baseView()
 {
 	CADipSize cellsize = this->getFrame().size;
-	m_pHead = CAImageView::createWithCenter(CCRect(cellsize.width*0.1, cellsize.height*0.5, cellsize.width*0.2, cellsize.height));
+	m_pHead = CAImageView::createWithCenter(CCRect(60, cellsize.height*0.5, 100, cellsize.height));
 	m_pHead->setTag(200);
 	AddHeadForgrand::getInstance()->addHeadForgrand(m_pHead);
 	
-	m_pGroup = CAImageView::createWithCenter(CCRect(cellsize.width*0.25, cellsize.height*0.3, cellsize.width*0.06, cellsize.height*0.3));
+	m_pGroup = CAImageView::createWithCenter(CCRect(165, cellsize.height*0.3, 80, cellsize.height*0.3));
 	m_pGroup->setTag(201);
 	m_pGroup->setImage(CAImage::create(GROUP));
 
-	m_pName = CALabel::createWithCenter(CCRect(cellsize.width*0.6, cellsize.height*0.3, cellsize.width*0.76, cellsize.height*0.4));
+	m_pName = CALabel::createWithFrame(CCRect(130, cellsize.height*0.1, cellsize.width*0.3, cellsize.height*0.4));
 	m_pName->setColor(CAColor_black);
 	m_pName->setTextAlignment(CATextAlignmentLeft);
 	m_pName->setVerticalTextAlignmet(CAVerticalTextAlignmentCenter);
 	m_pName->setFontSize(20 * CROSSAPP_ADPTATION_RATIO);
 	m_pName->setTag(202);
 
-	m_pContent = CALabel::createWithCenter(CCRect(cellsize.width*0.6, cellsize.height*0.8, cellsize.width*0.76, cellsize.height*0.4));
+	m_pContent = CALabel::createWithFrame(CCRect(125, cellsize.height*0.6, cellsize.width*0.76, cellsize.height*0.4));
 	m_pContent->setColor(CAColor_gray);
 	m_pContent->setTextAlignment(CATextAlignmentLeft);
 	m_pContent->setVerticalTextAlignmet(CAVerticalTextAlignmentTop);
 	m_pContent->setFontSize(18 * CROSSAPP_ADPTATION_RATIO);
 	m_pContent->setTag(203);
     
-    m_pResult = CALabel::createWithFrame(CCRect(cellsize.width * 0.3,cellsize.height *0.25,cellsize.width*0.76,cellsize.height*0.4));
+    m_pResult = CALabel::createWithFrame(CCRect(130,cellsize.height *0.25,cellsize.width*0.76,cellsize.height*0.4));
     m_pResult->setColor(ccc4(22, 22, 22, 255));
     m_pResult->setVerticalTextAlignmet(CAVerticalTextAlignmentTop);
     m_pResult->setFontSize(_px(38));
@@ -110,7 +110,7 @@ void IMTableCell::initCellWithGroup()
 {
 	CADipSize cellsize = this->getFrame().size;
 	baseView();
-	m_pName->setCenter(CCRect(cellsize.width*0.65, cellsize.height*0.3, cellsize.width*0.68, cellsize.height*0.4));
+	m_pName->setFrame(CCRect(230, cellsize.height*0.1, cellsize.width*0.3, cellsize.height*0.4));
 	this->addSubview(m_pHead);
 	this->addSubview(m_pGroup);
 	this->addSubview(m_pName);

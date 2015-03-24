@@ -180,8 +180,8 @@ void GroupInfoViewController::viewDidLoad()
     gmemberLabel->setFontSize(_px(38));
     _noticeView->addSubview(gmemberLabel);
     
-    CAButton* groupMenbersButton = CAButton::createWithFrame(CCRect(_px(240), 152, 200, 39), CAButtonTypeRoundedRect);
-    groupMenbersButton->setBackGroundViewForState(CAControlStateAll,CAImageView::createWithImage(CAImage::create(BUTTON_EXIT_GROUP)));
+    CAButton* groupMenbersButton = CAButton::createWithFrame(CCRect(0, 100, winRect.size.width, 110), CAButtonTypeRoundedRect);
+    groupMenbersButton->setBackGroundViewForState(CAControlStateAll,CAImageView::createWithImage(CAImage::create("")));
     groupMenbersButton->addTarget(this, CAControl_selector(GroupInfoViewController::onButtonGroupMenbers), CAControlTouchUpInSide);
     _noticeView->addSubview(groupMenbersButton);
     

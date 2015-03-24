@@ -117,7 +117,7 @@ unsigned int GroupMembersController::numberOfSections(CATableView *table)
 
 unsigned int GroupMembersController::tableViewHeightForRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row)
 {	/*section的大小设置*/
-    return m_vGroupMembers.size()*_px(30);
+    return _px(90);
 }
 
 unsigned int GroupMembersController::tableViewHeightForHeaderInSection(CATableView* table, unsigned int section)
