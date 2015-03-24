@@ -82,7 +82,7 @@ public:
 		m_eGroupType = eHXSDKGroupStyle_Default;
         m_sGroupOwer = "";
         m_bIsPushNotificationEnable = true;
-        m_bIsJoined = true;
+        m_bIsJoined = false;
 	}
 	~HXSDKGroup()
     {

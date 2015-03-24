@@ -101,7 +101,7 @@ void FirstViewController::viewDidAppear()
     this->getTabBarController()->setNavigationBarItem(m_pNavigationBarItem);
     if(HXSDKController::getInstance()->isLogin())
     
-    m_vMyGroups = HXSDKController::getInstance()->getMyGroupList();
+//    m_vMyGroups = HXSDKController::getInstance()->getMyGroupList();
     
     if (m_sKeyWord != "") {
        getGroupsWithKeyWords(m_sKeyWord.c_str());
@@ -174,10 +174,10 @@ void FirstViewController::setGroupsDidIJoined()
                 break;
             }
         }
-
-
-        
     }
+    
+    refreshTableView();
+    
 }
 /*
 void FirstViewController::onButtonPopular(CAControl* control, CCPoint point)
@@ -214,6 +214,7 @@ void FirstViewController::onButtonAdd(CAControl* control, CCPoint point)
     {
         addView->setVisible(true);
     }
+    
 }
 
 void FirstViewController::addViewButtonCallBack(AddFriendView* controller, int index)
