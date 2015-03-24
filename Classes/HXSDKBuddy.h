@@ -29,6 +29,7 @@ class HXSDKBuddy
 public:
 	HXSDKBuddy()
 	{
+        m_iUserID = 0;
 		m_sUserName = "";
 		m_eFollowState = eHXSDKEMBuddyFollowState_UnKnow;
 		m_bIsPendingApproval = false;
@@ -39,6 +40,7 @@ public:
 	}
 
 public:
+    int                     m_iUserID;
 	std::string             m_sUserName;
 	HXSDKBuddyFollowState   m_eFollowState;
 	bool                    m_bIsPendingApproval;
@@ -82,8 +84,8 @@ public:
         m_bIsPushNotificationEnable = true;
 	}
 	~HXSDKGroup()
-	{
-
+    {
+        m_vMenbers.clear();
 	}
 
 public:
@@ -102,6 +104,8 @@ public:
     std::string m_sGroupOwer;
     //    是否推动消息
     bool        m_bIsPushNotificationEnable;
+    //    群成员
+    std::vector<HXSDKBuddy*> m_vMenbers;
 
 };
 

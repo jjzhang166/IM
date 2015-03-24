@@ -13,7 +13,8 @@ typedef enum{
 	Group = 0,
 	Friend,
 	Strange,
-    SearchResult
+    SearchResult,
+    UNKnow
 }IMCellType;
 
 #include "CrossApp.h"

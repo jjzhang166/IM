@@ -53,6 +53,8 @@ public:
 	void createGroup(HXSDKGroupStyle groupType, const char* gName, const char* gDescription);
 	/*获取已加入的群*/
 	std::vector<HXSDKGroup*> getMyGroupList();
+    /*请求群组成员信息*/
+    std::vector<HXSDKBuddy*> getGroupMemberListByID(std::string groupID);
 
     std::string getMyName();
 
@@ -98,6 +100,8 @@ public:
 	void cleanMyGroupList();
 	void pushMyGroupsDetail(std::string groupID, std::string groupSub, std::string groupDes, int groupOccupantsCount);
 
+    void setGroupMembersByID(std::string groupID, std::vector<HXSDKBuddy*> members);
+    std::vector<HXSDKBuddy*> groupMenberListByID(std::string groupID);
     
 protected:
 	std::string     m_sUserName;

@@ -32,6 +32,10 @@
 		3E11DA361A9033EC002E2ADA /* TableBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E11DA321A9033EC002E2ADA /* TableBase.cpp */; };
 		3E11DA371A9033EC002E2ADA /* TableLanguage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E11DA341A9033EC002E2ADA /* TableLanguage.cpp */; };
 		3E1657601A660C5500D832E9 /* IMLoginRegister.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E16575E1A660C5500D832E9 /* IMLoginRegister.cpp */; };
+		3E2491221ABFF7BB0014FE15 /* GroupMembersController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E2491201ABFF7BB0014FE15 /* GroupMembersController.cpp */; };
+		3E2491271AC00C490014FE15 /* SearchController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E2491251AC00C490014FE15 /* SearchController.cpp */; };
+		3E24912A1AC018150014FE15 /* AddFriendController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E2491281AC018150014FE15 /* AddFriendController.cpp */; };
+		3E2491331AC021C10014FE15 /* GroupCreateViewController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E2491311AC021C10014FE15 /* GroupCreateViewController.cpp */; };
 		3E280D3A1A64C09C00233D5B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E280D391A64C09C00233D5B /* Security.framework */; };
 		3E280D3C1A64C0A500233D5B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E280D3B1A64C0A500233D5B /* MobileCoreServices.framework */; };
 		3E280D3E1A64C0AA00233D5B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E280D3D1A64C0AA00233D5B /* CFNetwork.framework */; };
@@ -170,6 +174,14 @@
 		3E11DA351A9033EC002E2ADA /* TableLanguage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableLanguage.h; sourceTree = "<group>"; };
 		3E16575E1A660C5500D832E9 /* IMLoginRegister.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMLoginRegister.cpp; path = ../Classes/IMLoginRegister.cpp; sourceTree = "<group>"; };
 		3E16575F1A660C5500D832E9 /* IMLoginRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMLoginRegister.h; path = ../Classes/IMLoginRegister.h; sourceTree = "<group>"; };
+		3E2491201ABFF7BB0014FE15 /* GroupMembersController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GroupMembersController.cpp; sourceTree = "<group>"; };
+		3E2491211ABFF7BB0014FE15 /* GroupMembersController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupMembersController.h; sourceTree = "<group>"; };
+		3E2491251AC00C490014FE15 /* SearchController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SearchController.cpp; path = ../Classes/SearchController.cpp; sourceTree = "<group>"; };
+		3E2491261AC00C490014FE15 /* SearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchController.h; path = ../Classes/SearchController.h; sourceTree = "<group>"; };
+		3E2491281AC018150014FE15 /* AddFriendController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AddFriendController.cpp; path = ../Classes/AddFriendController.cpp; sourceTree = "<group>"; };
+		3E2491291AC018150014FE15 /* AddFriendController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddFriendController.h; path = ../Classes/AddFriendController.h; sourceTree = "<group>"; };
+		3E2491311AC021C10014FE15 /* GroupCreateViewController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GroupCreateViewController.cpp; sourceTree = "<group>"; };
+		3E2491321AC021C10014FE15 /* GroupCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupCreateViewController.h; sourceTree = "<group>"; };
 		3E280D391A64C09C00233D5B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		3E280D3B1A64C0A500233D5B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		3E280D3D1A64C0AA00233D5B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -572,6 +584,10 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3E2491281AC018150014FE15 /* AddFriendController.cpp */,
+				3E2491291AC018150014FE15 /* AddFriendController.h */,
+				3E2491251AC00C490014FE15 /* SearchController.cpp */,
+				3E2491261AC00C490014FE15 /* SearchController.h */,
 				3E32B7EE1ABA7BE1003A0179 /* chat */,
 				3EC2699E1AB8178600C9ADC1 /* IMUserManager.cpp */,
 				3EC2699F1AB8178600C9ADC1 /* IMUserManager.h */,
@@ -1162,6 +1178,10 @@
 		75D2E5731A6CA6AF0089CE98 /* groupview */ = {
 			isa = PBXGroup;
 			children = (
+				3E2491311AC021C10014FE15 /* GroupCreateViewController.cpp */,
+				3E2491321AC021C10014FE15 /* GroupCreateViewController.h */,
+				3E2491201ABFF7BB0014FE15 /* GroupMembersController.cpp */,
+				3E2491211ABFF7BB0014FE15 /* GroupMembersController.h */,
 				75D2E5741A6CA6AF0089CE98 /* GroupInfoViewController.cpp */,
 				75D2E5751A6CA6AF0089CE98 /* GroupInfoViewController.h */,
 			);
@@ -1417,6 +1437,7 @@
 				3E280E221A652EB400233D5B /* HXSDKControllerIOS.mm in Sources */,
 				B04C0C071901207A009854FD /* json_reader.cpp in Sources */,
 				759D26611A6F4AC300E39203 /* AddHeadForgrand.cpp in Sources */,
+				3E2491271AC00C490014FE15 /* SearchController.cpp in Sources */,
 				B04822BE19FA41F70019F1A7 /* CABrightness_iOS.mm in Sources */,
 				B04C0C041901207A009854FD /* DictionaryHelper.cpp in Sources */,
 				759D26671A6F4B9300E39203 /* IMMyInfo.cpp in Sources */,
@@ -1424,15 +1445,18 @@
 				B04C0C031901207A009854FD /* CSContentJsonDictionary.cpp in Sources */,
 				3E38EBCB1A5FB2DE0096A595 /* SecondViewController.cpp in Sources */,
 				B04C0C0A1901207A009854FD /* json_writer.cpp in Sources */,
+				3E2491221ABFF7BB0014FE15 /* GroupMembersController.cpp in Sources */,
 				B01A293A1994C6D200D42BA0 /* sqlite3.c in Sources */,
 				B04C0C081901207A009854FD /* json_value.cpp in Sources */,
 				3E11DA361A9033EC002E2ADA /* TableBase.cpp in Sources */,
+				3E24912A1AC018150014FE15 /* AddFriendController.cpp in Sources */,
 				15A3DA5D1682F826002FB0C5 /* HttpClient.cpp in Sources */,
 				3E02C5991AB12C88007CA47D /* AddFriendView.cpp in Sources */,
 				759D26641A6F4ADA00E39203 /* IMMyController.cpp in Sources */,
 				B0405FF319CC03A100947287 /* LocalStorage.cpp in Sources */,
 				3E655F911A80757100832CBD /* Reachability.m in Sources */,
 				3E11DA371A9033EC002E2ADA /* TableLanguage.cpp in Sources */,
+				3E2491331AC021C10014FE15 /* GroupCreateViewController.cpp in Sources */,
 				B04822BD19FA41F70019F1A7 /* CAAlbumController.mm in Sources */,
 				3EC269A01AB8178600C9ADC1 /* IMUserManager.cpp in Sources */,
 				3E655F891A80720900832CBD /* IMSettingClassify.cpp in Sources */,
