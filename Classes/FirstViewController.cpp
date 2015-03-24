@@ -99,7 +99,10 @@ void FirstViewController::viewDidAppear()
 {
     this->getTabBarController()->setNavigationBarItem(m_pNavigationBarItem);
     if(HXSDKController::getInstance()->isLogin())
+    {
         m_vMyGroups = HXSDKController::getInstance()->getMyGroupList();
+        setGroupsDidIJoined();
+    }
     
     if (m_sKeyWord != "") {
        getGroupsWithKeyWords(m_sKeyWord.c_str());
