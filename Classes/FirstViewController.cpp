@@ -81,7 +81,6 @@ bool FirstViewController::init()
         
         //CANotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(FirstViewController::isLoginCallBack), KNOTIFICATION_LOGIN, NULL);
         m_vGroups = HXSDKController::getInstance()->getPublicGroupList();
-        HXSDKController::getInstance()->getMyGroupList();
         return true;
     }
     return false;
@@ -100,12 +99,11 @@ void FirstViewController::viewDidAppear()
 {
     this->getTabBarController()->setNavigationBarItem(m_pNavigationBarItem);
     if(HXSDKController::getInstance()->isLogin())
-        refreshTableView();
+        m_vMyGroups = HXSDKController::getInstance()->getMyGroupList();
     
     if (m_sKeyWord != "") {
-       getMyGroupsWithKeyWords(m_sKeyWord.c_str());
+       getGroupsWithKeyWords(m_sKeyWord.c_str());
     }
-    
    // m_pTableView->reloadData();
 }
 
@@ -144,18 +142,37 @@ void FirstViewController::refreshTableView()
     m_pTableView->reloadData();
 }
 
-void FirstViewController::getMyGroupsWithKeyWords(const char *keywords)
+void FirstViewController::getGroupsWithKeyWords(const char *keywords)
 {
-    m_vMyGroupsWithKeyWords.clear();
+    m_vGroupsWithKeyWords.clear();
     for (int i = 0; i<m_vGroups.size(); i++) {
         std::string subject = m_vGroups.at(i)->m_sGroupSubject;
         string::size_type idx = subject.find(keywords);
         if ( idx != string::npos )
         {
-            m_vMyGroupsWithKeyWords.push_back(m_vGroups.at(i));
+            m_vGroupsWithKeyWords.push_back(m_vGroups.at(i));
         }
         
     }
+    
+}
+
+void FirstViewController::setGroupsDidIJoined()
+{
+    for (int i = 0; i<m_vMyGroups.size(); i++) {
+        HXSDKGroup * pGroup = m_vMyGroups.at(i);
+        for (int j = 0; j<m_vGroups.size(); j++) {
+            HXSDKGroup * group = m_vGroups.at(j);
+            
+            if (group->isEqual(pGroup)) {
+                
+                group->m_bIsJoined = true;
+                break;
+            }
+        }
+    }
+    
+    refreshTableView();
     
 }
 /*
@@ -193,6 +210,7 @@ void FirstViewController::onButtonAdd(CAControl* control, CCPoint point)
     {
         addView->setVisible(true);
     }
+    
 }
 
 void FirstViewController::addViewButtonCallBack(AddFriendView* controller, int index)
@@ -258,7 +276,7 @@ bool FirstViewController::onTextFieldAttachWithIME(CATextField * sender)
 bool FirstViewController::onTextFieldDetachWithIME(CATextField * sender)
 {
     m_sKeyWord = m_pSearchTextField->getText();
-    getMyGroupsWithKeyWords(m_sKeyWord.c_str());
+    getGroupsWithKeyWords(m_sKeyWord.c_str());
     m_pTableView->reloadData();
     
     return false;
@@ -297,7 +315,7 @@ void FirstViewController::tableViewDidSelectRowAtIndexPath(CATableView* table, u
     groupInfo.m_sLimit = sdkGroup->m_eGroupType;
     groupInfo.m_bIsNotice = sdkGroup->m_bIsPushNotificationEnable;
     
-    GroupInfoViewController* groupController = GroupInfoViewController::create(groupInfo, false);
+    GroupInfoViewController* groupController = GroupInfoViewController::create(groupInfo, sdkGroup->m_bIsJoined);
     RootWindow::getInstance()->getNavigationController()->pushViewController(groupController, true);
 }
 
@@ -319,7 +337,7 @@ CATableViewCell* FirstViewController::tableCellAtIndex(CATableView* table, const
         ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), m_vGroups.at(row)->m_sGroupSubject,m_vGroups.at(row)->m_sGroupDescription);
     }
     else{
-       ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), m_vMyGroupsWithKeyWords.at(row)->m_sGroupSubject,m_vMyGroupsWithKeyWords.at(row)->m_sGroupDescription);
+       ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), m_vGroupsWithKeyWords.at(row)->m_sGroupSubject,m_vGroupsWithKeyWords.at(row)->m_sGroupDescription);
     }
 
     return cell;
@@ -339,7 +357,7 @@ unsigned int FirstViewController::numberOfRowsInSection(CATableView *table, unsi
     if (m_sKeyWord == "") {
         num = m_vGroups.size();
     } else{
-        num = m_vMyGroupsWithKeyWords.size();
+        num = m_vGroupsWithKeyWords.size();
     }
 
     return num;
