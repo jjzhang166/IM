@@ -92,9 +92,9 @@ void HXSDKController::Login(const char* name, const char* passWord)
 
 void HXSDKController::autoLogin()
 {
-//    std::string sName = (char*)localStorageUserDataGetItem("userName");
-//    std::string sPassword = (char*)localStorageUserDataGetItem("userPassword");
-//    Login(sName.c_str(), sPassword.c_str());
+    std::string sName = (char*)localStorageUserDataGetItem("userName");
+    std::string sPassword = (char*)localStorageUserDataGetItem("userPassword");
+    Login(sName.c_str(), sPassword.c_str());
 }
 
 void HXSDKController::RegisterAccount(const char* name, const char* passWord)

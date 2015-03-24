@@ -81,7 +81,7 @@ void IMTableCell::baseView()
 	m_pHead->setTag(200);
 	AddHeadForgrand::getInstance()->addHeadForgrand(m_pHead);
 	
-	m_pGroup = CAImageView::createWithCenter(CCRect(165, cellsize.height*0.3, 80, cellsize.height*0.3));
+	m_pGroup = CAImageView::createWithCenter(CCRect(150, cellsize.height*0.3, 48, 48));
 	m_pGroup->setTag(201);
 	m_pGroup->setImage(CAImage::create(GROUP));
 
@@ -92,7 +92,7 @@ void IMTableCell::baseView()
 	m_pName->setFontSize(20 * CROSSAPP_ADPTATION_RATIO);
 	m_pName->setTag(202);
 
-	m_pContent = CALabel::createWithFrame(CCRect(125, cellsize.height*0.6, cellsize.width*0.76, cellsize.height*0.4));
+	m_pContent = CALabel::createWithFrame(CCRect(125, cellsize.height*0.7, cellsize.width*0.76, cellsize.height*0.4));
 	m_pContent->setColor(CAColor_gray);
 	m_pContent->setTextAlignment(CATextAlignmentLeft);
 	m_pContent->setVerticalTextAlignmet(CAVerticalTextAlignmentTop);
@@ -110,7 +110,7 @@ void IMTableCell::initCellWithGroup()
 {
 	CADipSize cellsize = this->getFrame().size;
 	baseView();
-	m_pName->setFrame(CCRect(230, cellsize.height*0.1, cellsize.width*0.3, cellsize.height*0.4));
+	m_pName->setFrame(CCRect(215, cellsize.height*0.1, cellsize.width*0.3, cellsize.height*0.4));
 	this->addSubview(m_pHead);
 	this->addSubview(m_pGroup);
 	this->addSubview(m_pName);
