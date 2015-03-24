@@ -37,11 +37,9 @@ GroupCreateViewController* GroupCreateViewController::create()
 bool GroupCreateViewController::init()
 {
     if (CAViewController::init()) {
-        CABarButtonItem* backItem = CABarButtonItem::create(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LOGOUT).c_str(), NULL, NULL);
-        backItem->setTarget(this, CAControl_selector(GroupCreateViewController::onButtonBack));
-        CANavigationBarItem* navigation = CANavigationBarItem::create(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_26).c_str());
-        navigation->setShowGoBackButton(false);
-        navigation->addLeftButtonItem(backItem);
+//        TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_31).c_str()
+        CANavigationBarItem* navigation = CANavigationBarItem::create(UTF8("创建群"));
+        
         setNavigationBarItem(navigation);
         return true;
     }
@@ -179,16 +177,17 @@ void GroupCreateViewController::viewDidLoad()
     scrollView->addSubview(_noticeView);
     
     
-    m_ExitButton = CAButton::createWithFrame(CCRect(_px(40), 1572, winRect.size.width-_px(80), 110), CAButtonTypeRoundedRect);
+    m_btnCreate = CAButton::createWithFrame(CCRect(_px(40), 1572, winRect.size.width-_px(80), 110), CAButtonTypeRoundedRect);
 //    , TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_25).c_str()
-    m_ExitButton->setTitleForState(CAControlStateAll,TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_26).c_str());
+    m_btnCreate->setTitleForState(CAControlStateAll,UTF8("创建群"));
     CAImage * btnBG = CAImage::create(BUTTON_JOIN_GROUP );
     CAImageView * imgView = CAImageView::create();
     imgView->setImage(btnBG);
-    m_ExitButton->setBackGroundViewForState(CAControlStateAll,imgView);
-    m_ExitButton->setTitleColorForState(CAControlStateAll, CAColor_white);
+    m_btnCreate->setBackGroundViewForState(CAControlStateAll,imgView);
+    m_btnCreate->setTitleColorForState(CAControlStateAll, CAColor_white);
+    m_btnCreate->addTarget(this, CAControl_selector(GroupCreateViewController::onCreateBtn), CAControlEventTouchUpInSide);
     
-    scrollView->addSubview(m_ExitButton);
+    scrollView->addSubview(m_btnCreate);
     
     scrollView->setViewSize(CCSize(winRect.size.width,1737));
     this->getView()->addSubview(scrollView);
@@ -201,10 +200,9 @@ void GroupCreateViewController::viewDidUnLoad()
 
 void GroupCreateViewController::onCreateBtn(CrossApp::CAControl *pTarget, CrossApp::CCPoint point)
 {
+    const char* gName = m_LabelTopic->getText().c_str();
+    const char* gDescription = m_LabelIntroduce->getText().c_str();
+    HXSDKController::getInstance()->createGroup(eHXSDKGroupStyle_PublicJoinNeedApproval, gName, gDescription);
     
 }
 
-void GroupCreateViewController::onButtonBack(CAControl* control, CCPoint point)
-{
-    RootWindow::getInstance()->getNavigationController()->popViewControllerAnimated(this);
-}

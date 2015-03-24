@@ -101,6 +101,12 @@ void FirstViewController::viewDidAppear()
     this->getTabBarController()->setNavigationBarItem(m_pNavigationBarItem);
     if(HXSDKController::getInstance()->isLogin())
         refreshTableView();
+    
+    if (m_sKeyWord != "") {
+       getMyGroupsWithKeyWords(m_sKeyWord.c_str());
+    }
+    
+    m_pTableView->reloadData();
 }
 
 void FirstViewController::viewDidUnload()
@@ -138,6 +144,20 @@ void FirstViewController::refreshTableView()
     m_pTableView->reloadData();
 }
 
+void FirstViewController::getMyGroupsWithKeyWords(const char *keywords)
+{
+    m_vMyGroupsWithKeyWords.clear();
+    for (int i = 0; i<m_vGroups.size(); i++) {
+        std::string subject = m_vGroups.at(i)->m_sGroupSubject;
+        string::size_type idx = subject.find(keywords);
+        if ( idx != string::npos )
+        {
+            m_vMyGroupsWithKeyWords.push_back(m_vGroups.at(i));
+        }
+        
+    }
+    
+}
 /*
 void FirstViewController::onButtonPopular(CAControl* control, CCPoint point)
 {
@@ -237,7 +257,9 @@ bool FirstViewController::onTextFieldAttachWithIME(CATextField * sender)
 
 bool FirstViewController::onTextFieldDetachWithIME(CATextField * sender)
 {
-    CC_UNUSED_PARAM(sender);
+    m_sKeyWord = m_pSearchTextField->getText();
+    getMyGroupsWithKeyWords(m_sKeyWord.c_str());
+    m_pTableView->reloadData();
     
     return false;
 }
@@ -293,7 +315,13 @@ CATableViewCell* FirstViewController::tableCellAtIndex(CATableView* table, const
     {
         cell = IMTableCell::create(Group, cellSize);
     }
-    ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), m_vGroups.at(row)->m_sGroupSubject, m_vGroups.at(row)->m_sGroupDescription);
+    if (m_sKeyWord == "") {
+        ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), m_vGroups.at(row)->m_sGroupSubject,m_vGroups.at(row)->m_sGroupDescription);
+    }
+    else{
+       ((IMTableCell*)cell)->setCellInfo(CAImage::create("IMResources/button_photo Album_normal.png"), m_vMyGroupsWithKeyWords.at(row)->m_sGroupSubject,m_vMyGroupsWithKeyWords.at(row)->m_sGroupDescription);
+    }
+
     return cell;
 }
 
@@ -307,7 +335,14 @@ CAView* FirstViewController::tableViewSectionViewForHeaderInSection(CATableView*
 /*设置每个section含有的cell个数*/
 unsigned int FirstViewController::numberOfRowsInSection(CATableView *table, unsigned int section)
 {
-    return m_vGroups.size();
+    int num=0;
+    if (m_sKeyWord == "") {
+        num = m_vGroups.size();
+    } else{
+        num = m_vMyGroupsWithKeyWords.size();
+    }
+
+    return num;
 }
 
 /*设置含有几个section*/

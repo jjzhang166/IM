@@ -93,6 +93,13 @@ protected:
     std::vector<HXSDKGroup*> m_vGroups;
     
     AddFriendView*          addView;
+    
+    /*搜索关键字*/
+    std::string m_sKeyWord;
+    /*带有搜索关键字的群组*/
+    std::vector<HXSDKGroup*> m_vMyGroupsWithKeyWords;
+    
+    void getMyGroupsWithKeyWords(const char* keywords);
 };
 
 
