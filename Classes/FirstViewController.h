@@ -91,15 +91,18 @@ protected:
     CATableViewCell*        cell;  //tableView中的cell
     
     std::vector<HXSDKGroup*> m_vGroups;
+    std:: vector<HXSDKGroup*> m_vMyGroups;
     
     AddFriendView*          addView;
     
     /*搜索关键字*/
     std::string m_sKeyWord;
     /*带有搜索关键字的群组*/
-    std::vector<HXSDKGroup*> m_vMyGroupsWithKeyWords;
+    std::vector<HXSDKGroup*> m_vGroupsWithKeyWords;
     
-    void getMyGroupsWithKeyWords(const char* keywords);
+    void getGroupsWithKeyWords(const char* keywords);
+    /*设置这个群我是否加入*/
+    void setGroupsDidIJoined();
 };
 
 

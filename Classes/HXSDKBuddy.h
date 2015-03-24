@@ -82,6 +82,7 @@ public:
 		m_eGroupType = eHXSDKGroupStyle_Default;
         m_sGroupOwer = "";
         m_bIsPushNotificationEnable = true;
+        m_bIsJoined = true;
 	}
 	~HXSDKGroup()
     {
@@ -106,7 +107,18 @@ public:
     bool        m_bIsPushNotificationEnable;
     //    群成员
     std::vector<HXSDKBuddy*> m_vMenbers;
+    // 是否已经加入该群
+    bool        m_bIsJoined;
+    
+    virtual bool isEqual(HXSDKGroup*pObject)
+    {
 
+        if (m_sGroupId == pObject->m_sGroupId) {
+            return true;
+        }
+        
+        return false;
+    };
 };
 
 #endif /*defined(__IM__HXSDKBUDDY__)*/
