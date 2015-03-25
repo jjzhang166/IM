@@ -93,9 +93,9 @@ void HXSDKController::Login(const char* name, const char* passWord)
 
 void HXSDKController::autoLogin()
 {
-//    std::string sName = (char*)localStorageUserDataGetItem("userName");
-//    std::string sPassword = (char*)localStorageUserDataGetItem("userPassword");
-//    Login(sName.c_str(), sPassword.c_str());
+    std::string sName = (char*)localStorageUserDataGetItem("userName");
+    std::string sPassword = (char*)localStorageUserDataGetItem("userPassword");
+    Login(sName.c_str(), sPassword.c_str());
 }
 
 void HXSDKController::RegisterAccount(const char* name, const char* passWord)
@@ -128,6 +128,7 @@ void HXSDKController::sendMessage(const char *messageText, const char *toUserNam
 	com_CrossApp_IM_IM::sendMessage_android(messageText,toUserName);
 #endif
 }
+
 void HXSDKController::receiveMessage()
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
@@ -138,16 +139,13 @@ void HXSDKController::receiveMessage()
 #endif
 }
 
-
-
 void HXSDKController::sendMessageWithImage(const char *messageText, const char *toUserName)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	//HXSDKControllerIOS::sendMessageWithImage_ios(messageText, toUserName);
 
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-
-
+    //
 #endif
 }
 
@@ -228,7 +226,6 @@ std::vector<HXSDKBuddy*> HXSDKController::getGroupMemberListByID(std::string gro
     return HXSDKController::getInstance()->groupMenberListByID(groupID);
 }
 
-/////////////////////////////////////////////////////////////////////新增
 void HXSDKController::joinNoNeedCheckGroup(const char* groupId)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
@@ -246,6 +243,7 @@ void HXSDKController::joinNeedCheckGroup(const char* groupId, const char* groupN
 	com_CrossApp_IM_IM::joinNeedCheckGroup_android(groupId, groupName,message);
 #endif
 }
+
 void HXSDKController::exitGroup(const char* groupId)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
@@ -254,6 +252,7 @@ void HXSDKController::exitGroup(const char* groupId)
 	com_CrossApp_IM_IM::exitGroup_android(groupId);
 #endif
 }
+
 void HXSDKController::destroyGroup(const char* groupId)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
@@ -262,6 +261,7 @@ void HXSDKController::destroyGroup(const char* groupId)
 	com_CrossApp_IM_IM::destroyGroup_android(groupId);
 #endif
 }
+
 void HXSDKController::addUserToGroup(const char* groupId, std::vector<char*> usernames)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
@@ -270,6 +270,7 @@ void HXSDKController::addUserToGroup(const char* groupId, std::vector<char*> use
 	com_CrossApp_IM_IM::addUserToGroup_android(groupId, usernames);
 #endif
 }
+
 void HXSDKController::inviteUser(const char* groupId, std::vector<char*> usernames, const char* message)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
@@ -278,6 +279,7 @@ void HXSDKController::inviteUser(const char* groupId, std::vector<char*> usernam
 	com_CrossApp_IM_IM::inviteUser_android(groupId, usernames, message);
 #endif
 }
+
 void HXSDKController::deleteUserFromGroup(const char* groupId, const char* userName)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
@@ -294,7 +296,6 @@ void HXSDKController::blockGroupMessage(const char* groupId)
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 	com_CrossApp_IM_IM::blockGroupMessage_android(groupId);
 #endif
-
 }
 
 void HXSDKController::unblockGroupMessage(const char* groupId)
@@ -314,6 +315,7 @@ void HXSDKController::changeGroupName(const char* groupId, const char* newgroupN
 	com_CrossApp_IM_IM::changeGroupName_android(groupId,newgroupName);
 #endif
 }
+
 void HXSDKController::setReceiveNotNoifyGroup(std::vector<char*> groupIds)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
@@ -322,6 +324,7 @@ void HXSDKController::setReceiveNotNoifyGroup(std::vector<char*> groupIds)
 	com_CrossApp_IM_IM::setReceiveNotNoifyGroup_android(groupIds);
 #endif
 }
+
 void HXSDKController::blockUser(const char* groupId, const char* username)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
@@ -330,6 +333,7 @@ void HXSDKController::blockUser(const char* groupId, const char* username)
 	com_CrossApp_IM_IM::blockUser_android(groupId,username);
 #endif
 }
+
 void HXSDKController::unblockUser(const char* groupId, const char* username)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
@@ -340,18 +344,11 @@ void HXSDKController::unblockUser(const char* groupId, const char* username)
 }
 
 /***********************************************************************/
-
-
-
-
-
-
-
-
 bool HXSDKController::isLogin()
 {
 	return m_bIsLogin;
 }
+
 bool HXSDKController::isRegister()
 {
 	return m_bIsRegister;
@@ -403,7 +400,6 @@ void HXSDKController::pushGroupsDetail(std::string groupID, std::string groupSub
     sdkGroup->m_sGroupOwer = ower;
     sdkGroup->m_eGroupType = (HXSDKGroupStyle)groupStyle;
     sdkGroup->m_bIsPushNotificationEnable = isNotificationEnable;
-
 	m_vPublicGroupList.push_back(sdkGroup);
 }
 
@@ -441,7 +437,6 @@ void HXSDKController::setGroupsDetailByID(const char* groupID, const char* group
     {
         ((FirstViewController*)((CATabBarController*)(RootWindow::getInstance()->getNavigationController()->getViewControllerAtIndex(0)))->getViewControllerAtIndex(0))->refreshTableView();
     }
-
 }
 
 void HXSDKController::setGroupMembersByID(std::string groupID, std::vector<HXSDKBuddy *> members)
@@ -478,7 +473,6 @@ void HXSDKController::pushMyGroupsDetail(std::string groupID, std::string groupS
 	sdkGroup->m_sGroupSubject = groupSub;
 	sdkGroup->m_sGroupDescription = groupDes;
 	sdkGroup->m_iGroupOccupantsCount = groupOccupantsCount;
-
 	m_vMyGroupList.push_back(sdkGroup);
 }
 
@@ -509,6 +503,7 @@ void HXSDKController::exitGroupResult(bool result)
         RootWindow::getInstance()->getNavigationController()->popViewControllerAnimated(true);
     }
 }
+
 //chinahypo - 2015 - 3 - 19
 void HXSDKController::pushMessageDetail(int pMessageType, long pTime, std::string pSendName, std::string pReceiveName, int pChatStyle, std::string pMessage)
 {
@@ -521,6 +516,7 @@ void HXSDKController::pushMessageDetail(int pMessageType, long pTime, std::strin
 	chatMessage->m_vMessage = pMessage;
 	m_vMessageList.push_back(chatMessage);
 }
+
 void HXSDKController::cleanMessageList()
 {
 	std::vector<HXSDKMessage*>::iterator itr = m_vMessageList.begin();
@@ -530,12 +526,14 @@ void HXSDKController::cleanMessageList()
 	}
 	m_vMessageList.clear();
 }
-/***************************************NotificationCenter*******************************************/
+
+/**********************NotificationCenter*************************/
 void HXSDKController::postNotification_isRegister(bool isRegister)
 {
 	m_bIsRegister = isRegister;
 	CANotificationCenter::sharedNotificationCenter()->postNotification(KNOTIFICATION_REGISTER, (CAObject*)isRegister);
 }
+
 void HXSDKController::postNotification_isLogin(bool isLogin)
 {
 	m_bIsLogin = isLogin;
