@@ -85,6 +85,9 @@ public:
 	void postNotification_isLogin(bool isLogin);
 	void postNotification_isLogOut(bool isLogout);
 	void postNotification_sendMessageResult(bool success);
+    
+    void createGroupResult(bool result);
+    void exitGroupResult(bool result);
 
 public:
 	/*Data*/
