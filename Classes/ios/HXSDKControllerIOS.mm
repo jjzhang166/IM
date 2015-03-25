@@ -408,9 +408,10 @@ void HXSDKControllerIOS:: createGroup_ios(HXSDKGroupStyle groupType,const char* 
 
 void HXSDKControllerIOS::getMyGroup_ios()
 {
-    EMError *error = nil;
-    NSArray *myGroups = [easeMob.chatManager fetchMyGroupsListWithError:&error];
-    if (!error) {
+    //EMError *error = nil;
+    NSArray *myGroups = [easeMob.chatManager groupList];;
+    
+//    if (!error) {
         CCLog("get MYGroup List success !!!  %d",myGroups.count);
         HXSDKController::getInstance()->cleanMyGroupList();
         for (int i = 0; i<myGroups.count; i++) {
@@ -432,7 +433,7 @@ void HXSDKControllerIOS::getMyGroup_ios()
             
             HXSDKController::getInstance()->pushMyGroupsDetail(gID, gSub, gDes, gOccupantsCount);
         }
-    }
+ //   }
 }
 
 void HXSDKControllerIOS::getGroupMenberListByID_ios(const char * groupID)
