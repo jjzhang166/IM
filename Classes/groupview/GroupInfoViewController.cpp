@@ -197,7 +197,7 @@ void GroupInfoViewController::viewDidLoad()
         CAImageView * imgView = CAImageView::create();
         imgView->setImage(btnBG);
         m_ExitButton->setBackGroundViewForState(CAControlStateAll,imgView);
-         m_ExitButton->addTarget(this, CAControl_selector(GroupInfoViewController::onButtonExit), CAControlTouchUpInSide);
+        m_ExitButton->addTarget(this, CAControl_selector(GroupInfoViewController::onButtonExit), CAControlTouchUpInSide);
     }
     else
     {
@@ -206,10 +206,9 @@ void GroupInfoViewController::viewDidLoad()
         CAImageView * imgView = CAImageView::create();
         imgView->setImage(btnBG);
         m_ExitButton->setBackGroundViewForState(CAControlStateAll,imgView);
-         m_ExitButton->addTarget(this, CAControl_selector(GroupInfoViewController::onButtonJoin), CAControlTouchUpInSide);
+        m_ExitButton->addTarget(this, CAControl_selector(GroupInfoViewController::onButtonJoin), CAControlTouchUpInSide);
     }
     m_ExitButton->setTitleColorForState(CAControlStateAll, CAColor_white);
-   
     
     scrollView->addSubview(m_ExitButton);
 
