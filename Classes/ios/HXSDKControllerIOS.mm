@@ -284,6 +284,7 @@ void HXSDKControllerIOS:: exitGroup_ios(const char *groupID)
     [easeMob.chatManager asyncLeaveGroup:str_gID completion:^(EMGroup *group, EMGroupLeaveReason reason, EMError *error) {
         if (!error) {
             NSLog(@"退出群组成功");
+            HXSDKController::getInstance()->exitGroupResult(true);
         }
     } onQueue:nil];
 
@@ -331,18 +332,16 @@ void HXSDKControllerIOS:: getPublicGroup_ios()
             {
                 if(!error)
                 {
-                  
-                    CCLog("get Group Info success!!! ---%s",[groupInfo.groupId UTF8String]);
-                    CCLog("11111111111 groupSub:%s  ",[groupInfo.groupSubject UTF8String]);
-                    CCLog("11111111111 des:%s ",[groupInfo.groupDescription UTF8String]);
-                    CCLog("11111111111 icount:%d ",groupInfo.groupOccupantsCount);
-                    CCLog("11111111111 ower:%s",[groupInfo.owner UTF8String]);
-                    CCLog("11111111111 groupStyle:%d  ",groupInfo.groupSetting.groupStyle);
+//                    CCLog("get Group Info success!!! ---%s",[groupInfo.groupId UTF8String]);
+//                    CCLog("11111111111 groupSub:%s  ",[groupInfo.groupSubject UTF8String]);
+//                    CCLog("11111111111 des:%s ",[groupInfo.groupDescription UTF8String]);
+//                    CCLog("11111111111 icount:%d ",groupInfo.groupOccupantsCount);
+//                    CCLog("11111111111 ower:%s",[groupInfo.owner UTF8String]);
+//                    CCLog("11111111111 groupStyle:%d  ",groupInfo.groupSetting.groupStyle);
 //                    NSLog(@"get Group Info success!!! ---%s",[groupInfo.groupId UTF8String]);
 //                    NSLog(@"group des: ---%s",[groupInfo.groupDescription UTF8String]);
                     
                     const char* des = [groupInfo.groupDescription UTF8String];
-
                     HXSDKController::getInstance()->setGroupsDetailByID([groupInfo.groupId UTF8String],
                                                                         [groupInfo.groupSubject UTF8String],
                                                                         des,
@@ -402,6 +401,11 @@ void HXSDKControllerIOS:: createGroup_ios(HXSDKGroupStyle groupType,const char* 
     EMGroup *group = [easeMob.chatManager createGroupWithSubject:str_gName description:str_gDes invitees:nil initialWelcomeMessage:nil styleSetting:groupStyleSetting error:&error];
     if(!error){
         NSLog(@"创建成功 -- %@",group);
+        HXSDKController::getInstance()->createGroupResult(true);
+    }
+    else
+    {
+        HXSDKController::getInstance()->createGroupResult(false);
     }
 }
 

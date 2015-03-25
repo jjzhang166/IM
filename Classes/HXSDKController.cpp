@@ -228,7 +228,7 @@ void HXSDKController::joinNoNeedCheckGroup(const char* groupId)
 void HXSDKController::joinNeedCheckGroup(const char* groupId, const char* groupName, const char* message)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-	//
+    //
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 	com_CrossApp_IM_IM::joinNeedCheckGroup_android(groupId, groupName,message);
 #endif
@@ -236,7 +236,7 @@ void HXSDKController::joinNeedCheckGroup(const char* groupId, const char* groupN
 void HXSDKController::exitGroup(const char* groupId)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-	//
+    HXSDKControllerIOS::exitGroup_ios(groupId);
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 	com_CrossApp_IM_IM::exitGroup_android(groupId);
 #endif
@@ -471,7 +471,6 @@ void HXSDKController::pushMyGroupsDetail(std::string groupID, std::string groupS
 
 std::vector<HXSDKBuddy*> HXSDKController::groupMenberListByID(std::string groupID)
 {
-    
     std::vector<HXSDKGroup*>::iterator itr = m_vPublicGroupList.begin();
     for(; itr!= m_vPublicGroupList.end(); itr++)
     {
@@ -482,6 +481,21 @@ std::vector<HXSDKBuddy*> HXSDKController::groupMenberListByID(std::string groupI
     }
 }
 
+void HXSDKController::createGroupResult(bool result)
+{
+    if(result)
+    {
+        RootWindow::getInstance()->getNavigationController()->popViewControllerAnimated(true);
+    }
+}
+
+void HXSDKController::exitGroupResult(bool result)
+{
+    if(result)
+    {
+        RootWindow::getInstance()->getNavigationController()->popViewControllerAnimated(true);
+    }
+}
 /***************************************NotificationCenter*******************************************/
 void HXSDKController::postNotification_isRegister(bool isRegister)
 {

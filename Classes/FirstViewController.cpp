@@ -80,7 +80,7 @@ bool FirstViewController::init()
         m_pNavigationBarItem->retain();
         
         //CANotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(FirstViewController::isLoginCallBack), KNOTIFICATION_LOGIN, NULL);
-        m_vGroups = HXSDKController::getInstance()->getPublicGroupList();
+        
         return true;
     }
     return false;
@@ -100,8 +100,13 @@ void FirstViewController::viewDidAppear()
     this->getTabBarController()->setNavigationBarItem(m_pNavigationBarItem);
     if(HXSDKController::getInstance()->isLogin())
     {
+        m_vGroups = HXSDKController::getInstance()->getPublicGroupList();
         m_vMyGroups = HXSDKController::getInstance()->getMyGroupList();
         setGroupsDidIJoined();
+    }
+    if(NULL != addView)
+    {
+        addView->setVisible(false);
     }
     
     if (m_sKeyWord != "") {
@@ -166,17 +171,13 @@ void FirstViewController::setGroupsDidIJoined()
         HXSDKGroup * pGroup = m_vMyGroups.at(i);
         for (int j = 0; j<m_vGroups.size(); j++) {
             HXSDKGroup * group = m_vGroups.at(j);
-            
-            if (group->isEqual(pGroup)) {
-                
+            if (group->isEqual(pGroup))
+            {
                 group->m_bIsJoined = true;
                 break;
             }
         }
     }
-    
-    refreshTableView();
-    
 }
 /*
 void FirstViewController::onButtonPopular(CAControl* control, CCPoint point)
