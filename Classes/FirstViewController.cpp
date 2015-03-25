@@ -18,6 +18,7 @@
 #include "groupview/GroupInfoViewController.h"
 #include "SearchController.h"
 #include "AddFriendController.h"
+#include "AddGroupController.h"
 #include "GroupInfoViewController.h"
 #include "groupview/GroupCreateViewController.h"
 
@@ -225,8 +226,8 @@ void FirstViewController::addViewButtonCallBack(AddFriendView* controller, int i
     }
     else if(0 == index)
     {
-        SearchController* searchController = SearchController::create();
-        RootWindow::getInstance()->getNavigationController()->pushViewController(searchController, true);
+        AddGroupController* addGroupController = AddGroupController::create();
+        RootWindow::getInstance()->getNavigationController()->pushViewController(addGroupController, true);
     }
     else if(1 == index)
     {
