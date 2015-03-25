@@ -60,7 +60,6 @@ public:
 
     CATableView* p_TableView;
     
-    
 protected:
     CANavigationBarItem* m_pNavigationBarItem;
     

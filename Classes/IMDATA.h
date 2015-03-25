@@ -5,24 +5,10 @@
 
 /*首页TableBar*/
 #define TABLE_BAR_SIZE 3
-/*
-#define TABLE_BAR_LABEL_0 "AAAA"
-#define TABLE_BAR_LABEL_1 "BBBB"
-#define TABLE_BAR_LABEL_2 "CCCC"
 
-#define NAVIGATION_BAR_ITEM_NAME_0 "AAA"
-#define NAVIGATION_BAR_ITEM_NAME_1 "BBB"
-#define NAVIGATION_BAR_ITEM_NAME_2 "CCC"
-#define NAVIGATION_BAR_ITEM_NAME_3 "DDD"
-
-#define SEARCH_CONTENT_TEXT "EEEE"
-*/
 /*图片资源*/
-
 #define NAVIGATION_BG "IMResources/NavigationBG.png"
-
 #define TABLE_BAR_BG "IMResources/TableBarBG.png"
-
 #define TABLE_GRAY_BG "IMResources/GrayBG.png"
 
 #define TABLE_BAR_IMAGE_0_NORMAL "IMResources/button_all_normal.png"

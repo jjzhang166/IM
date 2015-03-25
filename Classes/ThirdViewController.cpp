@@ -16,7 +16,6 @@
 ThirdViewController::ThirdViewController()
 {
     
-
 }
 
 ThirdViewController::~ThirdViewController()
@@ -38,12 +37,10 @@ bool ThirdViewController::init()
 //        m_pNavigationBarItem->setShowGoBackButton(false);
 //        m_pNavigationBarItem->addLeftButtonItem(selfButtonItem);
 //        m_pNavigationBarItem->addRightButtonItem(addButtonItem);
-////        m_pNavigationBarItem->addRightButtonItem(searchButtonItem);
+//          m_pNavigationBarItem->addRightButtonItem(searchButtonItem);
 //        setNavigationBarItem(m_pNavigationBarItem);
 //        m_pNavigationBarItem->retain();
-
-      
-
+        
         return true;
     }
     return false;
@@ -82,7 +79,5 @@ void ThirdViewController::onButtonSearch(CAControl* control, CCPoint point)
 
 void ThirdViewController::onButtonAdd(CAControl* control, CCPoint point)
 {
-
-    
     
 }

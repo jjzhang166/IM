@@ -20,7 +20,6 @@ static sqlite3_stmt *_stmt_select_userData;
 static sqlite3_stmt *_stmt_remove_userData;
 static sqlite3_stmt *_stmt_update_userData;
 
-
 //static void localStorageUserDataLazyInit();
 static void localStorageUserDataCreateTable();
 
@@ -109,8 +108,6 @@ const char* localStorageUserDataGetItem( const char *key )
     ok |= sqlite3_bind_text(_stmt_select_userData, 1, key, -1, SQLITE_TRANSIENT);
     ok |= sqlite3_step(_stmt_select_userData);
     const unsigned char *ret = sqlite3_column_text(_stmt_select_userData, 0);
-    
-    //CCLog("sqlite key-value: %s---%s",key,ret);
     
     if( ok != SQLITE_OK && ok != SQLITE_DONE && ok != SQLITE_ROW)
         printf("Error in localStorageUserData.getItem()\n");

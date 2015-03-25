@@ -47,11 +47,11 @@ public:
 	virtual ~IMUserManager();
 public:
 	void _delete(std::string uid);
-	//用户登录
+
 	bool userLogin(User user);
-	//用户退出
+
 	bool userLogout();
-	//在线用户
+
 	User* onLineUser();
 protected:
 	sqlite3_stmt *_sqlite_stmt_delete;

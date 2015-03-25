@@ -13,7 +13,6 @@ class ChatViewCell:public CATableViewCell
 public:
 	ChatViewCell();
 	virtual ~ChatViewCell();
-
 	static ChatViewCell* create(const std::string& identifier, const CADipRect& _rect = CADipRectZero);
 
 public:

@@ -37,9 +37,6 @@ void IMChatController::viewDidLoad()
 	p_TableView = CATableView::createWithCenter(CADipRect(size.width*0.5, size.height*0.5, size.width, size.height));
 	p_TableView->setTableViewDataSource(this);
 	p_TableView->setTableViewDelegate(this);
-	//p_TableView->setAllowsSelection(true);
-	//p_TableView->setAllowsMultipleSelection(true);
-	//p_TableView->setSeparatorColor(CAColor_clear);
 	this->getView()->addSubview(p_TableView);
 }
 
@@ -58,6 +55,7 @@ void IMChatController::tableViewDidDeselectRowAtIndexPath(CATableView* table, un
 {
 
 }
+
 bool loaded = false;
 CATableViewCell* IMChatController::tableCellAtIndex(CATableView* table, const CCSize& cellSize, unsigned int section, unsigned int row)
 {

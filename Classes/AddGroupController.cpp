@@ -124,7 +124,6 @@ bool AddGroupController::onTextFieldDeleteBackward(CATextField * sender, const c
     return false;
 }
 
-
 // 返回按钮
 void AddGroupController:: onButtonBack(CAControl* target, CCPoint point)
 {

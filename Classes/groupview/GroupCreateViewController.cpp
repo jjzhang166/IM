@@ -15,12 +15,11 @@
 #include "../data/TableLanguage.h"
 #include "../table/TableLanguagesfontnewHeader.h"
 
-
-
 GroupCreateViewController::GroupCreateViewController()
 {
     
 }
+
 GroupCreateViewController::~GroupCreateViewController()
 {
     

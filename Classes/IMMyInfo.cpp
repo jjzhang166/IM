@@ -38,6 +38,7 @@ bool IMMyInfo::init()
 		return true;
 	}
 }
+
 //类接口
 IMMyInfo* IMMyInfo::create()
 {
@@ -46,6 +47,7 @@ IMMyInfo* IMMyInfo::create()
 	pInfo->autorelease();
 	return pInfo;
 }
+
 void IMMyInfo::viewDidLoad()
 {
 	//初始化tableview
@@ -55,6 +57,7 @@ void IMMyInfo::viewDidLoad()
 	m_pTableView->setTableViewDelegate(this);
 	m_pTableView->setAllowsSelection(true);
 	this->getView()->addSubview(m_pTableView);
+    
 	/*开始使用button按钮*/
 	m_pStart = CAButton::createWithCenter(CCRect(winSize.width*0.5, winSize.height*0.94, winSize.width*0.8, winSize.height*0.08), CAButtonTypeRoundedRect);
 	m_pStart->setBackGroundViewForState(CAControlStateAll, CAView::createWithColor(CAColor_green));
@@ -166,7 +169,6 @@ CATableViewCell* IMMyInfo::initHeadImage(const CCSize& cellsize)
 		/*添加头像view*/
 		m_pUserHead = CAImageView::createWithCenter(CCRect(cellsize.width*0.5, cellsize.height*0.5, _px(100), _px(100)));
 		m_pUserHead->setTag(400);
-		//cell->addSubview(m_pUserHead);
 		AddHeadForgrand::getInstance()->addHeadForgrand(m_pUserHead);
 		m_pUserHead->setImage(CAImage::create("head.png"));
 		addRightArrow(cell, cellsize);
@@ -209,6 +211,7 @@ void IMMyInfo::getUserName(CAObject* obj)
 	std::string temp_name = (char*)obj;
 	m_pUserName->setText(temp_name);
 }
+
 CATableViewCell* IMMyInfo::initSex(const CCSize& cellsize)
 {
 	if (cell == NULL)
@@ -240,6 +243,7 @@ void IMMyInfo::getUserSex(CAObject* obj)
 	std::string temp_sex = (char*)obj;
 	m_pUserSex->setText(temp_sex);
 }
+
 CATableViewCell* IMMyInfo::initSignature(const CCSize& cellsize)
 {
 	if (cell == NULL)
@@ -265,11 +269,13 @@ CATableViewCell* IMMyInfo::initSignature(const CCSize& cellsize)
 	}
 	return cell;
 }
+
 void IMMyInfo::getUserSignature(CAObject* obj)
 {
 	std::string temp_signature = (char*)obj;
 	m_pUserSignature->setText(temp_signature);
 }
+
 //向右箭头处理
 void IMMyInfo::addRightArrow(CATableViewCell *m_pCell, const CCSize& pcellsize)
 {
@@ -277,7 +283,6 @@ void IMMyInfo::addRightArrow(CATableViewCell *m_pCell, const CCSize& pcellsize)
 	pright->setImage(CAImage::create(RIGHT_ARROW));
 	m_pCell->addSubview(pright);
 }
-
 
 //添加照片选项
 void IMMyInfo::addPicChoserLayer()
@@ -308,7 +313,6 @@ void IMMyInfo::addPicChoserLayer()
 	
 }
 
-
 //点击头像处理函数
 void IMMyInfo::onHeadClick()
 {
@@ -323,17 +327,20 @@ void IMMyInfo::onCameraBtnClick(CAControl *pTarget, CCPoint point)
 	CADevice::openCamera(this);
 	m_pPicChoserLayer->setVisible(false);
 }
+
 //点击相册处理函数
 void IMMyInfo::onAlbumBtnClick(CAControl *pTarget, CCPoint point)
 {
 	CADevice::openAlbum(this);
 	m_pPicChoserLayer->setVisible(false);
 }
+
 //点击取消处理函数
 void IMMyInfo::onCancelBtnClick(CAControl *pTarget, CCPoint point)
 {
 	m_pPicChoserLayer->setVisible(false);
 }
+
 //头像获取
 void IMMyInfo::getSelectedImage(CAImage* image)
 {
@@ -358,18 +365,15 @@ void IMMyInfo::onStartBtnClick(CAControl *pTarget, CCPoint point)
 	onStartBtnClickBack();
 
 }
+
 void IMMyInfo::onStartBtnClickBack()
 {
-	
-	
-	
 	//上传数据到服务器成功后保存数据到本地
 	User user;
 	user.init("100", m_pUserName->getText(), m_pUserSex->getText(), photoname, m_pUserSignature->getText(), online);
 	IMUserManager::Instance()->userLogin(user);
 	this->getNavigationController()->popViewControllerAnimated(true);
 }
-
 
 /*设置每个section含有的cell个数*/
 unsigned int IMMyInfo::numberOfRowsInSection(CATableView *table, unsigned int section)
@@ -400,6 +404,7 @@ unsigned IMMyInfo::tableViewHeightForFooterInSection(CATableView* table, unsigne
 {
 	return _px(20);
 }
+
 /*在section之间添加一个view，就是UI中section之间的灰色地带*/
 CAView* IMMyInfo::tableViewSectionViewForFooterInSection(CATableView* table, const CCSize& viewSize, unsigned int section)
 {

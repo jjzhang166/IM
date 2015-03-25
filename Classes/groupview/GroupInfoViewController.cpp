@@ -16,7 +16,6 @@
 #include "../table/TableLanguagesfontnewHeader.h"
 #include "../groupview/GroupMembersController.h"
 
-
 GroupInfoViewController::GroupInfoViewController()
 {
     
@@ -137,7 +136,6 @@ void GroupInfoViewController::viewDidLoad()
     
     scrollView->addSubview(memberView);
 
-    
     CAView * limitView = CAView::createWithFrame(CCRect(0,863, winRect.size.width, 111));
     limitView->setColor(CAColor_white);
     
@@ -229,8 +227,7 @@ void GroupInfoViewController::onButtonGroupMenbers(CAControl* target, CCPoint po
 // 返回按钮
 void GroupInfoViewController:: onButtonBack(CAControl* target, CCPoint point)
 {
-    RootWindow::getInstance()->getNavigationController()->popViewControllerAnimated(this);
-    
+    RootWindow::getInstance()->getNavigationController()->popViewControllerAnimated(this);    
 }
 
 // 消息提醒

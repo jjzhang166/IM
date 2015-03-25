@@ -53,7 +53,6 @@ IMUserManager::IMUserManager()
 		CCLog("open table wrong");
 	}
 
-	//相关sqlite3语句初始化
 	const char *sql_delete = "DELETE FROM user WHERE uid = ? ;";
 	ret |= sqlite3_prepare_v2(RootWindow::getInstance()->getSqlite3(), sql_delete, -1, &_sqlite_stmt_delete, NULL);
 

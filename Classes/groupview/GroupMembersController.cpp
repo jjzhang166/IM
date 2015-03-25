@@ -16,7 +16,6 @@
 #include "../table/TableLanguagesfontnewHeader.h"
 #include "IMTableCell.h"
 
-
 GroupMembersController::GroupMembersController()
 :m_winSize(CCSizeZero)
 {
@@ -71,7 +70,6 @@ void GroupMembersController::viewDidUnLoad()
 {
 
 }
-
 
 void GroupMembersController::tableViewDidSelectRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row)
 {

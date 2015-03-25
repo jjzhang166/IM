@@ -175,7 +175,6 @@ bool SearchController::onTextFieldDeleteBackward(CATextField * sender, const cha
     return false;
 }
 
-
 // 返回按钮
 void SearchController:: onButtonBack(CAControl* target, CCPoint point)
 {
