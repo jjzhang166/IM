@@ -180,6 +180,7 @@ std::vector<HXSDKGroup*>& HXSDKController::getPublicGroupList()
 	//CCLog("accept group numbers.%lu 个", m_vPublicGroupList.size());
 	return m_vPublicGroupList;
 }
+
 void HXSDKController::createGroup(HXSDKGroupStyle groupType, const char* gName, const char* gDescription)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
