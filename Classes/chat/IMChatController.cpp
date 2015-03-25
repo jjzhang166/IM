@@ -2,6 +2,7 @@
 #include "IMChatController.h"
 
 #include "ChatViewCell.h"
+#include "CommentInputView.h"
 
 #define CAColor_blueStyle ccc4(51,204,255,255)
 static IMChatController* m_vController = NULL;
@@ -45,6 +46,16 @@ void IMChatController::viewDidLoad()
 	//chinahypo 2015-3-19
 	message = HXSDKController::getInstance()->loadMessage(id);
 	this->getView()->addSubview(p_TableView);
+    
+    m_pCommentInputView = CommentInputView::createWithFrame(CADipRect(0, size.height -88.0f, size.width, 88.0f));
+    m_pCommentInputView->getBtnComment()->addTarget(this, CAControl_selector(IMChatController::onBtnComment), CAControlEventTouchUpInSide);
+    m_pCommentInputView->getBtnSend()->addTarget(this, CAControl_selector(IMChatController::onBtnSend), CAControlEventTouchUpInSide);
+    m_pCommentInputView->getBtnPraise()->addTarget(this, CAControl_selector(IMChatController::onBtnPraise), CAControlEventTouchUpInSide);
+    m_pCommentInputView->showCommentPage();
+    m_pCommentInputView->setDelegate(this);
+    m_pCommentInputView->getTextFeild()->setKeyboardReturnType(KEY_BOARD_RETURN_SEND);
+    m_pCommentInputView->getTextFeild()->becomeFirstResponder();
+    getView()->addSubview(m_pCommentInputView);
 }
 
 void IMChatController::viewDidUnload()
@@ -245,3 +256,96 @@ unsigned int IMChatController::tableViewHeightForFooterInSection(CATableView* ta
 {
 	return 1;
 }
+
+void IMChatController::onBtnComment(CAControl* control, CCPoint point)
+{
+    
+    CCLog("onBtnComment !!!------:%s", m_pCommentInputView->getTextFeild()->getText().c_str());
+}
+
+void IMChatController::onBtnSend(CAControl* control, CCPoint point)
+{
+    
+    CCLog("onBtnSend !!!------:%s", m_pCommentInputView->getTextFeild()->getText().c_str());
+}
+
+void IMChatController::onBtnPraise(CAControl* control, CCPoint point)
+{
+    
+    CCLog("onBtnPraise !!!------:%s", m_pCommentInputView->getTextFeild()->getText().c_str());
+}
+
+void IMChatController::onSend(const string& sText)
+{
+    if (sText.empty())
+    {
+        CCLog("is empty ...");
+        return;
+    }
+    
+    CCLog("send !!!------:%s", sText.c_str());
+//    CADipSize winSize = getView()->getBounds().size;
+//    
+//    std::map<string, string> key_value;
+//    key_value["userId"] = Utils::int2Str(MyData::getUserId());
+//    key_value["postId"] = Utils::int2Str(m_id);
+//    key_value["commentParent"] = Utils::int2Str(0);
+//    key_value["commentContent"] = sText;
+//    key_value["token"] = MyData::getToken();
+//    string sUrl = Baby_URL::getCommentPostUrl();
+//    CommonHttpManager::getInstance()->send_post(sUrl,
+//                                                key_value,
+//                                                this,
+//                                                CommonHttpJson_selector(PhotoDetailController::onPostCommentRequestFinished));
+//    
+//    CommentModel kCommentModel;
+//    kCommentModel._id = 0;
+//    kCommentModel.content = sText;
+//    kCommentModel.user.__id = MyData::getUserId();
+//    kCommentModel.user.__avatar_url = MyData::getUserInfo()->profile_image_url;
+//    kCommentModel.user.__display_name = MyData::getUserInfo()->screen_name;
+//    kCommentModel.user.__gender = MyData::getUserInfo()->gender;
+//    kCommentModel.post_datetime = time(NULL);
+//    m_aCommentList.push_back(kCommentModel);
+//    ++m_nCommentCount;
+//    m_pCommentInputView->getTextFeild()->setText("");
+//    m_pTableView->reloadData();
+//    CCPoint point =  m_pTableView->getContentOffset();
+//    m_pTableView->setContentOffset(CCPoint(point.x, point.y+ DescriptionCell::getCellHeight(sText, winSize)), true);
+//    HomeTabBarController* controller = (HomeTabBarController*) this->getNavigationController()->getViewControllerAtIndex(0);
+//    HomePageController* homeController = (HomePageController*) controller->getViewControllerAtIndex(0);
+//    homeController->refreshData_commentCount_likeCont_currentUserLiked(m_id, 1, 0, m_isParise);
+}
+
+bool IMChatController::commentInputView_onTextFieldAttachWithIME(CATextField * sender)
+{
+    CCLog("aaaaaaaaaaaaa");
+//    m_iKeyBoardHeight = 500;
+//    if(!m_isReply)
+//    {
+//        CCPoint point =  m_pTableView->getFrameOrigin();
+//        m_pTableView->setFrameOrigin(ccp(point.x,point.y-m_iKeyBoardHeight));
+//    }
+    return false;
+}
+	
+bool IMChatController::commentInputView_onTextFieldDetachWithIME(CATextField * sender)
+{
+    CCLog("bbbbbbbbbbb");
+//    m_iKeyBoardHeight = 500;
+//    CCPoint point =  m_pTableView->getFrameOrigin();
+//    m_pTableView->setFrameOrigin(ccp(point.x,point.y+m_iKeyBoardHeight));
+//    m_isReply = false;
+    return false;
+}
+
+bool IMChatController::commentInputView_getKeyBoardHeight(int height)
+{
+    return false;
+}
+
+bool IMChatController::commentInputView_keyBoardCallBack(CATextField *sender)
+{
+    return false;
+}
+

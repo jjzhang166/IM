@@ -6,11 +6,12 @@
 #include "CrossApp.h"
 #include "CrossAppExt.h"
 #include "HXSDKController.h"
+#include "CommentInputView.h"
 USING_NS_CC;
 USING_NS_CC_EXT;
 
 
-class IMChatController : public CAViewController, public CATableViewDelegate, public CATableViewDataSource
+class IMChatController : public CAViewController, public CATableViewDelegate, public CATableViewDataSource, public CommentInputViewDelegate
 {
 
 public:
@@ -26,6 +27,20 @@ protected:
 	void viewDidLoad();
 
 	void viewDidUnload();
+    
+    virtual void onSend(const string& sText);
+    
+    virtual bool commentInputView_onTextFieldAttachWithIME(CATextField * sender);
+    
+    virtual bool commentInputView_onTextFieldDetachWithIME(CATextField * sender);
+    
+    virtual bool commentInputView_getKeyBoardHeight(int height);
+    
+    virtual bool commentInputView_keyBoardCallBack(CATextField *sender);
+    
+    void onBtnComment(CAControl* control, CCPoint point);
+    void onBtnSend(CAControl* control, CCPoint point);
+    void onBtnPraise(CAControl* control, CCPoint point);
 
 public:
 	virtual void tableViewDidSelectRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row);
@@ -48,6 +63,8 @@ private:
 	char* time;
 	string timeLast;
 	std::vector<HXSDKMessage*> message;
+    
+    CommentInputView* m_pCommentInputView;
 };
 
 

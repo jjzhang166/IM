@@ -60,6 +60,7 @@
 		3E655F911A80757100832CBD /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E655F901A80757100832CBD /* Reachability.m */; };
 		3EC269A01AB8178600C9ADC1 /* IMUserManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3EC2699E1AB8178600C9ADC1 /* IMUserManager.cpp */; };
 		3EEF30E71AC25B41001115F0 /* AddGroupController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3EEF30E51AC25B41001115F0 /* AddGroupController.cpp */; };
+		3EEF310D1AC294F6001115F0 /* CommentInputView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3EEF310B1AC294F6001115F0 /* CommentInputView.cpp */; };
 		758BDF151A7637A300E07F9B /* HXSDKHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 758BDF141A7637A300E07F9B /* HXSDKHelper.m */; };
 		759D26611A6F4AC300E39203 /* AddHeadForgrand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 759D265F1A6F4AC300E39203 /* AddHeadForgrand.cpp */; };
 		759D26641A6F4ADA00E39203 /* IMMyController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 759D26621A6F4ADA00E39203 /* IMMyController.cpp */; };
@@ -380,6 +381,8 @@
 		3EC2699F1AB8178600C9ADC1 /* IMUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUserManager.h; path = ../Classes/IMUserManager.h; sourceTree = "<group>"; };
 		3EEF30E51AC25B41001115F0 /* AddGroupController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AddGroupController.cpp; path = ../Classes/AddGroupController.cpp; sourceTree = "<group>"; };
 		3EEF30E61AC25B41001115F0 /* AddGroupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddGroupController.h; path = ../Classes/AddGroupController.h; sourceTree = "<group>"; };
+		3EEF310B1AC294F6001115F0 /* CommentInputView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CommentInputView.cpp; sourceTree = "<group>"; };
+		3EEF310C1AC294F6001115F0 /* CommentInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentInputView.h; sourceTree = "<group>"; };
 		758BDF131A7637A300E07F9B /* HXSDKHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXSDKHelper.h; sourceTree = "<group>"; };
 		758BDF141A7637A300E07F9B /* HXSDKHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXSDKHelper.m; sourceTree = "<group>"; };
 		759D265F1A6F4AC300E39203 /* AddHeadForgrand.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AddHeadForgrand.cpp; path = ../Classes/AddHeadForgrand.cpp; sourceTree = "<group>"; };
@@ -1171,6 +1174,8 @@
 		3E32B7EE1ABA7BE1003A0179 /* chat */ = {
 			isa = PBXGroup;
 			children = (
+				3EEF310B1AC294F6001115F0 /* CommentInputView.cpp */,
+				3EEF310C1AC294F6001115F0 /* CommentInputView.h */,
 				3E32B7EF1ABA7BE1003A0179 /* ChatViewCell.cpp */,
 				3E32B7F01ABA7BE1003A0179 /* ChatViewCell.h */,
 				3E32B7F11ABA7BE1003A0179 /* IMChatController.cpp */,
@@ -1458,6 +1463,7 @@
 				15A3DA5D1682F826002FB0C5 /* HttpClient.cpp in Sources */,
 				3E02C5991AB12C88007CA47D /* AddFriendView.cpp in Sources */,
 				759D26641A6F4ADA00E39203 /* IMMyController.cpp in Sources */,
+				3EEF310D1AC294F6001115F0 /* CommentInputView.cpp in Sources */,
 				B0405FF319CC03A100947287 /* LocalStorage.cpp in Sources */,
 				3E655F911A80757100832CBD /* Reachability.m in Sources */,
 				3E11DA371A9033EC002E2ADA /* TableLanguage.cpp in Sources */,
