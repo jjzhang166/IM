@@ -73,7 +73,6 @@ void IMTableCell::initCell()
 	}
 }
 
-
 void IMTableCell::baseView()
 {
 	CADipSize cellsize = this->getFrame().size;

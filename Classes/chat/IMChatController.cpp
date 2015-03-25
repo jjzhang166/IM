@@ -73,6 +73,7 @@ void IMChatController::tableViewDidDeselectRowAtIndexPath(CATableView* table, un
 {
 
 }
+
 bool loaded = false;
 CATableViewCell* IMChatController::tableCellAtIndex(CATableView* table, const CCSize& cellSize, unsigned int section, unsigned int row)
 {

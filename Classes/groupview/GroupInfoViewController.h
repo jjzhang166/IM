@@ -14,7 +14,6 @@
 
 USING_NS_CC;
 
-
 struct GroupInfo
 {
     std::string     m_sGroupID; // 群ID
@@ -28,9 +27,6 @@ struct GroupInfo
     bool            m_bIsNotice;    // 新消息提醒
 
 };
-
-
-
 
 class GroupInfoViewController : public CAViewController
 {
@@ -63,9 +59,7 @@ protected:
     CALabel*        m_LabelLimit;  // 加入权限
     CASwitch*       m_SwitchNotice;   // 新消息提醒
     CAButton*       m_ExitButton;    // 退群按钮
-
-    
-    
+ 
 };
 
 #endif /* defined(__IM__GroupInfoViewController__) */

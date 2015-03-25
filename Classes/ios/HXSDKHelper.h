@@ -12,9 +12,6 @@
 
 @interface HXSDKHelper : NSObject
 
-
-
-
 // 取消SDK中注册的回调
 - (void)unRegisterEaseMobDelegate;
 // 向SDK中注册回调

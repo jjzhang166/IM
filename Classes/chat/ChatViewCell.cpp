@@ -62,46 +62,33 @@ void ChatViewCell::initWithCell()
 	otBgView->setVisible(false);
 	this->addSubview(otBgView);
 	otBgView->setFrame(CADipRect(m_size.width*0.5, m_size.height*0.2, otBgView->getFrame().size.width, otBgView->getFrame().size.height));
-	
-	// status 
-// 	CAActivityIndicatorView* gray = CAActivityIndicatorView::createWithCenter(CADipRect(m_size.width*0.3, m_size.height*0.4,
-// 		m_size.width*0.1, m_size.width*0.1));
-// 	gray->setStyle(CAActivityIndicatorViewStyleGray);
-// 	gray->setScale(0.4);
-// 	this->addSubview(gray);
 }
-
 
 void ChatViewCell::normalTableViewCell()
 {
+    
 }
 
 void ChatViewCell::highlightedTableViewCell()
 {
+    
 }
 
 void ChatViewCell::selectedTableViewCell()
 {
+    
 }
 
 void ChatViewCell::disabledTableViewCell()
 {
+    
 }
 
 void ChatViewCell::showImgMsg(string& url, const char* dpos)
 {
-	/*
-	CCHttpRequest* request = new CCHttpRequest();
-	request->setTag(dpos);
-	request->setRequestType(CCHttpRequest::kHttpGet);
-	request->setUrl(url.c_str());
-	request->setResponseCallback(this, httpresponse_selector(ChatViewCell::requestResult));
-	CCHttpClient* httpClient = CCHttpClient::getInstance();
-	httpClient->setTimeoutForConnect(30);
-	httpClient->send(request);
-	request->release();
-	*/
+
 }
+
 void ChatViewCell::requestResult(CCHttpClient* client, CCHttpResponse* response)
 {
 	if (!response->isSucceed())

@@ -27,7 +27,6 @@ class GroupCreateViewController : public CAViewController
     void viewDidLoad();
     void viewDidUnLoad();
     
-    
     CAImageView*    m_imgViewHead; // 头像
     CATextField*        m_LabelTopic; // 主题
     CATextField*        m_LabelIntroduce; // 介绍
@@ -37,8 +36,6 @@ class GroupCreateViewController : public CAViewController
     CAButton*       m_btnCreate;    // 退群按钮
     
     void onCreateBtn(CAControl *pTarget, CCPoint point);
-    
-    
 
 };
 

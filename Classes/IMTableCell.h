@@ -44,9 +44,7 @@ private:
 	CALabel *m_pName;
 	CALabel *m_pContent;
 	IMCellType m_pcelltype;
-    
     CALabel* m_pResult;
 };
-
 
 #endif

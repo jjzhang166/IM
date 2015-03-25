@@ -19,18 +19,3 @@ public:
 	//void tablecellAddRightArrow(CATableViewCell* pcell, const CCSize& cellsize);
 	//CABarButtonItem* leftBackBtn();	
 };
-
-
-/*void addHeadForgrand(CAImageView* pImageView)
-{
-	CCRect winRect = pImageView->getFrame();
-	CAImageView *headTopView = CAImageView::createWithCenter(CCRect(winRect.size.width*0.5, winRect.size.height*0.5, _px(120), _px(120)));
-	headTopView->setImage(CAImage::create(HEADBEFORE));
-	pImageView->addSubview(headTopView);
-}
-
-void tablecellRightArrow(CATableViewCell* pcell, const CCSize& cellsize)
-{
-
-}
-*/

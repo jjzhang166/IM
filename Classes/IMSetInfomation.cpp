@@ -91,6 +91,7 @@ void IMSetInformation::viewDidLoad()
 	}
 
 }
+
 //界面初始化 
 void IMSetInformation::loadBaseView()
 {
@@ -109,12 +110,14 @@ void IMSetInformation::loadBaseView()
 	m_pText->setTag(501);
 	this->getView()->addSubview(m_pText);
 }
+
 //设置昵称界面
 void IMSetInformation::initViewOfName()
 {
 	CALabel *plabel = (CALabel*)this->getView()->getSubviewByTag(500);
 	plabel->setText(UTF8("昵称"));
 }
+
 //设置性别界面
 void IMSetInformation::initViewOfSex()
 {
@@ -166,6 +169,7 @@ void IMSetInformation::setbutton1Visible(CAControl *pTarget, CCPoint point)
 	m_pText->setText(UTF8("男"));
 
 }
+
 void IMSetInformation::setbutton2Visible(CAControl *pTarget, CCPoint point)
 {
 	if (pimage1->isVisible())
@@ -175,13 +179,13 @@ void IMSetInformation::setbutton2Visible(CAControl *pTarget, CCPoint point)
 	pimage2->setVisible(true);
 	m_pText->setText(UTF8("女"));
 }
+
 //设置个性签名界面
 void IMSetInformation::initViewOfSignature()
 {
 	CALabel *plabelsignature = (CALabel*)this->getView()->getSubviewByTag(500);
 	plabelsignature->setText(UTF8("填写个性签名(24字)"));
 }
-
 
 void IMSetInformation::viewDidUnload()
 {

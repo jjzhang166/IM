@@ -24,6 +24,7 @@ public:
 	virtual ~ThirdViewController();
     
     virtual bool init();
+    
 protected:
     
     virtual void viewDidLoad();
@@ -36,6 +37,5 @@ protected:
     
     void onButtonAdd(CAControl* control, CCPoint point);//添加按钮回调
 };
-
 
 #endif /* defined(__THIRD_VIEW_CONTROLLER__) */

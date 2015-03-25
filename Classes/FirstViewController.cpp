@@ -195,11 +195,6 @@ void FirstViewController::onButtonNew(CAControl* control, CCPoint point)
 {
     
 }
-
-void FirstViewController::onButtonSearch(CAControl* control, CCPoint point)
-{
-    
-}
 */
 void FirstViewController::onButtonAdd(CAControl* control, CCPoint point)
 {

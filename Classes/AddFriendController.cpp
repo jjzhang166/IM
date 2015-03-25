@@ -124,7 +124,6 @@ bool AddFriendController::onTextFieldDeleteBackward(CATextField * sender, const 
     return false;
 }
 
-
 // 返回按钮
 void AddFriendController:: onButtonBack(CAControl* target, CCPoint point)
 {

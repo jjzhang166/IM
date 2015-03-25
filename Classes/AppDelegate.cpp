@@ -81,7 +81,6 @@ void AppDelegate::applicationWillEnterForeground()
         std::string fullPath = CCFileUtils::sharedFileUtils()->getWritablePath() + "local_storage_user_data.db";
         localStorageUserDataInit(fullPath.c_str());
     }
-
     
     // if you use SimpleAudioEngine, it must resume here
     // SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();

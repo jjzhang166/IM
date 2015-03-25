@@ -33,12 +33,8 @@ bool SecondViewController::init()
 {
     if (CAViewController::init())
     {
-        CABarButtonItem* addButtonItem = CABarButtonItem::create("", CAImage::create(NAVIGATION_BAR_ITEM_ADD_NORMAL), CAImage::create(NAVIGATION_BAR_ITEM_ADD_SELECTED));
-        addButtonItem->setTarget(this, CAControl_selector(SecondViewController::onButtonAdd));
-        
         m_pNavigationBarItem = CANavigationBarItem::create(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_NAVIGATION_BAR_ITEM_NAME_2).c_str());
         m_pNavigationBarItem->setShowGoBackButton(false);
-        //m_pNavigationBarItem->addRightButtonItem(addButtonItem);
         
         m_pNavigationBarItem->retain();
         
@@ -55,6 +51,7 @@ void SecondViewController::viewDidLoad()
     
     init_searchResultTable();
 }
+
 void SecondViewController::init_searchBar()
 {
     CAScale9ImageView* searchBackground = CAScale9ImageView::createWithImage(CAImage::create(TABLE_GRAY_BG));
@@ -104,11 +101,8 @@ void SecondViewController::viewDidUnload()
 
 void SecondViewController::onButtonAdd(CAControl* control, CCPoint point)
 {
-    
-
-    
+   
 }
-
 
 /*通过关键字搜索好友列表*/
 void SecondViewController:: getMyFriendsWithKeyWords(const char *keywords)
@@ -189,25 +183,7 @@ void SecondViewController::tableViewDidSelectRowAtIndexPath(CATableView* table, 
 		IMChatController *pController = IMChatController::create("qiaoxin5");
 		RootWindow::getInstance()->getNavigationController()->pushViewController(pController,true);
 	}
-    
 
-
-    //    //cell点击处理事件
-    //    if (section == 0){
-    //        IMMyInfo *pIMMyInfo = IMMyInfo::create();
-    //        RootWindow::getInstance()->getNavigationController()->pushViewController(pIMMyInfo, true);
-    //    }
-    //    else if (section == 1){
-    //        //通讯录
-    //    }
-    //    else if (section == 2)
-    //    {
-    //        //点击设置栏，进入用户设置页面
-    //        IMSetting *pIMSetting = IMSetting::create();
-    //        RootWindow::getInstance()->getNavigationController()->pushViewController(pIMSetting, true);
-    //    }
-    //    else{
-    //    }
 }
 
 void SecondViewController::tableViewDidDeselectRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row)

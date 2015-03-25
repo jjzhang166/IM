@@ -13,6 +13,7 @@ TableBase::TableBase()
 {
 
 }
+
 TableBase::~TableBase()
 {
 
@@ -31,7 +32,6 @@ void TableBase::clear()
 
 bool TableBase::loadTableFromJsonFile(char* pFileName)
 {
-	//CCLog("%s", pFileName);
 	bool bRet = false;
 	do 
 	{	
@@ -45,14 +45,12 @@ bool TableBase::loadTableFromJsonFile(char* pFileName)
 
 		unsigned long lFileLen = 0L;
 		pBuffer = (char*)(CCFileUtils::sharedFileUtils()->getFileData(tFullPath.c_str(),"rb+" , &lFileLen));
-		//pXorCoding(pBuffer, lFileLen);  // 解密过程
 
 		CSJson::Reader reader;
 		CSJson::Value jsValue;
 		bool parseRet = reader.parse(pBuffer, jsValue,false);
 
 		int nCount = jsValue.size();
-        //CCLog("tableItem is :%d", nCount);
 		for (int i=0; i<nCount; i++)
 		{
 			addRow(jsValue[i]);
@@ -61,6 +59,7 @@ bool TableBase::loadTableFromJsonFile(char* pFileName)
 
 		bRet = true;
 	} while (0);
+    
 	return bRet;
 }
 

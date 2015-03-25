@@ -112,6 +112,7 @@ void AddFriendView::ccTouchMoved(CATouch *pTouch, CAEvent *pEvent)
 {
 	callFunc(this, -1);
 }
+
 void AddFriendView::ccTouchEnded(CATouch *pTouch, CAEvent *pEvent)
 {
 	callFunc(this, -1);

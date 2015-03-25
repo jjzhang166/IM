@@ -98,7 +98,6 @@ void IMLoginRegister::viewDidLoad()
 	this->getView()->addSubview(m_pLayoutView);
 }
 
-
 void IMLoginRegister::loadView()
 {
 	CCRect winRect = this->getView()->getBounds();
@@ -183,11 +182,13 @@ void IMLoginRegister::viewDidAppear()
 {
 	
 }
+
 //∑µªÿ
 void IMLoginRegister::onButtonCancel(CAControl *pTarget, CCPoint point)
 {
     RootWindow::getInstance()->getNavigationController()->popViewControllerAnimated(true);
 }
+
 //µ«¬º
 void IMLoginRegister::onButtonLogin(CAControl *pTarget, CCPoint point)
 {
@@ -210,6 +211,7 @@ void IMLoginRegister::onButtonLogin(CAControl *pTarget, CCPoint point)
     
     HXSDKController::getInstance()->Login("qiaoxin5","123456");
 }
+
 // 登录成功回调函数
 void IMLoginRegister::onLoginSuccess(CAObject* obj)
 {
@@ -225,6 +227,7 @@ void IMLoginRegister::onLoginSuccess(CAObject* obj)
 	
 	
 }
+
 //◊¢≤·
 void IMLoginRegister::onButtonRegister(CAControl *pTarget, CCPoint point)
 {
@@ -259,6 +262,7 @@ void IMLoginRegister::onButtonRegister(CAControl *pTarget, CCPoint point)
 	
 	
 }
+
 //注册成功跳转函数
 void IMLoginRegister::onRegisterSuccess(CAObject* obj)
 {
@@ -272,11 +276,13 @@ void IMLoginRegister::onRegisterSuccess(CAObject* obj)
         CCLog("register failed...");
 	}
 }
+
 //Õ¸º«√‹¬Î
 void IMLoginRegister::onButtonMissPassword(CAControl *pTarget, CCPoint point)
 {
 
 }
+
 //µ«¬º∫Õ◊¢≤·÷Æº‰Ã¯◊™
 void IMLoginRegister::onButtonSwitchToRegister(CAControl *pTarget, CCPoint point)
 {
@@ -293,9 +299,7 @@ void IMLoginRegister::onButtonSwitchToLogin(CAControl *pTarget, CCPoint point)
 	pUser->autorelease();
 }
 
-
 #pragma mark TextFieldDelegate
-
 bool IMLoginRegister::onTextFieldAttachWithIME(CATextField * sender)
 {
 	CC_UNUSED_PARAM(sender);
