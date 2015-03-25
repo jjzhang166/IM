@@ -9,7 +9,7 @@ static IMChatController* m_vController = NULL;
 
 IMChatController::IMChatController(std::string ID):message(NULL)
 {
-	id = ID.c_str();
+	m_sID = ID;
 }
 
 IMChatController::~IMChatController()
@@ -21,11 +21,11 @@ IMChatController::~IMChatController()
 	m_vController = NULL;
 }
 
-IMChatController* IMChatController::create(std::string _id)
+IMChatController* IMChatController::create(std::string id)
 {
 	if (m_vController == NULL)
 	{
-		m_vController = new IMChatController(_id);
+		m_vController = new IMChatController(id);
 	}
 	return m_vController;
 }
@@ -44,7 +44,7 @@ void IMChatController::viewDidLoad()
 	//p_TableView->setSeparatorColor(CAColor_clear);
 	
 	//chinahypo 2015-3-19
-	message = HXSDKController::getInstance()->loadMessage(id);
+	//message = HXSDKController::getInstance()->loadMessage(m_sID);
 	this->getView()->addSubview(p_TableView);
     
     m_pCommentInputView = CommentInputView::createWithFrame(CADipRect(0, size.height -88.0f, size.width, 88.0f));
@@ -90,7 +90,7 @@ CATableViewCell* IMChatController::tableCellAtIndex(CATableView* table, const CC
 	sprintf(time,"%f",message.at(row)->m_vTime);
 	timeLast = time;
 	cell->setMsgTime(timeLast);
-	if (message.at(row)->m_vReceive == id)
+	if (message.at(row)->m_vReceive == m_sID)
 	{
 		dpos = "left";
 	}
@@ -266,7 +266,7 @@ void IMChatController::onBtnComment(CAControl* control, CCPoint point)
 
 void IMChatController::onBtnSend(CAControl* control, CCPoint point)
 {
-    
+    HXSDKController::getInstance()->sendMessage(m_pCommentInputView->getTextFeild()->getText().c_str(), m_sID.c_str());
     CCLog("onBtnSend !!!------:%s", m_pCommentInputView->getTextFeild()->getText().c_str());
 }
 

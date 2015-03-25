@@ -177,12 +177,30 @@ bool SecondViewController::onTextFieldDeleteBackward(CATextField * sender, const
 #pragma mark CATableViewDelegate
 void SecondViewController::tableViewDidSelectRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row)
 {
-	//chinahypo 2015-3-18 测试
-	if (section == 2)
-	{
-		IMChatController *pController = IMChatController::create("qiaoxin5");
-		RootWindow::getInstance()->getNavigationController()->pushViewController(pController,true);
-	}
+    std::string toUserName;
+    switch (section) {
+        case 0:
+        {
+            toUserName = m_vMyGroups.at(row)->m_sGroupId;
+            break;
+        }
+        case 1:
+        {
+            toUserName = m_vMyFriends.at(row)->m_sUserName;
+            break;
+        }
+        case 2:
+        {
+            toUserName = "qiaoxin5";
+            break;
+        }
+        default:
+            break;
+    }
+    
+    IMChatController *pController = IMChatController::create(toUserName);
+    RootWindow::getInstance()->getNavigationController()->pushViewController(pController,true);
+
 
 }
 

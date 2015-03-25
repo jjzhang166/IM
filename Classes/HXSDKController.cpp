@@ -122,8 +122,7 @@ void HXSDKController::Logout()
 void HXSDKController::sendMessage(const char *messageText, const char *toUserName)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-	//HXSDKControllerIOS::sendMessage_ios(messageText, toUserName);
-
+	HXSDKControllerIOS::sendMessage_ios(messageText, toUserName);
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 	com_CrossApp_IM_IM::sendMessage_android(messageText,toUserName);
 #endif
@@ -206,7 +205,6 @@ std::vector<HXSDKGroup*> HXSDKController::getMyGroupList()
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 	HXSDKControllerIOS::getMyGroup_ios();
-
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 	com_CrossApp_IM_IM::getMyGroupList_android();
 #endif
@@ -219,7 +217,6 @@ std::vector<HXSDKBuddy*> HXSDKController::getGroupMemberListByID(std::string gro
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     HXSDKControllerIOS::getGroupMenberListByID_ios(groupID.c_str());
-    
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     //
 #endif

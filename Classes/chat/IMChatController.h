@@ -20,7 +20,7 @@ public:
 
 	virtual ~IMChatController();
 
-	static IMChatController* create(std::string _id);
+	static IMChatController* create(std::string id);
 
 protected:
 
@@ -57,7 +57,7 @@ public:
 private:
 	CADipSize size;
 	CATableView* p_TableView;
-	const char* id;
+    std::string m_sID;
 	char* time;
 	string timeLast;
 	std::vector<HXSDKMessage*> message;
