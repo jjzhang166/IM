@@ -97,7 +97,7 @@ void GroupCreateViewController::viewDidLoad()
     scrollView->addSubview(_headView);
     
     
-    CAView* _memberView = CAView::createWithFrame(CCRect(0, _headCC.size.height+40, winRect.size.width, 226));
+    CAView* _memberView = CAView::createWithFrame(CCRect(0, _headCC.size.height+40, winRect.size.width, 113));
     _memberView->setColor(CAColor_white);
     
     CALabel* ownerLabel = CALabel::createWithFrame(CCRect(_px(40), 40, 80, 39));
@@ -113,27 +113,10 @@ void GroupCreateViewController::viewDidLoad()
     m_LabelOwner->setFontSize(_px(38));
     _memberView->addSubview(m_LabelOwner);
     
-    
-    CAView* _lineView3 = CAView::createWithFrame(CCRect(_px(40), 111, winRect.size.width-_px(80), _px(1)), ccc4(200, 200, 200, 255));
-    _memberView->addSubview(_lineView3);
-    
-    CALabel* memberLabel = CALabel::createWithFrame(CCRect(_px(40), 152, 80, 39));
-    memberLabel->setText(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_35).c_str());
-    memberLabel->setColor(ccc4(112, 112, 112, 255));
-    memberLabel->setFontSize(_px(38));
-    _memberView->addSubview(memberLabel);
-    
-    m_LabelMember = CALabel::createWithFrame(CCRect(240, 152, 200, 39));
-//    m_LabelMember->setText( CCString::createWithFormat("%d人",m_info.m_itotal)->getCString());
-    m_LabelMember->setColor(ccc4(51, 51, 51, 255));
-    m_LabelMember->setFontSize(_px(38));
-    _memberView->addSubview(m_LabelMember);
-    
-    
     scrollView->addSubview(_memberView);
     
     
-    CAView * _limitView = CAView::createWithFrame(CCRect(0,863, winRect.size.width, 111));
+    CAView * _limitView = CAView::createWithFrame(CCRect(0,750, winRect.size.width, 111));
     _limitView->setColor(CAColor_white);
     
     CALabel* limitLabel = CALabel::createWithFrame(CCRect(_px(40), 40, 200, 39));
@@ -150,7 +133,7 @@ void GroupCreateViewController::viewDidLoad()
     
     scrollView->addSubview(_limitView);
     
-    CAView* _noticeView = CAView::createWithFrame(CCRect(0,1015, winRect.size.width, 226));
+    CAView* _noticeView = CAView::createWithFrame(CCRect(0,902, winRect.size.width, 113));
     _noticeView->setColor(CAColor_white);
     
     CALabel* noticeLabel = CALabel::createWithFrame(CCRect(_px(40), 40, 200, 39));
@@ -165,19 +148,10 @@ void GroupCreateViewController::viewDidLoad()
 //    m_SwitchNotice->setIsOn(m_info.m_bIsNotice, true);
     _noticeView->addSubview(m_SwitchNotice);
     
-    CAView* _lineView4 = CAView::createWithFrame(CCRect(_px(40), 111, winRect.size.width-_px(80), _px(1)), ccc4(200, 200, 200, 255));
-    _noticeView->addSubview(_lineView4);
-    
-    CALabel* gmemberLabel = CALabel::createWithFrame(CCRect(_px(40), 152, 150, 39));
-    gmemberLabel->setText(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_38).c_str());
-    gmemberLabel->setColor(ccc4(51, 51, 51, 255));
-    gmemberLabel->setFontSize(_px(38));
-    _noticeView->addSubview(gmemberLabel);
-    
     scrollView->addSubview(_noticeView);
     
     
-    m_btnCreate = CAButton::createWithFrame(CCRect(_px(40), 1572, winRect.size.width-_px(80), 110), CAButtonTypeRoundedRect);
+    m_btnCreate = CAButton::createWithFrame(CCRect(_px(40), 1460, winRect.size.width-_px(80), 110), CAButtonTypeRoundedRect);
 //    , TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LANGUAGES_FONT_25).c_str()
     m_btnCreate->setTitleForState(CAControlStateAll,UTF8("创建群"));
     CAImage * btnBG = CAImage::create(BUTTON_JOIN_GROUP );

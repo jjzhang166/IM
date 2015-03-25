@@ -32,7 +32,6 @@ class GroupCreateViewController : public CAViewController
     CATextField*        m_LabelTopic; // 主题
     CATextField*        m_LabelIntroduce; // 介绍
     CALabel*        m_LabelOwner; // 群主
-    CALabel*        m_LabelMember;    // 群成员人数
     CALabel*        m_LabelLimit;  // 加入权限
     CASwitch*       m_SwitchNotice;   // 新消息提醒
     CAButton*       m_btnCreate;    // 退群按钮
