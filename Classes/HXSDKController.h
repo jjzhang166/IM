@@ -36,11 +36,15 @@ public:
 	void RegisterAccount(const char* name, const char* passWord);
 	/*退出登陆*/
 	void Logout();
+
 	/*发送消息*/
 	void sendMessage(const char* messageText, const char* toUserName);
 	void receiveMessage();
 	/*发送图片消息*/
 	void sendMessageWithImage(const char* messageText, const char* toUserName);
+
+	/*获取消息-chinahypo-2015-3-19*/
+	std::vector<HXSDKMessage*> loadMessage(const char* generalname);
 
 	/*add friend*/
 	void sendAddFriend(const char* accountName, const char* message);
@@ -105,6 +109,9 @@ public:
 
     void setGroupMembersByID(std::string groupID, std::vector<HXSDKBuddy*> members);
     std::vector<HXSDKBuddy*> groupMenberListByID(std::string groupID);
+	//Message chinahypo-2015-3-19
+	void pushMessageDetail(int pMessageType, long pTime, std::string pSendName, std::string pReceiveName, int pChatStyle,std::string pMessage);
+	void cleanMessageList();
     
 protected:
 	std::string     m_sUserName;
@@ -114,6 +121,7 @@ protected:
 	std::vector<HXSDKBuddy*> m_vFriendList;
 	std::vector<HXSDKGroup*> m_vPublicGroupList;
 	std::vector<HXSDKGroup*> m_vMyGroupList;
+	std::vector<HXSDKMessage*> m_vMessageList;
 	
     
 };

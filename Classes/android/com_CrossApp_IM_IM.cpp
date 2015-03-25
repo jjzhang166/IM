@@ -439,8 +439,56 @@ void com_CrossApp_IM_IM::receiveMessage_android()
 	CallStaticMethod_void("com/CrossApp/IM/MESSAGE","receiveMessage_android");
 }
 
+//chinahypo-2015-3-19
+void com_CrossApp_IM_IM::loadMessage_android(const char* generalname)
+{
+	JniMethodInfo info;
+	bool isHave = JniHelper::getStaticMethodInfo(info, "com/CrossApp/IM/MESSAGE", "loadMessage_android", "(Ljava/lang/String;)[Ljava/lang/Object;");
+	if (isHave)
+	{
+		jobject jobj;
+		jclass class_EMMessage;
+		//jmethodID EMMessage_getType;
+		//jint type;
+		jmethodID EMMessage_getTime;
+		jlong time;
+		jmethodID EMMessage_getSendName;
+		jstring sendName;
+		jmethodID EMMessage_getReceiveName;
+		jstring receiveName;
 
-
+		jobjectArray messagelist = (jobjectArray)info.env->CallStaticObjectMethod(info.classID, info.methodID);
+		int length = info.env->GetArrayLength(messagelist);
+		for (int i = 0; i < length; i++)
+		{
+			jobj = info.env->GetObjectArrayElement(messagelist, i);
+			class_EMMessage = info.env->GetObjectClass(jobj);
+			//type
+			//EMMessage_getType = info.env->GetMethodID(class_EMMessage, "getGroupId", "()I");
+			//type = (jint)info.env->CallObjectMethod(jobj, EMMessage_getType);
+			//int pType = type;
+			//time
+			EMMessage_getTime = info.env->GetMethodID(class_EMMessage, "getMsgTime", "()J");
+			time = (jlong)info.env->CallObjectMethod(jobj, EMMessage_getTime);
+			long pTime = time;
+			//发送方
+			EMMessage_getSendName = info.env->GetMethodID(class_EMMessage, "getFrom", "()Ljava/lang/String;");
+			sendName = (jstring)info.env->CallObjectMethod(jobj, EMMessage_getSendName);
+			string psendName = (char*)info.env->GetStringUTFChars(sendName,0);
+			//接收方
+			EMMessage_getReceiveName = info.env->GetMethodID(class_EMMessage, "getTo", "()Ljava/lang/String;");
+			receiveName = (jstring)info.env->CallObjectMethod(jobj, EMMessage_getReceiveName);
+			string preceiveName = (char*)info.env->GetStringUTFChars(receiveName, 0);
+			//数据加载到列表,进行了修改，后续完善
+			HXSDKController::getInstance()->pushMessageDetail(0, pTime, psendName, preceiveName, 0, "message from everwhere");
+		}
+		//释放资源
+		info.env->DeleteLocalRef(info.classID);
+		info.env->DeleteLocalRef(jobj);
+		info.env->DeleteLocalRef(sendName);
+		info.env->DeleteLocalRef(receiveName);
+	}
+}
 
 
 
