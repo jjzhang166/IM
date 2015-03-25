@@ -197,6 +197,7 @@ void GroupInfoViewController::viewDidLoad()
         CAImageView * imgView = CAImageView::create();
         imgView->setImage(btnBG);
         m_ExitButton->setBackGroundViewForState(CAControlStateAll,imgView);
+         m_ExitButton->addTarget(this, CAControl_selector(GroupInfoViewController::onButtonExit), CAControlTouchUpInSide);
     }
     else
     {
@@ -205,9 +206,10 @@ void GroupInfoViewController::viewDidLoad()
         CAImageView * imgView = CAImageView::create();
         imgView->setImage(btnBG);
         m_ExitButton->setBackGroundViewForState(CAControlStateAll,imgView);
+         m_ExitButton->addTarget(this, CAControl_selector(GroupInfoViewController::onButtonJoin), CAControlTouchUpInSide);
     }
     m_ExitButton->setTitleColorForState(CAControlStateAll, CAColor_white);
-    m_ExitButton->addTarget(this, CAControl_selector(GroupInfoViewController::onButtonJoin), CAControlTouchUpInSide);
+   
     
     scrollView->addSubview(m_ExitButton);
 
@@ -250,5 +252,5 @@ void GroupInfoViewController:: onButtonJoin(CAControl* target, CCPoint point)
 // 退群按钮
 void GroupInfoViewController:: onButtonExit(CAControl* target, CCPoint point)
 {
-    
+    HXSDKController::getInstance()->exitGroup( m_info.m_sGroupID.c_str());
 }

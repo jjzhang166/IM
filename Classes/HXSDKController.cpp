@@ -91,9 +91,9 @@ void HXSDKController::Login(const char* name, const char* passWord)
 
 void HXSDKController::autoLogin()
 {
-    std::string sName = (char*)localStorageUserDataGetItem("userName");
-    std::string sPassword = (char*)localStorageUserDataGetItem("userPassword");
-    Login(sName.c_str(), sPassword.c_str());
+//    std::string sName = (char*)localStorageUserDataGetItem("userName");
+//    std::string sPassword = (char*)localStorageUserDataGetItem("userPassword");
+//    Login(sName.c_str(), sPassword.c_str());
 }
 
 void HXSDKController::RegisterAccount(const char* name, const char* passWord)
@@ -235,7 +235,7 @@ void HXSDKController::joinNeedCheckGroup(const char* groupId, const char* groupN
 void HXSDKController::exitGroup(const char* groupId)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-	//
+    HXSDKControllerIOS::exitGroup_ios(groupId);
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 	com_CrossApp_IM_IM::exitGroup_android(groupId);
 #endif

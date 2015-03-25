@@ -107,7 +107,7 @@ void FirstViewController::viewDidAppear()
     if (m_sKeyWord != "") {
        getGroupsWithKeyWords(m_sKeyWord.c_str());
     }
-   // m_pTableView->reloadData();
+    m_pTableView->reloadData();
 }
 
 void FirstViewController::viewDidUnload()
@@ -162,6 +162,11 @@ void FirstViewController::getGroupsWithKeyWords(const char *keywords)
 
 void FirstViewController::setGroupsDidIJoined()
 {
+    for (int j = 0; j<m_vGroups.size(); j++) {
+        HXSDKGroup * group = m_vGroups.at(j);
+        group->m_bIsJoined = false;
+    }
+
     for (int i = 0; i<m_vMyGroups.size(); i++) {
         HXSDKGroup * pGroup = m_vMyGroups.at(i);
         for (int j = 0; j<m_vGroups.size(); j++) {
