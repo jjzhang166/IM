@@ -163,7 +163,7 @@ void GroupCreateViewController::viewDidLoad()
     
     scrollView->addSubview(m_btnCreate);
     
-    scrollView->setViewSize(CCSize(winRect.size.width,1737));
+    scrollView->setViewSize(CCSize(winRect.size.width,1624));
     this->getView()->addSubview(scrollView);
 }
 
