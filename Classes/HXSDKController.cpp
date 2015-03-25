@@ -411,7 +411,14 @@ void HXSDKController::setGroupsDetailByID(const char* groupID, const char* group
                 (*itr)->m_sGroupDescription = groupDes;
             }
             (*itr)->m_iGroupOccupantsCount = groupOccupantsCount;
-            (*itr)->m_sGroupOwer = ower;
+            if(ower == NULL)
+            {
+                (*itr)->m_sGroupOwer = "";
+            }
+            else
+            {
+                (*itr)->m_sGroupOwer = ower;
+            }
             (*itr)->m_eGroupType = (HXSDKGroupStyle)groupStyle;
             (*itr)->m_bIsPushNotificationEnable = isNotificationEnable;
             break;
