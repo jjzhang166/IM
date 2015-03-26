@@ -19,7 +19,7 @@ public:
 	void initWithCell();
 	void setMsgTime(string& mTime);
 	void showImgMsg(string& url, const char* dpos);
-	void showTextMsg(string& msg, const char* dpos);	
+	void showTextMsg(string& msg, const char* dpos, string& sender);
 	void requestResult(CCHttpClient* client, CCHttpResponse* response);
 
 protected:

@@ -37,6 +37,15 @@ void ChatViewCell::initWithCell()
 	cellText->setVerticalTextAlignmet(CAVerticalTextAlignmentCenter);
 	this->addSubview(cellText);
 
+    //sender‘s name
+    CALabel* nameText = CALabel::createWithCenter(CADipRect(m_size.width*0.5, m_size.height*0.05, m_size.width*0.3, m_size.height*0.2));
+    nameText->setTag(107);
+    nameText->setFontSize(_px(10));
+    nameText->setColor(CAColor_red);
+    nameText->setTextAlignment(CATextAlignmentCenter);
+    nameText->setVerticalTextAlignmet(CAVerticalTextAlignmentCenter);
+    this->addSubview(nameText);
+    
 	// avatar img  left/right
 	CAImageView* avatarView = CAImageView::create();	
 	avatarView->setImage(CAImage::create("chat_res/default.jpg"));
@@ -185,35 +194,39 @@ void ChatViewCell::setMsgTime(string& mTime)
 	cellText->setText(mTime);
 }
 
-void ChatViewCell::showTextMsg(string& msg, const char* dpos)
+void ChatViewCell::showTextMsg(string& msg, const char* dpos, string& sender)
 {
 	CADipSize cellSize = this->getFrame().size;
 	CAImageView* maskView = (CAImageView*)this->getSubviewByTag(101);
 	CAImageView* avatView = (CAImageView*)this->getSubviewByTag(102);
 	CAScale9ImageView* meBgView = (CAScale9ImageView*)this->getSubviewByTag(105);
 	CAScale9ImageView* otBgView = (CAScale9ImageView*)this->getSubviewByTag(106);
+    CALabel* nameText = (CALabel*)this->getSubviewByTag(107);
+    
+    float nameWidth = CAImage::getStringWidth("", _px(10), sender);
 
-	int strWidth = CAImage::getStringWidth("", _px(fontSize), msg);
-	int fontHeight = CAImage::getFontHeight("", _px(fontSize)) + fontSize / 4;
-	int n = strlen(msg.c_str()) / 3;
+	float strWidth = CAImage::getStringWidth("", _px(fontSize), msg);
+	float fontHeight = CAImage::getFontHeight("", _px(fontSize)) + fontSize / 4;
+	float n = strlen(msg.c_str()) / 3;
 	CALabel* msgText = (CALabel*)this->getSubviewByTag(103);
     if(msgText)
     {
         msgText->removeFromSuperview();
+        nameText->removeFromSuperview();
     }
     
 	if (strcmp(dpos, "right") == 0)
 	{
 		if (n > 15)
 		{
-			msgText = CALabel::createWithCenter(CADipRect(cellSize.width - maskView->getFrame().size.width - 5 - 6 - 6 - cellSize.width*0.6 / 2,
+			msgText = CALabel::createWithCenter(CADipRect(cellSize.width - maskView->getFrame().size.width - 5 - 15 - 6 - cellSize.width*0.6 / 2,
 				cellSize.height*0.5,
 				cellSize.width*0.6,
 				(n / 15 + 1) * fontHeight));
 		}
 		else
 		{
-			msgText = CALabel::createWithCenter(CADipRect(cellSize.width - maskView->getFrame().size.width - 5 - 6 - 6 - strWidth / 2,
+			msgText = CALabel::createWithCenter(CADipRect(cellSize.width - maskView->getFrame().size.width - 5 - 15 - 6 - strWidth / 2,
 				cellSize.height*0.5, strWidth, fontHeight));
 		}
 		msgText->setFontSize(_px(fontSize));
@@ -226,32 +239,44 @@ void ChatViewCell::showTextMsg(string& msg, const char* dpos)
 		otBgView->setVisible(false);
 		meBgView->setVisible(true);
 		// 此处设置
-		meBgView->setCenter(CADipRect(cellSize.width - 6 - maskView->getFrame().size.width - 11 - msgText->getFrame().size.width / 2,
+		meBgView->setCenter(CADipRect(cellSize.width - 15 - maskView->getFrame().size.width - 11 - msgText->getFrame().size.width / 2,
 			cellSize.height*0.5,
 			msgText->getFrame().size.width + 30,
 			msgText->getFrame().size.height + 30));
 
 		avatView->setFrame(CADipRect(cellSize.width - 6 - maskView->getFrame().size.width,
-			(cellSize.height - meBgView->getFrame().size.height)*0.5 + meBgView->getFrame().size.height - maskView->getFrame().size.height,
+			cellSize.height - 90.0f,
 			maskView->getFrame().size.width,
 			maskView->getFrame().size.height));
 		maskView->setFrame(CADipRect(cellSize.width - 6 - maskView->getFrame().size.width,
-			(cellSize.height - meBgView->getFrame().size.height)*0.5 + meBgView->getFrame().size.height - maskView->getFrame().size.height,
+			cellSize.height - 90.0f,
 			maskView->getFrame().size.width,
 			maskView->getFrame().size.height));
+        
+        nameText= CALabel::createWithCenter(CADipRect(cellSize.width - maskView->getFrame().size.width -3,
+                                                      20,
+                                                      100,
+                                                      25));
+        nameText->setFontSize(_px(fontSize));
+        nameText->setTextAlignment(CATextAlignmentRight);
+        nameText->setVerticalTextAlignmet(CAVerticalTextAlignmentCenter);
+        nameText->setTag(107);
+        nameText->setText(sender);
+        this->addSubview(nameText);
+        
 	}
 	else if (strcmp(dpos, "left") == 0)
 	{
 		if (n > 15)
 		{
-			msgText = CALabel::createWithCenter(CADipRect(maskView->getFrame().size.width + 15 + 6 + 6 + cellSize.width*0.6/2,
+			msgText = CALabel::createWithCenter(CADipRect(maskView->getFrame().size.width + 15 + 15 + 6 + cellSize.width*0.6/2,
 				cellSize.height*0.5,
 				cellSize.width*0.6,
 				(n / 15 + 1) * fontHeight));
 		}
 		else
 		{
-			msgText = CALabel::createWithCenter(CADipRect(maskView->getFrame().size.width + 8 + 6 + 6 + strWidth / 2,
+			msgText = CALabel::createWithCenter(CADipRect(maskView->getFrame().size.width + 8 + 15 + 6 + strWidth / 2,
 				cellSize.height*0.5, strWidth, fontHeight));
 		}
 		msgText->setFontSize(_px(fontSize));
@@ -264,19 +289,30 @@ void ChatViewCell::showTextMsg(string& msg, const char* dpos)
 		otBgView->setVisible(true);
 		meBgView->setVisible(false);
 		// 此处设置
-		otBgView->setCenter(CADipRect(maskView->getFrame().size.width + 5 + 6 + 6 + msgText->getFrame().size.width / 2,
+		otBgView->setCenter(CADipRect(maskView->getFrame().size.width + 5 + 15 + 6 + msgText->getFrame().size.width / 2,
 			cellSize.height*0.5,
 			msgText->getFrame().size.width + 30,
 			msgText->getFrame().size.height + 30));
 
 		avatView->setFrame(CADipRect(6,
-			(cellSize.height - otBgView->getFrame().size.height)*0.5 + otBgView->getFrame().size.height - maskView->getFrame().size.height,
+			cellSize.height - 90.0f,
 			maskView->getFrame().size.width,
 			maskView->getFrame().size.height));
 		maskView->setFrame(CADipRect(6,
-			(cellSize.height - otBgView->getFrame().size.height)*0.5 + otBgView->getFrame().size.height - maskView->getFrame().size.height,
+			cellSize.height - 90.0f,
 			maskView->getFrame().size.width,
 			maskView->getFrame().size.height));
-	}	
+        
+        nameText= CALabel::createWithCenter(CADipRect(maskView->getFrame().size.width + 3,
+                                                      20,
+                                                      100,
+                                                      25));
+        nameText->setFontSize(_px(fontSize));
+        nameText->setTextAlignment(CATextAlignmentLeft);
+        nameText->setVerticalTextAlignmet(CAVerticalTextAlignmentCenter);
+        nameText->setTag(107);
+        nameText->setText(sender);
+        this->addSubview(nameText);
+	}
 }
 

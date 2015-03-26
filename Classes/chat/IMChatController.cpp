@@ -117,6 +117,8 @@ void IMChatController::viewDidLoad()
 
 	p_TableView = CATableView::createWithCenter(CADipRect(m_pSize.width*0.5, (m_pSize.height-KEYBOARD_HEIGHT)*0.5, m_pSize.width, m_pSize.height - KEYBOARD_HEIGHT));
 	p_TableView->setTableViewDataSource(this);
+//    p_TableView->setSeparatorViewHeight(4);
+//    p_TableView->setSeparatorColor(CAColor_white);
 	p_TableView->setTableViewDelegate(this);
 	//p_TableView->setAllowsSelection(true);
 	//p_TableView->setAllowsMultipleSelection(true);s
@@ -182,7 +184,7 @@ CATableViewCell* IMChatController::tableCellAtIndex(CATableView* table, const CC
 	{
 		dpos = "right";
 	}
-	cell->showTextMsg(m_vecMessage.at(row)->m_vMessage, dpos.c_str());
+	cell->showTextMsg(m_vecMessage.at(row)->m_vMessage, dpos.c_str(),m_vecMessage.at(row)->m_vSend);
 	return cell;
 	/*
 	// 开始显示
@@ -238,7 +240,7 @@ unsigned int IMChatController::numberOfSections(CATableView *table)
 
 unsigned int IMChatController::tableViewHeightForRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row)
 {
-	return _px(90);
+	return _px(150);
 }
 
 unsigned int IMChatController::tableViewHeightForHeaderInSection(CATableView* table, unsigned int section)
