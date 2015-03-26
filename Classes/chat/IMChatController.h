@@ -28,6 +28,8 @@ public:
 
     void setControllerByID(std::string ID);
     
+    void setControllerByID(std::string ID, std::string name, bool isGroup);
+    
     VEC_MESSAGE& getMessageByID(std::string ID);
     
     void pushMessageByID(std::string ID, HXSDKMessage* message);
@@ -73,12 +75,14 @@ private:
 	CADipSize           m_pSize;
 	CATableView*        p_TableView;
     std::string         m_sID;
+    std::string         m_sName;
 	char*               time;
 	string              timeLast;
 	VEC_MESSAGE         m_vecMessage;
     MAP_ID_MESSAGE      m_mapAllMessage;
     CommentInputView*   m_pCommentInputView;
     bool                m_bIsOpen;
+    bool                m_bIsGroup;
 };
 
 

@@ -127,7 +127,7 @@ void HXSDKControllerIOS::Logout_ios()
     CCLog("LogOut is success !!!");
 }
 
-void HXSDKControllerIOS::sendMessage_ios(const char* messageText, const char* toUserName)
+void HXSDKControllerIOS::sendMessage_ios(const char* messageText, const char* toUserName, bool isGroup)
 {
     NSString *string_messageText = [[NSString alloc] initWithCString:(const char*)messageText encoding:NSASCIIStringEncoding];
     NSString *string_toUserName = [[NSString alloc] initWithCString:(const char*)toUserName encoding:NSASCIIStringEncoding];
@@ -135,6 +135,7 @@ void HXSDKControllerIOS::sendMessage_ios(const char* messageText, const char* to
     EMTextMessageBody *body = [[EMTextMessageBody alloc] initWithChatObject:text];
     EMMessage *msg = [[EMMessage alloc] initWithReceiver:string_toUserName
                                                   bodies:@[body]];
+    msg.isGroup = isGroup;
     [easeMob.chatManager sendMessage:msg progress:nil error:nil];
 }
 

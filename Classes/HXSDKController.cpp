@@ -120,10 +120,10 @@ void HXSDKController::Logout()
 #endif
 }
 
-void HXSDKController::sendMessage(const char *messageText, const char *toUserName)
+void HXSDKController::sendMessage(const char *messageText, const char *toUserName, bool isGroup)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-	HXSDKControllerIOS::sendMessage_ios(messageText, toUserName);
+	HXSDKControllerIOS::sendMessage_ios(messageText, toUserName, isGroup);
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 	com_CrossApp_IM_IM::sendMessage_android(messageText,toUserName);
 #endif

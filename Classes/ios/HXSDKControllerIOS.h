@@ -31,7 +31,7 @@ public:
     
     static void Logout_ios();
     
-    static void sendMessage_ios(const char* messageText, const char* toUserName);
+    static void sendMessage_ios(const char* messageText, const char* toUserName, bool isGroup);
     
     static void sendMessageWithImage_ios(const char* messageImage, const char* toUserName);
     

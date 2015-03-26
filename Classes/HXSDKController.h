@@ -37,7 +37,7 @@ public:
 	/*退出登陆*/
 	void Logout();
 	/*发送消息*/
-	void sendMessage(const char* messageText, const char* toUserName);
+	void sendMessage(const char* messageText, const char* toUserName, bool isGroup);
 	void receiveMessage();
 	/*发送图片消息*/
 	void sendMessageWithImage(const char* messageText, const char* toUserName);

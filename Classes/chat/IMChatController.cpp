@@ -13,6 +13,7 @@ IMChatController::IMChatController()
 :m_sID("")
 ,m_bIsOpen(false)
 ,m_pSize(CCSizeZero)
+,m_bIsGroup(false)
 {
 
 }
@@ -34,7 +35,14 @@ IMChatController* IMChatController::getInstance()
 
 void IMChatController::setControllerByID(std::string ID)
 {
+    setControllerByID(ID, ID, false);
+}
+
+void IMChatController::setControllerByID(std::string ID, std::string name, bool isGroup)
+{
     m_sID = ID;
+    m_sName = name;
+    m_bIsGroup = isGroup;
     m_vecMessage = getMessageByID(m_sID);
 }
 
@@ -93,7 +101,7 @@ bool IMChatController::init()
         CABarButtonItem* backItem = CABarButtonItem::create(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LOGOUT).c_str(), NULL, NULL);
         backItem->setTarget(this, CAControl_selector(IMChatController::onButtonBack));
         
-        m_pNavigationBarItem = CANavigationBarItem::create(m_sID.c_str());
+        m_pNavigationBarItem = CANavigationBarItem::create(m_sName.c_str());
         m_pNavigationBarItem->setShowGoBackButton(false);
         m_pNavigationBarItem->addLeftButtonItem(backItem);
         setNavigationBarItem(m_pNavigationBarItem);
@@ -213,7 +221,7 @@ CATableViewCell* IMChatController::tableCellAtIndex(CATableView* table, const CC
  
  CAView* IMChatController::tableViewSectionViewForFooterInSection(CATableView* table, const CCSize& viewSize, unsigned int section)
  {
- 	CAView* view = CAView::createWithColor(CAColor_gray);
+ 	CAView* view = CAView::createWithColor(CAColor_white);
  	return view;
  }
 
@@ -240,7 +248,7 @@ unsigned int IMChatController::tableViewHeightForHeaderInSection(CATableView* ta
 
 unsigned int IMChatController::tableViewHeightForFooterInSection(CATableView* table, unsigned int section)
 {
-	return 1;
+	return 0;
 }
 
 void IMChatController::onBtnComment(CAControl* control, CCPoint point)
@@ -253,7 +261,7 @@ void IMChatController::onBtnSend(CAControl* control, CCPoint point)
 {
     std::string message = m_pCommentInputView->getTextFeild()->getText();
     HXSDKController::getInstance()->pushMessageDetail(m_sID, 1, 1000, HXSDKController::getInstance()->getMyName(), m_sID, 1, message);
-    HXSDKController::getInstance()->sendMessage(message.c_str(), m_sID.c_str());
+    HXSDKController::getInstance()->sendMessage(message.c_str(), m_sID.c_str(), m_bIsGroup);
     CCLog("onBtnSend !!!------:%s", message.c_str());
     m_pCommentInputView->getTextFeild()->setText("");
 }
