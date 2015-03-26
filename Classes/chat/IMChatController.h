@@ -39,6 +39,8 @@ protected:
 
 	void viewDidUnload();
     
+    virtual void viewDidAppear();
+    
     virtual void onSend(const string& sText);
     
     virtual bool commentInputView_onTextFieldAttachWithIME(CATextField * sender);
@@ -52,7 +54,8 @@ protected:
     void onBtnComment(CAControl* control, CCPoint point);
     void onBtnSend(CAControl* control, CCPoint point);
     void onBtnPraise(CAControl* control, CCPoint point);
-
+    void onButtonBack(CAControl* control, CCPoint point);
+    
 public:
 	virtual void tableViewDidSelectRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row);
 	virtual void tableViewDidDeselectRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row);
@@ -73,8 +76,8 @@ private:
 	string              timeLast;
 	VEC_MESSAGE         m_vecMessage;
     MAP_ID_MESSAGE      m_mapAllMessage;
-    
     CommentInputView*   m_pCommentInputView;
+    bool                m_bIsOpen;
 };
 
 

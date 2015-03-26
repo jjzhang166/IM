@@ -1,12 +1,16 @@
 ﻿#include "IMChatController.h"
 #include "ChatViewCell.h"
 #include "CommentInputView.h"
+#include "../data/TableLanguage.h"
+#include "../table/TableLanguagesfontnewHeader.h"
+#include "RootWindow.h"
 
 #define CAColor_blueStyle ccc4(51,204,255,255)
 static IMChatController* m_vController = NULL;
 
 IMChatController::IMChatController()
 :m_sID("")
+,m_bIsOpen(false)
 {
 
 }
@@ -64,7 +68,10 @@ void IMChatController::pushMessageByID(std::string ID, HXSDKMessage* message)
         itr = m_mapAllMessage.insert(--itr,pair<std::string , VEC_MESSAGE>(ID, vecMessage));
     }
     m_vecMessage = getMessageByID(m_sID);
-    p_TableView->reloadData();
+    if(m_bIsOpen)
+    {
+        p_TableView->reloadData();
+    }
 }
 
 HXSDKMessage* IMChatController::getMessagePackageByMessageInfo()
@@ -76,7 +83,12 @@ bool IMChatController::init()
 {
     if (CAViewController::init())
     {
+        CABarButtonItem* backItem = CABarButtonItem::create(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_LOGOUT).c_str(), NULL, NULL);
+        backItem->setTarget(this, CAControl_selector(IMChatController::onButtonBack));
+        
         m_pNavigationBarItem = CANavigationBarItem::create(m_sID.c_str());
+        m_pNavigationBarItem->setShowGoBackButton(false);
+        m_pNavigationBarItem->addLeftButtonItem(backItem);
         setNavigationBarItem(m_pNavigationBarItem);
         m_pNavigationBarItem->retain();
         return true;
@@ -116,6 +128,11 @@ void IMChatController::viewDidUnload()
 {
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
+}
+
+void IMChatController::viewDidAppear()
+{
+    m_bIsOpen = true;
 }
 
 void IMChatController::tableViewDidSelectRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row)
@@ -324,7 +341,8 @@ void IMChatController::onBtnSend(CAControl* control, CCPoint point)
     std::string message = m_pCommentInputView->getTextFeild()->getText();
     HXSDKController::getInstance()->pushMessageDetail(m_sID, 1, 1000, HXSDKController::getInstance()->getMyName(), m_sID, 1, message);
     HXSDKController::getInstance()->sendMessage(message.c_str(), m_sID.c_str());
-    CCLog("onBtnSend !!!------:%s", m_pCommentInputView->getTextFeild()->getText().c_str());
+    CCLog("onBtnSend !!!------:%s", message.c_str());
+    m_pCommentInputView->getTextFeild()->setText("");
 }
 
 void IMChatController::onBtnPraise(CAControl* control, CCPoint point)
@@ -407,3 +425,8 @@ bool IMChatController::commentInputView_keyBoardCallBack(CATextField *sender)
     return false;
 }
 
+void IMChatController::onButtonBack(CAControl* control, CCPoint point)
+{
+    m_bIsOpen = false;
+    RootWindow::getInstance()->getNavigationController()->popViewControllerAnimated(this);
+}
