@@ -13,6 +13,7 @@
 #import "EMImageMessageBody.h"
 #import "IChatManagerDelegate.h"
 #import "EaseMob.h"
+#include "HXSDKController.h"
 
 @interface HXSDKHelper ()<IChatManagerDelegate>
 
@@ -62,10 +63,16 @@ HXSDKHelper * mHXSDKHelper;
         {
             // 收到的文字是
             NSString *txt = ((EMTextMessageBody *)msgBody).text;
+            
+            NSLog(@"from:%s", [[msgBody message].from UTF8String]);
+            NSLog(@"to:%s", [[msgBody message].to UTF8String]);
+            NSLog(@"time:%lld", [msgBody message].timestamp);
+            
+            EMMessage *message;
             NSLog(@"收到的文字是 txt -- %@",txt);
             // 发送notification  HXMSGARRIVAL
             [[NSNotificationCenter defaultCenter] postNotificationName:@"HXMSGARRIVAL" object:@YES];
-            
+            HXSDKController::getInstance()->pushMessageDetail([[msgBody message].from UTF8String], 1, [msgBody message].timestamp, [[msgBody message].from UTF8String],  [[msgBody message].to UTF8String], 1, [txt UTF8String]);
         }
             break;
         case eMessageBodyType_Image:

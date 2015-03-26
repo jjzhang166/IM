@@ -104,7 +104,7 @@ public:
     void setGroupMembersByID(std::string groupID, std::vector<HXSDKBuddy*> members);
     std::vector<HXSDKBuddy*> groupMenberListByID(std::string groupID);
 	//Message chinahypo-2015-3-19
-	void pushMessageDetail(int pMessageType, long pTime, std::string pSendName, std::string pReceiveName, int pChatStyle,std::string pMessage);
+	void pushMessageDetail(std::string ID, int pMessageType, long pTime, std::string pSendName, std::string pReceiveName, int pChatStyle,std::string pMessage);
 	void cleanMessageList();
     
 protected:

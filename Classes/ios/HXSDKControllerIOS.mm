@@ -136,7 +136,6 @@ void HXSDKControllerIOS::sendMessage_ios(const char* messageText, const char* to
     EMMessage *msg = [[EMMessage alloc] initWithReceiver:string_toUserName
                                                   bodies:@[body]];
     [easeMob.chatManager sendMessage:msg progress:nil error:nil];
-    
 }
 
 void HXSDKControllerIOS::sendMessageWithImage_ios(const char* messageImage, const char* toUserName)
@@ -458,8 +457,20 @@ void HXSDKControllerIOS::getGroupMenberListByID_ios(const char * groupID)
         }
     }
 }
+//
+//@interface HXSDKControllerIOS
+//
+// -(void)pushMessageDetail:(NSString *)pMessageType time:(long)pTime frome:(NSString*)name to:(NSString*)name chatStyle:(int)pCHatStyle message:(NSString*)pMessage
+//{
+//    
+//}
+//@end
 
-
+//
+//void HXSDKControllerIOS::pushMessageDetail(int pMessageType, long pTime, NSString* pSendName, NSString* pReceiveName, int pChatStyle, NSString* pMessage)
+//{
+//    
+//}
 
 
 

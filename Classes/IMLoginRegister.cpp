@@ -207,9 +207,9 @@ void IMLoginRegister::onButtonLogin(CAControl *pTarget, CCPoint point)
 //    }
 	//添加观察者模式
 	CANotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(IMLoginRegister::onLoginSuccess), KNOTIFICATION_LOGIN, NULL);
-    //HXSDKController::getInstance()->Login(accountName.c_str(),accountPassword.c_str());
+    HXSDKController::getInstance()->Login(accountName.c_str(),accountPassword.c_str());
     
-    HXSDKController::getInstance()->Login("qiaoxin5","123456");
+    //HXSDKController::getInstance()->Login("qiaoxin5","123456");
 }
 
 // 登录成功回调函数

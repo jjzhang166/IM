@@ -10,20 +10,31 @@
 USING_NS_CC;
 USING_NS_CC_EXT;
 
+typedef  std::vector<HXSDKMessage*>          VEC_MESSAGE;
+typedef  std::map<std::string, VEC_MESSAGE>  MAP_ID_MESSAGE;
 
 class IMChatController : public CAViewController, public CATableViewDelegate, public CATableViewDataSource, public CommentInputViewDelegate
 {
 
 public:
 
-	IMChatController(std::string ID);
+	IMChatController();
 
 	virtual ~IMChatController();
 
-	static IMChatController* create(std::string id);
+    static IMChatController* getInstance();
+    
+    virtual bool init();
 
+    void setControllerByID(std::string ID);
+    
+    VEC_MESSAGE& getMessageByID(std::string ID);
+    
+    void pushMessageByID(std::string ID, HXSDKMessage* message);
+    HXSDKMessage* getMessagePackageByMessageInfo();
+    
 protected:
-
+    
 	void viewDidLoad();
 
 	void viewDidUnload();
@@ -55,14 +66,15 @@ public:
 
 
 private:
-	CADipSize size;
-	CATableView* p_TableView;
-    std::string m_sID;
-	char* time;
-	string timeLast;
-	std::vector<HXSDKMessage*> message;
+	CADipSize           size;
+	CATableView*        p_TableView;
+    std::string         m_sID;
+	char*               time;
+	string              timeLast;
+	VEC_MESSAGE         m_vecMessage;
+    MAP_ID_MESSAGE      m_mapAllMessage;
     
-    CommentInputView* m_pCommentInputView;
+    CommentInputView*   m_pCommentInputView;
 };
 
 

@@ -1,33 +1,87 @@
-﻿
-#include "IMChatController.h"
-
+﻿#include "IMChatController.h"
 #include "ChatViewCell.h"
 #include "CommentInputView.h"
 
 #define CAColor_blueStyle ccc4(51,204,255,255)
 static IMChatController* m_vController = NULL;
 
-IMChatController::IMChatController(std::string ID):message(NULL)
+IMChatController::IMChatController()
+:m_sID("")
 {
-	m_sID = ID;
+
 }
 
 IMChatController::~IMChatController()
 {
-	if (m_vController)
-	{
-		delete m_vController;
-	}
-	m_vController = NULL;
+    m_vecMessage.clear();
+    m_mapAllMessage.clear();
 }
 
-IMChatController* IMChatController::create(std::string id)
+IMChatController* IMChatController::getInstance()
 {
-	if (m_vController == NULL)
-	{
-		m_vController = new IMChatController(id);
-	}
-	return m_vController;
+    if (m_vController == NULL)
+    {
+        m_vController = new IMChatController();
+    }
+    return m_vController;
+}
+
+void IMChatController::setControllerByID(std::string ID)
+{
+    m_sID = ID;
+    
+    m_vecMessage = getMessageByID(m_sID);
+}
+
+VEC_MESSAGE& IMChatController::getMessageByID(std::string ID)
+{
+    MAP_ID_MESSAGE::iterator itr = m_mapAllMessage.find(ID);
+    if(itr!=m_mapAllMessage.end())
+    {
+        return (itr->second);
+    }
+    else
+    {
+        VEC_MESSAGE vecMessage;
+        itr = m_mapAllMessage.insert(itr,pair<std::string , VEC_MESSAGE>(ID, vecMessage));
+    }
+    return (itr->second);
+}
+
+void IMChatController::pushMessageByID(std::string ID, HXSDKMessage* message)
+{
+    MAP_ID_MESSAGE::iterator itr = m_mapAllMessage.find(ID);
+    if(itr!=m_mapAllMessage.end())
+    {
+        (itr->second).push_back(message);
+        CCLog("find !!!id:%s,  messageCount:%lu", ID.c_str(), itr->second.size());
+    }
+    else
+    {
+        CCLog("not find ...id:%s", ID.c_str());
+        VEC_MESSAGE vecMessage;
+        vecMessage.push_back(message);
+        itr = m_mapAllMessage.insert(--itr,pair<std::string , VEC_MESSAGE>(ID, vecMessage));
+    }
+    m_vecMessage = getMessageByID(m_sID);
+    p_TableView->reloadData();
+}
+
+HXSDKMessage* IMChatController::getMessagePackageByMessageInfo()
+{
+    
+}
+
+bool IMChatController::init()
+{
+    if (CAViewController::init())
+    {
+        m_pNavigationBarItem = CANavigationBarItem::create(m_sID.c_str());
+        setNavigationBarItem(m_pNavigationBarItem);
+        m_pNavigationBarItem->retain();
+        return true;
+    }
+    return false;
 }
 
 void IMChatController::viewDidLoad()
@@ -87,10 +141,10 @@ CATableViewCell* IMChatController::tableCellAtIndex(CATableView* table, const CC
 	if (loaded)
 		return cell;
 	string dpos;
-	sprintf(time,"%f",message.at(row)->m_vTime);
-	timeLast = time;
-	cell->setMsgTime(timeLast);
-	if (message.at(row)->m_vReceive == m_sID)
+//	sprintf(time,"%ld",m_vecMessage.at(row)->m_vTime);
+//	timeLast = time;
+//	cell->setMsgTime(timeLast);
+    if (m_vecMessage.at(row)->m_vSend.compare(HXSDKController::getInstance()->getMyName()))
 	{
 		dpos = "left";
 	}
@@ -98,7 +152,7 @@ CATableViewCell* IMChatController::tableCellAtIndex(CATableView* table, const CC
 	{
 		dpos = "right";
 	}
-	cell->showTextMsg(message.at(row)->m_vMessage, dpos.c_str());
+	cell->showTextMsg(m_vecMessage.at(row)->m_vMessage, dpos.c_str());
 	return cell;
 	/*
 	// 开始显示
@@ -234,7 +288,8 @@ CATableViewCell* IMChatController::tableCellAtIndex(CATableView* table, const CC
 
 unsigned int IMChatController::numberOfRowsInSection(CATableView *table, unsigned int section)
 {
-	return message.size();
+    CCLog("message size:%lu",m_vecMessage.size());
+    return m_vecMessage.size();
 }
 
 unsigned int IMChatController::numberOfSections(CATableView *table)
@@ -244,7 +299,7 @@ unsigned int IMChatController::numberOfSections(CATableView *table)
 
 unsigned int IMChatController::tableViewHeightForRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row)
 {
-	return _px(260);
+	return _px(60);
 }
 
 
@@ -266,7 +321,9 @@ void IMChatController::onBtnComment(CAControl* control, CCPoint point)
 
 void IMChatController::onBtnSend(CAControl* control, CCPoint point)
 {
-    HXSDKController::getInstance()->sendMessage(m_pCommentInputView->getTextFeild()->getText().c_str(), m_sID.c_str());
+    std::string message = m_pCommentInputView->getTextFeild()->getText();
+    HXSDKController::getInstance()->pushMessageDetail(m_sID, 1, 1000, HXSDKController::getInstance()->getMyName(), m_sID, 1, message);
+    HXSDKController::getInstance()->sendMessage(message.c_str(), m_sID.c_str());
     CCLog("onBtnSend !!!------:%s", m_pCommentInputView->getTextFeild()->getText().c_str());
 }
 

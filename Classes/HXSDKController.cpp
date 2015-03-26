@@ -11,6 +11,7 @@
 #include "LocalStorageUserData.h"
 #include "RootWindow.h"
 #include "FirstViewController.h"
+#include "IMChatController.h"
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
 #import "HXSDKControllerIOS.h"
@@ -131,8 +132,8 @@ void HXSDKController::sendMessage(const char *messageText, const char *toUserNam
 void HXSDKController::receiveMessage()
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-	//HXSDKControllerIOS::sendMessage_ios(messageText, toUserName);
-
+	//nothing
+    
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 	com_CrossApp_IM_IM::receiveMessage_android();
 #endif
@@ -502,7 +503,7 @@ void HXSDKController::exitGroupResult(bool result)
 }
 
 //chinahypo - 2015 - 3 - 19
-void HXSDKController::pushMessageDetail(int pMessageType, long pTime, std::string pSendName, std::string pReceiveName, int pChatStyle, std::string pMessage)
+void HXSDKController::pushMessageDetail(std::string ID, int pMessageType, long pTime, std::string pSendName, std::string pReceiveName, int pChatStyle, std::string pMessage)
 {
 	HXSDKMessage* chatMessage = new HXSDKMessage();
 	chatMessage->m_vType = (HXSDKMsgType)pMessageType;
@@ -511,7 +512,9 @@ void HXSDKController::pushMessageDetail(int pMessageType, long pTime, std::strin
 	chatMessage->m_vReceive = pReceiveName;
 	chatMessage->m_vChatStyle = (HXSDKChatStyle)pChatStyle;
 	chatMessage->m_vMessage = pMessage;
-	m_vMessageList.push_back(chatMessage);
+	//m_vMessageList.push_back(chatMessage);
+    
+    IMChatController::getInstance()->pushMessageByID(ID, chatMessage);
 }
 
 void HXSDKController::cleanMessageList()

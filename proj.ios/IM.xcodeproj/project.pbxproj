@@ -61,7 +61,7 @@
 		3EC269A01AB8178600C9ADC1 /* IMUserManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3EC2699E1AB8178600C9ADC1 /* IMUserManager.cpp */; };
 		3EEF30E71AC25B41001115F0 /* AddGroupController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3EEF30E51AC25B41001115F0 /* AddGroupController.cpp */; };
 		3EEF310D1AC294F6001115F0 /* CommentInputView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3EEF310B1AC294F6001115F0 /* CommentInputView.cpp */; };
-		758BDF151A7637A300E07F9B /* HXSDKHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 758BDF141A7637A300E07F9B /* HXSDKHelper.m */; };
+		3EEF31141AC2C386001115F0 /* HXSDKHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3EEF31131AC2C386001115F0 /* HXSDKHelper.mm */; };
 		759D26611A6F4AC300E39203 /* AddHeadForgrand.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 759D265F1A6F4AC300E39203 /* AddHeadForgrand.cpp */; };
 		759D26641A6F4ADA00E39203 /* IMMyController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 759D26621A6F4ADA00E39203 /* IMMyController.cpp */; };
 		759D26671A6F4B9300E39203 /* IMMyInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 759D26651A6F4B9300E39203 /* IMMyInfo.cpp */; };
@@ -383,8 +383,8 @@
 		3EEF30E61AC25B41001115F0 /* AddGroupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddGroupController.h; path = ../Classes/AddGroupController.h; sourceTree = "<group>"; };
 		3EEF310B1AC294F6001115F0 /* CommentInputView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CommentInputView.cpp; sourceTree = "<group>"; };
 		3EEF310C1AC294F6001115F0 /* CommentInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentInputView.h; sourceTree = "<group>"; };
+		3EEF31131AC2C386001115F0 /* HXSDKHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HXSDKHelper.mm; sourceTree = "<group>"; };
 		758BDF131A7637A300E07F9B /* HXSDKHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXSDKHelper.h; sourceTree = "<group>"; };
-		758BDF141A7637A300E07F9B /* HXSDKHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXSDKHelper.m; sourceTree = "<group>"; };
 		759D265F1A6F4AC300E39203 /* AddHeadForgrand.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AddHeadForgrand.cpp; path = ../Classes/AddHeadForgrand.cpp; sourceTree = "<group>"; };
 		759D26601A6F4AC300E39203 /* AddHeadForgrand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddHeadForgrand.h; path = ../Classes/AddHeadForgrand.h; sourceTree = "<group>"; };
 		759D26621A6F4ADA00E39203 /* IMMyController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMMyController.cpp; path = ../Classes/IMMyController.cpp; sourceTree = "<group>"; };
@@ -1163,7 +1163,7 @@
 			isa = PBXGroup;
 			children = (
 				758BDF131A7637A300E07F9B /* HXSDKHelper.h */,
-				758BDF141A7637A300E07F9B /* HXSDKHelper.m */,
+				3EEF31131AC2C386001115F0 /* HXSDKHelper.mm */,
 				3E280E201A652EB400233D5B /* HXSDKControllerIOS.h */,
 				3E280E211A652EB400233D5B /* HXSDKControllerIOS.mm */,
 			);
@@ -1489,7 +1489,6 @@
 				B00CC6051978B5CE00A62E4C /* RootWindow.cpp in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
 				3E280E1E1A652E7C00233D5B /* HXSDKController.cpp in Sources */,
-				758BDF151A7637A300E07F9B /* HXSDKHelper.m in Sources */,
 				3EEF30E71AC25B41001115F0 /* AddGroupController.cpp in Sources */,
 				3E32B7F31ABA7BE1003A0179 /* ChatViewCell.cpp in Sources */,
 				1AC3624916D4A1E8000847F2 /* AppController.mm in Sources */,
@@ -1497,6 +1496,7 @@
 				3E1657601A660C5500D832E9 /* IMLoginRegister.cpp in Sources */,
 				B047B92319E91CFA00F24BE6 /* DownloadManager.cpp in Sources */,
 				3E0117501A68FD69002F2E61 /* IMTableCell.cpp in Sources */,
+				3EEF31141AC2C386001115F0 /* HXSDKHelper.mm in Sources */,
 				1AFCDA8216D4A25900906EA6 /* RootViewController.mm in Sources */,
 				75D2E5761A6CA6AF0089CE98 /* GroupInfoViewController.cpp in Sources */,
 				1AB87035175E0A84005D39BF /* WebSocket.cpp in Sources */,

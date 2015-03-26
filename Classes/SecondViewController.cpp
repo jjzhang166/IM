@@ -35,9 +35,7 @@ bool SecondViewController::init()
     {
         m_pNavigationBarItem = CANavigationBarItem::create(TableLanguage::getInstance()->getTableItemByID(LANGUAGESFONTNEW_NAVIGATION_BAR_ITEM_NAME_2).c_str());
         m_pNavigationBarItem->setShowGoBackButton(false);
-        
         m_pNavigationBarItem->retain();
-        
         return true;
     }
     return false;
@@ -198,7 +196,9 @@ void SecondViewController::tableViewDidSelectRowAtIndexPath(CATableView* table, 
             break;
     }
     
-    IMChatController *pController = IMChatController::create(toUserName);
+    IMChatController *pController =IMChatController::getInstance();
+    pController->setControllerByID(toUserName);
+    pController->init();
     RootWindow::getInstance()->getNavigationController()->pushViewController(pController,true);
 
 

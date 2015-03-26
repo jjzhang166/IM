@@ -13,6 +13,7 @@
 #include "CrossApp.h"
 #include "HXSDKBuddy.h"
 
+
 class HXSDKControllerIOS
 {
     
@@ -63,9 +64,20 @@ public:
     static void getMyGroup_ios();
     //查找群成员
     static void getGroupMenberListByID_ios(const char * groupID);
+    //接收消息
+//    
+//    -(void)didReceiveMessage:int pMessageType (EMMessage *)message
+//    static void pushMessageDetail(int pMessageType, long pTime, NSString* pSendName, NSString* pReceiveName, int pChatStyle, NSString* pMessage);
 protected:
     
 };
 
 
 #endif /* defined(__HelloCpp__HXSDKControllerIOS__) */
+
+//
+//
+//@interface HXSDKControllerIOS : NSObject
+//
+//-(void)pushMessageDetail:(NSString *)pMessageType time:(long)pTime frome:(NSString*)name to:(NSString*)name chatStyle:(int)pCHatStyle message:(NSString*)pMessage
+//@end
