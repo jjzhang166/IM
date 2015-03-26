@@ -89,7 +89,7 @@ void SecondViewController::viewDidAppear()
         getMyGroupsWithKeyWords(m_sKeyWord.c_str());
     }
     
-   // m_pTableView->reloadData();
+    m_pTableView->reloadData();
 }
 
 void SecondViewController::viewDidUnload()
