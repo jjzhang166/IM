@@ -60,6 +60,7 @@ public:
 	virtual void tableViewDidSelectRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row);
 	virtual void tableViewDidDeselectRowAtIndexPath(CATableView* table, unsigned int section, unsigned int row);
 
+    virtual CAView* tableViewSectionViewForFooterInSection(CATableView* table, const CCSize& viewSize, unsigned int section);
 	virtual CATableViewCell* tableCellAtIndex(CATableView* table, const CCSize& cellSize, unsigned int section, unsigned int row);
 	virtual unsigned int numberOfRowsInSection(CATableView *table, unsigned int section);
 	virtual unsigned int numberOfSections(CATableView *table);
@@ -69,7 +70,7 @@ public:
 
 
 private:
-	CADipSize           size;
+	CADipSize           m_pSize;
 	CATableView*        p_TableView;
     std::string         m_sID;
 	char*               time;

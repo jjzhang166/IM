@@ -59,6 +59,7 @@
 		3E655F8E1A80753900832CBD /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E655F8D1A80753900832CBD /* MediaPlayer.framework */; };
 		3E655F911A80757100832CBD /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E655F901A80757100832CBD /* Reachability.m */; };
 		3EC269A01AB8178600C9ADC1 /* IMUserManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3EC2699E1AB8178600C9ADC1 /* IMUserManager.cpp */; };
+		3EC582541AC3D7D2006E7577 /* chat_res in Resources */ = {isa = PBXBuildFile; fileRef = 3EC582531AC3D7D2006E7577 /* chat_res */; };
 		3EEF30E71AC25B41001115F0 /* AddGroupController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3EEF30E51AC25B41001115F0 /* AddGroupController.cpp */; };
 		3EEF310D1AC294F6001115F0 /* CommentInputView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3EEF310B1AC294F6001115F0 /* CommentInputView.cpp */; };
 		3EEF31141AC2C386001115F0 /* HXSDKHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3EEF31131AC2C386001115F0 /* HXSDKHelper.mm */; };
@@ -379,6 +380,7 @@
 		3E655F901A80757100832CBD /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		3EC2699E1AB8178600C9ADC1 /* IMUserManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IMUserManager.cpp; path = ../Classes/IMUserManager.cpp; sourceTree = "<group>"; };
 		3EC2699F1AB8178600C9ADC1 /* IMUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMUserManager.h; path = ../Classes/IMUserManager.h; sourceTree = "<group>"; };
+		3EC582531AC3D7D2006E7577 /* chat_res */ = {isa = PBXFileReference; lastKnownFileType = folder; name = chat_res; path = ../Resources/chat_res; sourceTree = "<group>"; };
 		3EEF30E51AC25B41001115F0 /* AddGroupController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AddGroupController.cpp; path = ../Classes/AddGroupController.cpp; sourceTree = "<group>"; };
 		3EEF30E61AC25B41001115F0 /* AddGroupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddGroupController.h; path = ../Classes/AddGroupController.h; sourceTree = "<group>"; };
 		3EEF310B1AC294F6001115F0 /* CommentInputView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CommentInputView.cpp; sourceTree = "<group>"; };
@@ -658,6 +660,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				3EC582531AC3D7D2006E7577 /* chat_res */,
 				3E01CDBC1AA17A240087A29C /* IMJson */,
 				3E365D7C1A63C0AF0073F2AF /* IMResources */,
 				B056375B195276CF00C63FAA /* CrossApp.xcodeproj */,
@@ -1420,6 +1423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B03E8FEC1938879200FD9A06 /* HelloWorld.png in Resources */,
+				3EC582541AC3D7D2006E7577 /* chat_res in Resources */,
 				B04C0C091901207A009854FD /* json_valueiterator.inl in Resources */,
 				B01F71671951682600BA07A6 /* source_material in Resources */,
 				3E365D7D1A63C0AF0073F2AF /* IMResources in Resources */,

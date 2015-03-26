@@ -196,7 +196,12 @@ void ChatViewCell::showTextMsg(string& msg, const char* dpos)
 	int strWidth = CAImage::getStringWidth("", _px(fontSize), msg);
 	int fontHeight = CAImage::getFontHeight("", _px(fontSize)) + fontSize / 4;
 	int n = strlen(msg.c_str()) / 3;
-	CALabel* msgText;
+	CALabel* msgText = (CALabel*)this->getSubviewByTag(103);
+    if(msgText)
+    {
+        msgText->removeFromSuperview();
+    }
+    
 	if (strcmp(dpos, "right") == 0)
 	{
 		if (n > 15)
